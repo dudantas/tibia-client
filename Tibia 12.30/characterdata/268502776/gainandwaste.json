@@ -1,0 +1,8 @@
+{
+    "gainGaugeTarget": 0,
+    "gainGaugeVisible": true,
+    "gainGraphVisible": true,
+    "wasteGaugeTarget": 0,
+    "wasteGaugeVisible": true,
+    "wasteGraphVisible": true
+}

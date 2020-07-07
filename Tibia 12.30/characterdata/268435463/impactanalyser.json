@@ -1,0 +1,11 @@
+{
+    "desiredDpsGaugeVisible": true,
+    "desiredDpsGraphVisible": true,
+    "desiredHpsGaugeVisible": true,
+    "desiredHpsGraphVisible": true,
+    "dpsGaugeTargetValue": 0,
+    "hpsGaugeTargetValue": 0,
+    "maxDamageImpact": 0,
+    "maxHealingImpact": 0,
+    "showSessionValues": false
+}

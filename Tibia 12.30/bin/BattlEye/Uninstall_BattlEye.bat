@@ -1,0 +1,3 @@
+@echo off
+echo Uninstalling BattlEye...
+..\client_launcher.exe 4
