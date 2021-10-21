@@ -1,5 +1,5 @@
 {
-  "version": "12.86.11871",
+  "version": "12.72.11206",
   "files": [
     {
       "url": "3rdpartylicences/apache-v2.txt.lzma",
@@ -60,18 +60,18 @@
     {
       "url": "bin/client.en.qm.lzma",
       "localfile": "bin/client.en.qm",
-      "packedhash": "9b46f3a4ed7d4c1842541451b46ddf4c42feb7d01155156b25d94cacb975ce0f",
-      "packedsize": 101686,
-      "unpackedhash": "6bb893b7104c7cd89ad08b8d486f57351b7e78bfd0be3b447c9e96f5197bdc35",
-      "unpackedsize": 547536
+      "packedhash": "ff7194f6d087c0db4ec89d4f3645a0f5550818fa4b00b27f6b8f5e44e30db782",
+      "packedsize": 97585,
+      "unpackedhash": "cc0715a7121fb394dab9ba058082bf7c9db45008db28c8d42617ae41d58545ac",
+      "unpackedsize": 522469
     },
     {
       "url": "bin/client.exe.lzma",
       "localfile": "bin/client.exe",
-      "packedhash": "5df6243204bccceb5a131d39898c61b1175f57de6b0de87962ca6395cf72d0bd",
-      "packedsize": 3265334,
-      "unpackedhash": "aafa6df8a25150d22a57f63c8e3969424044d577ffd48fbc690b99cbe61083f4",
-      "unpackedsize": 16208896
+      "packedhash": "972b0b7864f5816b08e54cb105dff29107daeb2e2d0e2c4663fdf8f9dc1d546a",
+      "packedsize": 3143365,
+      "unpackedhash": "42c6c85e8c822077d9af4f638e490e440131dd173fcd66ad24651e11c88525ce",
+      "unpackedsize": 15458280
     },
     {
       "url": "bin/client_launcher.exe.lzma",
@@ -101,10 +101,10 @@
     {
       "url": "bin/graphics_resources.rcc.lzma",
       "localfile": "bin/graphics_resources.rcc",
-      "packedhash": "6c63434f7b3cb286472fff4f3a3d1d1a7f7924114df9955aad1e0dd2c0e6b43d",
-      "packedsize": 3933911,
-      "unpackedhash": "546366139353a722eaa5fba1e1f32006fdd5d3b7ab5715dbe261eefe1da1ce1c",
-      "unpackedsize": 4279283
+      "packedhash": "9d5a1a4e78f96fcd71b688a8051e6e7fb6fab7364cabec55c724e3a3feb9ba15",
+      "packedsize": 3550736,
+      "unpackedhash": "0f84ac1b19911615ab6867e612eacf4c01ae332a1d3da723add4af5991f9e578",
+      "unpackedsize": 3890437
     },
     {
       "url": "bin/libcrypto-1_1.dll.lzma",
