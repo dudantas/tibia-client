@@ -40,7 +40,10 @@
             "tournamentLeaderboardWidget",
             "tournamentDialog",
             "lenshelpFunction",
-            "highscoresDialog"
+            "highscoresDialog",
+            "exaltationForgeDialog",
+            "bosstiaryDialog",
+            "bossslotsDialog"
         ]
     },
     "hotkeyOptions": {
@@ -2984,6 +2987,7 @@
         "consoleShowStatusMessagesOfOthers": true,
         "consoleShowStatusMessagesOwn": true,
         "consoleShowTimestamps": true,
+        "consoleShowTimestampsSeconds": false,
         "controlSchemeIndex": 2,
         "cooldownBarEnabled": true,
         "creatueShowNpcIcon": true,
@@ -3006,7 +3010,9 @@
         "gameWindowShowPotionMessages": true,
         "gameWindowShowPrivateMessages": true,
         "gameWindowShowStoreMessages": true,
+        "gameWindowShowTargetHighlight": true,
         "gameWindowShowTextualEffects": true,
+        "gameWindowShowTragetFrame": true,
         "inspectPlayerAllowAllEnabled": false,
         "keyboardDelayMs": 250,
         "keyboardDelayUseDefault": true,
@@ -3024,9 +3030,15 @@
         "mouseHighlightTarget": true,
         "mouseSystemCursor": false,
         "openCharacterTrackingChannelOnLogin": true,
+        "openNewPrivateMessagesInNewTab": false,
         "optionsShowAdvanced": true,
-        "playerHudBarStyle": true,
+        "playerHudArcDistance": 0.25,
+        "playerHudArcHeight": 0.3499999940395355,
+        "playerHudArcOpacity": 1,
+        "playerHudArcWidth": 10,
         "playerHudEnabled": true,
+        "playerHudShowArcs": false,
+        "playerHudShowBars": true,
         "playerShowHealth": true,
         "playerShowMana": true,
         "playerShowMarks": true,
@@ -3060,6 +3072,9 @@
         "sessionRemainLoggedIn": true,
         "showDailyRemainingTournamentPlaytimeIndicator": true,
         "showEMailAsPlainText": true,
+        "showExpireInContainers": false,
+        "showExpireInInventory": true,
+        "showExpireWhenUnused": true,
         "stashAskBeforeStowContainerContent": true,
         "statusBarEnabled": true,
         "statusPanelEnabled": false,
@@ -3068,6 +3083,7 @@
         "vSyncEnabled": true
     },
     "pinnedCharacters": [
+        "f802e9ea744ef099315c80b7183ff689f47624242876ffc9a1b0a1bfe5324deb"
     ],
     "rendererChangeConfirmationRequired": false,
     "survey": {
