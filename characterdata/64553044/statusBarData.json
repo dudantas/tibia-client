@@ -1,0 +1,13 @@
+{
+    "position": "top",
+    "showAxeFighting": false,
+    "showClubFighting": false,
+    "showDistanceFighting": false,
+    "showExperience": true,
+    "showFishing": false,
+    "showFistFighting": false,
+    "showMagicLevel": false,
+    "showShielding": false,
+    "showSwordFighting": false,
+    "style": "default"
+}
