@@ -1,0 +1,645 @@
+{
+    "eventlist": [
+        {
+            "colordark": "#735D10",
+            "colorlight": "#8B6D05",
+            "description": "The moon is full! Beware, lycanthropic creatures like werewolves, werefoxes or werebears roam the lands now. And they are more aggressive and numerous than usual.",
+            "displaypriority": 6,
+            "enddate": 1665820800,
+            "isseasonal": false,
+            "name": "Full Moon",
+            "startdate": 1665561600
+        },
+        {
+            "colordark": "#7A4C1F",
+            "colorlight": "#935416",
+            "description": "Winterberries can now be found all over Tibia! The Combined Magical Winterberry Society wants YOU to help gathering them to create the juice that keeps the magic in the world flowing - good treading!",
+            "displaypriority": 5,
+            "enddate": 1666598400,
+            "isseasonal": false,
+            "name": "Annual Autumn Vintage",
+            "startdate": 1665993600
+        },
+        {
+            "colordark": "#235c00",
+            "colorlight": "#2d7400",
+            "description": "This is the time of witches, ghosts and vampires. Look out for the Mutated Pumpkin and the Halloween Hare to make your flesh crawl.",
+            "displaypriority": 3,
+            "enddate": 1667466000,
+            "isseasonal": false,
+            "name": "Halloween Event",
+            "startdate": 1667206800
+        },
+        {
+            "colordark": "#1d5263",
+            "colorlight": "#24657b",
+            "description": "XP/Skill Event! Killing monsters yields more experience and skill points.",
+            "displaypriority": 2,
+            "enddate": 1667811600,
+            "isseasonal": false,
+            "name": "XP/Skill Event",
+            "startdate": 1667552400
+        },
+        {
+            "colordark": "#64162b",
+            "colorlight": "#7a1b34",
+            "description": "Now that the veil between the worlds is thin, darkness is striving to break through. Lucius calls for Lightbearers to keep sacred light basins burning for four days. Don't let even one go out or all hope is lost.",
+            "displaypriority": 4,
+            "enddate": 1668502800,
+            "isseasonal": false,
+            "name": "Lightbearer",
+            "startdate": 1668157200
+        },
+        {
+            "colordark": "#735D10",
+            "colorlight": "#8B6D05",
+            "description": "The moon is full! Beware, lycanthropic creatures like werewolves, werefoxes or werebears roam the lands now. And they are more aggressive and numerous than usual.",
+            "displaypriority": 6,
+            "enddate": 1668502800,
+            "isseasonal": false,
+            "name": "Full Moon",
+            "startdate": 1668243600
+        },
+        {
+            "colordark": "#735D10",
+            "colorlight": "#8B6D05",
+            "description": "Participate in a fun challenge of wits and agility. The trials of Kurik to test the mortals and fool around with them will lead you to a test of your reactions and luck.",
+            "displaypriority": 6,
+            "enddate": 1669366800,
+            "isseasonal": false,
+            "name": "Last Creep Standing",
+            "startdate": 1668934800
+        },
+        {
+            "colordark": "#235c00",
+            "colorlight": "#2d7400",
+            "description": "Kick-off! During the FIFA World Cup, the Jersey Outfit is available for all accounts with Premium status. Join up with your friends and play exciting matches wearing the jersey in the colours of your favourite team!",
+            "displaypriority": 3,
+            "enddate": 1671404399,
+            "isseasonal": false,
+            "name": "Football World Cup",
+            "startdate": 1668985200
+        },
+        {
+            "colordark": "#1d5263",
+            "colorlight": "#24657b",
+            "description": "Spawn Rate Event! Monsters respawn at a faster rate.",
+            "displaypriority": 2,
+            "enddate": 1670230800,
+            "isseasonal": false,
+            "name": "Rapid Respawn",
+            "startdate": 1669971600
+        },
+        {
+            "colordark": "#235c00",
+            "colorlight": "#2d7400",
+            "description": "It's the most wonderful time of the year - but beware of the Grynch Clan Goblins! Have you been good all year? Then Santa might have a present for you.",
+            "displaypriority": 3,
+            "enddate": 1672477200,
+            "isseasonal": false,
+            "name": "Christmas",
+            "startdate": 1670835600
+        },
+        {
+            "colordark": "#735D10",
+            "colorlight": "#8B6D05",
+            "description": "The moon is full! Beware, lycanthropic creatures like werewolves, werefoxes or werebears roam the lands now. And they are more aggressive and numerous than usual.",
+            "displaypriority": 6,
+            "enddate": 1671094800,
+            "isseasonal": false,
+            "name": "Full Moon",
+            "startdate": 1670835600
+        },
+        {
+            "colordark": "#735D10",
+            "colorlight": "#8B6D05",
+            "description": "Participate in a fun challenge of wits and agility. The trials of Kurik to test the mortals and fool around with them will lead you to a test of your reactions and luck.",
+            "displaypriority": 6,
+            "enddate": 1671958800,
+            "isseasonal": false,
+            "name": "Last Creep Standing",
+            "startdate": 1671526800
+        },
+        {
+            "colordark": "#64162b",
+            "colorlight": "#7a1b34",
+            "description": "The days are getting colder and grisly, shaggy creatures are roaming the lands. Are you brave enough to face their queen in her frozen lair? Anyhow, don't forget: You are already halfway out of the dark!",
+            "displaypriority": 4,
+            "enddate": 1673341200,
+            "isseasonal": false,
+            "name": "Winterlight Solstice",
+            "startdate": 1671699600
+        },
+        {
+            "colordark": "#1d5263",
+            "colorlight": "#24657b",
+            "description": "XP/Skill Event! Killing monsters yields more experience and skill points.",
+            "displaypriority": 2,
+            "enddate": 1672131600,
+            "isseasonal": false,
+            "name": "XP/Skill Event",
+            "startdate": 1671786000
+        },
+        {
+            "colordark": "#235c00",
+            "colorlight": "#2d7400",
+            "description": "Make a wish in the magical night between the years and perhaps a dream will come true. Don't forget to visit Ned Nobel and buy some fireworks. Happy New Year!",
+            "displaypriority": 3,
+            "enddate": 1672736400,
+            "isseasonal": false,
+            "name": "New Year",
+            "startdate": 1672131600
+        },
+        {
+            "colordark": "#235c00",
+            "colorlight": "#2d7400",
+            "description": "Let's celebrate! It's Tibia's birthday! Join us for the party and take part in the festivities! Many exciting activities await you. Try your luck on the piñata dragons. Visit the islands Vigintia and Nostalgia for fun things like can knockdown and a treasure hunt, or take a trip down memory lane.",
+            "displaypriority": 3,
+            "enddate": 1673341200,
+            "isseasonal": false,
+            "name": "Tibia Anniversary",
+            "startdate": 1673082000
+        },
+        {
+            "colordark": "#735D10",
+            "colorlight": "#8B6D05",
+            "description": "The moon is full! Beware, lycanthropic creatures like werewolves, werefoxes or werebears roam the lands now. And they are more aggressive and numerous than usual.",
+            "displaypriority": 6,
+            "enddate": 1673773200,
+            "isseasonal": false,
+            "name": "Full Moon",
+            "startdate": 1673514000
+        },
+        {
+            "colordark": "#64162b",
+            "colorlight": "#7a1b34",
+            "description": "Search for traces of the First Dragon and his descendants. Find out if there is more to the tale of a beautiful festive garment that has been lost ever since it fell into its claws.",
+            "displaypriority": 4,
+            "enddate": 1676192400,
+            "isseasonal": false,
+            "name": "The First Dragon",
+            "startdate": 1673686800
+        },
+        {
+            "colordark": "#735D10",
+            "colorlight": "#8B6D05",
+            "description": "Participate in a fun challenge of wits and agility. The trials of Kurik to test the mortals and fool around with them will lead you to a test of your reactions and luck.",
+            "displaypriority": 6,
+            "enddate": 1674637200,
+            "isseasonal": false,
+            "name": "Last Creep Standing",
+            "startdate": 1674205200
+        },
+        {
+            "colordark": "#64162b",
+            "colorlight": "#7a1b34",
+            "description": "Celebrate a huge costume party! Visit Stan in Venore to buy fancy costumes, colourful party hats and funny trumpets. Have a great carnival party with all of your friends.",
+            "displaypriority": 4,
+            "enddate": 1677661200,
+            "isseasonal": true,
+            "name": "Carnival Month",
+            "startdate": 1675242000
+        },
+        {
+            "colordark": "#735D10",
+            "colorlight": "#8B6D05",
+            "description": "The moon is full! Beware, lycanthropic creatures like werewolves, werefoxes or werebears roam the lands now. And they are more aggressive and numerous than usual.",
+            "displaypriority": 6,
+            "enddate": 1676451600,
+            "isseasonal": false,
+            "name": "Full Moon",
+            "startdate": 1676192400
+        },
+        {
+            "colordark": "#235c00",
+            "colorlight": "#2d7400",
+            "description": "Romantic times! Buy Valentine's cakes, flower bouquets, heart backpacks and other romantic items for your loved one from Valentina in Greenshore.",
+            "displaypriority": 3,
+            "enddate": 1676451600,
+            "isseasonal": false,
+            "name": "Valentine's Day",
+            "startdate": 1676365200
+        },
+        {
+            "colordark": "#735D10",
+            "colorlight": "#8B6D05",
+            "description": "Participate in a fun challenge of wits and agility. The trials of Kurik to test the mortals and fool around with them will lead you to a test of your reactions and luck.",
+            "displaypriority": 6,
+            "enddate": 1677315600,
+            "isseasonal": false,
+            "name": "Last Creep Standing",
+            "startdate": 1676883600
+        },
+        {
+            "colordark": "#64162b",
+            "colorlight": "#7a1b34",
+            "description": "Defeat the invading cake golems and build a bridge to a legendary island reachable only once a year. There you will have to face a challenge unlike any before. Grab your fork and be ready.",
+            "displaypriority": 4,
+            "enddate": 1677402000,
+            "isseasonal": false,
+            "name": "A Piece of Cake",
+            "startdate": 1676970000
+        },
+        {
+            "colordark": "#64162b",
+            "colorlight": "#7a1b34",
+            "description": "Make sure you collect your daily reward. If the golden sun welcomes you at the shrine all daily rewards will be doubled.",
+            "displaypriority": 4,
+            "enddate": 1680336000,
+            "isseasonal": true,
+            "name": "Double Daily Reward Month",
+            "startdate": 1677747600
+        },
+        {
+            "colordark": "#235c00",
+            "colorlight": "#2d7400",
+            "description": "Join the Orgers in traditional festivities of fun and feast to earn their respect and tasty rewards!",
+            "displaypriority": 3,
+            "enddate": 1679043600,
+            "isseasonal": false,
+            "name": "Orcsoberfest",
+            "startdate": 1678438800
+        },
+        {
+            "colordark": "#735D10",
+            "colorlight": "#8B6D05",
+            "description": "The moon is full! Beware, lycanthropic creatures like werewolves, werefoxes or werebears roam the lands now. And they are more aggressive and numerous than usual.",
+            "displaypriority": 6,
+            "enddate": 1678870800,
+            "isseasonal": false,
+            "name": "Full Moon",
+            "startdate": 1678611600
+        },
+        {
+            "colordark": "#7A4C1F",
+            "colorlight": "#935416",
+            "description": "Mysterious letters with coloured powders can now be found everywhere. Choose your wizard and make your friends join your cause - what is your true colour?",
+            "displaypriority": 5,
+            "enddate": 1679562000,
+            "isseasonal": false,
+            "name": "Colours of Magic",
+            "startdate": 1678870800
+        },
+        {
+            "colordark": "#64162b",
+            "colorlight": "#7a1b34",
+            "description": "An ice bridge now connects Svargrond to a frosty island, where monsters and a strange frozen creature have been sighted.",
+            "displaypriority": 4,
+            "enddate": 1682928000,
+            "isseasonal": true,
+            "name": "Chyllfroest",
+            "startdate": 1680336000
+        },
+        {
+            "colordark": "#64162b",
+            "colorlight": "#7a1b34",
+            "description": "Enjoy a whole month of pranks! Hoaxette is offering special spellwands, pillows and presents that all have some funny effects. One final advice: Always treat jesters well, you never know if they seek revenge one day.",
+            "displaypriority": 4,
+            "enddate": 1682928000,
+            "isseasonal": true,
+            "name": "Prank Month",
+            "startdate": 1680336000
+        },
+        {
+            "colordark": "#735D10",
+            "colorlight": "#8B6D05",
+            "description": "The moon is full! Beware, lycanthropic creatures like werewolves, werefoxes or werebears roam the lands now. And they are more aggressive and numerous than usual.",
+            "displaypriority": 6,
+            "enddate": 1681545600,
+            "isseasonal": false,
+            "name": "Full Moon",
+            "startdate": 1681286400
+        },
+        {
+            "colordark": "#64162b",
+            "colorlight": "#7a1b34",
+            "description": "There are unusual activities in almost all known dragon lairs. Lots of dragon eggs have been sighted in their caves.",
+            "displaypriority": 4,
+            "enddate": 1682236800,
+            "isseasonal": false,
+            "name": "Spring into Life",
+            "startdate": 1681632000
+        },
+        {
+            "colordark": "#735D10",
+            "colorlight": "#8B6D05",
+            "description": "Participate in a fun challenge of wits and agility. The trials of Kurik to test the mortals and fool around with them will lead you to a test of your reactions and luck.",
+            "displaypriority": 6,
+            "enddate": 1682409600,
+            "isseasonal": false,
+            "name": "Last Creep Standing",
+            "startdate": 1681977600
+        },
+        {
+            "colordark": "#64162b",
+            "colorlight": "#7a1b34",
+            "description": "When does a mother's burden become a hero's burden? When a demon mother decides to take a few days off. Guard her horrible children to avert her wrath. But be warned: Demon babies might prove too hot to handle.",
+            "displaypriority": 4,
+            "enddate": 1684051200,
+            "isseasonal": false,
+            "name": "Demon's Lullaby",
+            "startdate": 1683446400
+        },
+        {
+            "colordark": "#735D10",
+            "colorlight": "#8B6D05",
+            "description": "The moon is full! Beware, lycanthropic creatures like werewolves, werefoxes or werebears roam the lands now. And they are more aggressive and numerous than usual.",
+            "displaypriority": 6,
+            "enddate": 1684137600,
+            "isseasonal": false,
+            "name": "Full Moon",
+            "startdate": 1683878400
+        },
+        {
+            "colordark": "#735D10",
+            "colorlight": "#8B6D05",
+            "description": "Participate in a fun challenge of wits and agility. The trials of Kurik to test the mortals and fool around with them will lead you to a test of your reactions and luck.",
+            "displaypriority": 6,
+            "enddate": 1685001600,
+            "isseasonal": false,
+            "name": "Last Creep Standing",
+            "startdate": 1684569600
+        },
+        {
+            "colordark": "#64162b",
+            "colorlight": "#7a1b34",
+            "description": "Remember that June is the month of flowers. If you have collected any seeds, exchange them for a flower pot with the dryad Rosemarie. But beware, wild dryads are roaming the lands again.",
+            "displaypriority": 4,
+            "enddate": 1688198400,
+            "isseasonal": true,
+            "name": "Flower Month",
+            "startdate": 1685606400
+        },
+        {
+            "colordark": "#735D10",
+            "colorlight": "#8B6D05",
+            "description": "The moon is full! Beware, lycanthropic creatures like werewolves, werefoxes or werebears roam the lands now. And they are more aggressive and numerous than usual.",
+            "displaypriority": 6,
+            "enddate": 1686816000,
+            "isseasonal": false,
+            "name": "Full Moon",
+            "startdate": 1686556800
+        },
+        {
+            "colordark": "#735D10",
+            "colorlight": "#8B6D05",
+            "description": "Participate in a fun challenge of wits and agility. The trials of Kurik to test the mortals and fool around with them will lead you to a test of your reactions and luck.",
+            "displaypriority": 6,
+            "enddate": 1687680000,
+            "isseasonal": false,
+            "name": "Last Creep Standing",
+            "startdate": 1687248000
+        },
+        {
+            "colordark": "#64162b",
+            "colorlight": "#7a1b34",
+            "description": "Avert the wrath of evil spirits! Help the good witches to create a powerful spirit brew. Gather exotic ingredients and protect the witches' cauldron from the forces of destruction.",
+            "displaypriority": 4,
+            "enddate": 1687680000,
+            "isseasonal": false,
+            "name": "Bewitched",
+            "startdate": 1687334400
+        },
+        {
+            "colordark": "#735D10",
+            "colorlight": "#8B6D05",
+            "description": "The moon is full! Beware, lycanthropic creatures like werewolves, werefoxes or werebears roam the lands now. And they are more aggressive and numerous than usual.",
+            "displaypriority": 6,
+            "enddate": 1689408000,
+            "isseasonal": false,
+            "name": "Full Moon",
+            "startdate": 1689148800
+        },
+        {
+            "colordark": "#735D10",
+            "colorlight": "#8B6D05",
+            "description": "Participate in a fun challenge of wits and agility. The trials of Kurik to test the mortals and fool around with them will lead you to a test of your reactions and luck.",
+            "displaypriority": 6,
+            "enddate": 1690272000,
+            "isseasonal": false,
+            "name": "Last Creep Standing",
+            "startdate": 1689840000
+        },
+        {
+            "colordark": "#64162b",
+            "colorlight": "#7a1b34",
+            "description": "If you are a real gourmet, ask Jean Pierre in the Darama desert for some delicious and exceptional recipes. August is undoubtedly the month of hot cuisine! Bon appetit!",
+            "displaypriority": 4,
+            "enddate": 1693555200,
+            "isseasonal": true,
+            "name": "Hot Cuisine Month",
+            "startdate": 1690876800
+        },
+        {
+            "colordark": "#735D10",
+            "colorlight": "#8B6D05",
+            "description": "The moon is full! Beware, lycanthropic creatures like werewolves, werefoxes or werebears roam the lands now. And they are more aggressive and numerous than usual.",
+            "displaypriority": 6,
+            "enddate": 1692086400,
+            "isseasonal": false,
+            "name": "Full Moon",
+            "startdate": 1691827200
+        },
+        {
+            "colordark": "#735D10",
+            "colorlight": "#8B6D05",
+            "description": "Participate in a fun challenge of wits and agility. The trials of Kurik to test the mortals and fool around with them will lead you to a test of your reactions and luck.",
+            "displaypriority": 6,
+            "enddate": 1692950400,
+            "isseasonal": false,
+            "name": "Last Creep Standing",
+            "startdate": 1692518400
+        },
+        {
+            "colordark": "#64162b",
+            "colorlight": "#7a1b34",
+            "description": "A powerful ancient weapon meant to be sleeping forever has awoken deep under Vengoth. With thirst for revenge and burning rage she will destroy the world - unless you fight her back.",
+            "displaypriority": 4,
+            "enddate": 1694073600,
+            "isseasonal": false,
+            "name": "Rise of Devovorga",
+            "startdate": 1693555200
+        },
+        {
+            "colordark": "#735D10",
+            "colorlight": "#8B6D05",
+            "description": "The moon is full! Beware, lycanthropic creatures like werewolves, werefoxes or werebears roam the lands now. And they are more aggressive and numerous than usual.",
+            "displaypriority": 6,
+            "enddate": 1694764800,
+            "isseasonal": false,
+            "name": "Full Moon",
+            "startdate": 1694505600
+        },
+        {
+            "colordark": "#7A4C1F",
+            "colorlight": "#935416",
+            "description": "Mysterious letters with coloured powders can now be found everywhere. Choose your wizard and make your friends join your cause - what is your true colour?",
+            "displaypriority": 5,
+            "enddate": 1695456000,
+            "isseasonal": false,
+            "name": "Colours of Magic",
+            "startdate": 1694764800
+        },
+        {
+            "colordark": "#7A4C1F",
+            "colorlight": "#935416",
+            "description": "Winterberries can now be found all over Tibia! The Combined Magical Winterberry Society wants YOU to help gathering them to create the juice that keeps the magic in the world flowing - good treading!",
+            "displaypriority": 5,
+            "enddate": 1696752000,
+            "isseasonal": false,
+            "name": "Annual Autumn Vintage",
+            "startdate": 1696147200
+        },
+        {
+            "colordark": "#735D10",
+            "colorlight": "#8B6D05",
+            "description": "The moon is full! Beware, lycanthropic creatures like werewolves, werefoxes or werebears roam the lands now. And they are more aggressive and numerous than usual.",
+            "displaypriority": 6,
+            "enddate": 1697356800,
+            "isseasonal": false,
+            "name": "Full Moon",
+            "startdate": 1697097600
+        },
+        {
+            "colordark": "#235c00",
+            "colorlight": "#2d7400",
+            "description": "Join the Orgers in traditional festivities of fun and feast to earn their respect and tasty rewards!",
+            "displaypriority": 3,
+            "enddate": 1697788800,
+            "isseasonal": false,
+            "name": "Orcsoberfest",
+            "startdate": 1697184000
+        },
+        {
+            "colordark": "#7A4C1F",
+            "colorlight": "#935416",
+            "description": "Winterberries can now be found all over Tibia! The Combined Magical Winterberry Society wants YOU to help gathering them to create the juice that keeps the magic in the world flowing - good treading!",
+            "displaypriority": 5,
+            "enddate": 1698134400,
+            "isseasonal": false,
+            "name": "Annual Autumn Vintage",
+            "startdate": 1697529600
+        },
+        {
+            "colordark": "#235c00",
+            "colorlight": "#2d7400",
+            "description": "This is the time of witches, ghosts and vampires. Look out for the Mutated Pumpkin and the Halloween Hare to make your flesh crawl.",
+            "displaypriority": 3,
+            "enddate": 1699002000,
+            "isseasonal": false,
+            "name": "Halloween Event",
+            "startdate": 1698742800
+        },
+        {
+            "colordark": "#64162b",
+            "colorlight": "#7a1b34",
+            "description": "Now that the veil between the worlds is thin, darkness is striving to break through. Lucius calls for Lightbearers to keep sacred light basins burning for four days. Don't let even one go out or all hope is lost.",
+            "displaypriority": 4,
+            "enddate": 1700038800,
+            "isseasonal": false,
+            "name": "Lightbearer",
+            "startdate": 1699693200
+        },
+        {
+            "colordark": "#735D10",
+            "colorlight": "#8B6D05",
+            "description": "The moon is full! Beware, lycanthropic creatures like werewolves, werefoxes or werebears roam the lands now. And they are more aggressive and numerous than usual.",
+            "displaypriority": 6,
+            "enddate": 1700038800,
+            "isseasonal": false,
+            "name": "Full Moon",
+            "startdate": 1699779600
+        },
+        {
+            "colordark": "#735D10",
+            "colorlight": "#8B6D05",
+            "description": "Participate in a fun challenge of wits and agility. The trials of Kurik to test the mortals and fool around with them will lead you to a test of your reactions and luck.",
+            "displaypriority": 6,
+            "enddate": 1700902800,
+            "isseasonal": false,
+            "name": "Last Creep Standing",
+            "startdate": 1700470800
+        },
+        {
+            "colordark": "#235c00",
+            "colorlight": "#2d7400",
+            "description": "It's the most wonderful time of the year - but beware of the Grynch Clan Goblins! Have you been good all year? Then Santa might have a present for you.",
+            "displaypriority": 3,
+            "enddate": 1704013200,
+            "isseasonal": false,
+            "name": "Christmas",
+            "startdate": 1702371600
+        },
+        {
+            "colordark": "#735D10",
+            "colorlight": "#8B6D05",
+            "description": "The moon is full! Beware, lycanthropic creatures like werewolves, werefoxes or werebears roam the lands now. And they are more aggressive and numerous than usual.",
+            "displaypriority": 6,
+            "enddate": 1702630800,
+            "isseasonal": false,
+            "name": "Full Moon",
+            "startdate": 1702371600
+        },
+        {
+            "colordark": "#735D10",
+            "colorlight": "#8B6D05",
+            "description": "Participate in a fun challenge of wits and agility. The trials of Kurik to test the mortals and fool around with them will lead you to a test of your reactions and luck.",
+            "displaypriority": 6,
+            "enddate": 1703494800,
+            "isseasonal": false,
+            "name": "Last Creep Standing",
+            "startdate": 1703062800
+        },
+        {
+            "colordark": "#64162b",
+            "colorlight": "#7a1b34",
+            "description": "The days are getting colder and grisly, shaggy creatures are roaming the lands. Are you brave enough to face their queen in her frozen lair? Anyhow, don't forget: You are already halfway out of the dark!",
+            "displaypriority": 4,
+            "enddate": 1704877200,
+            "isseasonal": false,
+            "name": "Winterlight Solstice",
+            "startdate": 1703235600
+        },
+        {
+            "colordark": "#235c00",
+            "colorlight": "#2d7400",
+            "description": "Make a wish in the magical night between the years and perhaps a dream will come true. Don't forget to visit Ned Nobel and buy some fireworks. Happy New Year!",
+            "displaypriority": 3,
+            "enddate": 1704272400,
+            "isseasonal": false,
+            "name": "New Year",
+            "startdate": 1703667600
+        },
+        {
+            "colordark": "#235c00",
+            "colorlight": "#2d7400",
+            "description": "Let's celebrate! It's Tibia's birthday! Join us for the party and take part in the festivities! Many exciting activities await you. Try your luck on the piñata dragons. Visit the islands Vigintia and Nostalgia for fun things like can knockdown and a treasure hunt, or take a trip down memory lane.",
+            "displaypriority": 3,
+            "enddate": 1704877200,
+            "isseasonal": false,
+            "name": "Tibia Anniversary",
+            "startdate": 1704618000
+        },
+        {
+            "colordark": "#735D10",
+            "colorlight": "#8B6D05",
+            "description": "The moon is full! Beware, lycanthropic creatures like werewolves, werefoxes or werebears roam the lands now. And they are more aggressive and numerous than usual.",
+            "displaypriority": 6,
+            "enddate": 1705309200,
+            "isseasonal": false,
+            "name": "Full Moon",
+            "startdate": 1705050000
+        },
+        {
+            "colordark": "#64162b",
+            "colorlight": "#7a1b34",
+            "description": "Search for traces of the First Dragon and his descendants. Find out if there is more to the tale of a beautiful festive garment that has been lost ever since it fell into its claws.",
+            "displaypriority": 4,
+            "enddate": 1707728400,
+            "isseasonal": false,
+            "name": "The First Dragon",
+            "startdate": 1705222800
+        }
+    ],
+    "lastupdatetimestamp": 1671656690
+}
