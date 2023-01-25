@@ -1,5 +1,5 @@
 {
-  "version": "13.10.12892",
+  "version": "13.11.12985",
   "files": [
     {
       "url": "bin/Qt5Network.dll.lzma",
@@ -68,10 +68,10 @@
     {
       "url": "bin/graphics_resources.rcc.lzma",
       "localfile": "bin/graphics_resources.rcc",
-      "packedhash": "637ef4c23267d7ccf364b64080b0d96548a98191b596920b3ebad7400c31872e",
-      "packedsize": 4411441,
-      "unpackedhash": "e3b5b373c086557a7e9f9a9f9ef29aeba2218a097c541f5432714ea0d09b6189",
-      "unpackedsize": 4791123
+      "packedhash": "4808e6abeba85cde3a7f47ab5c41be88ae4c3b3816f97ca5531d1cbba2fc073d",
+      "packedsize": 4418427,
+      "unpackedhash": "d732ab57c4c158f321c1489d490755ee05d1000faef6f3abf355c5b21a8ae927",
+      "unpackedsize": 4765388
     },
     {
       "url": "bin/Qt5Core.dll.lzma",
@@ -108,26 +108,26 @@
     {
       "url": "bin/client.exe.lzma",
       "localfile": "bin/client.exe",
-      "packedhash": "7256297579178d440b46062449f5ee02c671ab0aa2ce23f0f7740cba64e7acc6",
-      "packedsize": 3736049,
-      "unpackedhash": "ab3676d4b26e902ba3edc4f0b0ab0fe8e68d5cb7efaee4513f488d275ecad4d9",
-      "unpackedsize": 18471696
+      "packedhash": "9458a491f0b5d6038ffcca32ee514beaa291b7ad3fe5f582e0ced9a355af23cd",
+      "packedsize": 3740692,
+      "unpackedhash": "18ef2166af37960d3b173857ea268de003bb326802f1362a30ece2dd1aa1fe6c",
+      "unpackedsize": 18484496
     },
     {
       "url": "bin/client_launcher.exe.lzma",
       "localfile": "bin/client_launcher.exe",
-      "packedhash": "fa22b04207aa14f05c41d81ff11b02569d71d33b3db0eef8dfbebeec3e3e6ea1",
-      "packedsize": 564765,
-      "unpackedhash": "ab73c1a5083adc0c9db50685cb377f6805ee49ecf886a0f102f3a0f6afe2d1d7",
-      "unpackedsize": 782856,
+      "packedhash": "110c0c24955ddf9fd49347cf4df36b1d465f3e56e1169862bc308b85538382f2",
+      "packedsize": 876773,
+      "unpackedhash": "0912b79762cab916ff5d59977efa148e87c64a5e0ba711f2000cdb8b2a02476e",
+      "unpackedsize": 1316104,
       "executable": true
     },
     {
       "url": "bin/OpenAL32.dll.lzma",
       "localfile": "bin/OpenAL32.dll",
-      "packedhash": "b9cdafbdcef8a401531a3970d6d24f9c8b4690db41eb7210e8a7f6737f749cb2",
-      "packedsize": 467170,
-      "unpackedhash": "8c607f04db81ff2d1272a6d73886bf898e6614775579877880e478f2c7f951e4",
+      "packedhash": "8e2cfc1d44b4baec31cd1f62983fb4e222c4e12920befe1a69f8648c622cd17e",
+      "packedsize": 466767,
+      "unpackedhash": "f26cd9067b2fa0898f26b1e9562e4a7834fe999ba305eb30a634c6f796dbab7e",
       "unpackedsize": 1686288
     },
     {
@@ -165,10 +165,10 @@
     {
       "url": "bin/BattlEye/Uninstall_BattlEye.bat.lzma",
       "localfile": "bin/BattlEye/Uninstall_BattlEye.bat",
-      "packedhash": "c8284d82640084ff818a9d1e3e1fea8855765cc99d03c6d6827667e98f6a92c8",
-      "packedsize": 68,
-      "unpackedhash": "c8284d82640084ff818a9d1e3e1fea8855765cc99d03c6d6827667e98f6a92c8",
-      "unpackedsize": 68
+      "packedhash": "23a6bf630cd1083e7461ae10569684246078b94806cc6b7401848f47f5abb3e7",
+      "packedsize": 66,
+      "unpackedhash": "23a6bf630cd1083e7461ae10569684246078b94806cc6b7401848f47f5abb3e7",
+      "unpackedsize": 66
     },
     {
       "url": "bin/BattlEye/BELauncher.ini.lzma",
@@ -179,20 +179,36 @@
       "unpackedsize": 109
     },
     {
+      "url": "bin/BattlEye/BEClient.cfg.lzma",
+      "localfile": "bin/BattlEye/BEClient.cfg",
+      "packedhash": "4b36d4ab990a3bd9f9b5379f58b65ec6402eb3b3109dc83a02b6827778d29281",
+      "packedsize": 29,
+      "unpackedhash": "4b36d4ab990a3bd9f9b5379f58b65ec6402eb3b3109dc83a02b6827778d29281",
+      "unpackedsize": 29
+    },
+    {
       "url": "bin/BattlEye/Install_BattlEye.bat.lzma",
       "localfile": "bin/BattlEye/Install_BattlEye.bat",
-      "packedhash": "461aeb03eb3149f9e01aed22315dc7e595b57b33488cf537af44314e30e7c8be",
-      "packedsize": 68,
-      "unpackedhash": "461aeb03eb3149f9e01aed22315dc7e595b57b33488cf537af44314e30e7c8be",
-      "unpackedsize": 68
+      "packedhash": "db72d642d86b3439d587ce6c84dcf8273349efd728148ebaeffcda222ba34fa7",
+      "packedsize": 66,
+      "unpackedhash": "db72d642d86b3439d587ce6c84dcf8273349efd728148ebaeffcda222ba34fa7",
+      "unpackedsize": 66
+    },
+    {
+      "url": "bin/BattlEye/Licenses.txt.lzma",
+      "localfile": "bin/BattlEye/Licenses.txt",
+      "packedhash": "92ec42681418d4fa21fdca9f8cfea6781eb75264ebd32e9d975fca7d4e10d537",
+      "packedsize": 770,
+      "unpackedhash": "dc205020ac6d3b4e50c864f23e1453fc543218cc357d2016bf18b4b68df6b3ea",
+      "unpackedsize": 1128
     },
     {
       "url": "bin/BattlEye/BEClient.dll.lzma",
       "localfile": "bin/BattlEye/BEClient.dll",
-      "packedhash": "b3d39ff8cd34ec8b3174e0c15f2bc40142364b7e8990f7326e82d0f66112d2dd",
-      "packedsize": 4552137,
-      "unpackedhash": "51d5f8275bfd48f61e2da95d5490950b195608a3714663b5119ea868f6693f83",
-      "unpackedsize": 4783624
+      "packedhash": "2c8f154764c23db31be803c449b1b0d57894a1d1f9c37a1ec40856f7f427d7dd",
+      "packedsize": 4611387,
+      "unpackedhash": "bbe68203c7935c96fd87249eee934120c04e3c7da827276545704cb693be8a93",
+      "unpackedsize": 4855584
     },
     {
       "url": "bin/BattlEye/BEService.exe.lzma",
@@ -205,10 +221,10 @@
     {
       "url": "bin/BattlEye/BEService_x64.exe.lzma",
       "localfile": "bin/BattlEye/BEService_x64.exe",
-      "packedhash": "8c358ddb35ac606b276facb716abffff3a4aa2d0a81a5708bca17690e9ad3c9a",
-      "packedsize": 8489579,
-      "unpackedhash": "4c6b3981412e7ac2c0c099e0745b0a2b8603a01b6a53893a06556d2a1e8ad72b",
-      "unpackedsize": 8885112
+      "packedhash": "d42b24db158d9b5cc9c08cc7a835bd1e58194de3f7668b84b2eb39f527f34e30",
+      "packedsize": 9484227,
+      "unpackedhash": "f33ac4bcd9d56c6dc95cef8180f4e0f0cef6be4ea391c6529b5b8f33f7d531bf",
+      "unpackedsize": 9880840
     },
     {
       "url": "bin/BattlEye/Privacy/en-US.txt.lzma",
@@ -217,6 +233,126 @@
       "packedsize": 796,
       "unpackedhash": "816941ba566874f12d834491fb35f997251c1c3a6d2a79ea03f2ec887f757bc7",
       "unpackedsize": 1435
+    },
+    {
+      "url": "bin/BattlEye/Text/zh.ini.lzma",
+      "localfile": "bin/BattlEye/Text/zh.ini",
+      "packedhash": "fca093df77458340db8a8ce36f9b8dba682a3702ea941049f0b71866cbb3cd71",
+      "packedsize": 1373,
+      "unpackedhash": "79f6780b512b7e5b9bfbb132550579351cf7b6ddbfd92c08b60889edd72c7f45",
+      "unpackedsize": 2628
+    },
+    {
+      "url": "bin/BattlEye/Text/nl.ini.lzma",
+      "localfile": "bin/BattlEye/Text/nl.ini",
+      "packedhash": "ad8c75cf41d4e346c6ad136f3e4cbe921382a9ff40076bb0f200f4ecfaf12f0c",
+      "packedsize": 1394,
+      "unpackedhash": "763e25bc1f28be5901b8692cf614cdc305a4d87989229a6f964dd6eb2f3853e2",
+      "unpackedsize": 3004
+    },
+    {
+      "url": "bin/BattlEye/Text/fr.ini.lzma",
+      "localfile": "bin/BattlEye/Text/fr.ini",
+      "packedhash": "cde6a3c8f7fb9476de8a0741a9fc11024c11c41cedde5cd71adafc9f06950984",
+      "packedsize": 1490,
+      "unpackedhash": "ee603fecdda0cf0fae1fcee3ed69716d2934f2309c599c9b2c7e42a0285fbd74",
+      "unpackedsize": 3246
+    },
+    {
+      "url": "bin/BattlEye/Text/it.ini.lzma",
+      "localfile": "bin/BattlEye/Text/it.ini",
+      "packedhash": "bbbe28f1eb1e592bc63481800b994dc26ab88f9de1593cb3749116b5bf435ca9",
+      "packedsize": 1393,
+      "unpackedhash": "1bf75ae80870c4338c808ee8fbfdd6c02bfab84ae5237691be1401c8af9a7d37",
+      "unpackedsize": 3024
+    },
+    {
+      "url": "bin/BattlEye/Text/ja.ini.lzma",
+      "localfile": "bin/BattlEye/Text/ja.ini",
+      "packedhash": "d0f600ac7f2f9647a98f6d9664f9c7ad3932679adeb614b59d69e45f27e18e8f",
+      "packedsize": 1503,
+      "unpackedhash": "023475f1462c066bfd5fce719eee81a58c0b3f9efcf7636a320c83789c625c89",
+      "unpackedsize": 4125
+    },
+    {
+      "url": "bin/BattlEye/Text/cs.ini.lzma",
+      "localfile": "bin/BattlEye/Text/cs.ini",
+      "packedhash": "d5294d448c4acffdea673b2695532a07fcf28bcb2c9457d88539727d8d9f3e4a",
+      "packedsize": 1541,
+      "unpackedhash": "9c1a43cfe67a367b7462a3b43f964feb6406c93fd37324ef85eb3511da5e27f1",
+      "unpackedsize": 3192
+    },
+    {
+      "url": "bin/BattlEye/Text/de.ini.lzma",
+      "localfile": "bin/BattlEye/Text/de.ini",
+      "packedhash": "98118dfde218fb356a4da728abba17d8131d94ec6440a7744947ead36703e038",
+      "packedsize": 1502,
+      "unpackedhash": "86210b5536cf361de07a1ac6b27139434623845ffb3fbfb3599cb270617fb759",
+      "unpackedsize": 3283
+    },
+    {
+      "url": "bin/BattlEye/Text/pl.ini.lzma",
+      "localfile": "bin/BattlEye/Text/pl.ini",
+      "packedhash": "dd75c0c04e0527db702da4ec3ddda3aa1a90e1149760fea3ef009709cf68ce74",
+      "packedsize": 1520,
+      "unpackedhash": "2a5c00f0f73020a4b78db853e10d60a24d0255a1772cb130088a8105352883de",
+      "unpackedsize": 3165
+    },
+    {
+      "url": "bin/BattlEye/Text/tr.ini.lzma",
+      "localfile": "bin/BattlEye/Text/tr.ini",
+      "packedhash": "bec3e453d79756429e33cf769c5b82788dfc0458872ff90aabace682c5335c16",
+      "packedsize": 1431,
+      "unpackedhash": "45a31e07913e88213d7dc4134d5fb5c12cf97b8ed44aa79636730c8c8b0b23a1",
+      "unpackedsize": 2990
+    },
+    {
+      "url": "bin/BattlEye/Text/en.ini.lzma",
+      "localfile": "bin/BattlEye/Text/en.ini",
+      "packedhash": "6b737faca3083c4e492400a1ff2ee68d8740ea03810ccd03d2f0c28a6225b47a",
+      "packedsize": 1262,
+      "unpackedhash": "ecbf28daba8fb16515ea349e4eecb362bfd4a0b4c33edee0e8e98e37adecebd0",
+      "unpackedsize": 2748
+    },
+    {
+      "url": "bin/BattlEye/Text/ru.ini.lzma",
+      "localfile": "bin/BattlEye/Text/ru.ini",
+      "packedhash": "a2bef6e9681c637a92cf3e13e592ca3cdf8e9e4a9fd8d03ab1e18157748b7e4b",
+      "packedsize": 1686,
+      "unpackedhash": "c07d88feb77778ff6d242e14356e9005762e03bb75207918d0a751a85f6dd0dc",
+      "unpackedsize": 4901
+    },
+    {
+      "url": "bin/BattlEye/Text/pt.ini.lzma",
+      "localfile": "bin/BattlEye/Text/pt.ini",
+      "packedhash": "5f71d57f9eebfce7354ee6ee7f343c027001cc0029080acf128f7718ead40328",
+      "packedsize": 1413,
+      "unpackedhash": "3ff405d2bd3f6fe37d4ca1b257f0128ad21969bb76afa8d6d94286863c9b8aeb",
+      "unpackedsize": 3054
+    },
+    {
+      "url": "bin/BattlEye/Text/zh-TW.ini.lzma",
+      "localfile": "bin/BattlEye/Text/zh-TW.ini",
+      "packedhash": "8f1e73cebe5ce8bb7aa9920084baf20b06ee04589995011a25263f373f96a88f",
+      "packedsize": 1377,
+      "unpackedhash": "b182e76cdc514b0e2436efc930c825c414ef14ae251dbfb63d3864cf5b3c30b6",
+      "unpackedsize": 2628
+    },
+    {
+      "url": "bin/BattlEye/Text/ko.ini.lzma",
+      "localfile": "bin/BattlEye/Text/ko.ini",
+      "packedhash": "ffdfabe3291edb236ac3a53f2c34aca45e03a014eafa4f6f0d0945a49e0c95ca",
+      "packedsize": 1466,
+      "unpackedhash": "b9f4e6f4669c6be99dc843cdedf7dcace122976909cefca65fa2ddd33bbb2ab9",
+      "unpackedsize": 3362
+    },
+    {
+      "url": "bin/BattlEye/Text/es.ini.lzma",
+      "localfile": "bin/BattlEye/Text/es.ini",
+      "packedhash": "8290379df03233a90e850eb9ad445bd582f70b99db283b6c8cecd1a70e26c194",
+      "packedsize": 1432,
+      "unpackedhash": "6d85916a1e1a563aa1771e4a2ef109e444a2dae0169cd0e7129881a168e69c0c",
+      "unpackedsize": 3137
     },
     {
       "url": "bin/QtGraphicalEffects/qtgraphicaleffectsplugin.dll.lzma",

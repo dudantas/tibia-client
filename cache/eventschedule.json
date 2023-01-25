@@ -1,46 +1,6 @@
 {
     "eventlist": [
         {
-            "colordark": "#735D10",
-            "colorlight": "#8B6D05",
-            "description": "The moon is full! Beware, lycanthropic creatures like werewolves, werefoxes or werebears roam the lands now. And they are more aggressive and numerous than usual.",
-            "displaypriority": 6,
-            "enddate": 1665820800,
-            "isseasonal": false,
-            "name": "Full Moon",
-            "startdate": 1665561600
-        },
-        {
-            "colordark": "#7A4C1F",
-            "colorlight": "#935416",
-            "description": "Winterberries can now be found all over Tibia! The Combined Magical Winterberry Society wants YOU to help gathering them to create the juice that keeps the magic in the world flowing - good treading!",
-            "displaypriority": 5,
-            "enddate": 1666598400,
-            "isseasonal": false,
-            "name": "Annual Autumn Vintage",
-            "startdate": 1665993600
-        },
-        {
-            "colordark": "#235c00",
-            "colorlight": "#2d7400",
-            "description": "This is the time of witches, ghosts and vampires. Look out for the Mutated Pumpkin and the Halloween Hare to make your flesh crawl.",
-            "displaypriority": 3,
-            "enddate": 1667466000,
-            "isseasonal": false,
-            "name": "Halloween Event",
-            "startdate": 1667206800
-        },
-        {
-            "colordark": "#1d5263",
-            "colorlight": "#24657b",
-            "description": "XP/Skill Event! Killing monsters yields more experience and skill points.",
-            "displaypriority": 2,
-            "enddate": 1667811600,
-            "isseasonal": false,
-            "name": "XP/Skill Event",
-            "startdate": 1667552400
-        },
-        {
             "colordark": "#64162b",
             "colorlight": "#7a1b34",
             "description": "Now that the veil between the worlds is thin, darkness is striving to break through. Lucius calls for Lightbearers to keep sacred light basins burning for four days. Don't let even one go out or all hope is lost.",
@@ -201,6 +161,16 @@
             "startdate": 1675242000
         },
         {
+            "colordark": "#1d5263",
+            "colorlight": "#24657b",
+            "description": "Spawn Rate Event! Monsters respawn at a faster rate.",
+            "displaypriority": 2,
+            "enddate": 1675674000,
+            "isseasonal": false,
+            "name": "Rapid Respawn",
+            "startdate": 1675414800
+        },
+        {
             "colordark": "#735D10",
             "colorlight": "#8B6D05",
             "description": "The moon is full! Beware, lycanthropic creatures like werewolves, werefoxes or werebears roam the lands now. And they are more aggressive and numerous than usual.",
@@ -245,10 +215,10 @@
             "colorlight": "#7a1b34",
             "description": "Make sure you collect your daily reward. If the golden sun welcomes you at the shrine all daily rewards will be doubled.",
             "displaypriority": 4,
-            "enddate": 1680336000,
+            "enddate": 1680249600,
             "isseasonal": true,
             "name": "Double Daily Reward Month",
-            "startdate": 1677747600
+            "startdate": 1677661200
         },
         {
             "colordark": "#235c00",
@@ -639,7 +609,47 @@
             "isseasonal": false,
             "name": "The First Dragon",
             "startdate": 1705222800
+        },
+        {
+            "colordark": "#735D10",
+            "colorlight": "#8B6D05",
+            "description": "Participate in a fun challenge of wits and agility. The trials of Kurik to test the mortals and fool around with them will lead you to a test of your reactions and luck.",
+            "displaypriority": 6,
+            "enddate": 1706173200,
+            "isseasonal": false,
+            "name": "Last Creep Standing",
+            "startdate": 1705741200
+        },
+        {
+            "colordark": "#64162b",
+            "colorlight": "#7a1b34",
+            "description": "Celebrate a huge costume party! Visit Stan in Venore to buy fancy costumes, colourful party hats and funny trumpets. Have a great carnival party with all of your friends.",
+            "displaypriority": 4,
+            "enddate": 1709283600,
+            "isseasonal": true,
+            "name": "Carnival Month",
+            "startdate": 1706778000
+        },
+        {
+            "colordark": "#735D10",
+            "colorlight": "#8B6D05",
+            "description": "The moon is full! Beware, lycanthropic creatures like werewolves, werefoxes or werebears roam the lands now. And they are more aggressive and numerous than usual.",
+            "displaypriority": 6,
+            "enddate": 1707987600,
+            "isseasonal": false,
+            "name": "Full Moon",
+            "startdate": 1707728400
+        },
+        {
+            "colordark": "#235c00",
+            "colorlight": "#2d7400",
+            "description": "Romantic times! Buy Valentine's cakes, flower bouquets, heart backpacks and other romantic items for your loved one from Valentina in Greenshore.",
+            "displaypriority": 3,
+            "enddate": 1707987600,
+            "isseasonal": false,
+            "name": "Valentine's Day",
+            "startdate": 1707901200
         }
     ],
-    "lastupdatetimestamp": 1671656690
+    "lastupdatetimestamp": 1674657064
 }
