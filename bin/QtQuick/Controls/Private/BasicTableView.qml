@@ -48,6 +48,7 @@
 // We mean it.
 //
 
+import QtQml 2.14 as Qml
 import QtQuick 2.6
 import QtQuick.Controls 1.5
 import QtQuick.Controls.Private 1.0
@@ -56,7 +57,6 @@ import QtQuick.Window 2.2
 
 /*!
     \qmltype BasicTableView
-    \internal
     \qmlabstract
     \inqmlmodule QtQuick.Controls.Private
 */
@@ -97,7 +97,6 @@ ScrollView {
     property Component itemDelegate: __style ? __style.itemDelegate : null
 
     /*! \qmlproperty Component BasicTableView::rowDelegate
-        \keyword basictableview-rowdelegate
 
         This property defines a delegate to draw a row.
 
@@ -120,7 +119,6 @@ ScrollView {
     property Component rowDelegate: __style ? __style.rowDelegate : null
 
     /*! \qmlproperty Component BasicTableView::headerDelegate
-        \keyword basictableview-headerdelegate
 
         This property defines a delegate to draw a header.
 
@@ -257,7 +255,7 @@ ScrollView {
             console.warn(__viewTypeName + "::insertColumn(): you cannot add a column to multiple views")
             return null
         }
-        if (index >= 0 && index <= columnCount && object.Accessible.role === Accessible.ColumnHeader) {
+        if (index >= 0 && index <= columnCount && object.accessibleRole === Accessible.ColumnHeader) {
             object.__view = root
             columnModel.insert(index, {columnItem: object})
             if (root.__columns[index] !== object) {
@@ -341,7 +339,6 @@ ScrollView {
             var col = getColumn(i)
             var header = __listView.headerItem.headerRepeater.itemAt(i)
             if (col) {
-                col.__index = i
                 col.resizeToContents()
                 if (col.width < header.implicitWidth)
                     col.width = header.implicitWidth
@@ -354,7 +351,7 @@ ScrollView {
     Component.onCompleted: {
         for (var i = 0; i < __columns.length; ++i) {
             var column = __columns[i]
-            if (column.Accessible.role === Accessible.ColumnHeader)
+            if (column.accessibleRole === Accessible.ColumnHeader)
                 addColumn(column)
         }
     }
@@ -427,7 +424,7 @@ ScrollView {
                                                   && !transientScrollBars && Qt.platform.os === "osx" ?
                                                   __verticalScrollBar.width + __scroller.scrollBarSpacing + root.__style.padding.right : 0
 
-        Binding {
+        Qml.Binding {
             // On Mac, we reserve the vSB space in the contentItem because the vSB should
             // appear under the header. Unfortunately, the ListView header won't expand
             // beyond the ListView's boundaries, that's why we need to ressort to this.
@@ -435,6 +432,7 @@ ScrollView {
             when: Qt.platform.os === "osx"
             property: "verticalScrollbarOffset"
             value: 0
+            restoreMode: Binding.RestoreBinding
         }
 
         function incrementCurrentIndexBlocking() {
@@ -493,7 +491,7 @@ ScrollView {
             y: listView.contentHeight - listView.contentY + listView.originY
             width: parent.width
             visible: alternatingRowColors
-            height: listView.model && listView.model.count ? (viewport.height - listView.contentHeight) : 0
+            height: listView.model && listView.model.count ? Math.max(viewport.height - listView.contentHeight, 0) : 0
             Repeater {
                 model: visible ? parent.paddedRowCount : 0
                 Loader {
@@ -613,7 +611,6 @@ ScrollView {
 
                         onItemAdded: {
                             var columnItem = columnModel.get(index).columnItem
-                            item.__index = index
                             item.__rowItem = rowitem
                             item.__column = columnItem
                         }

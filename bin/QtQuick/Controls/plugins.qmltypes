@@ -8,7 +8,8 @@ import QtQuick.tooling 1.2
 
 Module {
     dependencies: [
-        "QtGraphicalEffects 1.0",
+        "QtGraphicalEffects 1.12",
+        "QtQml 2.14",
         "QtQml.Models 2.2",
         "QtQuick 2.9",
         "QtQuick.Controls.Styles 1.4",
@@ -16,6 +17,283 @@ Module {
         "QtQuick.Layouts 1.1",
         "QtQuick.Window 2.2"
     ]
+    Component {
+        name: "QAbstractItemModel"
+        prototype: "QObject"
+        exports: ["QtQuick.Controls.Private/AbstractItemModel 1.0"]
+        isCreatable: false
+        exportMetaObjectRevisions: [0]
+        Enum {
+            name: "LayoutChangeHint"
+            values: {
+                "NoLayoutChangeHint": 0,
+                "VerticalSortHint": 1,
+                "HorizontalSortHint": 2
+            }
+        }
+        Enum {
+            name: "CheckIndexOption"
+            values: {
+                "NoOption": 0,
+                "IndexIsValid": 1,
+                "DoNotUseParent": 2,
+                "ParentIsInvalid": 4
+            }
+        }
+        Signal {
+            name: "dataChanged"
+            Parameter { name: "topLeft"; type: "QModelIndex" }
+            Parameter { name: "bottomRight"; type: "QModelIndex" }
+            Parameter { name: "roles"; type: "QVector<int>" }
+        }
+        Signal {
+            name: "dataChanged"
+            Parameter { name: "topLeft"; type: "QModelIndex" }
+            Parameter { name: "bottomRight"; type: "QModelIndex" }
+        }
+        Signal {
+            name: "headerDataChanged"
+            Parameter { name: "orientation"; type: "Qt::Orientation" }
+            Parameter { name: "first"; type: "int" }
+            Parameter { name: "last"; type: "int" }
+        }
+        Signal {
+            name: "layoutChanged"
+            Parameter { name: "parents"; type: "QList<QPersistentModelIndex>" }
+            Parameter { name: "hint"; type: "QAbstractItemModel::LayoutChangeHint" }
+        }
+        Signal {
+            name: "layoutChanged"
+            Parameter { name: "parents"; type: "QList<QPersistentModelIndex>" }
+        }
+        Signal { name: "layoutChanged" }
+        Signal {
+            name: "layoutAboutToBeChanged"
+            Parameter { name: "parents"; type: "QList<QPersistentModelIndex>" }
+            Parameter { name: "hint"; type: "QAbstractItemModel::LayoutChangeHint" }
+        }
+        Signal {
+            name: "layoutAboutToBeChanged"
+            Parameter { name: "parents"; type: "QList<QPersistentModelIndex>" }
+        }
+        Signal { name: "layoutAboutToBeChanged" }
+        Signal {
+            name: "rowsAboutToBeInserted"
+            Parameter { name: "parent"; type: "QModelIndex" }
+            Parameter { name: "first"; type: "int" }
+            Parameter { name: "last"; type: "int" }
+        }
+        Signal {
+            name: "rowsInserted"
+            Parameter { name: "parent"; type: "QModelIndex" }
+            Parameter { name: "first"; type: "int" }
+            Parameter { name: "last"; type: "int" }
+        }
+        Signal {
+            name: "rowsAboutToBeRemoved"
+            Parameter { name: "parent"; type: "QModelIndex" }
+            Parameter { name: "first"; type: "int" }
+            Parameter { name: "last"; type: "int" }
+        }
+        Signal {
+            name: "rowsRemoved"
+            Parameter { name: "parent"; type: "QModelIndex" }
+            Parameter { name: "first"; type: "int" }
+            Parameter { name: "last"; type: "int" }
+        }
+        Signal {
+            name: "columnsAboutToBeInserted"
+            Parameter { name: "parent"; type: "QModelIndex" }
+            Parameter { name: "first"; type: "int" }
+            Parameter { name: "last"; type: "int" }
+        }
+        Signal {
+            name: "columnsInserted"
+            Parameter { name: "parent"; type: "QModelIndex" }
+            Parameter { name: "first"; type: "int" }
+            Parameter { name: "last"; type: "int" }
+        }
+        Signal {
+            name: "columnsAboutToBeRemoved"
+            Parameter { name: "parent"; type: "QModelIndex" }
+            Parameter { name: "first"; type: "int" }
+            Parameter { name: "last"; type: "int" }
+        }
+        Signal {
+            name: "columnsRemoved"
+            Parameter { name: "parent"; type: "QModelIndex" }
+            Parameter { name: "first"; type: "int" }
+            Parameter { name: "last"; type: "int" }
+        }
+        Signal { name: "modelAboutToBeReset" }
+        Signal { name: "modelReset" }
+        Signal {
+            name: "rowsAboutToBeMoved"
+            Parameter { name: "sourceParent"; type: "QModelIndex" }
+            Parameter { name: "sourceStart"; type: "int" }
+            Parameter { name: "sourceEnd"; type: "int" }
+            Parameter { name: "destinationParent"; type: "QModelIndex" }
+            Parameter { name: "destinationRow"; type: "int" }
+        }
+        Signal {
+            name: "rowsMoved"
+            Parameter { name: "parent"; type: "QModelIndex" }
+            Parameter { name: "start"; type: "int" }
+            Parameter { name: "end"; type: "int" }
+            Parameter { name: "destination"; type: "QModelIndex" }
+            Parameter { name: "row"; type: "int" }
+        }
+        Signal {
+            name: "columnsAboutToBeMoved"
+            Parameter { name: "sourceParent"; type: "QModelIndex" }
+            Parameter { name: "sourceStart"; type: "int" }
+            Parameter { name: "sourceEnd"; type: "int" }
+            Parameter { name: "destinationParent"; type: "QModelIndex" }
+            Parameter { name: "destinationColumn"; type: "int" }
+        }
+        Signal {
+            name: "columnsMoved"
+            Parameter { name: "parent"; type: "QModelIndex" }
+            Parameter { name: "start"; type: "int" }
+            Parameter { name: "end"; type: "int" }
+            Parameter { name: "destination"; type: "QModelIndex" }
+            Parameter { name: "column"; type: "int" }
+        }
+        Method { name: "submit"; type: "bool" }
+        Method { name: "revert" }
+        Method {
+            name: "hasIndex"
+            type: "bool"
+            Parameter { name: "row"; type: "int" }
+            Parameter { name: "column"; type: "int" }
+            Parameter { name: "parent"; type: "QModelIndex" }
+        }
+        Method {
+            name: "hasIndex"
+            type: "bool"
+            Parameter { name: "row"; type: "int" }
+            Parameter { name: "column"; type: "int" }
+        }
+        Method {
+            name: "index"
+            type: "QModelIndex"
+            Parameter { name: "row"; type: "int" }
+            Parameter { name: "column"; type: "int" }
+            Parameter { name: "parent"; type: "QModelIndex" }
+        }
+        Method {
+            name: "index"
+            type: "QModelIndex"
+            Parameter { name: "row"; type: "int" }
+            Parameter { name: "column"; type: "int" }
+        }
+        Method {
+            name: "parent"
+            type: "QModelIndex"
+            Parameter { name: "child"; type: "QModelIndex" }
+        }
+        Method {
+            name: "sibling"
+            type: "QModelIndex"
+            Parameter { name: "row"; type: "int" }
+            Parameter { name: "column"; type: "int" }
+            Parameter { name: "idx"; type: "QModelIndex" }
+        }
+        Method {
+            name: "rowCount"
+            type: "int"
+            Parameter { name: "parent"; type: "QModelIndex" }
+        }
+        Method { name: "rowCount"; type: "int" }
+        Method {
+            name: "columnCount"
+            type: "int"
+            Parameter { name: "parent"; type: "QModelIndex" }
+        }
+        Method { name: "columnCount"; type: "int" }
+        Method {
+            name: "hasChildren"
+            type: "bool"
+            Parameter { name: "parent"; type: "QModelIndex" }
+        }
+        Method { name: "hasChildren"; type: "bool" }
+        Method {
+            name: "data"
+            type: "QVariant"
+            Parameter { name: "index"; type: "QModelIndex" }
+            Parameter { name: "role"; type: "int" }
+        }
+        Method {
+            name: "data"
+            type: "QVariant"
+            Parameter { name: "index"; type: "QModelIndex" }
+        }
+        Method {
+            name: "setData"
+            type: "bool"
+            Parameter { name: "index"; type: "QModelIndex" }
+            Parameter { name: "value"; type: "QVariant" }
+            Parameter { name: "role"; type: "int" }
+        }
+        Method {
+            name: "setData"
+            type: "bool"
+            Parameter { name: "index"; type: "QModelIndex" }
+            Parameter { name: "value"; type: "QVariant" }
+        }
+        Method {
+            name: "headerData"
+            type: "QVariant"
+            Parameter { name: "section"; type: "int" }
+            Parameter { name: "orientation"; type: "Qt::Orientation" }
+            Parameter { name: "role"; type: "int" }
+        }
+        Method {
+            name: "headerData"
+            type: "QVariant"
+            Parameter { name: "section"; type: "int" }
+            Parameter { name: "orientation"; type: "Qt::Orientation" }
+        }
+        Method {
+            name: "fetchMore"
+            Parameter { name: "parent"; type: "QModelIndex" }
+        }
+        Method {
+            name: "canFetchMore"
+            type: "bool"
+            Parameter { name: "parent"; type: "QModelIndex" }
+        }
+        Method {
+            name: "flags"
+            type: "Qt::ItemFlags"
+            Parameter { name: "index"; type: "QModelIndex" }
+        }
+        Method {
+            name: "match"
+            type: "QModelIndexList"
+            Parameter { name: "start"; type: "QModelIndex" }
+            Parameter { name: "role"; type: "int" }
+            Parameter { name: "value"; type: "QVariant" }
+            Parameter { name: "hits"; type: "int" }
+            Parameter { name: "flags"; type: "Qt::MatchFlags" }
+        }
+        Method {
+            name: "match"
+            type: "QModelIndexList"
+            Parameter { name: "start"; type: "QModelIndex" }
+            Parameter { name: "role"; type: "int" }
+            Parameter { name: "value"; type: "QVariant" }
+            Parameter { name: "hits"; type: "int" }
+        }
+        Method {
+            name: "match"
+            type: "QModelIndexList"
+            Parameter { name: "start"; type: "QModelIndex" }
+            Parameter { name: "role"; type: "int" }
+            Parameter { name: "value"; type: "QVariant" }
+        }
+    }
+    Component { name: "QAbstractListModel"; prototype: "QAbstractItemModel" }
     Component {
         name: "QQuickAbstractStyle1"
         defaultProperty: "data"
@@ -86,7 +364,7 @@ Module {
         }
         Method {
             name: "dateAt"
-            type: "QDate"
+            type: "QDateTime"
             Parameter { name: "index"; type: "int" }
         }
         Method {
@@ -416,9 +694,22 @@ Module {
         prototype: "QObject"
         exports: ["QtQuick.Controls.Private/RangedDate 1.0"]
         exportMetaObjectRevisions: [0]
-        Property { name: "date"; type: "QDate" }
-        Property { name: "minimumDate"; type: "QDate" }
-        Property { name: "maximumDate"; type: "QDate" }
+        Property { name: "date"; type: "QDateTime" }
+        Property { name: "minimumDate"; type: "QDateTime" }
+        Property { name: "maximumDate"; type: "QDateTime" }
+    }
+    Component {
+        name: "QQuickRootItem"
+        defaultProperty: "data"
+        prototype: "QQuickItem"
+        Method {
+            name: "setWidth"
+            Parameter { name: "w"; type: "int" }
+        }
+        Method {
+            name: "setHeight"
+            Parameter { name: "h"; type: "int" }
+        }
     }
     Component {
         name: "QQuickScenePosListener1"
@@ -672,7 +963,7 @@ Module {
         exportMetaObjectRevisions: [0]
         isComposite: true
         defaultProperty: "data"
-        Property { name: "menuBar"; type: "MenuBar_QMLTYPE_3"; isPointer: true }
+        Property { name: "menuBar"; type: "MenuBar_QMLTYPE_4"; isPointer: true }
         Property { name: "toolBar"; type: "QQuickItem"; isPointer: true }
         Property { name: "statusBar"; type: "QQuickItem"; isPointer: true }
         Property { name: "style"; type: "QQmlComponent"; isPointer: true }
@@ -680,10 +971,25 @@ Module {
         Property { name: "__qwindowsize_max"; type: "double"; isReadonly: true }
         Property { name: "__width"; type: "double" }
         Property { name: "__height"; type: "double" }
-        Property { name: "contentItem"; type: "ContentItem_QMLTYPE_1"; isReadonly: true; isPointer: true }
+        Property { name: "contentItem"; type: "ContentItem_QMLTYPE_2"; isReadonly: true; isPointer: true }
         Property { name: "__style"; type: "QObject"; isReadonly: true; isPointer: true }
         Property { name: "__panel"; type: "QObject"; isReadonly: true; isPointer: true }
         Property { name: "data"; type: "QObject"; isList: true; isReadonly: true }
+    }
+    Component {
+        prototype: "QObject"
+        name: "QtQuick.Controls.Styles/ApplicationWindowStyle 1.3"
+        exports: ["QtQuick.Controls.Styles/ApplicationWindowStyle 1.3"]
+        exportMetaObjectRevisions: [3]
+        isComposite: true
+        Property {
+            name: "control"
+            type: "ApplicationWindow_QMLTYPE_14"
+            isReadonly: true
+            isPointer: true
+        }
+        Property { name: "background"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "panel"; type: "QQmlComponent"; isPointer: true }
     }
     Component {
         prototype: "QQuickFocusScope"
@@ -700,6 +1006,17 @@ Module {
         Property { name: "__styleData"; type: "QObject"; isPointer: true }
     }
     Component {
+        prototype: "QQuickAbstractStyle1"
+        name: "QtQuick.Controls.Styles/BusyIndicatorStyle 1.1"
+        exports: ["QtQuick.Controls.Styles/BusyIndicatorStyle 1.1"]
+        exportMetaObjectRevisions: [1]
+        isComposite: true
+        defaultProperty: "data"
+        Property { name: "control"; type: "BusyIndicator_QMLTYPE_21"; isReadonly: true; isPointer: true }
+        Property { name: "indicator"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "panel"; type: "QQmlComponent"; isPointer: true }
+    }
+    Component {
         prototype: "QQuickFocusScope"
         name: "QtQuick.Controls/Button 1.0"
         exports: ["QtQuick.Controls/Button 1.0"]
@@ -707,7 +1024,7 @@ Module {
         isComposite: true
         defaultProperty: "data"
         Property { name: "isDefault"; type: "bool" }
-        Property { name: "menu"; type: "Menu_QMLTYPE_48"; isPointer: true }
+        Property { name: "menu"; type: "Menu_QMLTYPE_55"; isPointer: true }
         Property { name: "checkable"; type: "bool" }
         Property { name: "checked"; type: "bool" }
         Property { name: "exclusiveGroup"; type: "QQuickExclusiveGroup1"; isPointer: true }
@@ -734,6 +1051,18 @@ Module {
         Property { name: "__styleData"; type: "QObject"; isPointer: true }
     }
     Component {
+        prototype: "QQuickAbstractStyle1"
+        name: "QtQuick.Controls.Styles/ButtonStyle 1.0"
+        exports: ["QtQuick.Controls.Styles/ButtonStyle 1.0"]
+        exportMetaObjectRevisions: [0]
+        isComposite: true
+        defaultProperty: "data"
+        Property { name: "control"; type: "Button_QMLTYPE_60"; isReadonly: true; isPointer: true }
+        Property { name: "background"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "label"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "panel"; type: "QQmlComponent"; isPointer: true }
+    }
+    Component {
         prototype: "QQuickFocusScope"
         name: "QtQuick.Controls/Calendar 1.2"
         exports: ["QtQuick.Controls/Calendar 1.2"]
@@ -748,9 +1077,9 @@ Module {
         Property { name: "dayOfWeekFormat"; type: "int" }
         Property { name: "locale"; type: "QVariant" }
         Property { name: "__model"; type: "QQuickCalendarModel1"; isPointer: true }
-        Property { name: "selectedDate"; type: "QDate" }
-        Property { name: "minimumDate"; type: "QDate" }
-        Property { name: "maximumDate"; type: "QDate" }
+        Property { name: "selectedDate"; type: "QDateTime" }
+        Property { name: "minimumDate"; type: "QDateTime" }
+        Property { name: "maximumDate"; type: "QDateTime" }
         Property { name: "__locale"; type: "QVariant" }
         Signal {
             name: "hovered"
@@ -809,9 +1138,9 @@ Module {
         Property { name: "dayOfWeekFormat"; type: "int" }
         Property { name: "locale"; type: "QVariant" }
         Property { name: "__model"; type: "QQuickCalendarModel1"; isPointer: true }
-        Property { name: "selectedDate"; type: "QDate" }
-        Property { name: "minimumDate"; type: "QDate" }
-        Property { name: "maximumDate"; type: "QDate" }
+        Property { name: "selectedDate"; type: "QDateTime" }
+        Property { name: "minimumDate"; type: "QDateTime" }
+        Property { name: "maximumDate"; type: "QDateTime" }
         Property { name: "__locale"; type: "QVariant" }
         Signal {
             name: "hovered"
@@ -856,6 +1185,36 @@ Module {
         Property { name: "__styleData"; type: "QObject"; isPointer: true }
     }
     Component {
+        prototype: "QQuickAbstractStyle1"
+        name: "QtQuick.Controls.Styles/CalendarStyle 1.1"
+        exports: ["QtQuick.Controls.Styles/CalendarStyle 1.1"]
+        exportMetaObjectRevisions: [1]
+        isComposite: true
+        defaultProperty: "data"
+        Property { name: "control"; type: "Calendar_QMLTYPE_65"; isReadonly: true; isPointer: true }
+        Property { name: "gridColor"; type: "QColor" }
+        Property { name: "gridVisible"; type: "bool" }
+        Property { name: "__gridLineWidth"; type: "double" }
+        Property { name: "__horizontalSeparatorColor"; type: "QColor" }
+        Property { name: "__verticalSeparatorColor"; type: "QColor" }
+        Property { name: "background"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "navigationBar"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "dayDelegate"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "dayOfWeekDelegate"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "weekNumberDelegate"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "panel"; type: "QQmlComponent"; isPointer: true }
+        Method {
+            name: "__cellRectAt"
+            type: "QVariant"
+            Parameter { name: "index"; type: "QVariant" }
+        }
+        Method {
+            name: "__isValidDate"
+            type: "QVariant"
+            Parameter { name: "date"; type: "QVariant" }
+        }
+    }
+    Component {
         prototype: "QQuickFocusScope"
         name: "QtQuick.Controls/CheckBox 1.0"
         exports: ["QtQuick.Controls/CheckBox 1.0"]
@@ -883,113 +1242,50 @@ Module {
         Property { name: "__styleData"; type: "QObject"; isPointer: true }
     }
     Component {
-        prototype: "QQuickFocusScope"
-        name: "QtQuick.Extras.Private/CircularButton 1.0"
-        exports: ["QtQuick.Extras.Private/CircularButton 1.0"]
+        prototype: "QQuickAbstractStyle1"
+        name: "QtQuick.Controls.Styles/CheckBoxStyle 1.0"
+        exports: ["QtQuick.Controls.Styles/CheckBoxStyle 1.0"]
         exportMetaObjectRevisions: [0]
         isComposite: true
         defaultProperty: "data"
-        Property { name: "isDefault"; type: "bool" }
-        Property { name: "menu"; type: "Menu_QMLTYPE_48"; isPointer: true }
-        Property { name: "checkable"; type: "bool" }
-        Property { name: "checked"; type: "bool" }
-        Property { name: "exclusiveGroup"; type: "QQuickExclusiveGroup1"; isPointer: true }
-        Property { name: "action"; type: "QQuickAction1"; isPointer: true }
-        Property { name: "activeFocusOnPress"; type: "bool" }
-        Property { name: "text"; type: "string" }
-        Property { name: "tooltip"; type: "string" }
-        Property { name: "iconSource"; type: "QUrl" }
-        Property { name: "iconName"; type: "string" }
-        Property { name: "__position"; type: "string" }
-        Property { name: "__iconOverriden"; type: "bool"; isReadonly: true }
-        Property { name: "__action"; type: "QQuickAction1"; isPointer: true }
-        Property { name: "__iconAction"; type: "QQuickAction1"; isReadonly: true; isPointer: true }
-        Property { name: "__behavior"; type: "QVariant" }
-        Property { name: "__effectivePressed"; type: "bool" }
-        Property { name: "pressed"; type: "bool"; isReadonly: true }
-        Property { name: "hovered"; type: "bool"; isReadonly: true }
-        Signal { name: "clicked" }
-        Method { name: "accessiblePressAction"; type: "QVariant" }
-        Property { name: "style"; type: "QQmlComponent"; isPointer: true }
-        Property { name: "__style"; type: "QObject"; isPointer: true }
-        Property { name: "__panel"; type: "QQuickItem"; isPointer: true }
-        Property { name: "styleHints"; type: "QVariant" }
-        Property { name: "__styleData"; type: "QObject"; isPointer: true }
+        Property { name: "control"; type: "CheckBox_QMLTYPE_88"; isReadonly: true; isPointer: true }
+        Property { name: "label"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "background"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "spacing"; type: "int" }
+        Property { name: "indicator"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "panel"; type: "QQmlComponent"; isPointer: true }
     }
     Component {
-        prototype: "QObject"
-        name: "QtQuick.Extras.Private/CircularButtonStyleHelper 1.0"
-        exports: ["QtQuick.Extras.Private/CircularButtonStyleHelper 1.0"]
+        prototype: "QQuickAbstractStyle1"
+        name: "QtQuick.Controls.Styles/CircularButtonStyle 1.0"
+        exports: ["QtQuick.Controls.Styles/CircularButtonStyle 1.0"]
         exportMetaObjectRevisions: [0]
         isComposite: true
-        Property { name: "control"; type: "QQuickItem"; isPointer: true }
-        Property { name: "buttonColorUpTop"; type: "QColor" }
-        Property { name: "buttonColorUpBottom"; type: "QColor" }
-        Property { name: "buttonColorDownTop"; type: "QColor" }
-        Property { name: "buttonColorDownBottom"; type: "QColor" }
-        Property { name: "outerArcColorTop"; type: "QColor" }
-        Property { name: "outerArcColorBottom"; type: "QColor" }
-        Property { name: "innerArcColorTop"; type: "QColor" }
-        Property { name: "innerArcColorBottom"; type: "QColor" }
-        Property { name: "innerArcColorBottomStop"; type: "double" }
-        Property { name: "shineColor"; type: "QColor" }
-        Property { name: "smallestAxis"; type: "double" }
-        Property { name: "outerArcLineWidth"; type: "double" }
-        Property { name: "innerArcLineWidth"; type: "double" }
-        Property { name: "shineArcLineWidth"; type: "double" }
-        Property { name: "implicitWidth"; type: "double" }
-        Property { name: "implicitHeight"; type: "double" }
-        Property { name: "textColorUp"; type: "QColor" }
-        Property { name: "textColorDown"; type: "QColor" }
-        Property { name: "textRaisedColorUp"; type: "QColor" }
-        Property { name: "textRaisedColorDown"; type: "QColor" }
-        Property { name: "radius"; type: "double" }
-        Property { name: "halfRadius"; type: "double" }
-        Property { name: "outerArcRadius"; type: "double" }
-        Property { name: "innerArcRadius"; type: "double" }
-        Property { name: "shineArcRadius"; type: "double" }
-        Property { name: "zeroAngle"; type: "double" }
-        Property { name: "buttonColorTop"; type: "QColor" }
-        Property { name: "buttonColorBottom"; type: "QColor" }
-        Method {
-            name: "toPixels"
-            type: "QVariant"
-            Parameter { name: "percentageOfSmallestAxis"; type: "QVariant" }
+        defaultProperty: "data"
+        Property {
+            name: "__buttonHelper"
+            type: "CircularButtonStyleHelper_QMLTYPE_93"
+            isReadonly: true
+            isPointer: true
         }
-        Method {
-            name: "paintBackground"
-            type: "QVariant"
-            Parameter { name: "ctx"; type: "QVariant" }
-        }
+        Property { name: "control"; type: "Button_QMLTYPE_60"; isReadonly: true; isPointer: true }
+        Property { name: "background"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "label"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "panel"; type: "QQmlComponent"; isPointer: true }
     }
     Component {
-        prototype: "QQuickFocusScope"
-        name: "QtQuick.Extras/CircularGauge 1.0"
-        exports: ["QtQuick.Extras/CircularGauge 1.0"]
+        prototype: "QQuickAbstractStyle1"
+        name: "QtQuick.Controls.Styles/CircularGaugeStyle 1.0"
+        exports: ["QtQuick.Controls.Styles/CircularGaugeStyle 1.0"]
         exportMetaObjectRevisions: [0]
         isComposite: true
         defaultProperty: "data"
-        Property { name: "tickmarksVisible"; type: "bool" }
-        Property { name: "minimumValue"; type: "double" }
-        Property { name: "maximumValue"; type: "double" }
-        Property { name: "value"; type: "double" }
-        Property { name: "stepSize"; type: "double" }
-        Property { name: "style"; type: "QQmlComponent"; isPointer: true }
-        Property { name: "__style"; type: "QObject"; isPointer: true }
-        Property { name: "__panel"; type: "QQuickItem"; isPointer: true }
-        Property { name: "styleHints"; type: "QVariant" }
-        Property { name: "__styleData"; type: "QObject"; isPointer: true }
-    }
-    Component {
-        prototype: "QQuickFocusScope"
-        name: "QtQuick.Extras.Private/CircularTickmarkLabel 1.0"
-        exports: ["QtQuick.Extras.Private/CircularTickmarkLabel 1.0"]
-        exportMetaObjectRevisions: [0]
-        isComposite: true
-        defaultProperty: "data"
+        Property { name: "control"; type: "CircularGauge_QMLTYPE_97"; isReadonly: true; isPointer: true }
+        Property { name: "outerRadius"; type: "double"; isReadonly: true }
         Property { name: "minimumValueAngle"; type: "double" }
         Property { name: "maximumValueAngle"; type: "double" }
         Property { name: "angleRange"; type: "double"; isReadonly: true }
+        Property { name: "needleRotation"; type: "double" }
         Property { name: "tickmarkStepSize"; type: "double" }
         Property { name: "tickmarkInset"; type: "double" }
         Property { name: "tickmarkCount"; type: "int"; isReadonly: true }
@@ -998,21 +1294,34 @@ Module {
         Property { name: "labelInset"; type: "double" }
         Property { name: "labelStepSize"; type: "double" }
         Property { name: "labelCount"; type: "int"; isReadonly: true }
-        Property { name: "__tickmarkCount"; type: "double"; isReadonly: true }
-        Property { name: "tickmarksVisible"; type: "bool" }
-        Property { name: "minimumValue"; type: "double" }
-        Property { name: "maximumValue"; type: "double" }
-        Property { name: "stepSize"; type: "double" }
+        Property { name: "__protectedScope"; type: "QObject"; isPointer: true }
+        Property { name: "background"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "tickmark"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "minorTickmark"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "tickmarkLabel"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "needle"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "foreground"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "panel"; type: "QQmlComponent"; isPointer: true }
         Method {
             name: "valueToAngle"
             type: "QVariant"
             Parameter { name: "value"; type: "QVariant" }
         }
-        Property { name: "style"; type: "QQmlComponent"; isPointer: true }
-        Property { name: "__style"; type: "QObject"; isPointer: true }
-        Property { name: "__panel"; type: "QQuickItem"; isPointer: true }
-        Property { name: "styleHints"; type: "QVariant" }
-        Property { name: "__styleData"; type: "QObject"; isPointer: true }
+    }
+    Component {
+        prototype: "QQuickAbstractStyle1"
+        name: "QtQuick.Controls.Styles/CircularTickmarkLabelStyle 1.0"
+        exports: ["QtQuick.Controls.Styles/CircularTickmarkLabelStyle 1.0"]
+        exportMetaObjectRevisions: [0]
+        isComposite: true
+        defaultProperty: "data"
+        Property { name: "outerRadius"; type: "double"; isReadonly: true }
+        Property { name: "__protectedScope"; type: "QObject"; isPointer: true }
+        Property { name: "tickmark"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "minorTickmark"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "tickmarkLabel"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "panel"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "control"; type: "QQuickItem"; isReadonly: true; isPointer: true }
     }
     Component {
         prototype: "QQuickFocusScope"
@@ -1063,111 +1372,122 @@ Module {
         Property { name: "__styleData"; type: "QObject"; isPointer: true }
     }
     Component {
-        prototype: "QQuickFocusScope"
-        name: "QtQuick.Extras/DelayButton 1.0"
-        exports: ["QtQuick.Extras/DelayButton 1.0"]
+        prototype: "QQuickAbstractStyle1"
+        name: "QtQuick.Controls.Styles/ComboBoxStyle 1.0"
+        exports: ["QtQuick.Controls.Styles/ComboBoxStyle 1.0"]
         exportMetaObjectRevisions: [0]
         isComposite: true
         defaultProperty: "data"
-        Property { name: "delay"; type: "int" }
-        Property { name: "__progress"; type: "double" }
-        Property { name: "progress"; type: "double"; isReadonly: true }
-        Signal { name: "activated" }
-        Property { name: "isDefault"; type: "bool" }
-        Property { name: "menu"; type: "Menu_QMLTYPE_48"; isPointer: true }
-        Property { name: "checkable"; type: "bool" }
-        Property { name: "checked"; type: "bool" }
-        Property { name: "exclusiveGroup"; type: "QQuickExclusiveGroup1"; isPointer: true }
-        Property { name: "action"; type: "QQuickAction1"; isPointer: true }
-        Property { name: "activeFocusOnPress"; type: "bool" }
-        Property { name: "text"; type: "string" }
-        Property { name: "tooltip"; type: "string" }
-        Property { name: "iconSource"; type: "QUrl" }
-        Property { name: "iconName"; type: "string" }
-        Property { name: "__position"; type: "string" }
-        Property { name: "__iconOverriden"; type: "bool"; isReadonly: true }
-        Property { name: "__action"; type: "QQuickAction1"; isPointer: true }
-        Property { name: "__iconAction"; type: "QQuickAction1"; isReadonly: true; isPointer: true }
-        Property { name: "__behavior"; type: "QVariant" }
-        Property { name: "__effectivePressed"; type: "bool" }
-        Property { name: "pressed"; type: "bool"; isReadonly: true }
-        Property { name: "hovered"; type: "bool"; isReadonly: true }
-        Signal { name: "clicked" }
-        Method { name: "accessiblePressAction"; type: "QVariant" }
-        Property { name: "style"; type: "QQmlComponent"; isPointer: true }
-        Property { name: "__style"; type: "QObject"; isPointer: true }
-        Property { name: "__panel"; type: "QQuickItem"; isPointer: true }
-        Property { name: "styleHints"; type: "QVariant" }
-        Property { name: "__styleData"; type: "QObject"; isPointer: true }
+        Property { name: "renderType"; type: "int" }
+        Property { name: "font"; type: "QFont" }
+        Property { name: "textColor"; type: "QColor" }
+        Property { name: "selectionColor"; type: "QColor" }
+        Property { name: "selectedTextColor"; type: "QColor" }
+        Property { name: "control"; type: "ComboBox_QMLTYPE_120"; isReadonly: true; isPointer: true }
+        Property { name: "dropDownButtonWidth"; type: "int" }
+        Property { name: "background"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "__editor"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "label"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "panel"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "__dropDownStyle"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "__popupStyle"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "__cursorHandle"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "__selectionHandle"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "__cursorDelegate"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "drowDownButtonWidth"; type: "int" }
     }
     Component {
-        prototype: "QQuickFocusScope"
-        name: "QtQuick.Extras/Dial 1.0"
-        exports: ["QtQuick.Extras/Dial 1.0"]
+        prototype: "QObject"
+        name: "QtQuick.Controls.Styles/CommonStyleHelper 1.0"
+        exports: ["QtQuick.Controls.Styles/CommonStyleHelper 1.0"]
+        exportMetaObjectRevisions: [0]
+        isComposite: true
+        Property { name: "control"; type: "QQuickItem"; isPointer: true }
+        Property { name: "buttonColorUpTop"; type: "QColor" }
+        Property { name: "buttonColorUpBottom"; type: "QColor" }
+        Property { name: "buttonColorDownTop"; type: "QColor" }
+        Property { name: "buttonColorDownBottom"; type: "QColor" }
+        Property { name: "textColorUp"; type: "QColor" }
+        Property { name: "textColorDown"; type: "QColor" }
+        Property { name: "textRaisedColorUp"; type: "QColor" }
+        Property { name: "textRaisedColorDown"; type: "QColor" }
+        Property { name: "offColor"; type: "QColor" }
+        Property { name: "offColorShine"; type: "QColor" }
+        Property { name: "onColor"; type: "QColor" }
+        Property { name: "onColorShine"; type: "QColor" }
+        Property { name: "inactiveColor"; type: "QColor" }
+        Property { name: "inactiveColorShine"; type: "QColor" }
+    }
+    Component {
+        prototype: "QQuickAbstractStyle1"
+        name: "QtQuick.Controls.Styles/DelayButtonStyle 1.0"
+        exports: ["QtQuick.Controls.Styles/DelayButtonStyle 1.0"]
         exportMetaObjectRevisions: [0]
         isComposite: true
         defaultProperty: "data"
-        Property { name: "__wrap"; type: "bool" }
-        Property { name: "activeFocusOnPress"; type: "bool" }
-        Property { name: "tickmarksVisible"; type: "bool" }
-        Property { name: "value"; type: "double" }
-        Property { name: "minimumValue"; type: "double" }
-        Property { name: "maximumValue"; type: "double" }
-        Property { name: "hovered"; type: "bool"; isReadonly: true }
-        Property { name: "stepSize"; type: "double" }
-        Property { name: "pressed"; type: "bool"; isReadonly: true }
-        Property { name: "style"; type: "QQmlComponent"; isPointer: true }
-        Property { name: "__style"; type: "QObject"; isPointer: true }
-        Property { name: "__panel"; type: "QQuickItem"; isPointer: true }
-        Property { name: "styleHints"; type: "QVariant" }
-        Property { name: "__styleData"; type: "QObject"; isPointer: true }
+        Property { name: "control"; type: "DelayButton_QMLTYPE_159"; isReadonly: true; isPointer: true }
+        Property { name: "progressBarGradient"; type: "QQuickGradient"; isPointer: true }
+        Property { name: "progressBarDropShadowColor"; type: "QColor" }
+        Property { name: "foreground"; type: "QQmlComponent"; isPointer: true }
+        Property {
+            name: "__buttonHelper"
+            type: "CircularButtonStyleHelper_QMLTYPE_93"
+            isReadonly: true
+            isPointer: true
+        }
+        Property { name: "background"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "label"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "panel"; type: "QQmlComponent"; isPointer: true }
     }
     Component {
-        prototype: "QQuickFocusScope"
-        name: "QtQuick.Extras/Dial 1.1"
-        exports: ["QtQuick.Extras/Dial 1.1"]
+        prototype: "QQuickAbstractStyle1"
+        name: "QtQuick.Controls.Styles/DialStyle 1.1"
+        exports: ["QtQuick.Controls.Styles/DialStyle 1.1"]
         exportMetaObjectRevisions: [1]
         isComposite: true
         defaultProperty: "data"
-        Property { name: "__wrap"; type: "bool" }
-        Property { name: "activeFocusOnPress"; type: "bool" }
-        Property { name: "tickmarksVisible"; type: "bool" }
-        Property { name: "value"; type: "double" }
-        Property { name: "minimumValue"; type: "double" }
-        Property { name: "maximumValue"; type: "double" }
-        Property { name: "hovered"; type: "bool"; isReadonly: true }
-        Property { name: "stepSize"; type: "double" }
-        Property { name: "pressed"; type: "bool"; isReadonly: true }
-        Property { name: "style"; type: "QQmlComponent"; isPointer: true }
-        Property { name: "__style"; type: "QObject"; isPointer: true }
-        Property { name: "__panel"; type: "QQuickItem"; isPointer: true }
-        Property { name: "styleHints"; type: "QVariant" }
-        Property { name: "__styleData"; type: "QObject"; isPointer: true }
+        Property { name: "control"; type: "Dial_QMLTYPE_165"; isReadonly: true; isPointer: true }
+        Property { name: "outerRadius"; type: "double"; isReadonly: true }
+        Property { name: "handleInset"; type: "double" }
+        Property { name: "tickmarkStepSize"; type: "double" }
+        Property { name: "tickmarkInset"; type: "double" }
+        Property { name: "tickmarkCount"; type: "int"; isReadonly: true }
+        Property { name: "minorTickmarkCount"; type: "int" }
+        Property { name: "minorTickmarkInset"; type: "double" }
+        Property { name: "labelInset"; type: "double" }
+        Property { name: "labelStepSize"; type: "double" }
+        Property { name: "labelCount"; type: "int"; isReadonly: true }
+        Property { name: "__tickmarkRadius"; type: "double"; isReadonly: true }
+        Property { name: "__handleRadius"; type: "double"; isReadonly: true }
+        Property { name: "__dragToSet"; type: "bool" }
+        Property { name: "background"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "handle"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "tickmark"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "minorTickmark"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "tickmarkLabel"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "panel"; type: "QQmlComponent"; isPointer: true }
+        Method {
+            name: "valueToAngle"
+            type: "QVariant"
+            Parameter { name: "value"; type: "QVariant" }
+        }
     }
     Component {
-        prototype: "QQuickFocusScope"
-        name: "QtQuick.Extras/Gauge 1.0"
-        exports: ["QtQuick.Extras/Gauge 1.0"]
+        prototype: "QQuickAbstractStyle1"
+        name: "QtQuick.Controls.Styles/GaugeStyle 1.0"
+        exports: ["QtQuick.Controls.Styles/GaugeStyle 1.0"]
         exportMetaObjectRevisions: [0]
         isComposite: true
         defaultProperty: "data"
-        Property { name: "orientation"; type: "int" }
-        Property { name: "tickmarkAlignment"; type: "int" }
-        Property { name: "__tickmarkAlignment"; type: "int" }
-        Property { name: "__tickmarksInside"; type: "bool" }
-        Property { name: "tickmarkStepSize"; type: "double" }
-        Property { name: "minorTickmarkCount"; type: "int" }
-        Property { name: "formatValue"; type: "QVariant" }
-        Property { name: "minimumValue"; type: "double" }
-        Property { name: "value"; type: "double" }
-        Property { name: "maximumValue"; type: "double" }
-        Property { name: "font"; type: "QFont" }
-        Property { name: "__hiddenText"; type: "QQuickText"; isReadonly: true; isPointer: true }
-        Property { name: "style"; type: "QQmlComponent"; isPointer: true }
-        Property { name: "__style"; type: "QObject"; isPointer: true }
-        Property { name: "__panel"; type: "QQuickItem"; isPointer: true }
-        Property { name: "styleHints"; type: "QVariant" }
-        Property { name: "__styleData"; type: "QObject"; isPointer: true }
+        Property { name: "control"; type: "Gauge_QMLTYPE_173"; isReadonly: true; isPointer: true }
+        Property { name: "valuePosition"; type: "double"; isReadonly: true }
+        Property { name: "background"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "tickmark"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "minorTickmark"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "tickmarkLabel"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "valueBar"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "foreground"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "panel"; type: "QQmlComponent"; isPointer: true }
     }
     Component {
         prototype: "QQuickFocusScope"
@@ -1183,8 +1503,43 @@ Module {
         Property { name: "checked"; type: "bool" }
         Property { name: "__content"; type: "QObject"; isList: true; isReadonly: true }
         Property { name: "contentItem"; type: "QQuickItem"; isReadonly: true; isPointer: true }
-        Property { name: "__checkbox"; type: "CheckBox_QMLTYPE_74"; isReadonly: true; isPointer: true }
+        Property { name: "__checkbox"; type: "CheckBox_QMLTYPE_88"; isReadonly: true; isPointer: true }
         Property { name: "__style"; type: "QObject"; isReadonly: true; isPointer: true }
+    }
+    Component {
+        prototype: "QQuickAbstractStyle1"
+        name: "QtQuick.Controls.Styles/HandleStyle 1.0"
+        exports: ["QtQuick.Controls.Styles/HandleStyle 1.0"]
+        exportMetaObjectRevisions: [0]
+        isComposite: true
+        defaultProperty: "data"
+        Property { name: "handle"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "panel"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "handleColorTop"; type: "QColor" }
+        Property { name: "handleColorBottom"; type: "QColor" }
+        Property { name: "handleColorBottomStop"; type: "double" }
+        Property { name: "control"; type: "QQuickItem"; isReadonly: true; isPointer: true }
+    }
+    Component {
+        prototype: "QObject"
+        name: "QtQuick.Controls.Styles/HandleStyleHelper 1.0"
+        exports: ["QtQuick.Controls.Styles/HandleStyleHelper 1.0"]
+        exportMetaObjectRevisions: [0]
+        isComposite: true
+        Property { name: "handleColorTop"; type: "QColor" }
+        Property { name: "handleColorBottom"; type: "QColor" }
+        Property { name: "handleColorBottomStop"; type: "double" }
+        Property { name: "handleRingColorTop"; type: "QColor" }
+        Property { name: "handleRingColorBottom"; type: "QColor" }
+        Method {
+            name: "paintHandle"
+            type: "QVariant"
+            Parameter { name: "ctx"; type: "QVariant" }
+            Parameter { name: "handleX"; type: "QVariant" }
+            Parameter { name: "handleY"; type: "QVariant" }
+            Parameter { name: "handleWidth"; type: "QVariant" }
+            Parameter { name: "handleHeight"; type: "QVariant" }
+        }
     }
     Component {
         prototype: "QQuickText"
@@ -1195,7 +1550,7 @@ Module {
         defaultProperty: "data"
     }
     Component {
-        prototype: "QObject"
+        prototype: "QQuickMenu1"
         name: "QtQuick.Controls/Menu 1.0"
         exports: ["QtQuick.Controls/Menu 1.0"]
         exportMetaObjectRevisions: [0]
@@ -1217,78 +1572,9 @@ Module {
             Parameter { name: "index"; type: "QVariant" }
             Parameter { name: "title"; type: "QVariant" }
         }
-        Property { name: "title"; type: "string" }
-        Property { name: "items"; type: "QObject"; isList: true; isReadonly: true }
-        Property { name: "__selectedIndex"; type: "int" }
-        Property { name: "__popupVisible"; type: "bool"; isReadonly: true }
-        Property { name: "__contentItem"; type: "QQuickItem"; isPointer: true }
-        Property { name: "__minimumWidth"; type: "int" }
-        Property { name: "__font"; type: "QFont" }
-        Property { name: "__xOffset"; type: "double" }
-        Property { name: "__yOffset"; type: "double" }
-        Property { name: "__action"; type: "QQuickAction1"; isReadonly: true; isPointer: true }
-        Property { name: "__popupGeometry"; type: "QRect"; isReadonly: true }
-        Property { name: "__isProxy"; type: "bool" }
-        Signal { name: "aboutToShow" }
-        Signal { name: "aboutToHide" }
-        Signal { name: "popupVisibleChanged" }
-        Signal { name: "__menuPopupDestroyed" }
-        Signal { name: "menuContentItemChanged" }
-        Signal { name: "minimumWidthChanged" }
-        Signal { name: "__proxyChanged" }
-        Method { name: "__dismissMenu" }
-        Method { name: "__closeAndDestroy" }
-        Method { name: "__dismissAndDestroy" }
-        Method { name: "popup" }
-        Method {
-            name: "addItem"
-            type: "QQuickMenuItem1*"
-            Parameter { type: "string" }
-        }
-        Method {
-            name: "insertItem"
-            type: "QQuickMenuItem1*"
-            Parameter { type: "int" }
-            Parameter { type: "string" }
-        }
-        Method { name: "addSeparator" }
-        Method {
-            name: "insertSeparator"
-            Parameter { type: "int" }
-        }
-        Method {
-            name: "removeItem"
-            Parameter { type: "QQuickMenuBase1"; isPointer: true }
-        }
-        Method { name: "clear" }
-        Method {
-            name: "__popup"
-            Parameter { name: "targetRect"; type: "QRectF" }
-            Parameter { name: "atItemIndex"; type: "int" }
-            Parameter { name: "menuType"; type: "MenuType" }
-        }
-        Method {
-            name: "__popup"
-            Parameter { name: "targetRect"; type: "QRectF" }
-            Parameter { name: "atItemIndex"; type: "int" }
-        }
-        Method {
-            name: "__popup"
-            Parameter { name: "targetRect"; type: "QRectF" }
-        }
-        Property { name: "enabled"; type: "bool" }
-        Property { name: "iconSource"; type: "QUrl" }
-        Property { name: "iconName"; type: "string" }
-        Property { name: "__icon"; type: "QVariant"; isReadonly: true }
-        Signal { name: "__textChanged" }
-        Property { name: "visible"; type: "bool" }
-        Property { name: "type"; type: "QQuickMenuItemType1::MenuItemType"; isReadonly: true }
-        Property { name: "__parentMenu"; type: "QObject"; isReadonly: true; isPointer: true }
-        Property { name: "__isNative"; type: "bool"; isReadonly: true }
-        Property { name: "__visualItem"; type: "QQuickItem"; isPointer: true }
     }
     Component {
-        prototype: "QObject"
+        prototype: "QQuickMenuBar1"
         name: "QtQuick.Controls/MenuBar 1.0"
         exports: ["QtQuick.Controls/MenuBar 1.0"]
         exportMetaObjectRevisions: [0]
@@ -1297,68 +1583,109 @@ Module {
         Property { name: "style"; type: "QQmlComponent"; isPointer: true }
         Property { name: "__style"; type: "QObject"; isPointer: true }
         Property { name: "__menuBarComponent"; type: "QQmlComponent"; isPointer: true }
-        Property { name: "menus"; type: "QQuickMenu1"; isList: true; isReadonly: true }
-        Property { name: "__contentItem"; type: "QQuickItem"; isPointer: true }
-        Property { name: "__parentWindow"; type: "QQuickWindow"; isPointer: true }
-        Property { name: "__isNative"; type: "bool" }
-        Signal { name: "nativeChanged" }
-        Signal { name: "contentItemChanged" }
     }
     Component {
-        prototype: "QQuickFocusScope"
-        name: "QtQuick.Extras/PieMenu 1.0"
-        exports: ["QtQuick.Extras/PieMenu 1.0"]
-        exportMetaObjectRevisions: [0]
-        isComposite: true
-        defaultProperty: "menuItems"
-        Property { name: "selectionAngle"; type: "double"; isReadonly: true }
-        Property { name: "triggerMode"; type: "int" }
-        Property { name: "title"; type: "string" }
-        Property { name: "boundingItem"; type: "QQuickItem"; isPointer: true }
-        Property { name: "__protectedScope"; type: "QObject"; isPointer: true }
-        Property { name: "activationMode"; type: "int" }
-        Property { name: "menuItems"; type: "QQuickMenuItem1"; isList: true; isReadonly: true }
-        Property { name: "currentIndex"; type: "int"; isReadonly: true }
-        Property { name: "currentItem"; type: "QQuickMenuItem1"; isReadonly: true; isPointer: true }
-        Property { name: "__mouseThief"; type: "QQuickMouseThief"; isReadonly: true; isPointer: true }
-        Method {
-            name: "popup"
-            type: "QVariant"
-            Parameter { name: "x"; type: "QVariant" }
-            Parameter { name: "y"; type: "QVariant" }
-        }
-        Method {
-            name: "addItem"
-            type: "QVariant"
-            Parameter { name: "text"; type: "QVariant" }
-        }
-        Method {
-            name: "insertItem"
-            type: "QVariant"
-            Parameter { name: "before"; type: "QVariant" }
-            Parameter { name: "text"; type: "QVariant" }
-        }
-        Method {
-            name: "removeItem"
-            type: "QVariant"
-            Parameter { name: "item"; type: "QVariant" }
-        }
-        Property { name: "style"; type: "QQmlComponent"; isPointer: true }
-        Property { name: "__style"; type: "QObject"; isPointer: true }
-        Property { name: "__panel"; type: "QQuickItem"; isPointer: true }
-        Property { name: "styleHints"; type: "QVariant" }
-        Property { name: "__styleData"; type: "QObject"; isPointer: true }
-    }
-    Component {
-        prototype: "QQuickLoader"
-        name: "QtQuick.Extras.Private/PieMenuIcon 1.0"
-        exports: ["QtQuick.Extras.Private/PieMenuIcon 1.0"]
-        exportMetaObjectRevisions: [0]
+        prototype: "QQuickAbstractStyle1"
+        name: "QtQuick.Controls.Styles/MenuBarStyle 1.2"
+        exports: ["QtQuick.Controls.Styles/MenuBarStyle 1.2"]
+        exportMetaObjectRevisions: [2]
         isComposite: true
         defaultProperty: "data"
-        Property { name: "control"; type: "PieMenu_QMLTYPE_168"; isPointer: true }
-        Property { name: "styleData"; type: "QObject"; isPointer: true }
-        Property { name: "iconSource"; type: "string"; isReadonly: true }
+        Property { name: "background"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "itemDelegate"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "menuStyle"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "font"; type: "QFont" }
+        Property { name: "__isNative"; type: "bool" }
+        Method {
+            name: "formatMnemonic"
+            type: "QVariant"
+            Parameter { name: "text"; type: "QVariant" }
+            Parameter { name: "underline"; type: "QVariant" }
+        }
+        Property { name: "control"; type: "QQuickItem"; isReadonly: true; isPointer: true }
+    }
+    Component {
+        prototype: "QQuickAbstractStyle1"
+        name: "QtQuick.Controls.Styles/MenuStyle 1.2"
+        exports: ["QtQuick.Controls.Styles/MenuStyle 1.2"]
+        exportMetaObjectRevisions: [2]
+        isComposite: true
+        defaultProperty: "data"
+        Property { name: "submenuOverlap"; type: "int" }
+        Property { name: "submenuPopupDelay"; type: "int" }
+        Property { name: "frame"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "separator"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "scrollIndicator"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "font"; type: "QFont" }
+        Property { name: "__menuItemType"; type: "string" }
+        Property { name: "__backgroundColor"; type: "QColor" }
+        Property { name: "__borderColor"; type: "QColor" }
+        Property { name: "__maxPopupHeight"; type: "int" }
+        Property { name: "__selectedBackgroundColor"; type: "QColor" }
+        Property { name: "__labelColor"; type: "QColor" }
+        Property { name: "__selectedLabelColor"; type: "QColor" }
+        Property { name: "__disabledLabelColor"; type: "QColor" }
+        Property { name: "__mirrored"; type: "bool"; isReadonly: true }
+        Property { name: "__leftLabelMargin"; type: "int" }
+        Property { name: "__rightLabelMargin"; type: "int" }
+        Property { name: "__minRightLabelSpacing"; type: "int" }
+        Property { name: "__scrollerStyle"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "menuItemPanel"; type: "QQmlComponent"; isPointer: true }
+        Property {
+            name: "itemDelegate"
+            type: "MenuItemSubControls_QMLTYPE_125"
+            isReadonly: true
+            isPointer: true
+        }
+        Method {
+            name: "formatMnemonic"
+            type: "QVariant"
+            Parameter { name: "text"; type: "QVariant" }
+            Parameter { name: "underline"; type: "QVariant" }
+        }
+        Property { name: "control"; type: "QQuickItem"; isReadonly: true; isPointer: true }
+    }
+    Component {
+        prototype: "QQuickAbstractStyle1"
+        name: "QtQuick.Controls.Styles/PieMenuStyle 1.3"
+        exports: ["QtQuick.Controls.Styles/PieMenuStyle 1.3"]
+        exportMetaObjectRevisions: [3]
+        isComposite: true
+        defaultProperty: "data"
+        Property { name: "control"; type: "PieMenu_QMLTYPE_192"; isReadonly: true; isPointer: true }
+        Property { name: "backgroundColor"; type: "QColor" }
+        Property { name: "selectionColor"; type: "QColor" }
+        Property { name: "shadowColor"; type: "QColor" }
+        Property { name: "shadowRadius"; type: "double" }
+        Property { name: "shadowSpread"; type: "double" }
+        Property { name: "radius"; type: "double"; isReadonly: true }
+        Property { name: "cancelRadius"; type: "double" }
+        Property { name: "startAngle"; type: "double" }
+        Property { name: "endAngle"; type: "double" }
+        Property { name: "__iconOffset"; type: "double"; isReadonly: true }
+        Property { name: "__selectableRadius"; type: "double"; isReadonly: true }
+        Property { name: "__implicitWidth"; type: "int" }
+        Property { name: "__implicitHeight"; type: "int" }
+        Property { name: "background"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "cancel"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "title"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "menuItem"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "panel"; type: "QQmlComponent"; isPointer: true }
+        Method {
+            name: "sectionStartAngle"
+            type: "QVariant"
+            Parameter { name: "itemIndex"; type: "QVariant" }
+        }
+        Method {
+            name: "sectionCenterAngle"
+            type: "QVariant"
+            Parameter { name: "itemIndex"; type: "QVariant" }
+        }
+        Method {
+            name: "sectionEndAngle"
+            type: "QVariant"
+            Parameter { name: "itemIndex"; type: "QVariant" }
+        }
     }
     Component {
         prototype: "QQuickFocusScope"
@@ -1386,6 +1713,19 @@ Module {
         Property { name: "__styleData"; type: "QObject"; isPointer: true }
     }
     Component {
+        prototype: "QQuickAbstractStyle1"
+        name: "QtQuick.Controls.Styles/ProgressBarStyle 1.0"
+        exports: ["QtQuick.Controls.Styles/ProgressBarStyle 1.0"]
+        exportMetaObjectRevisions: [0]
+        isComposite: true
+        defaultProperty: "data"
+        Property { name: "control"; type: "ProgressBar_QMLTYPE_207"; isReadonly: true; isPointer: true }
+        Property { name: "currentProgress"; type: "double"; isReadonly: true }
+        Property { name: "progress"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "background"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "panel"; type: "QQmlComponent"; isPointer: true }
+    }
+    Component {
         prototype: "QQuickFocusScope"
         name: "QtQuick.Controls/RadioButton 1.0"
         exports: ["QtQuick.Controls/RadioButton 1.0"]
@@ -1408,6 +1748,20 @@ Module {
         Property { name: "__styleData"; type: "QObject"; isPointer: true }
     }
     Component {
+        prototype: "QQuickAbstractStyle1"
+        name: "QtQuick.Controls.Styles/RadioButtonStyle 1.0"
+        exports: ["QtQuick.Controls.Styles/RadioButtonStyle 1.0"]
+        exportMetaObjectRevisions: [0]
+        isComposite: true
+        defaultProperty: "data"
+        Property { name: "control"; type: "RadioButton_QMLTYPE_214"; isReadonly: true; isPointer: true }
+        Property { name: "label"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "background"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "spacing"; type: "int" }
+        Property { name: "indicator"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "panel"; type: "QQmlComponent"; isPointer: true }
+    }
+    Component {
         prototype: "QQuickFocusScope"
         name: "QtQuick.Controls/ScrollView 1.0"
         exports: ["QtQuick.Controls/ScrollView 1.0"]
@@ -1420,14 +1774,14 @@ Module {
         Property { name: "__scrollBarTopMargin"; type: "int" }
         Property { name: "__viewTopMargin"; type: "int" }
         Property { name: "style"; type: "QQmlComponent"; isPointer: true }
-        Property { name: "__style"; type: "Style_QMLTYPE_2"; isPointer: true }
+        Property { name: "__style"; type: "Style_QMLTYPE_3"; isPointer: true }
         Property { name: "horizontalScrollBarPolicy"; type: "int" }
         Property { name: "verticalScrollBarPolicy"; type: "int" }
         Property { name: "viewport"; type: "QQuickItem"; isReadonly: true; isPointer: true }
         Property { name: "flickableItem"; type: "QQuickFlickable"; isReadonly: true; isPointer: true }
         Property {
             name: "__scroller"
-            type: "ScrollViewHelper_QMLTYPE_27"
+            type: "ScrollViewHelper_QMLTYPE_32"
             isReadonly: true
             isPointer: true
         }
@@ -1435,16 +1789,69 @@ Module {
         Property { name: "__wheelAreaScrollSpeed"; type: "double" }
         Property {
             name: "__horizontalScrollBar"
-            type: "ScrollBar_QMLTYPE_23"
+            type: "ScrollBar_QMLTYPE_28"
             isReadonly: true
             isPointer: true
         }
         Property {
             name: "__verticalScrollBar"
-            type: "ScrollBar_QMLTYPE_23"
+            type: "ScrollBar_QMLTYPE_28"
             isReadonly: true
             isPointer: true
         }
+    }
+    Component {
+        prototype: "QQuickAbstractStyle1"
+        name: "QtQuick.Controls.Styles/ScrollViewStyle 1.0"
+        exports: ["QtQuick.Controls.Styles/ScrollViewStyle 1.0"]
+        exportMetaObjectRevisions: [0]
+        isComposite: true
+        defaultProperty: "data"
+        Property { name: "control"; type: "ScrollView_QMLTYPE_37"; isReadonly: true; isPointer: true }
+        Property { name: "corner"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "scrollToClickedPosition"; type: "bool" }
+        Property { name: "transientScrollBars"; type: "bool" }
+        Property { name: "frame"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "minimumHandleLength"; type: "int" }
+        Property { name: "handleOverlap"; type: "int" }
+        Property { name: "scrollBarBackground"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "handle"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "incrementControl"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "decrementControl"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "__scrollbar"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "__externalScrollBars"; type: "bool" }
+        Property { name: "__scrollBarSpacing"; type: "int" }
+        Property { name: "__scrollBarFadeDelay"; type: "int" }
+        Property { name: "__scrollBarFadeDuration"; type: "int" }
+        Property { name: "__stickyScrollbars"; type: "bool" }
+    }
+    Component {
+        prototype: "QQuickFocusScope"
+        name: "QtQuick.Controls/Slider 1.0"
+        exports: ["QtQuick.Controls/Slider 1.0"]
+        exportMetaObjectRevisions: [0]
+        isComposite: true
+        defaultProperty: "data"
+        Property { name: "orientation"; type: "int" }
+        Property { name: "updateValueWhileDragging"; type: "bool" }
+        Property { name: "activeFocusOnPress"; type: "bool" }
+        Property { name: "tickmarksEnabled"; type: "bool" }
+        Property { name: "__horizontal"; type: "bool" }
+        Property { name: "__handlePos"; type: "double" }
+        Property { name: "minimumValue"; type: "double" }
+        Property { name: "maximumValue"; type: "double" }
+        Property { name: "pressed"; type: "bool"; isReadonly: true }
+        Property { name: "hovered"; type: "bool"; isReadonly: true }
+        Property { name: "stepSize"; type: "double" }
+        Property { name: "value"; type: "double" }
+        Property { name: "wheelEnabled"; type: "bool" }
+        Method { name: "accessibleIncreaseAction"; type: "QVariant" }
+        Method { name: "accessibleDecreaseAction"; type: "QVariant" }
+        Property { name: "style"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "__style"; type: "QObject"; isPointer: true }
+        Property { name: "__panel"; type: "QQuickItem"; isPointer: true }
+        Property { name: "styleHints"; type: "QVariant" }
+        Property { name: "__styleData"; type: "QObject"; isPointer: true }
     }
     Component {
         prototype: "QQuickFocusScope"
@@ -1475,32 +1882,17 @@ Module {
         Property { name: "__styleData"; type: "QObject"; isPointer: true }
     }
     Component {
-        prototype: "QQuickFocusScope"
-        name: "QtQuick.Controls/Slider 1.0"
-        exports: ["QtQuick.Controls/Slider 1.0"]
+        prototype: "QQuickAbstractStyle1"
+        name: "QtQuick.Controls.Styles/SliderStyle 1.0"
+        exports: ["QtQuick.Controls.Styles/SliderStyle 1.0"]
         exportMetaObjectRevisions: [0]
         isComposite: true
         defaultProperty: "data"
-        Property { name: "orientation"; type: "int" }
-        Property { name: "updateValueWhileDragging"; type: "bool" }
-        Property { name: "activeFocusOnPress"; type: "bool" }
-        Property { name: "tickmarksEnabled"; type: "bool" }
-        Property { name: "__horizontal"; type: "bool" }
-        Property { name: "__handlePos"; type: "double" }
-        Property { name: "minimumValue"; type: "double" }
-        Property { name: "maximumValue"; type: "double" }
-        Property { name: "pressed"; type: "bool"; isReadonly: true }
-        Property { name: "hovered"; type: "bool"; isReadonly: true }
-        Property { name: "stepSize"; type: "double" }
-        Property { name: "value"; type: "double" }
-        Property { name: "wheelEnabled"; type: "bool" }
-        Method { name: "accessibleIncreaseAction"; type: "QVariant" }
-        Method { name: "accessibleDecreaseAction"; type: "QVariant" }
-        Property { name: "style"; type: "QQmlComponent"; isPointer: true }
-        Property { name: "__style"; type: "QObject"; isPointer: true }
-        Property { name: "__panel"; type: "QQuickItem"; isPointer: true }
-        Property { name: "styleHints"; type: "QVariant" }
-        Property { name: "__styleData"; type: "QObject"; isPointer: true }
+        Property { name: "control"; type: "Slider_QMLTYPE_218"; isReadonly: true; isPointer: true }
+        Property { name: "handle"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "groove"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "tickmarks"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "panel"; type: "QQmlComponent"; isPointer: true }
     }
     Component {
         prototype: "QQuickFocusScope"
@@ -1536,6 +1928,28 @@ Module {
         Property { name: "__styleData"; type: "QObject"; isPointer: true }
     }
     Component {
+        prototype: "QQuickAbstractStyle1"
+        name: "QtQuick.Controls.Styles/SpinBoxStyle 1.1"
+        exports: ["QtQuick.Controls.Styles/SpinBoxStyle 1.1"]
+        exportMetaObjectRevisions: [1]
+        isComposite: true
+        defaultProperty: "data"
+        Property { name: "control"; type: "SpinBox_QMLTYPE_238"; isReadonly: true; isPointer: true }
+        Property { name: "horizontalAlignment"; type: "int" }
+        Property { name: "textColor"; type: "QColor" }
+        Property { name: "selectionColor"; type: "QColor" }
+        Property { name: "selectedTextColor"; type: "QColor" }
+        Property { name: "renderType"; type: "int" }
+        Property { name: "font"; type: "QFont" }
+        Property { name: "incrementControl"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "decrementControl"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "background"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "panel"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "__cursorHandle"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "__selectionHandle"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "__cursorDelegate"; type: "QQmlComponent"; isPointer: true }
+    }
+    Component {
         prototype: "QQuickItem"
         name: "QtQuick.Controls/SplitView 1.0"
         exports: ["QtQuick.Controls/SplitView 1.0"]
@@ -1568,7 +1982,7 @@ Module {
         defaultProperty: "data"
         Property { name: "initialItem"; type: "QVariant" }
         Property { name: "busy"; type: "bool"; isReadonly: true }
-        Property { name: "delegate"; type: "StackViewDelegate_QMLTYPE_225"; isPointer: true }
+        Property { name: "delegate"; type: "StackViewDelegate_QMLTYPE_252"; isPointer: true }
         Property { name: "__currentItem"; type: "QQuickItem"; isPointer: true }
         Property { name: "__depth"; type: "int" }
         Property { name: "__currentTransition"; type: "QVariant" }
@@ -1687,36 +2101,32 @@ Module {
         Property { name: "contentItem"; type: "QQuickItem"; isReadonly: true; isPointer: true }
     }
     Component {
-        prototype: "QQuickFocusScope"
-        name: "QtQuick.Extras/StatusIndicator 1.1"
-        exports: ["QtQuick.Extras/StatusIndicator 1.1"]
-        exportMetaObjectRevisions: [1]
-        isComposite: true
-        defaultProperty: "data"
-        Property { name: "active"; type: "bool" }
-        Property { name: "color"; type: "QColor" }
-        Property { name: "on"; type: "bool" }
-        Property { name: "style"; type: "QQmlComponent"; isPointer: true }
-        Property { name: "__style"; type: "QObject"; isPointer: true }
-        Property { name: "__panel"; type: "QQuickItem"; isPointer: true }
-        Property { name: "styleHints"; type: "QVariant" }
-        Property { name: "__styleData"; type: "QObject"; isPointer: true }
-    }
-    Component {
-        prototype: "QQuickFocusScope"
-        name: "QtQuick.Extras/StatusIndicator 1.0"
-        exports: ["QtQuick.Extras/StatusIndicator 1.0"]
+        prototype: "QQuickAbstractStyle1"
+        name: "QtQuick.Controls.Styles/StatusBarStyle 1.0"
+        exports: ["QtQuick.Controls.Styles/StatusBarStyle 1.0"]
         exportMetaObjectRevisions: [0]
         isComposite: true
         defaultProperty: "data"
-        Property { name: "active"; type: "bool" }
+        Property { name: "background"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "panel"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "control"; type: "QQuickItem"; isReadonly: true; isPointer: true }
+    }
+    Component {
+        prototype: "QQuickAbstractStyle1"
+        name: "QtQuick.Controls.Styles/StatusIndicatorStyle 1.1"
+        exports: ["QtQuick.Controls.Styles/StatusIndicatorStyle 1.1"]
+        exportMetaObjectRevisions: [1]
+        isComposite: true
+        defaultProperty: "data"
+        Property {
+            name: "control"
+            type: "StatusIndicator_QMLTYPE_261"
+            isReadonly: true
+            isPointer: true
+        }
         Property { name: "color"; type: "QColor" }
-        Property { name: "on"; type: "bool" }
-        Property { name: "style"; type: "QQmlComponent"; isPointer: true }
-        Property { name: "__style"; type: "QObject"; isPointer: true }
-        Property { name: "__panel"; type: "QQuickItem"; isPointer: true }
-        Property { name: "styleHints"; type: "QVariant" }
-        Property { name: "__styleData"; type: "QObject"; isPointer: true }
+        Property { name: "indicator"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "panel"; type: "QQmlComponent"; isPointer: true }
     }
     Component {
         prototype: "QQuickFocusScope"
@@ -1735,6 +2145,18 @@ Module {
         Property { name: "__panel"; type: "QQuickItem"; isPointer: true }
         Property { name: "styleHints"; type: "QVariant" }
         Property { name: "__styleData"; type: "QObject"; isPointer: true }
+    }
+    Component {
+        prototype: "QQuickAbstractStyle1"
+        name: "QtQuick.Controls.Styles/SwitchStyle 1.1"
+        exports: ["QtQuick.Controls.Styles/SwitchStyle 1.1"]
+        exportMetaObjectRevisions: [1]
+        isComposite: true
+        defaultProperty: "data"
+        Property { name: "handle"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "groove"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "panel"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "control"; type: "QQuickItem"; isReadonly: true; isPointer: true }
     }
     Component {
         prototype: "QQuickLoader"
@@ -1806,6 +2228,24 @@ Module {
         Method { name: "__setOpacities"; type: "QVariant" }
     }
     Component {
+        prototype: "QQuickAbstractStyle1"
+        name: "QtQuick.Controls.Styles/TabViewStyle 1.0"
+        exports: ["QtQuick.Controls.Styles/TabViewStyle 1.0"]
+        exportMetaObjectRevisions: [0]
+        isComposite: true
+        defaultProperty: "data"
+        Property { name: "control"; type: "TabView_QMLTYPE_280"; isReadonly: true; isPointer: true }
+        Property { name: "tabsMovable"; type: "bool" }
+        Property { name: "tabsAlignment"; type: "int" }
+        Property { name: "tabOverlap"; type: "int" }
+        Property { name: "frameOverlap"; type: "int" }
+        Property { name: "frame"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "tab"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "leftCorner"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "rightCorner"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "tabBar"; type: "QQmlComponent"; isPointer: true }
+    }
+    Component {
         prototype: "QQuickFocusScope"
         name: "QtQuick.Controls/TableView 1.0"
         exports: ["QtQuick.Controls/TableView 1.0"]
@@ -1817,7 +2257,7 @@ Module {
         Property { name: "currentRow"; type: "int" }
         Property {
             name: "selection"
-            type: "TableViewSelection_QMLTYPE_257"
+            type: "TableViewSelection_QMLTYPE_308"
             isReadonly: true
             isPointer: true
         }
@@ -1907,14 +2347,14 @@ Module {
         Property { name: "__scrollBarTopMargin"; type: "int" }
         Property { name: "__viewTopMargin"; type: "int" }
         Property { name: "style"; type: "QQmlComponent"; isPointer: true }
-        Property { name: "__style"; type: "Style_QMLTYPE_2"; isPointer: true }
+        Property { name: "__style"; type: "Style_QMLTYPE_3"; isPointer: true }
         Property { name: "horizontalScrollBarPolicy"; type: "int" }
         Property { name: "verticalScrollBarPolicy"; type: "int" }
         Property { name: "viewport"; type: "QQuickItem"; isReadonly: true; isPointer: true }
         Property { name: "flickableItem"; type: "QQuickFlickable"; isReadonly: true; isPointer: true }
         Property {
             name: "__scroller"
-            type: "ScrollViewHelper_QMLTYPE_27"
+            type: "ScrollViewHelper_QMLTYPE_32"
             isReadonly: true
             isPointer: true
         }
@@ -1922,13 +2362,13 @@ Module {
         Property { name: "__wheelAreaScrollSpeed"; type: "double" }
         Property {
             name: "__horizontalScrollBar"
-            type: "ScrollBar_QMLTYPE_23"
+            type: "ScrollBar_QMLTYPE_28"
             isReadonly: true
             isPointer: true
         }
         Property {
             name: "__verticalScrollBar"
-            type: "ScrollBar_QMLTYPE_23"
+            type: "ScrollBar_QMLTYPE_28"
             isReadonly: true
             isPointer: true
         }
@@ -1951,6 +2391,41 @@ Module {
         Property { name: "horizontalAlignment"; type: "int" }
         Property { name: "delegate"; type: "QQmlComponent"; isPointer: true }
         Method { name: "resizeToContents"; type: "QVariant" }
+    }
+    Component {
+        prototype: "QQuickAbstractStyle1"
+        name: "QtQuick.Controls.Styles/TableViewStyle 1.0"
+        exports: ["QtQuick.Controls.Styles/TableViewStyle 1.0"]
+        exportMetaObjectRevisions: [0]
+        isComposite: true
+        defaultProperty: "data"
+        Property { name: "control"; type: "TableView_QMLTYPE_312"; isReadonly: true; isPointer: true }
+        Property { name: "textColor"; type: "QColor" }
+        Property { name: "backgroundColor"; type: "QColor" }
+        Property { name: "alternateBackgroundColor"; type: "QColor" }
+        Property { name: "highlightedTextColor"; type: "QColor" }
+        Property { name: "activateItemOnSingleClick"; type: "bool" }
+        Property { name: "headerDelegate"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "rowDelegate"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "itemDelegate"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "__branchDelegate"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "__indentation"; type: "int" }
+        Property { name: "corner"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "scrollToClickedPosition"; type: "bool" }
+        Property { name: "transientScrollBars"; type: "bool" }
+        Property { name: "frame"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "minimumHandleLength"; type: "int" }
+        Property { name: "handleOverlap"; type: "int" }
+        Property { name: "scrollBarBackground"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "handle"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "incrementControl"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "decrementControl"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "__scrollbar"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "__externalScrollBars"; type: "bool" }
+        Property { name: "__scrollBarSpacing"; type: "int" }
+        Property { name: "__scrollBarFadeDelay"; type: "int" }
+        Property { name: "__scrollBarFadeDuration"; type: "int" }
+        Property { name: "__stickyScrollbars"; type: "bool" }
     }
     Component {
         prototype: "QQuickFocusScope"
@@ -2074,14 +2549,14 @@ Module {
         Property { name: "__scrollBarTopMargin"; type: "int" }
         Property { name: "__viewTopMargin"; type: "int" }
         Property { name: "style"; type: "QQmlComponent"; isPointer: true }
-        Property { name: "__style"; type: "Style_QMLTYPE_2"; isPointer: true }
+        Property { name: "__style"; type: "Style_QMLTYPE_3"; isPointer: true }
         Property { name: "horizontalScrollBarPolicy"; type: "int" }
         Property { name: "verticalScrollBarPolicy"; type: "int" }
         Property { name: "viewport"; type: "QQuickItem"; isReadonly: true; isPointer: true }
         Property { name: "flickableItem"; type: "QQuickFlickable"; isReadonly: true; isPointer: true }
         Property {
             name: "__scroller"
-            type: "ScrollViewHelper_QMLTYPE_27"
+            type: "ScrollViewHelper_QMLTYPE_32"
             isReadonly: true
             isPointer: true
         }
@@ -2089,13 +2564,13 @@ Module {
         Property { name: "__wheelAreaScrollSpeed"; type: "double" }
         Property {
             name: "__horizontalScrollBar"
-            type: "ScrollBar_QMLTYPE_23"
+            type: "ScrollBar_QMLTYPE_28"
             isReadonly: true
             isPointer: true
         }
         Property {
             name: "__verticalScrollBar"
-            type: "ScrollBar_QMLTYPE_23"
+            type: "ScrollBar_QMLTYPE_28"
             isReadonly: true
             isPointer: true
         }
@@ -2222,14 +2697,14 @@ Module {
         Property { name: "__scrollBarTopMargin"; type: "int" }
         Property { name: "__viewTopMargin"; type: "int" }
         Property { name: "style"; type: "QQmlComponent"; isPointer: true }
-        Property { name: "__style"; type: "Style_QMLTYPE_2"; isPointer: true }
+        Property { name: "__style"; type: "Style_QMLTYPE_3"; isPointer: true }
         Property { name: "horizontalScrollBarPolicy"; type: "int" }
         Property { name: "verticalScrollBarPolicy"; type: "int" }
         Property { name: "viewport"; type: "QQuickItem"; isReadonly: true; isPointer: true }
         Property { name: "flickableItem"; type: "QQuickFlickable"; isReadonly: true; isPointer: true }
         Property {
             name: "__scroller"
-            type: "ScrollViewHelper_QMLTYPE_27"
+            type: "ScrollViewHelper_QMLTYPE_32"
             isReadonly: true
             isPointer: true
         }
@@ -2237,13 +2712,13 @@ Module {
         Property { name: "__wheelAreaScrollSpeed"; type: "double" }
         Property {
             name: "__horizontalScrollBar"
-            type: "ScrollBar_QMLTYPE_23"
+            type: "ScrollBar_QMLTYPE_28"
             isReadonly: true
             isPointer: true
         }
         Property {
             name: "__verticalScrollBar"
-            type: "ScrollBar_QMLTYPE_23"
+            type: "ScrollBar_QMLTYPE_28"
             isReadonly: true
             isPointer: true
         }
@@ -2370,14 +2845,14 @@ Module {
         Property { name: "__scrollBarTopMargin"; type: "int" }
         Property { name: "__viewTopMargin"; type: "int" }
         Property { name: "style"; type: "QQmlComponent"; isPointer: true }
-        Property { name: "__style"; type: "Style_QMLTYPE_2"; isPointer: true }
+        Property { name: "__style"; type: "Style_QMLTYPE_3"; isPointer: true }
         Property { name: "horizontalScrollBarPolicy"; type: "int" }
         Property { name: "verticalScrollBarPolicy"; type: "int" }
         Property { name: "viewport"; type: "QQuickItem"; isReadonly: true; isPointer: true }
         Property { name: "flickableItem"; type: "QQuickFlickable"; isReadonly: true; isPointer: true }
         Property {
             name: "__scroller"
-            type: "ScrollViewHelper_QMLTYPE_27"
+            type: "ScrollViewHelper_QMLTYPE_32"
             isReadonly: true
             isPointer: true
         }
@@ -2385,16 +2860,52 @@ Module {
         Property { name: "__wheelAreaScrollSpeed"; type: "double" }
         Property {
             name: "__horizontalScrollBar"
-            type: "ScrollBar_QMLTYPE_23"
+            type: "ScrollBar_QMLTYPE_28"
             isReadonly: true
             isPointer: true
         }
         Property {
             name: "__verticalScrollBar"
-            type: "ScrollBar_QMLTYPE_23"
+            type: "ScrollBar_QMLTYPE_28"
             isReadonly: true
             isPointer: true
         }
+    }
+    Component {
+        prototype: "QQuickAbstractStyle1"
+        name: "QtQuick.Controls.Styles/TextAreaStyle 1.1"
+        exports: ["QtQuick.Controls.Styles/TextAreaStyle 1.1"]
+        exportMetaObjectRevisions: [1]
+        isComposite: true
+        defaultProperty: "data"
+        Property { name: "control"; type: "TextArea_QMLTYPE_318"; isReadonly: true; isPointer: true }
+        Property { name: "font"; type: "QFont" }
+        Property { name: "textColor"; type: "QColor" }
+        Property { name: "selectionColor"; type: "QColor" }
+        Property { name: "selectedTextColor"; type: "QColor" }
+        Property { name: "backgroundColor"; type: "QColor" }
+        Property { name: "renderType"; type: "int" }
+        Property { name: "textMargin"; type: "double" }
+        Property { name: "__cursorHandle"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "__selectionHandle"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "__cursorDelegate"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "__editMenu"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "corner"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "scrollToClickedPosition"; type: "bool" }
+        Property { name: "transientScrollBars"; type: "bool" }
+        Property { name: "frame"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "minimumHandleLength"; type: "int" }
+        Property { name: "handleOverlap"; type: "int" }
+        Property { name: "scrollBarBackground"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "handle"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "incrementControl"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "decrementControl"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "__scrollbar"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "__externalScrollBars"; type: "bool" }
+        Property { name: "__scrollBarSpacing"; type: "int" }
+        Property { name: "__scrollBarFadeDelay"; type: "int" }
+        Property { name: "__scrollBarFadeDuration"; type: "int" }
+        Property { name: "__stickyScrollbars"; type: "bool" }
     }
     Component {
         prototype: "QQuickFocusScope"
@@ -2482,48 +2993,49 @@ Module {
         Property { name: "__styleData"; type: "QObject"; isPointer: true }
     }
     Component {
-        prototype: "QQuickText"
-        name: "QtQuick.Extras.Private/TextSingleton 1.0"
-        exports: ["QtQuick.Extras.Private/TextSingleton 1.0"]
+        prototype: "QQuickAbstractStyle1"
+        name: "QtQuick.Controls.Styles/TextFieldStyle 1.0"
+        exports: ["QtQuick.Controls.Styles/TextFieldStyle 1.0"]
         exportMetaObjectRevisions: [0]
         isComposite: true
-        isCreatable: false
-        isSingleton: true
         defaultProperty: "data"
+        Property { name: "control"; type: "TextField_QMLTYPE_324"; isReadonly: true; isPointer: true }
+        Property { name: "font"; type: "QFont" }
+        Property { name: "textColor"; type: "QColor" }
+        Property { name: "selectionColor"; type: "QColor" }
+        Property { name: "selectedTextColor"; type: "QColor" }
+        Property { name: "passwordCharacter"; type: "string" }
+        Property { name: "renderType"; type: "int" }
+        Property { name: "placeholderTextColor"; type: "QColor" }
+        Property { name: "background"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "panel"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "__cursorHandle"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "__selectionHandle"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "__cursorDelegate"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "__editMenu"; type: "QQmlComponent"; isPointer: true }
     }
     Component {
-        prototype: "QQuickFocusScope"
-        name: "QtQuick.Extras/ToggleButton 1.0"
-        exports: ["QtQuick.Extras/ToggleButton 1.0"]
+        prototype: "QQuickAbstractStyle1"
+        name: "QtQuick.Controls.Styles/ToggleButtonStyle 1.0"
+        exports: ["QtQuick.Controls.Styles/ToggleButtonStyle 1.0"]
         exportMetaObjectRevisions: [0]
         isComposite: true
         defaultProperty: "data"
-        Property { name: "isDefault"; type: "bool" }
-        Property { name: "menu"; type: "Menu_QMLTYPE_48"; isPointer: true }
-        Property { name: "checkable"; type: "bool" }
-        Property { name: "checked"; type: "bool" }
-        Property { name: "exclusiveGroup"; type: "QQuickExclusiveGroup1"; isPointer: true }
-        Property { name: "action"; type: "QQuickAction1"; isPointer: true }
-        Property { name: "activeFocusOnPress"; type: "bool" }
-        Property { name: "text"; type: "string" }
-        Property { name: "tooltip"; type: "string" }
-        Property { name: "iconSource"; type: "QUrl" }
-        Property { name: "iconName"; type: "string" }
-        Property { name: "__position"; type: "string" }
-        Property { name: "__iconOverriden"; type: "bool"; isReadonly: true }
-        Property { name: "__action"; type: "QQuickAction1"; isPointer: true }
-        Property { name: "__iconAction"; type: "QQuickAction1"; isReadonly: true; isPointer: true }
-        Property { name: "__behavior"; type: "QVariant" }
-        Property { name: "__effectivePressed"; type: "bool" }
-        Property { name: "pressed"; type: "bool"; isReadonly: true }
-        Property { name: "hovered"; type: "bool"; isReadonly: true }
-        Signal { name: "clicked" }
-        Method { name: "accessiblePressAction"; type: "QVariant" }
-        Property { name: "style"; type: "QQmlComponent"; isPointer: true }
-        Property { name: "__style"; type: "QObject"; isPointer: true }
-        Property { name: "__panel"; type: "QQuickItem"; isPointer: true }
-        Property { name: "styleHints"; type: "QVariant" }
-        Property { name: "__styleData"; type: "QObject"; isPointer: true }
+        Property { name: "control"; type: "ToggleButton_QMLTYPE_327"; isReadonly: true; isPointer: true }
+        Property { name: "inactiveGradient"; type: "QQuickGradient"; isPointer: true }
+        Property { name: "checkedGradient"; type: "QQuickGradient"; isPointer: true }
+        Property { name: "uncheckedGradient"; type: "QQuickGradient"; isPointer: true }
+        Property { name: "checkedDropShadowColor"; type: "QColor" }
+        Property { name: "uncheckedDropShadowColor"; type: "QColor" }
+        Property {
+            name: "__buttonHelper"
+            type: "CircularButtonStyleHelper_QMLTYPE_93"
+            isReadonly: true
+            isPointer: true
+        }
+        Property { name: "background"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "label"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "panel"; type: "QQmlComponent"; isPointer: true }
     }
     Component {
         prototype: "QQuickFocusScope"
@@ -2540,6 +3052,18 @@ Module {
         Property { name: "contentItem"; type: "QQuickItem"; isReadonly: true; isPointer: true }
     }
     Component {
+        prototype: "QQuickAbstractStyle1"
+        name: "QtQuick.Controls.Styles/ToolBarStyle 1.0"
+        exports: ["QtQuick.Controls.Styles/ToolBarStyle 1.0"]
+        exportMetaObjectRevisions: [0]
+        isComposite: true
+        defaultProperty: "data"
+        Property { name: "background"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "menuButton"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "panel"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "control"; type: "QQuickItem"; isReadonly: true; isPointer: true }
+    }
+    Component {
         prototype: "QQuickFocusScope"
         name: "QtQuick.Controls/ToolButton 1.0"
         exports: ["QtQuick.Controls/ToolButton 1.0"]
@@ -2547,7 +3071,7 @@ Module {
         isComposite: true
         defaultProperty: "data"
         Property { name: "isDefault"; type: "bool" }
-        Property { name: "menu"; type: "Menu_QMLTYPE_48"; isPointer: true }
+        Property { name: "menu"; type: "Menu_QMLTYPE_55"; isPointer: true }
         Property { name: "checkable"; type: "bool" }
         Property { name: "checked"; type: "bool" }
         Property { name: "exclusiveGroup"; type: "QQuickExclusiveGroup1"; isPointer: true }
@@ -2687,14 +3211,14 @@ Module {
         Property { name: "__scrollBarTopMargin"; type: "int" }
         Property { name: "__viewTopMargin"; type: "int" }
         Property { name: "style"; type: "QQmlComponent"; isPointer: true }
-        Property { name: "__style"; type: "Style_QMLTYPE_2"; isPointer: true }
+        Property { name: "__style"; type: "Style_QMLTYPE_3"; isPointer: true }
         Property { name: "horizontalScrollBarPolicy"; type: "int" }
         Property { name: "verticalScrollBarPolicy"; type: "int" }
         Property { name: "viewport"; type: "QQuickItem"; isReadonly: true; isPointer: true }
         Property { name: "flickableItem"; type: "QQuickFlickable"; isReadonly: true; isPointer: true }
         Property {
             name: "__scroller"
-            type: "ScrollViewHelper_QMLTYPE_27"
+            type: "ScrollViewHelper_QMLTYPE_32"
             isReadonly: true
             isPointer: true
         }
@@ -2702,13 +3226,13 @@ Module {
         Property { name: "__wheelAreaScrollSpeed"; type: "double" }
         Property {
             name: "__horizontalScrollBar"
-            type: "ScrollBar_QMLTYPE_23"
+            type: "ScrollBar_QMLTYPE_28"
             isReadonly: true
             isPointer: true
         }
         Property {
             name: "__verticalScrollBar"
-            type: "ScrollBar_QMLTYPE_23"
+            type: "ScrollBar_QMLTYPE_28"
             isReadonly: true
             isPointer: true
         }
@@ -2827,14 +3351,14 @@ Module {
         Property { name: "__scrollBarTopMargin"; type: "int" }
         Property { name: "__viewTopMargin"; type: "int" }
         Property { name: "style"; type: "QQmlComponent"; isPointer: true }
-        Property { name: "__style"; type: "Style_QMLTYPE_2"; isPointer: true }
+        Property { name: "__style"; type: "Style_QMLTYPE_3"; isPointer: true }
         Property { name: "horizontalScrollBarPolicy"; type: "int" }
         Property { name: "verticalScrollBarPolicy"; type: "int" }
         Property { name: "viewport"; type: "QQuickItem"; isReadonly: true; isPointer: true }
         Property { name: "flickableItem"; type: "QQuickFlickable"; isReadonly: true; isPointer: true }
         Property {
             name: "__scroller"
-            type: "ScrollViewHelper_QMLTYPE_27"
+            type: "ScrollViewHelper_QMLTYPE_32"
             isReadonly: true
             isPointer: true
         }
@@ -2842,346 +3366,74 @@ Module {
         Property { name: "__wheelAreaScrollSpeed"; type: "double" }
         Property {
             name: "__horizontalScrollBar"
-            type: "ScrollBar_QMLTYPE_23"
+            type: "ScrollBar_QMLTYPE_28"
             isReadonly: true
             isPointer: true
         }
         Property {
             name: "__verticalScrollBar"
-            type: "ScrollBar_QMLTYPE_23"
+            type: "ScrollBar_QMLTYPE_28"
             isReadonly: true
             isPointer: true
         }
     }
     Component {
-        prototype: "QQuickFocusScope"
-        name: "QtQuick.Extras/Tumbler 1.2"
-        exports: ["QtQuick.Extras/Tumbler 1.2"]
+        prototype: "QQuickAbstractStyle1"
+        name: "QtQuick.Controls.Styles/TreeViewStyle 1.4"
+        exports: ["QtQuick.Controls.Styles/TreeViewStyle 1.4"]
+        exportMetaObjectRevisions: [4]
+        isComposite: true
+        defaultProperty: "data"
+        Property { name: "control"; type: "TreeView_QMLTYPE_350"; isReadonly: true; isPointer: true }
+        Property { name: "indentation"; type: "int" }
+        Property { name: "branchDelegate"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "textColor"; type: "QColor" }
+        Property { name: "backgroundColor"; type: "QColor" }
+        Property { name: "alternateBackgroundColor"; type: "QColor" }
+        Property { name: "highlightedTextColor"; type: "QColor" }
+        Property { name: "activateItemOnSingleClick"; type: "bool" }
+        Property { name: "headerDelegate"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "rowDelegate"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "itemDelegate"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "__branchDelegate"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "__indentation"; type: "int" }
+        Property { name: "corner"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "scrollToClickedPosition"; type: "bool" }
+        Property { name: "transientScrollBars"; type: "bool" }
+        Property { name: "frame"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "minimumHandleLength"; type: "int" }
+        Property { name: "handleOverlap"; type: "int" }
+        Property { name: "scrollBarBackground"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "handle"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "incrementControl"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "decrementControl"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "__scrollbar"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "__externalScrollBars"; type: "bool" }
+        Property { name: "__scrollBarSpacing"; type: "int" }
+        Property { name: "__scrollBarFadeDelay"; type: "int" }
+        Property { name: "__scrollBarFadeDuration"; type: "int" }
+        Property { name: "__stickyScrollbars"; type: "bool" }
+    }
+    Component {
+        prototype: "QQuickAbstractStyle1"
+        name: "QtQuick.Controls.Styles/TumblerStyle 1.2"
+        exports: ["QtQuick.Controls.Styles/TumblerStyle 1.2"]
         exportMetaObjectRevisions: [2]
         isComposite: true
         defaultProperty: "data"
-        Property { name: "__highlightMoveDuration"; type: "int" }
-        Property { name: "columnCount"; type: "int"; isReadonly: true }
-        Property { name: "__columnRow"; type: "QQuickRow"; isReadonly: true; isPointer: true }
-        Property { name: "__movementDelayTimer"; type: "QQmlTimer"; isReadonly: true; isPointer: true }
-        Method {
-            name: "__isValidColumnIndex"
-            type: "QVariant"
-            Parameter { name: "index"; type: "QVariant" }
-        }
-        Method {
-            name: "__isValidColumnAndItemIndex"
-            type: "QVariant"
-            Parameter { name: "columnIndex"; type: "QVariant" }
-            Parameter { name: "itemIndex"; type: "QVariant" }
-        }
-        Method {
-            name: "currentIndexAt"
-            type: "QVariant"
-            Parameter { name: "columnIndex"; type: "QVariant" }
-        }
-        Method {
-            name: "setCurrentIndexAt"
-            type: "QVariant"
-            Parameter { name: "columnIndex"; type: "QVariant" }
-            Parameter { name: "itemIndex"; type: "QVariant" }
-            Parameter { name: "interval"; type: "QVariant" }
-        }
-        Method {
-            name: "getColumn"
-            type: "QVariant"
-            Parameter { name: "columnIndex"; type: "QVariant" }
-        }
-        Method {
-            name: "addColumn"
-            type: "QVariant"
-            Parameter { name: "column"; type: "QVariant" }
-        }
-        Method {
-            name: "insertColumn"
-            type: "QVariant"
-            Parameter { name: "index"; type: "QVariant" }
-            Parameter { name: "column"; type: "QVariant" }
-        }
-        Method {
-            name: "__viewAt"
-            type: "QVariant"
-            Parameter { name: "index"; type: "QVariant" }
-        }
-        Property { name: "style"; type: "QQmlComponent"; isPointer: true }
-        Property { name: "__style"; type: "QObject"; isPointer: true }
-        Property { name: "__panel"; type: "QQuickItem"; isPointer: true }
-        Property { name: "styleHints"; type: "QVariant" }
-        Property { name: "__styleData"; type: "QObject"; isPointer: true }
-    }
-    Component {
-        prototype: "QObject"
-        name: "QtQuick.Extras/TumblerColumn 1.2"
-        exports: ["QtQuick.Extras/TumblerColumn 1.2"]
-        exportMetaObjectRevisions: [2]
-        isComposite: true
-        Property { name: "__tumbler"; type: "QQuickItem"; isPointer: true }
-        Property { name: "__index"; type: "int" }
-        Property { name: "__currentIndex"; type: "int" }
-        Property { name: "model"; type: "QVariant" }
-        Property { name: "role"; type: "string" }
+        Property { name: "control"; type: "Tumbler_QMLTYPE_353"; isReadonly: true; isPointer: true }
+        Property { name: "spacing"; type: "double" }
+        Property { name: "visibleItemCount"; type: "int" }
+        Property { name: "__padding"; type: "double"; isReadonly: true }
+        Property { name: "__delegateHeight"; type: "double" }
+        Property { name: "__separatorWidth"; type: "double" }
+        Property { name: "background"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "foreground"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "separator"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "columnForeground"; type: "QQmlComponent"; isPointer: true }
+        Property { name: "frame"; type: "QQmlComponent"; isPointer: true }
         Property { name: "delegate"; type: "QQmlComponent"; isPointer: true }
         Property { name: "highlight"; type: "QQmlComponent"; isPointer: true }
-        Property { name: "columnForeground"; type: "QQmlComponent"; isPointer: true }
-        Property { name: "visible"; type: "bool" }
-        Property { name: "activeFocus"; type: "bool"; isReadonly: true }
-        Property { name: "width"; type: "double" }
-        Property { name: "currentIndex"; type: "int"; isReadonly: true }
+        Property { name: "panel"; type: "QQmlComponent"; isPointer: true }
     }
-
-    //
-    // Manually added to work around QtC limitations:
-    //
-    Component {
-        name: "QQuickWindow"
-        defaultProperty: "data"
-        prototype: "QWindow"
-        exports: [
-            "QtQuick.Window/Window 2.0",
-            "QtQuick.Window/Window 2.1",
-            "QtQuick.Window/Window 2.2"
-        ]
-        exportMetaObjectRevisions: [0, 1, 2]
-        Enum {
-            name: "SceneGraphError"
-            values: {
-                "ContextNotAvailable": 1
-            }
-        }
-        Property { name: "data"; type: "QObject"; isList: true; isReadonly: true }
-        Property { name: "color"; type: "QColor" }
-        Property { name: "contentItem"; type: "QQuickItem"; isReadonly: true; isPointer: true }
-        Property {
-            name: "activeFocusItem"
-            revision: 1
-            type: "QQuickItem"
-            isReadonly: true
-            isPointer: true
-        }
-        Signal { name: "frameSwapped" }
-        Signal {
-            name: "openglContextCreated"
-            revision: 2
-            Parameter { name: "context"; type: "QOpenGLContext"; isPointer: true }
-        }
-        Signal { name: "sceneGraphInitialized" }
-        Signal { name: "sceneGraphInvalidated" }
-        Signal { name: "beforeSynchronizing" }
-        Signal { name: "afterSynchronizing"; revision: 2 }
-        Signal { name: "beforeRendering" }
-        Signal { name: "afterRendering" }
-        Signal { name: "afterAnimating"; revision: 2 }
-        Signal { name: "sceneGraphAboutToStop"; revision: 2 }
-        Signal {
-            name: "closing"
-            revision: 1
-            Parameter { name: "close"; type: "QQuickCloseEvent"; isPointer: true }
-        }
-        Signal {
-            name: "colorChanged"
-            Parameter { type: "QColor" }
-        }
-        Signal { name: "activeFocusItemChanged"; revision: 1 }
-        Signal {
-            name: "sceneGraphError"
-            revision: 2
-            Parameter { name: "error"; type: "QQuickWindow::SceneGraphError" }
-            Parameter { name: "message"; type: "string" }
-        }
-        Method { name: "update" }
-        Method { name: "releaseResources" }
-    }
-    Component {
-        name: "QQuickWindowAttached"
-        prototype: "QObject"
-        Property { name: "visibility"; type: "QWindow::Visibility"; isReadonly: true }
-        Property { name: "active"; type: "bool"; isReadonly: true }
-        Property { name: "activeFocusItem"; type: "QQuickItem"; isReadonly: true; isPointer: true }
-        Property { name: "contentItem"; type: "QQuickItem"; isReadonly: true; isPointer: true }
-        Property { name: "width"; type: "int"; isReadonly: true }
-        Property { name: "height"; type: "int"; isReadonly: true }
-    }
-    Component {
-        name: "QQuickWindowQmlImpl"
-        defaultProperty: "data"
-        prototype: "QQuickWindow"
-        exports: ["QtQuick.Window/Window 2.1", "QtQuick.Window/Window 2.2"]
-        exportMetaObjectRevisions: [0, 1]
-        attachedType: "QQuickWindowAttached"
-        Property { name: "visible"; type: "bool" }
-        Property { name: "visibility"; type: "Visibility" }
-        Signal {
-            name: "visibleChanged"
-            Parameter { name: "arg"; type: "bool" }
-        }
-        Signal {
-            name: "visibilityChanged"
-            Parameter { name: "visibility"; type: "QWindow::Visibility" }
-        }
-    }
-    Component {
-        name: "QWindow"
-        prototype: "QObject"
-        Enum {
-            name: "Visibility"
-            values: {
-                "Hidden": 0,
-                "AutomaticVisibility": 1,
-                "Windowed": 2,
-                "Minimized": 3,
-                "Maximized": 4,
-                "FullScreen": 5
-            }
-        }
-        Property { name: "title"; type: "string" }
-        Property { name: "modality"; type: "Qt::WindowModality" }
-        Property { name: "flags"; type: "Qt::WindowFlags" }
-        Property { name: "x"; type: "int" }
-        Property { name: "y"; type: "int" }
-        Property { name: "width"; type: "int" }
-        Property { name: "height"; type: "int" }
-        Property { name: "minimumWidth"; type: "int" }
-        Property { name: "minimumHeight"; type: "int" }
-        Property { name: "maximumWidth"; type: "int" }
-        Property { name: "maximumHeight"; type: "int" }
-        Property { name: "visible"; type: "bool" }
-        Property { name: "active"; revision: 1; type: "bool"; isReadonly: true }
-        Property { name: "visibility"; revision: 1; type: "Visibility" }
-        Property { name: "contentOrientation"; type: "Qt::ScreenOrientation" }
-        Property { name: "opacity"; revision: 1; type: "double" }
-        Signal {
-            name: "screenChanged"
-            Parameter { name: "screen"; type: "QScreen"; isPointer: true }
-        }
-        Signal {
-            name: "modalityChanged"
-            Parameter { name: "modality"; type: "Qt::WindowModality" }
-        }
-        Signal {
-            name: "windowStateChanged"
-            Parameter { name: "windowState"; type: "Qt::WindowState" }
-        }
-        Signal {
-            name: "windowTitleChanged"
-            revision: 2
-            Parameter { name: "title"; type: "string" }
-        }
-        Signal {
-            name: "xChanged"
-            Parameter { name: "arg"; type: "int" }
-        }
-        Signal {
-            name: "yChanged"
-            Parameter { name: "arg"; type: "int" }
-        }
-        Signal {
-            name: "widthChanged"
-            Parameter { name: "arg"; type: "int" }
-        }
-        Signal {
-            name: "heightChanged"
-            Parameter { name: "arg"; type: "int" }
-        }
-        Signal {
-            name: "minimumWidthChanged"
-            Parameter { name: "arg"; type: "int" }
-        }
-        Signal {
-            name: "minimumHeightChanged"
-            Parameter { name: "arg"; type: "int" }
-        }
-        Signal {
-            name: "maximumWidthChanged"
-            Parameter { name: "arg"; type: "int" }
-        }
-        Signal {
-            name: "maximumHeightChanged"
-            Parameter { name: "arg"; type: "int" }
-        }
-        Signal {
-            name: "visibleChanged"
-            Parameter { name: "arg"; type: "bool" }
-        }
-        Signal {
-            name: "visibilityChanged"
-            revision: 1
-            Parameter { name: "visibility"; type: "QWindow::Visibility" }
-        }
-        Signal { name: "activeChanged"; revision: 1 }
-        Signal {
-            name: "contentOrientationChanged"
-            Parameter { name: "orientation"; type: "Qt::ScreenOrientation" }
-        }
-        Signal {
-            name: "focusObjectChanged"
-            Parameter { name: "object"; type: "QObject"; isPointer: true }
-        }
-        Signal {
-            name: "opacityChanged"
-            revision: 1
-            Parameter { name: "opacity"; type: "double" }
-        }
-        Method { name: "requestActivate"; revision: 1 }
-        Method {
-            name: "setVisible"
-            Parameter { name: "visible"; type: "bool" }
-        }
-        Method { name: "show" }
-        Method { name: "hide" }
-        Method { name: "showMinimized" }
-        Method { name: "showMaximized" }
-        Method { name: "showFullScreen" }
-        Method { name: "showNormal" }
-        Method { name: "close"; type: "bool" }
-        Method { name: "raise" }
-        Method { name: "lower" }
-        Method {
-            name: "setTitle"
-            Parameter { type: "string" }
-        }
-        Method {
-            name: "setX"
-            Parameter { name: "arg"; type: "int" }
-        }
-        Method {
-            name: "setY"
-            Parameter { name: "arg"; type: "int" }
-        }
-        Method {
-            name: "setWidth"
-            Parameter { name: "arg"; type: "int" }
-        }
-        Method {
-            name: "setHeight"
-            Parameter { name: "arg"; type: "int" }
-        }
-        Method {
-            name: "setMinimumWidth"
-            Parameter { name: "w"; type: "int" }
-        }
-        Method {
-            name: "setMinimumHeight"
-            Parameter { name: "h"; type: "int" }
-        }
-        Method {
-            name: "setMaximumWidth"
-            Parameter { name: "w"; type: "int" }
-        }
-        Method {
-            name: "setMaximumHeight"
-            Parameter { name: "h"; type: "int" }
-        }
-        Method {
-            name: "alert"
-            revision: 1
-            Parameter { name: "msec"; type: "int" }
-        }
-        Method { name: "requestUpdate"; revision: 3 }
-    }
-
 }

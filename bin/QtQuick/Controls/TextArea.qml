@@ -365,8 +365,8 @@ ScrollView {
         Set this property to wrap the text to the TextArea item's width.
 
         \list
-        \li TextEdit.NoWrap - no wrapping will be performed.
-        \li TextEdit.WordWrap (default) - wrapping is done on word boundaries only.
+        \li TextEdit.NoWrap (default) - no wrapping will be performed.
+        \li TextEdit.WordWrap - wrapping is done on word boundaries only.
         \li TextEdit.WrapAnywhere - wrapping is done at any point on a line, even if it occurs in the middle of a word.
         \li TextEdit.Wrap - if possible, wrapping occurs at a word boundary; otherwise it will occur at the appropriate point on the line, even in the middle of a word.
         \endlist
@@ -405,7 +405,7 @@ ScrollView {
 
         This signal is emitted when the user clicks on a link embedded in the text.
         The link must be in rich text or HTML format and the
-        \a link string provides access to the particular link.
+        \e link string provides access to the particular link.
 
         The corresponding handler is \c onLinkActivated.
     */
@@ -417,7 +417,7 @@ ScrollView {
 
         This signal is emitted when the user hovers a link embedded in the text.
         The link must be in rich text or HTML format and the
-        \a link string provides access to the particular link.
+        \e link string provides access to the particular link.
 
         \sa hoveredLink
 
@@ -459,7 +459,7 @@ ScrollView {
     /*!
         \qmlmethod void TextArea::append(string text)
 
-        Appends \a string as a new line to the end of the text area.
+        Appends a string \a text as a new line to the end of the text area.
     */
     function append (string) {
         edit.append(string)
@@ -518,7 +518,7 @@ ScrollView {
     /*!
         \qmlmethod void TextArea::insert(int position, string text)
 
-        Inserts \a text into the TextArea at position.
+        Inserts \a text into the TextArea at \a position.
     */
     function insert(position, text) {
         edit.insert(position, text);
@@ -765,8 +765,8 @@ ScrollView {
 
             Connections {
                 target: area.viewport
-                onWidthChanged: edit.doLayout()
-                onHeightChanged: edit.doLayout()
+                function onWidthChanged() { edit.doLayout() }
+                function onHeightChanged() { edit.doLayout() }
             }
             onContentWidthChanged: edit.doLayout()
             onContentHeightChanged: edit.doLayout()

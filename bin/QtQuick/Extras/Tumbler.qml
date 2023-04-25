@@ -37,6 +37,7 @@
 **
 ****************************************************************************/
 
+import QtQml 2.14 as Qml
 import QtQuick 2.2
 import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
@@ -170,7 +171,7 @@ Control {
     /*!
         \qmlmethod int Tumbler::currentIndexAt(int columnIndex)
         Returns the current index of the column at \a columnIndex, or \c null
-        if the \a index is invalid.
+        if \a columnIndex is invalid.
     */
     function currentIndexAt(columnIndex) {
         if (!__isValidColumnIndex(columnIndex))
@@ -238,7 +239,7 @@ Control {
             console.warn("Tumbler::insertColumn(): you cannot add a column to multiple Tumblers")
             return null;
         }
-        if (index >= 0 && index <= columnCount && object.Accessible.role === Accessible.ColumnHeader) {
+        if (index >= 0 && index <= columnCount && object.accessibleRole === Accessible.ColumnHeader) {
             object.__tumbler = tumbler;
             object.__index = index;
             columnModel.insert(index, { columnObject: object });
@@ -258,7 +259,7 @@ Control {
     Component.onCompleted: {
         for (var i = 0; i < data.length; ++i) {
             var column = data[i];
-            if (column.Accessible.role === Accessible.ColumnHeader)
+            if (column.accessibleRole === Accessible.ColumnHeader)
                 addColumn(column);
         }
     }
@@ -330,10 +331,11 @@ Control {
                     visible: columnObject.visible
                     clip: true
 
-                    Binding {
+                    Qml.Binding {
                         target: columnObject
                         property: "__currentIndex"
                         value: columnPathView.currentIndex
+                        restoreMode: Binding.RestoreBinding
                     }
 
                     // We add one here so that the delegate's don't just appear in the view instantly,
