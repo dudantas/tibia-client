@@ -8,10 +8,14 @@ import QtQuick.tooling 1.2
 
 Module {
     dependencies: [
-        "QtGraphicalEffects 1.0",
-        "QtGraphicalEffects.private 1.0",
-        "QtQuick 2.0",
-        "QtQuick.Window 2.1"
+        "QtGraphicalEffects 1.12",
+        "QtQml 2.14",
+        "QtQml.Models 2.2",
+        "QtQuick 2.9",
+        "QtQuick.Controls 1.5",
+        "QtQuick.Controls.Styles 1.4",
+        "QtQuick.Layouts 1.1",
+        "QtQuick.Window 2.2"
     ]
     Component {
         name: "QQuickActivationMode"
@@ -207,11 +211,11 @@ Module {
         isComposite: true
         defaultProperty: "data"
         Property { name: "isDefault"; type: "bool" }
-        Property { name: "menu"; type: "Menu_QMLTYPE_28"; isPointer: true }
+        Property { name: "menu"; type: "Menu_QMLTYPE_38"; isPointer: true }
         Property { name: "checkable"; type: "bool" }
         Property { name: "checked"; type: "bool" }
-        Property { name: "exclusiveGroup"; type: "QQuickExclusiveGroup"; isPointer: true }
-        Property { name: "action"; type: "QQuickAction"; isPointer: true }
+        Property { name: "exclusiveGroup"; type: "QQuickExclusiveGroup1"; isPointer: true }
+        Property { name: "action"; type: "QQuickAction1"; isPointer: true }
         Property { name: "activeFocusOnPress"; type: "bool" }
         Property { name: "text"; type: "string" }
         Property { name: "tooltip"; type: "string" }
@@ -219,8 +223,8 @@ Module {
         Property { name: "iconName"; type: "string" }
         Property { name: "__position"; type: "string" }
         Property { name: "__iconOverriden"; type: "bool"; isReadonly: true }
-        Property { name: "__action"; type: "QQuickAction"; isPointer: true }
-        Property { name: "__iconAction"; type: "QQuickAction"; isReadonly: true; isPointer: true }
+        Property { name: "__action"; type: "QQuickAction1"; isPointer: true }
+        Property { name: "__iconAction"; type: "QQuickAction1"; isReadonly: true; isPointer: true }
         Property { name: "__behavior"; type: "QVariant" }
         Property { name: "__effectivePressed"; type: "bool" }
         Property { name: "pressed"; type: "bool"; isReadonly: true }
@@ -343,11 +347,11 @@ Module {
         Property { name: "progress"; type: "double"; isReadonly: true }
         Signal { name: "activated" }
         Property { name: "isDefault"; type: "bool" }
-        Property { name: "menu"; type: "Menu_QMLTYPE_28"; isPointer: true }
+        Property { name: "menu"; type: "Menu_QMLTYPE_38"; isPointer: true }
         Property { name: "checkable"; type: "bool" }
         Property { name: "checked"; type: "bool" }
-        Property { name: "exclusiveGroup"; type: "QQuickExclusiveGroup"; isPointer: true }
-        Property { name: "action"; type: "QQuickAction"; isPointer: true }
+        Property { name: "exclusiveGroup"; type: "QQuickExclusiveGroup1"; isPointer: true }
+        Property { name: "action"; type: "QQuickAction1"; isPointer: true }
         Property { name: "activeFocusOnPress"; type: "bool" }
         Property { name: "text"; type: "string" }
         Property { name: "tooltip"; type: "string" }
@@ -355,8 +359,8 @@ Module {
         Property { name: "iconName"; type: "string" }
         Property { name: "__position"; type: "string" }
         Property { name: "__iconOverriden"; type: "bool"; isReadonly: true }
-        Property { name: "__action"; type: "QQuickAction"; isPointer: true }
-        Property { name: "__iconAction"; type: "QQuickAction"; isReadonly: true; isPointer: true }
+        Property { name: "__action"; type: "QQuickAction1"; isPointer: true }
+        Property { name: "__iconAction"; type: "QQuickAction1"; isReadonly: true; isPointer: true }
         Property { name: "__behavior"; type: "QVariant" }
         Property { name: "__effectivePressed"; type: "bool" }
         Property { name: "pressed"; type: "bool"; isReadonly: true }
@@ -451,9 +455,9 @@ Module {
         Property { name: "boundingItem"; type: "QQuickItem"; isPointer: true }
         Property { name: "__protectedScope"; type: "QObject"; isPointer: true }
         Property { name: "activationMode"; type: "int" }
-        Property { name: "menuItems"; type: "QQuickMenuItem"; isList: true; isReadonly: true }
+        Property { name: "menuItems"; type: "QQuickMenuItem1"; isList: true; isReadonly: true }
         Property { name: "currentIndex"; type: "int"; isReadonly: true }
-        Property { name: "currentItem"; type: "QQuickMenuItem"; isReadonly: true; isPointer: true }
+        Property { name: "currentItem"; type: "QQuickMenuItem1"; isReadonly: true; isPointer: true }
         Property { name: "__mouseThief"; type: "QQuickMouseThief"; isReadonly: true; isPointer: true }
         Method {
             name: "popup"
@@ -490,15 +494,15 @@ Module {
         exportMetaObjectRevisions: [0]
         isComposite: true
         defaultProperty: "data"
-        Property { name: "control"; type: "PieMenu_QMLTYPE_84"; isPointer: true }
+        Property { name: "control"; type: "PieMenu_QMLTYPE_98"; isPointer: true }
         Property { name: "styleData"; type: "QObject"; isPointer: true }
         Property { name: "iconSource"; type: "string"; isReadonly: true }
     }
     Component {
         prototype: "QQuickFocusScope"
-        name: "QtQuick.Extras/StatusIndicator 1.1"
-        exports: ["QtQuick.Extras/StatusIndicator 1.1"]
-        exportMetaObjectRevisions: [1]
+        name: "QtQuick.Extras/StatusIndicator 1.0"
+        exports: ["QtQuick.Extras/StatusIndicator 1.0"]
+        exportMetaObjectRevisions: [0]
         isComposite: true
         defaultProperty: "data"
         Property { name: "active"; type: "bool" }
@@ -512,9 +516,9 @@ Module {
     }
     Component {
         prototype: "QQuickFocusScope"
-        name: "QtQuick.Extras/StatusIndicator 1.0"
-        exports: ["QtQuick.Extras/StatusIndicator 1.0"]
-        exportMetaObjectRevisions: [0]
+        name: "QtQuick.Extras/StatusIndicator 1.1"
+        exports: ["QtQuick.Extras/StatusIndicator 1.1"]
+        exportMetaObjectRevisions: [1]
         isComposite: true
         defaultProperty: "data"
         Property { name: "active"; type: "bool" }
@@ -544,11 +548,11 @@ Module {
         isComposite: true
         defaultProperty: "data"
         Property { name: "isDefault"; type: "bool" }
-        Property { name: "menu"; type: "Menu_QMLTYPE_28"; isPointer: true }
+        Property { name: "menu"; type: "Menu_QMLTYPE_38"; isPointer: true }
         Property { name: "checkable"; type: "bool" }
         Property { name: "checked"; type: "bool" }
-        Property { name: "exclusiveGroup"; type: "QQuickExclusiveGroup"; isPointer: true }
-        Property { name: "action"; type: "QQuickAction"; isPointer: true }
+        Property { name: "exclusiveGroup"; type: "QQuickExclusiveGroup1"; isPointer: true }
+        Property { name: "action"; type: "QQuickAction1"; isPointer: true }
         Property { name: "activeFocusOnPress"; type: "bool" }
         Property { name: "text"; type: "string" }
         Property { name: "tooltip"; type: "string" }
@@ -556,8 +560,8 @@ Module {
         Property { name: "iconName"; type: "string" }
         Property { name: "__position"; type: "string" }
         Property { name: "__iconOverriden"; type: "bool"; isReadonly: true }
-        Property { name: "__action"; type: "QQuickAction"; isPointer: true }
-        Property { name: "__iconAction"; type: "QQuickAction"; isReadonly: true; isPointer: true }
+        Property { name: "__action"; type: "QQuickAction1"; isPointer: true }
+        Property { name: "__iconAction"; type: "QQuickAction1"; isReadonly: true; isPointer: true }
         Property { name: "__behavior"; type: "QVariant" }
         Property { name: "__effectivePressed"; type: "bool" }
         Property { name: "pressed"; type: "bool"; isReadonly: true }
@@ -602,6 +606,7 @@ Module {
             type: "QVariant"
             Parameter { name: "columnIndex"; type: "QVariant" }
             Parameter { name: "itemIndex"; type: "QVariant" }
+            Parameter { name: "interval"; type: "QVariant" }
         }
         Method {
             name: "getColumn"

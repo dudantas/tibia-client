@@ -37,6 +37,7 @@
 **
 ****************************************************************************/
 
+import QtQml 2.14 as Qml
 import QtQuick 2.2
 import QtQuick.Controls 1.2
 import QtQuick.Controls.Styles 1.1
@@ -130,11 +131,12 @@ MenuBarPrivate {
         width: implicitWidth || root.__contentItem.preferredWidth
         height: Math.max(row.height + d.heightPadding, item ? item.implicitHeight : 0)
 
-        Binding {
+        Qml.Binding {
             // Make sure the styled menu bar is in the background
             target: menuBarLoader.item
             property: "z"
             value: menuMouseArea.z - 1
+            restoreMode: Binding.RestoreBinding
         }
 
         QtObject {
@@ -289,7 +291,7 @@ MenuBarPrivate {
 
                     Connections {
                         target: __menuItem
-                        onAboutToHide: {
+                        function onAboutToHide() {
                             if (d.openedMenuIndex === index) {
                                 d.openMenuAtIndex(-1)
                                 menuMouseArea.hoveredItem = null
@@ -299,7 +301,7 @@ MenuBarPrivate {
 
                     Connections {
                         target: __menuItem.__action
-                        onTriggered: d.openMenuAtIndex(__menuItemIndex)
+                        function onTriggered() { d.openMenuAtIndex(__menuItemIndex) }
                     }
 
                     Component.onCompleted: {

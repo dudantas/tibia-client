@@ -37,6 +37,7 @@
 **
 ****************************************************************************/
 
+import QtQml 2.14 as Qml
 import QtQuick 2.2
 import QtQuick.Controls 1.2
 import QtQuick.Controls.Private 1.0
@@ -93,25 +94,27 @@ BasicButton {
 
     style: Settings.styleComponent(Settings.style, "ButtonStyle.qml", button)
 
-    Binding {
+    Qml.Binding {
         target: menu
         property: "__minimumWidth"
         value: button.__panel.width
+        restoreMode: Binding.RestoreBinding
     }
 
-    Binding {
+    Qml.Binding {
         target: menu
         property: "__visualItem"
         value: button
+        restoreMode: Binding.RestoreBinding
     }
 
     Connections {
         target: __behavior
-        onEffectivePressedChanged: {
+        function onEffectivePressedChanged() {
             if (!Settings.hasTouchScreen && __behavior.effectivePressed && menu)
                 popupMenuTimer.start()
         }
-        onReleased: {
+        function onReleased() {
             if (Settings.hasTouchScreen && __behavior.containsMouse && menu)
                 popupMenuTimer.start()
         }

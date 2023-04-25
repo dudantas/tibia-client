@@ -37,6 +37,7 @@
 **
 ****************************************************************************/
 
+import QtQml 2.14 as Qml
 import QtQuick 2.2
 import QtQuick.Controls 1.2
 import QtQuick.Controls.Private 1.0 as ControlsPrivate
@@ -51,8 +52,7 @@ import "qml"
 AbstractFileDialog {
     id: root
 
-    Component {
-        id: modelComponent
+    property Component modelComponent: Component {
         FolderListModel {
             showFiles: !root.selectFolder
             nameFilters: root.selectedNameFilterExtensions
@@ -115,7 +115,7 @@ AbstractFileDialog {
 
     function dirDown(path) {
         view.selection.clear()
-        root.folder = "file://" + path
+        root.folder = root.pathToUrl(path)
     }
     function dirUp() {
         view.selection.clear()
@@ -154,15 +154,17 @@ AbstractFileDialog {
         implicitHeight: Math.min(root.__maximumDimension, Screen.pixelDensity * 80)
         color: root.palette.window
 
-        Binding {
+        Qml.Binding {
             target: view.model
             property: "folder"
             value: root.folder
+            restoreMode: Binding.RestoreBinding
         }
-        Binding {
+        Qml.Binding {
             target: currentPathField
             property: "text"
             value: root.urlToPath(root.folder)
+            restoreMode: Binding.RestoreBinding
         }
         Keys.onPressed: {
             event.accepted = true

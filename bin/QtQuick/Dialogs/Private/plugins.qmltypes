@@ -7,7 +7,7 @@ import QtQuick.tooling 1.2
 // 'qmlplugindump -nonrelocatable QtQuick.Dialogs.Private 1.1'
 
 Module {
-    dependencies: []
+    dependencies: ["QtQuick 2.0"]
     Component {
         name: "QAbstractItemModel"
         prototype: "QObject"
@@ -17,6 +17,15 @@ Module {
                 "NoLayoutChangeHint": 0,
                 "VerticalSortHint": 1,
                 "HorizontalSortHint": 2
+            }
+        }
+        Enum {
+            name: "CheckIndexOption"
+            values: {
+                "NoOption": 0,
+                "IndexIsValid": 1,
+                "DoNotUseParent": 2,
+                "ParentIsInvalid": 4
             }
         }
         Signal {
