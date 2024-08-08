@@ -1,5 +1,5 @@
 {
-  "version": "13.32.14520",
+  "version": "13.40.93b0a1",
   "files": [
     {
       "url": "bin/Qt5Network.dll.lzma",
@@ -68,10 +68,10 @@
     {
       "url": "bin/client.en.qm.lzma",
       "localfile": "bin/client.en.qm",
-      "packedhash": "950198b7cf7c9c51451389cbcea605fdd88a7e748d890b9f6cfd9299130ba8ff",
-      "packedsize": 114388,
-      "unpackedhash": "65bb6e811ee1eec8ec3fdd07372304e76fa578b384b927569ab8a0ae77b85420",
-      "unpackedsize": 618330
+      "packedhash": "b6bdda42fac09e9944f47d73b8992d2bf8785f1823a85d3db4d6728b3a13ed6a",
+      "packedsize": 115812,
+      "unpackedhash": "9b0f3e45b22d97ab9b4f61e39a9dc665a2dc99bde4e5dd0ee9105c058cc0b586",
+      "unpackedsize": 627196
     },
     {
       "url": "bin/Qt5QmlModels.dll.lzma",
@@ -108,10 +108,10 @@
     {
       "url": "bin/graphics_resources.rcc.lzma",
       "localfile": "bin/graphics_resources.rcc",
-      "packedhash": "b7e0a8ef1af5850313757181270a311204701b3521e067b5e60474987814bf55",
-      "packedsize": 4910828,
-      "unpackedhash": "87b906e65714fc240d0e1d15c14f20a5343c589317f2339bf7f8a7b0a8e8fba1",
-      "unpackedsize": 5190468
+      "packedhash": "399d01d35c2ce6916671a243ad4e5a6027c72955dc74e630c89d114db1340df4",
+      "packedsize": 4403942,
+      "unpackedhash": "a8090e6edbcb6737ebfbfeab264ce08424117eb491283341c9f346281dc8aeed",
+      "unpackedsize": 4627957
     },
     {
       "url": "bin/Qt5Core.dll.lzma",
@@ -132,26 +132,26 @@
     {
       "url": "bin/libssl-1_1.dll.lzma",
       "localfile": "bin/libssl-1_1.dll",
-      "packedhash": "b06e6cc667200f5ea3a7107b2ea0ee9ad06a9d3f8c50860edfde2dc8d57ebd5f",
-      "packedsize": 173719,
-      "unpackedhash": "d0b415591bd2e26b8df2fb9f1d65ef6eb66b295865946d46b91aeb927633d34b",
+      "packedhash": "88386fc88e58d885c91944157663dbc85ede462c410e2c9ce84047fb836eb23e",
+      "packedsize": 173782,
+      "unpackedhash": "092ee1480768a92eaacd920bc7dd0cd2f0a11619ecf8867869545f3a4dff3d09",
       "unpackedsize": 545168
     },
     {
       "url": "bin/libcrypto-1_1.dll.lzma",
       "localfile": "bin/libcrypto-1_1.dll",
-      "packedhash": "cb1b25b290acd06a6ba0131398e264ca4ee6a42b3db690a5e92a366ae9e6bdf1",
-      "packedsize": 910069,
-      "unpackedhash": "fd8782411a09ce4ffbc3023c255fa09ab8641767cfe12e78ac22c63d17716b03",
-      "unpackedsize": 2536848
+      "packedhash": "6565700ac5a2259a3c74393d2d2e363a0f98fb438ae3abb8eba2bc3d2b94d7d3",
+      "packedsize": 910328,
+      "unpackedhash": "f670ae0edf0df35696158c19bd21041950f27ad349ad08699735c288a930e2aa",
+      "unpackedsize": 2537368
     },
     {
       "url": "bin/client.exe.lzma",
       "localfile": "bin/client.exe",
-      "packedhash": "cac29839615e81a83d60c0824ced5700036ad6b0ab26a6d6c47536406f6692a5",
-      "packedsize": 4590728,
-      "unpackedhash": "86e5247cddc6efa6c85aa7698e5aff833cf8c4f5159ac6d6a2057b5df8b0b8bc",
-      "unpackedsize": 20478864
+      "packedhash": "9af9615d6dd33dbaff9883b75f42d5466f0506ed7092691e449274708e72eb08",
+      "packedsize": 4630758,
+      "unpackedhash": "7d0fb8c28000577c215d42e93ac86a5168a12a107e7d7e7ac8ebb02f17b91124",
+      "unpackedsize": 20768152
     },
     {
       "url": "bin/client_launcher.exe.lzma",
@@ -165,10 +165,10 @@
     {
       "url": "bin/OpenAL32.dll.lzma",
       "localfile": "bin/OpenAL32.dll",
-      "packedhash": "4621f994eda91a8459db120886f9179006a5e3696c7eeb1410fd02f6facd9b37",
-      "packedsize": 567598,
-      "unpackedhash": "e042dc0a315df51c839e30491bfdfaac04eb1303db08b77248641efc36cb0bf8",
-      "unpackedsize": 1901456
+      "packedhash": "44f19498f9f297f595494d5e41c5c984448ce49b20f5b8624e39d2b55c71dfca",
+      "packedsize": 568405,
+      "unpackedhash": "dcdfa03bcb3b70609cd76f0a88d44d838f3b0ee443e1244a0922eed64d46ef7e",
+      "unpackedsize": 1901464
     },
     {
       "url": "bin/Qt5Quick.dll.lzma",
@@ -209,6 +209,14 @@
       "packedsize": 29012346,
       "unpackedhash": "38090479f9fbc88586cdd9ea8456fb2642b1fbb387452b4b41a9134b535a175d",
       "unpackedsize": 81021840
+    },
+    {
+      "url": "bin/Qt5Concurrent.dll.lzma",
+      "localfile": "bin/Qt5Concurrent.dll",
+      "packedhash": "616408db8c30ea70ed1d78ac7366a18deb4fa6bf50e04cb99cd8d85c2e5b6e8c",
+      "packedsize": 17658,
+      "unpackedhash": "9db7db876d8f82a76e7a738b06436d5f8d1cf8a8d2444722ba69d9d8fac830ee",
+      "unpackedsize": 33680
     },
     {
       "url": "bin/Qt5QuickTemplates2.dll.lzma",
