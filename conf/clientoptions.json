@@ -3080,7 +3080,6 @@
         "maxunlocklevel": 0
     },
     "options": {
-        "/qt/qml/qmlcomponents/qml/tutorial/TutorialHintDialog.qml": true,
         "ChatEnabled": true,
         "GlobalMessagesEnabled": true,
         "GuildMessagesEnabled": true,
@@ -3094,6 +3093,7 @@
         "actionBarBottomLocked": false,
         "actionBarLeftLocked": false,
         "actionBarRightLocked": false,
+        "actionBarShowBottom1": true,
         "actionBarShowBottom2": false,
         "actionBarShowBottom3": false,
         "actionBarShowLeft1": false,
@@ -3175,7 +3175,7 @@
         "lightEffectsEnabled": true,
         "lightLevelSeparatorLevel": 0.800000011920929,
         "linkCopyWarningEnabled": true,
-        "loginEmailAddress": "nedijo1504@cironex.com",
+        "loginEmailAddress": "",
         "lootSchemeIndex": 0,
         "marketShowLockerOnly": false,
         "mouseAnimatedCursor": true,

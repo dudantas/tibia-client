@@ -1,0 +1,23 @@
+[ 2024-12-01 23:28:02,076 ] Warning: Setting a new default format with a different version or profile after the global shared context is created may cause issues with context sharing.
+[ 2024-12-01 23:28:02,319 ] Using spritesheet cache size of 910
+[ 2024-12-01 23:28:03,289 ] Asset loading complete
+[ 2024-12-01 23:34:02,847 ] Retrying to obtain clipboard.
+[ 2024-12-01 23:34:13,710 ] Retrying to obtain clipboard.
+[ 2024-12-01 23:35:24,779 ] Warning: Setting a new default format with a different version or profile after the global shared context is created may cause issues with context sharing.
+[ 2024-12-01 23:35:24,977 ] Using spritesheet cache size of 910
+[ 2024-12-01 23:35:25,834 ] Asset loading complete
+[ 2024-12-01 23:35:26,823 ] QObject: Cannot create children for a parent that is in a different thread.
+(Parent is QQmlEngine(0x1df9d2e91a0), parent's thread is QThread(0x1df91ae98a0), current thread is QSGRenderThread(0x1dfa6938180)
+[ 2024-12-01 23:35:32,972 ] News query failed: "Unrecognized event news."
+[ 2024-12-01 23:35:47,842 ] BattlEye: "Initialized (v1.249)"
+[ 2024-12-01 23:35:47,843 ] BattlEye: "Restarting client is necessary, service isn't running properly"
+[ 2024-12-01 23:35:47,843 ] BattlEye: "Restarting client is necessary, update required"
+[ 2024-12-01 23:35:47,843 ] BattlEye: "Config entry: GameID tibia"
+[ 2024-12-01 23:35:47,843 ] BattlEye: "Config entry: MasterPort 7171"
+[ 2024-12-01 23:35:47,904 ] Request connection to gameserver  "tcp://127.0.0.1:7172"  (unprotected:  "tcp://127.0.0.1:7172" )  requested (Charakter "GOD" )
+[ 2024-12-01 23:35:47,910 ] Request connection to gameserver  "tcp://127.0.0.1:7172" "Canary"
+[ 2024-12-01 23:35:47,924 ] Connected to gameserver  "tcp://127.0.0.1:7172" "Canary"
+[ 2024-12-01 23:35:47,941 ] News query failed: "Unrecognized event news."
+[ 2024-12-01 23:35:50,915 ] Connection to gameserver  "tcp://127.0.0.1:7172" "Canary"  was disconnected ( "The remote host closed the connection" )
+[ 2024-12-01 23:35:50,951 ] Disconnected from gameserver
+[ 2024-12-01 23:35:51,234 ] News query failed: "Unrecognized event news."
