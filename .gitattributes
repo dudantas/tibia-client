@@ -1,0 +1,1 @@
+bin/Qt6WebEngineCore.dll filter=lfs diff=lfs merge=lfs -text
