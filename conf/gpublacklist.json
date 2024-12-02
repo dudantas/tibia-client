@@ -40,15 +40,14 @@
                "type": "win"
            },
            "features": [
-               "disable_desktopgl",
-               "disable_angle"
+               "disable_desktopgl"
            ]
        },
        {
           "id": 4,
           "description": "Intel HD Graphics 3000 crashes when initializing the OpenGL driver (QTBUG-42240)",
           "vendor_id": "0x8086",
-          "device_id": [ "0x0102", "0x0106", "0x010A", "0x0112", "0x0116", "0x0122", "0x0126", "", "0x2E32", "0x0BE1", "0x0A26", "0x0152", "0x0042" ],
+          "device_id": [ "0x0102", "0x0106", "0x010A", "0x0112", "0x0116", "0x0122", "0x0126" ],
           "os": {
               "type": "win"
           },
@@ -65,8 +64,7 @@
                "type": "win"
            },
            "features": [
-               "disable_desktopgl",
-               "disable_angle"
+               "disable_desktopgl", "disable_angle"
            ]
         },
         {
@@ -95,7 +93,7 @@
         },
         {
            "id": 8,
-           "description": "Standard VGA: Insufficent support for OpenGL, D3D9 and D3D11",
+           "description": "Standard VGA: Insufficient support for OpenGL, D3D9 and D3D11",
            "vendor_id": "0x0000",
            "device_id": ["0x0000"],
            "os": {
@@ -156,7 +154,19 @@
            ]
         },
         {
-          "id": 13,
+           "id": 13,
+           "description": "Disable DesktopGL on Windows with Mobile Intel(R) 4 Series Express Chipset Family graphics card (QTBUG-58772)",
+           "vendor_id": "0x8086",
+           "device_id": [ "0x2A42" ],
+           "os": {
+               "type": "win"
+           },
+           "features": [
+               "disable_desktopgl"
+           ]
+        },
+        {
+          "id": 14,
           "description": "AMD Radeon HD 6310 causes crashes on OpenGL initialization test (CipSoft)",
           "vendor_id": "0x1002",
           "device_id": [ "0x9802" ],
@@ -168,7 +178,7 @@
           ]
         },
         {
-          "id": 14,
+          "id": 15,
           "description": "NVIDIA GeForce 630M/710M causes crashes on OpenGL initialization (CipSoft)",
           "vendor_id": "0x10DE",
           "device_id": [ "0x1140", "0x0DE9" ],
@@ -179,18 +189,6 @@
               "disable_desktopgl"
           ]
         },
-        {
-          "id": 15,
-          "description": "Mobile Intel(R) 4 Series Express Chipset Family - has very broken text rendering (CipSoft)",
-          "vendor_id": "0x8086",
-          "device_id": [ "0x2a42" ],
-          "os": {
-              "type": "win"
-          },
-          "features": [
-              "disable_desktopgl"
-          ]
-       },
        {
           "id": 16,
           "description": "Intel 82945G Express crashes when starting up (CipSoft)",
@@ -200,7 +198,8 @@
               "type": "win"
           },
           "features": [
-              "disable_desktopgl", "disable_angle"
+              "disable_desktopgl",
+              "disable_angle"
           ]
        }
     ]
