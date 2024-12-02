@@ -1,0 +1,29 @@
+module QtQuick.LegacyControls
+linktarget Qt5LegacyControls
+optional plugin Qt5LegacyControls
+classname QtQuick_LegacyControlsPlugin
+typeinfo Qt5LegacyControls.qmltypes
+import QtQml
+import QtQuick
+import QtQuick.Layouts
+import QtQuick.Window
+prefer :/qt/qml/QtQuick/LegacyControls/
+BasicTableView 1.0 BasicTableView.qml
+BasicTableViewStyle 1.0 BasicTableViewStyle.qml
+CalendarHeaderModel 1.0 CalendarHeaderModel.qml
+CalendarOld 1.0 CalendarOld.qml
+CalendarStyle 1.0 CalendarStyle.qml
+FocusFrame 1.0 FocusFrame.qml
+FocusFrameStyle 1.0 FocusFrameStyle.qml
+ScrollBarOld 1.0 ScrollBarOld.qml
+ScrollViewHelper 1.0 ScrollViewHelper.qml
+ScrollViewOld 1.0 ScrollViewOld.qml
+ScrollViewStyle 1.0 ScrollViewStyle.qml
+Style 1.0 Style.qml
+TableViewColumn 1.0 TableViewColumn.qml
+TableViewItemDelegateLoader 1.0 TableViewItemDelegateLoader.qml
+TableViewOld 1.0 TableViewOld.qml
+TableViewSelection 1.0 TableViewSelection.qml
+TableViewStyle 1.0 TableViewStyle.qml
+singleton TextSingleton 1.0 TextSingleton.qml
+
