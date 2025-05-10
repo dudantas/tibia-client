@@ -23,7 +23,8 @@ Module {
             "QtQuick.Shapes/Shape 2.11",
             "QtQuick.Shapes/Shape 6.0",
             "QtQuick.Shapes/Shape 6.3",
-            "QtQuick.Shapes/Shape 6.6"
+            "QtQuick.Shapes/Shape 6.6",
+            "QtQuick.Shapes/Shape 6.7"
         ]
         exportMetaObjectRevisions: [
             256,
@@ -35,7 +36,8 @@ Module {
             523,
             1536,
             1539,
-            1542
+            1542,
+            1543
         ]
         Enum {
             name: "RendererType"
@@ -55,6 +57,23 @@ Module {
             name: "ContainsMode"
             values: ["BoundingRectContains", "FillContains"]
         }
+        Enum {
+            name: "FillMode"
+            values: [
+                "NoResize",
+                "PreserveAspectFit",
+                "PreserveAspectCrop",
+                "Stretch"
+            ]
+        }
+        Enum {
+            name: "HAlignment"
+            values: ["AlignLeft", "AlignRight", "AlignHCenter"]
+        }
+        Enum {
+            name: "VAlignment"
+            values: ["AlignTop", "AlignBottom", "AlignVCenter"]
+        }
         Property {
             name: "rendererType"
             type: "RendererType"
@@ -62,7 +81,6 @@ Module {
             notify: "rendererChanged"
             index: 0
             isReadonly: true
-            isFinal: true
         }
         Property {
             name: "asynchronous"
@@ -71,7 +89,6 @@ Module {
             write: "setAsynchronous"
             notify: "asynchronousChanged"
             index: 1
-            isFinal: true
         }
         Property {
             name: "vendorExtensionsEnabled"
@@ -80,7 +97,6 @@ Module {
             write: "setVendorExtensionsEnabled"
             notify: "vendorExtensionsEnabledChanged"
             index: 2
-            isFinal: true
         }
         Property {
             name: "preferredRendererType"
@@ -99,7 +115,6 @@ Module {
             notify: "statusChanged"
             index: 4
             isReadonly: true
-            isFinal: true
         }
         Property {
             name: "containsMode"
@@ -109,7 +124,6 @@ Module {
             write: "setContainsMode"
             notify: "containsModeChanged"
             index: 5
-            isFinal: true
         }
         Property {
             name: "boundingRect"
@@ -121,7 +135,37 @@ Module {
             isReadonly: true
             isFinal: true
         }
-        Property { name: "data"; type: "QObject"; isList: true; read: "data"; index: 7; isReadonly: true }
+        Property {
+            name: "fillMode"
+            revision: 1543
+            type: "FillMode"
+            read: "fillMode"
+            write: "setFillMode"
+            notify: "fillModeChanged"
+            index: 7
+            isFinal: true
+        }
+        Property {
+            name: "horizontalAlignment"
+            revision: 1543
+            type: "HAlignment"
+            read: "horizontalAlignment"
+            write: "setHorizontalAlignment"
+            notify: "horizontalAlignmentChanged"
+            index: 8
+            isFinal: true
+        }
+        Property {
+            name: "verticalAlignment"
+            revision: 1543
+            type: "VAlignment"
+            read: "verticalAlignment"
+            write: "setVerticalAlignment"
+            notify: "verticalAlignmentChanged"
+            index: 9
+            isFinal: true
+        }
+        Property { name: "data"; type: "QObject"; isList: true; read: "data"; index: 10; isReadonly: true }
         Signal { name: "rendererChanged" }
         Signal { name: "asynchronousChanged" }
         Signal { name: "vendorExtensionsEnabledChanged" }
@@ -129,6 +173,9 @@ Module {
         Signal { name: "preferredRendererTypeChanged"; revision: 1542 }
         Signal { name: "boundingRectChanged"; revision: 1542 }
         Signal { name: "containsModeChanged"; revision: 267 }
+        Signal { name: "fillModeChanged"; revision: 1543 }
+        Signal { name: "horizontalAlignmentChanged"; revision: 1543 }
+        Signal { name: "verticalAlignmentChanged"; revision: 1543 }
         Method { name: "_q_shapePathChanged" }
     }
     Component {
@@ -151,7 +198,6 @@ Module {
             write: "setCenterX"
             notify: "centerXChanged"
             index: 0
-            isFinal: true
         }
         Property {
             name: "centerY"
@@ -160,7 +206,6 @@ Module {
             write: "setCenterY"
             notify: "centerYChanged"
             index: 1
-            isFinal: true
         }
         Property {
             name: "angle"
@@ -169,7 +214,6 @@ Module {
             write: "setAngle"
             notify: "angleChanged"
             index: 2
-            isFinal: true
         }
         Signal { name: "centerXChanged" }
         Signal { name: "centerYChanged" }
@@ -200,7 +244,6 @@ Module {
             write: "setSpread"
             notify: "spreadChanged"
             index: 0
-            isFinal: true
         }
         Signal { name: "spreadChanged" }
     }
@@ -217,42 +260,10 @@ Module {
             "QtQuick.Shapes/LinearGradient 6.0"
         ]
         exportMetaObjectRevisions: [256, 512, 524, 1536]
-        Property {
-            name: "x1"
-            type: "double"
-            read: "x1"
-            write: "setX1"
-            notify: "x1Changed"
-            index: 0
-            isFinal: true
-        }
-        Property {
-            name: "y1"
-            type: "double"
-            read: "y1"
-            write: "setY1"
-            notify: "y1Changed"
-            index: 1
-            isFinal: true
-        }
-        Property {
-            name: "x2"
-            type: "double"
-            read: "x2"
-            write: "setX2"
-            notify: "x2Changed"
-            index: 2
-            isFinal: true
-        }
-        Property {
-            name: "y2"
-            type: "double"
-            read: "y2"
-            write: "setY2"
-            notify: "y2Changed"
-            index: 3
-            isFinal: true
-        }
+        Property { name: "x1"; type: "double"; read: "x1"; write: "setX1"; notify: "x1Changed"; index: 0 }
+        Property { name: "y1"; type: "double"; read: "y1"; write: "setY1"; notify: "y1Changed"; index: 1 }
+        Property { name: "x2"; type: "double"; read: "x2"; write: "setX2"; notify: "x2Changed"; index: 2 }
+        Property { name: "y2"; type: "double"; read: "y2"; write: "setY2"; notify: "y2Changed"; index: 3 }
         Signal { name: "x1Changed" }
         Signal { name: "y1Changed" }
         Signal { name: "x2Changed" }
@@ -270,9 +281,10 @@ Module {
             "QtQuick.Shapes/ShapePath 2.0",
             "QtQuick.Shapes/ShapePath 2.14",
             "QtQuick.Shapes/ShapePath 6.0",
-            "QtQuick.Shapes/ShapePath 6.6"
+            "QtQuick.Shapes/ShapePath 6.6",
+            "QtQuick.Shapes/ShapePath 6.7"
         ]
-        exportMetaObjectRevisions: [256, 270, 512, 526, 1536, 1542]
+        exportMetaObjectRevisions: [256, 270, 512, 526, 1536, 1542, 1543]
         Enum {
             name: "FillRule"
             values: ["OddEvenFill", "WindingFill"]
@@ -289,6 +301,20 @@ Module {
             name: "StrokeStyle"
             values: ["SolidLine", "DashLine"]
         }
+        Enum {
+            name: "PathHints"
+            alias: "PathHint"
+            isFlag: true
+            values: [
+                "PathLinear",
+                "PathQuadratic",
+                "PathConvex",
+                "PathFillOnRight",
+                "PathSolid",
+                "PathNonIntersecting",
+                "PathNonOverlappingControlPointTriangles"
+            ]
+        }
         Property {
             name: "strokeColor"
             type: "QColor"
@@ -296,7 +322,6 @@ Module {
             write: "setStrokeColor"
             notify: "strokeColorChanged"
             index: 0
-            isFinal: true
         }
         Property {
             name: "strokeWidth"
@@ -305,7 +330,6 @@ Module {
             write: "setStrokeWidth"
             notify: "strokeWidthChanged"
             index: 1
-            isFinal: true
         }
         Property {
             name: "fillColor"
@@ -314,7 +338,6 @@ Module {
             write: "setFillColor"
             notify: "fillColorChanged"
             index: 2
-            isFinal: true
         }
         Property {
             name: "fillRule"
@@ -323,7 +346,6 @@ Module {
             write: "setFillRule"
             notify: "fillRuleChanged"
             index: 3
-            isFinal: true
         }
         Property {
             name: "joinStyle"
@@ -332,7 +354,6 @@ Module {
             write: "setJoinStyle"
             notify: "joinStyleChanged"
             index: 4
-            isFinal: true
         }
         Property {
             name: "miterLimit"
@@ -341,7 +362,6 @@ Module {
             write: "setMiterLimit"
             notify: "miterLimitChanged"
             index: 5
-            isFinal: true
         }
         Property {
             name: "capStyle"
@@ -350,7 +370,6 @@ Module {
             write: "setCapStyle"
             notify: "capStyleChanged"
             index: 6
-            isFinal: true
         }
         Property {
             name: "strokeStyle"
@@ -359,7 +378,6 @@ Module {
             write: "setStrokeStyle"
             notify: "strokeStyleChanged"
             index: 7
-            isFinal: true
         }
         Property {
             name: "dashOffset"
@@ -368,7 +386,6 @@ Module {
             write: "setDashOffset"
             notify: "dashOffsetChanged"
             index: 8
-            isFinal: true
         }
         Property {
             name: "dashPattern"
@@ -378,7 +395,6 @@ Module {
             write: "setDashPattern"
             notify: "dashPatternChanged"
             index: 9
-            isFinal: true
         }
         Property {
             name: "fillGradient"
@@ -388,7 +404,6 @@ Module {
             write: "setFillGradient"
             reset: "resetFillGradient"
             index: 10
-            isFinal: true
         }
         Property {
             name: "scale"
@@ -398,6 +413,15 @@ Module {
             write: "setScale"
             notify: "scaleChanged"
             index: 11
+        }
+        Property {
+            name: "pathHints"
+            revision: 1543
+            type: "PathHints"
+            read: "pathHints"
+            write: "setPathHints"
+            notify: "pathHintsChanged"
+            index: 12
             isFinal: true
         }
         Signal { name: "shapePathChanged" }
@@ -411,6 +435,7 @@ Module {
         Signal { name: "strokeStyleChanged" }
         Signal { name: "dashOffsetChanged" }
         Signal { name: "dashPatternChanged" }
+        Signal { name: "pathHintsChanged"; revision: 1543 }
         Method { name: "_q_fillGradientChanged" }
     }
     Component {
@@ -433,7 +458,6 @@ Module {
             write: "setCenterX"
             notify: "centerXChanged"
             index: 0
-            isFinal: true
         }
         Property {
             name: "centerY"
@@ -442,7 +466,6 @@ Module {
             write: "setCenterY"
             notify: "centerYChanged"
             index: 1
-            isFinal: true
         }
         Property {
             name: "centerRadius"
@@ -451,7 +474,6 @@ Module {
             write: "setCenterRadius"
             notify: "centerRadiusChanged"
             index: 2
-            isFinal: true
         }
         Property {
             name: "focalX"
@@ -460,7 +482,6 @@ Module {
             write: "setFocalX"
             notify: "focalXChanged"
             index: 3
-            isFinal: true
         }
         Property {
             name: "focalY"
@@ -469,7 +490,6 @@ Module {
             write: "setFocalY"
             notify: "focalYChanged"
             index: 4
-            isFinal: true
         }
         Property {
             name: "focalRadius"
@@ -478,7 +498,6 @@ Module {
             write: "setFocalRadius"
             notify: "focalRadiusChanged"
             index: 5
-            isFinal: true
         }
         Signal { name: "centerXChanged" }
         Signal { name: "centerYChanged" }

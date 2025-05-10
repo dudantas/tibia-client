@@ -61,7 +61,9 @@ Module {
                 "MenuBarFocusOnAltPressRelease",
                 "MouseCursorTheme",
                 "MouseCursorSize",
-                "UnderlineShortcut"
+                "UnderlineShortcut",
+                "ShowIconsInMenus",
+                "PreferFileIconFromTheme"
             ]
         }
         Enum {
@@ -267,7 +269,8 @@ Module {
             "QtQuick.Controls.impl/CheckLabel 2.11",
             "QtQuick.Controls.impl/CheckLabel 6.0",
             "QtQuick.Controls.impl/CheckLabel 6.2",
-            "QtQuick.Controls.impl/CheckLabel 6.3"
+            "QtQuick.Controls.impl/CheckLabel 6.3",
+            "QtQuick.Controls.impl/CheckLabel 6.7"
         ]
         exportMetaObjectRevisions: [
             515,
@@ -279,7 +282,8 @@ Module {
             523,
             1536,
             1538,
-            1539
+            1539,
+            1543
         ]
     }
     Component {
@@ -298,7 +302,8 @@ Module {
             "QtQuick.Controls.impl/ClippedText 2.11",
             "QtQuick.Controls.impl/ClippedText 6.0",
             "QtQuick.Controls.impl/ClippedText 6.2",
-            "QtQuick.Controls.impl/ClippedText 6.3"
+            "QtQuick.Controls.impl/ClippedText 6.3",
+            "QtQuick.Controls.impl/ClippedText 6.7"
         ]
         exportMetaObjectRevisions: [
             514,
@@ -311,7 +316,8 @@ Module {
             523,
             1536,
             1538,
-            1539
+            1539,
+            1543
         ]
         Property { name: "clipX"; type: "double"; read: "clipX"; write: "setClipX"; index: 0; isFinal: true }
         Property { name: "clipY"; type: "double"; read: "clipY"; write: "setClipY"; index: 1; isFinal: true }
@@ -373,7 +379,8 @@ Module {
             "QtQuick.Controls.impl/ColorImage 2.15",
             "QtQuick.Controls.impl/ColorImage 6.0",
             "QtQuick.Controls.impl/ColorImage 6.2",
-            "QtQuick.Controls.impl/ColorImage 6.3"
+            "QtQuick.Controls.impl/ColorImage 6.3",
+            "QtQuick.Controls.impl/ColorImage 6.7"
         ]
         exportMetaObjectRevisions: [
             515,
@@ -385,7 +392,8 @@ Module {
             527,
             1536,
             1538,
-            1539
+            1539,
+            1543
         ]
         Property {
             name: "color"
@@ -425,7 +433,8 @@ Module {
             "QtQuick.Controls.impl/IconImage 2.15",
             "QtQuick.Controls.impl/IconImage 6.0",
             "QtQuick.Controls.impl/IconImage 6.2",
-            "QtQuick.Controls.impl/IconImage 6.3"
+            "QtQuick.Controls.impl/IconImage 6.3",
+            "QtQuick.Controls.impl/IconImage 6.7"
         ]
         exportMetaObjectRevisions: [
             515,
@@ -437,7 +446,8 @@ Module {
             527,
             1536,
             1538,
-            1539
+            1539,
+            1543
         ]
         Property {
             name: "name"
@@ -473,9 +483,10 @@ Module {
             "QtQuick.Controls.impl/IconLabel 2.7",
             "QtQuick.Controls.impl/IconLabel 2.11",
             "QtQuick.Controls.impl/IconLabel 6.0",
-            "QtQuick.Controls.impl/IconLabel 6.3"
+            "QtQuick.Controls.impl/IconLabel 6.3",
+            "QtQuick.Controls.impl/IconLabel 6.7"
         ]
-        exportMetaObjectRevisions: [515, 516, 519, 523, 1536, 1539]
+        exportMetaObjectRevisions: [515, 516, 519, 523, 1536, 1539, 1543]
         Enum {
             name: "Display"
             values: [
@@ -611,9 +622,19 @@ Module {
             "QtQuick.Controls.impl/ItemGroup 2.11",
             "QtQuick.Controls.impl/ItemGroup 6.0",
             "QtQuick.Controls.impl/ItemGroup 6.2",
-            "QtQuick.Controls.impl/ItemGroup 6.3"
+            "QtQuick.Controls.impl/ItemGroup 6.3",
+            "QtQuick.Controls.impl/ItemGroup 6.7"
         ]
-        exportMetaObjectRevisions: [514, 516, 519, 523, 1536, 1538, 1539]
+        exportMetaObjectRevisions: [
+            514,
+            516,
+            519,
+            523,
+            1536,
+            1538,
+            1539,
+            1543
+        ]
     }
     Component {
         file: "private/qquickmnemoniclabel_p.h"
@@ -630,7 +651,8 @@ Module {
             "QtQuick.Controls.impl/MnemonicLabel 2.11",
             "QtQuick.Controls.impl/MnemonicLabel 6.0",
             "QtQuick.Controls.impl/MnemonicLabel 6.2",
-            "QtQuick.Controls.impl/MnemonicLabel 6.3"
+            "QtQuick.Controls.impl/MnemonicLabel 6.3",
+            "QtQuick.Controls.impl/MnemonicLabel 6.7"
         ]
         exportMetaObjectRevisions: [
             515,
@@ -642,7 +664,8 @@ Module {
             523,
             1536,
             1538,
-            1539
+            1539,
+            1543
         ]
         Property { name: "text"; type: "QString"; read: "text"; write: "setText"; index: 0; isFinal: true }
         Property {
@@ -669,7 +692,8 @@ Module {
             "QtQuick.Controls.impl/NinePatchImage 2.15",
             "QtQuick.Controls.impl/NinePatchImage 6.0",
             "QtQuick.Controls.impl/NinePatchImage 6.2",
-            "QtQuick.Controls.impl/NinePatchImage 6.3"
+            "QtQuick.Controls.impl/NinePatchImage 6.3",
+            "QtQuick.Controls.impl/NinePatchImage 6.7"
         ]
         exportMetaObjectRevisions: [
             515,
@@ -681,7 +705,8 @@ Module {
             527,
             1536,
             1538,
-            1539
+            1539,
+            1543
         ]
         Property {
             name: "topPadding"
@@ -829,10 +854,11 @@ Module {
             "QtQuick.Controls.impl/Overlay 2.7",
             "QtQuick.Controls.impl/Overlay 2.11",
             "QtQuick.Controls.impl/Overlay 6.0",
-            "QtQuick.Controls.impl/Overlay 6.3"
+            "QtQuick.Controls.impl/Overlay 6.3",
+            "QtQuick.Controls.impl/Overlay 6.7"
         ]
         isCreatable: false
-        exportMetaObjectRevisions: [515, 516, 519, 523, 1536, 1539]
+        exportMetaObjectRevisions: [515, 516, 519, 523, 1536, 1539, 1543]
         attachedType: "QQuickOverlayAttached"
         Property {
             name: "modal"
@@ -871,9 +897,10 @@ Module {
             "QtQuick.Controls.impl/PaddedRectangle 2.7",
             "QtQuick.Controls.impl/PaddedRectangle 2.11",
             "QtQuick.Controls.impl/PaddedRectangle 6.0",
-            "QtQuick.Controls.impl/PaddedRectangle 6.3"
+            "QtQuick.Controls.impl/PaddedRectangle 6.3",
+            "QtQuick.Controls.impl/PaddedRectangle 6.7"
         ]
-        exportMetaObjectRevisions: [512, 513, 516, 519, 523, 1536, 1539]
+        exportMetaObjectRevisions: [512, 513, 516, 519, 523, 1536, 1539, 1543]
         Property {
             name: "padding"
             type: "double"
@@ -946,7 +973,8 @@ Module {
             "QtQuick.Controls.impl/PlaceholderText 2.11",
             "QtQuick.Controls.impl/PlaceholderText 6.0",
             "QtQuick.Controls.impl/PlaceholderText 6.2",
-            "QtQuick.Controls.impl/PlaceholderText 6.3"
+            "QtQuick.Controls.impl/PlaceholderText 6.3",
+            "QtQuick.Controls.impl/PlaceholderText 6.7"
         ]
         exportMetaObjectRevisions: [
             514,
@@ -959,7 +987,8 @@ Module {
             523,
             1536,
             1538,
-            1539
+            1539,
+            1543
         ]
         Method { name: "updateAlignment" }
     }
@@ -1062,7 +1091,7 @@ Module {
         }
         Enum {
             name: "RenderType"
-            values: ["QtRendering", "NativeRendering"]
+            values: ["QtRendering", "NativeRendering", "CurveRendering"]
         }
         Enum {
             name: "RenderTypeQuality"
@@ -1105,7 +1134,6 @@ Module {
             write: "setColor"
             notify: "colorChanged"
             index: 2
-            isFinal: true
         }
         Property {
             name: "linkColor"
@@ -1114,7 +1142,6 @@ Module {
             write: "setLinkColor"
             notify: "linkColorChanged"
             index: 3
-            isFinal: true
         }
         Property {
             name: "style"
@@ -1123,7 +1150,6 @@ Module {
             write: "setStyle"
             notify: "styleChanged"
             index: 4
-            isFinal: true
         }
         Property {
             name: "styleColor"
@@ -1132,7 +1158,6 @@ Module {
             write: "setStyleColor"
             notify: "styleColorChanged"
             index: 5
-            isFinal: true
         }
         Property {
             name: "horizontalAlignment"
@@ -1142,7 +1167,6 @@ Module {
             reset: "resetHAlign"
             notify: "horizontalAlignmentChanged"
             index: 6
-            isFinal: true
         }
         Property {
             name: "effectiveHorizontalAlignment"
@@ -1151,7 +1175,6 @@ Module {
             notify: "effectiveHorizontalAlignmentChanged"
             index: 7
             isReadonly: true
-            isFinal: true
         }
         Property {
             name: "verticalAlignment"
@@ -1160,7 +1183,6 @@ Module {
             write: "setVAlign"
             notify: "verticalAlignmentChanged"
             index: 8
-            isFinal: true
         }
         Property {
             name: "wrapMode"
@@ -1169,7 +1191,6 @@ Module {
             write: "setWrapMode"
             notify: "wrapModeChanged"
             index: 9
-            isFinal: true
         }
         Property {
             name: "lineCount"
@@ -1178,7 +1199,6 @@ Module {
             notify: "lineCountChanged"
             index: 10
             isReadonly: true
-            isFinal: true
         }
         Property {
             name: "truncated"
@@ -1187,7 +1207,6 @@ Module {
             notify: "truncatedChanged"
             index: 11
             isReadonly: true
-            isFinal: true
         }
         Property {
             name: "maximumLineCount"
@@ -1197,7 +1216,6 @@ Module {
             reset: "resetMaximumLineCount"
             notify: "maximumLineCountChanged"
             index: 12
-            isFinal: true
         }
         Property {
             name: "textFormat"
@@ -1206,7 +1224,6 @@ Module {
             write: "setTextFormat"
             notify: "textFormatChanged"
             index: 13
-            isFinal: true
         }
         Property {
             name: "elide"
@@ -1215,7 +1232,6 @@ Module {
             write: "setElideMode"
             notify: "elideModeChanged"
             index: 14
-            isFinal: true
         }
         Property {
             name: "contentWidth"
@@ -1224,7 +1240,6 @@ Module {
             notify: "contentWidthChanged"
             index: 15
             isReadonly: true
-            isFinal: true
         }
         Property {
             name: "contentHeight"
@@ -1233,7 +1248,6 @@ Module {
             notify: "contentHeightChanged"
             index: 16
             isReadonly: true
-            isFinal: true
         }
         Property {
             name: "paintedWidth"
@@ -1242,7 +1256,6 @@ Module {
             notify: "contentWidthChanged"
             index: 17
             isReadonly: true
-            isFinal: true
         }
         Property {
             name: "paintedHeight"
@@ -1251,7 +1264,6 @@ Module {
             notify: "contentHeightChanged"
             index: 18
             isReadonly: true
-            isFinal: true
         }
         Property {
             name: "lineHeight"
@@ -1260,7 +1272,6 @@ Module {
             write: "setLineHeight"
             notify: "lineHeightChanged"
             index: 19
-            isFinal: true
         }
         Property {
             name: "lineHeightMode"
@@ -1269,7 +1280,6 @@ Module {
             write: "setLineHeightMode"
             notify: "lineHeightModeChanged"
             index: 20
-            isFinal: true
         }
         Property {
             name: "baseUrl"
@@ -1279,7 +1289,6 @@ Module {
             reset: "resetBaseUrl"
             notify: "baseUrlChanged"
             index: 21
-            isFinal: true
         }
         Property {
             name: "minimumPixelSize"
@@ -1288,7 +1297,6 @@ Module {
             write: "setMinimumPixelSize"
             notify: "minimumPixelSizeChanged"
             index: 22
-            isFinal: true
         }
         Property {
             name: "minimumPointSize"
@@ -1297,7 +1305,6 @@ Module {
             write: "setMinimumPointSize"
             notify: "minimumPointSizeChanged"
             index: 23
-            isFinal: true
         }
         Property {
             name: "fontSizeMode"
@@ -1306,7 +1313,6 @@ Module {
             write: "setFontSizeMode"
             notify: "fontSizeModeChanged"
             index: 24
-            isFinal: true
         }
         Property {
             name: "renderType"
@@ -1315,7 +1321,6 @@ Module {
             write: "setRenderType"
             notify: "renderTypeChanged"
             index: 25
-            isFinal: true
         }
         Property {
             name: "hoveredLink"
@@ -1325,7 +1330,6 @@ Module {
             notify: "linkHovered"
             index: 26
             isReadonly: true
-            isFinal: true
         }
         Property {
             name: "renderTypeQuality"
@@ -1335,7 +1339,6 @@ Module {
             write: "setRenderTypeQuality"
             notify: "renderTypeQualityChanged"
             index: 27
-            isFinal: true
         }
         Property {
             name: "padding"
@@ -1346,7 +1349,6 @@ Module {
             reset: "resetPadding"
             notify: "paddingChanged"
             index: 28
-            isFinal: true
         }
         Property {
             name: "topPadding"
@@ -1357,7 +1359,6 @@ Module {
             reset: "resetTopPadding"
             notify: "topPaddingChanged"
             index: 29
-            isFinal: true
         }
         Property {
             name: "leftPadding"
@@ -1368,7 +1369,6 @@ Module {
             reset: "resetLeftPadding"
             notify: "leftPaddingChanged"
             index: 30
-            isFinal: true
         }
         Property {
             name: "rightPadding"
@@ -1379,7 +1379,6 @@ Module {
             reset: "resetRightPadding"
             notify: "rightPaddingChanged"
             index: 31
-            isFinal: true
         }
         Property {
             name: "bottomPadding"
@@ -1390,7 +1389,6 @@ Module {
             reset: "resetBottomPadding"
             notify: "bottomPaddingChanged"
             index: 32
-            isFinal: true
         }
         Property {
             name: "fontInfo"
@@ -1400,7 +1398,6 @@ Module {
             notify: "fontInfoChanged"
             index: 33
             isReadonly: true
-            isFinal: true
         }
         Property {
             name: "advance"
@@ -1410,7 +1407,6 @@ Module {
             notify: "contentSizeChanged"
             index: 34
             isReadonly: true
-            isFinal: true
         }
         Signal {
             name: "textChanged"
@@ -1492,6 +1488,14 @@ Module {
         Signal { name: "renderTypeQualityChanged"; revision: 1536 }
         Method { name: "q_updateLayout" }
         Method { name: "triggerPreprocess" }
+        Method {
+            name: "loadResource"
+            revision: 1543
+            type: "QVariant"
+            Parameter { name: "type"; type: "int" }
+            Parameter { name: "source"; type: "QUrl" }
+        }
+        Method { name: "resourceRequestFinished" }
         Method { name: "imageDownloadFinished" }
         Method { name: "forceLayout"; revision: 521 }
         Method {
@@ -1515,9 +1519,10 @@ Module {
             "QtQuick.Controls.impl/TumblerView 2.7",
             "QtQuick.Controls.impl/TumblerView 2.11",
             "QtQuick.Controls.impl/TumblerView 6.0",
-            "QtQuick.Controls.impl/TumblerView 6.3"
+            "QtQuick.Controls.impl/TumblerView 6.3",
+            "QtQuick.Controls.impl/TumblerView 6.7"
         ]
-        exportMetaObjectRevisions: [513, 516, 519, 523, 1536, 1539]
+        exportMetaObjectRevisions: [513, 516, 519, 523, 1536, 1539, 1543]
         Property {
             name: "model"
             type: "QVariant"

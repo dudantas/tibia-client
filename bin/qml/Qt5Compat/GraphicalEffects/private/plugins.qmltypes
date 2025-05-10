@@ -44,9 +44,10 @@ Module {
         exports: [
             "Qt5Compat.GraphicalEffects.private/SourceProxy 5.0",
             "Qt5Compat.GraphicalEffects.private/SourceProxy 6.0",
-            "Qt5Compat.GraphicalEffects.private/SourceProxy 6.3"
+            "Qt5Compat.GraphicalEffects.private/SourceProxy 6.3",
+            "Qt5Compat.GraphicalEffects.private/SourceProxy 6.7"
         ]
-        exportMetaObjectRevisions: [1280, 1536, 1539]
+        exportMetaObjectRevisions: [1280, 1536, 1539, 1543]
         Enum {
             name: "Interpolation"
             values: [
