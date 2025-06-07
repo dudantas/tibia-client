@@ -20,9 +20,10 @@ Module {
             "QtQuick.Controls.Material.impl/BusyIndicatorImpl 2.7",
             "QtQuick.Controls.Material.impl/BusyIndicatorImpl 2.11",
             "QtQuick.Controls.Material.impl/BusyIndicatorImpl 6.0",
-            "QtQuick.Controls.Material.impl/BusyIndicatorImpl 6.3"
+            "QtQuick.Controls.Material.impl/BusyIndicatorImpl 6.3",
+            "QtQuick.Controls.Material.impl/BusyIndicatorImpl 6.7"
         ]
-        exportMetaObjectRevisions: [512, 513, 516, 519, 523, 1536, 1539]
+        exportMetaObjectRevisions: [512, 513, 516, 519, 523, 1536, 1539, 1543]
         Property { name: "color"; type: "QColor"; read: "color"; write: "setColor"; index: 0; isFinal: true }
         Property {
             name: "running"
@@ -39,9 +40,10 @@ Module {
         accessSemantics: "reference"
         prototype: "QQuickPlaceholderText"
         exports: [
-            "QtQuick.Controls.Material.impl/FloatingPlaceholderText 6.5"
+            "QtQuick.Controls.Material.impl/FloatingPlaceholderText 6.5",
+            "QtQuick.Controls.Material.impl/FloatingPlaceholderText 6.7"
         ]
-        exportMetaObjectRevisions: [1541]
+        exportMetaObjectRevisions: [1541, 1543]
         Property {
             name: "filled"
             type: "bool"
@@ -126,9 +128,10 @@ Module {
             "QtQuick.Controls.Material.impl/ProgressBarImpl 2.7",
             "QtQuick.Controls.Material.impl/ProgressBarImpl 2.11",
             "QtQuick.Controls.Material.impl/ProgressBarImpl 6.0",
-            "QtQuick.Controls.Material.impl/ProgressBarImpl 6.3"
+            "QtQuick.Controls.Material.impl/ProgressBarImpl 6.3",
+            "QtQuick.Controls.Material.impl/ProgressBarImpl 6.7"
         ]
-        exportMetaObjectRevisions: [512, 513, 516, 519, 523, 1536, 1539]
+        exportMetaObjectRevisions: [512, 513, 516, 519, 523, 1536, 1539, 1543]
         Property { name: "color"; type: "QColor"; read: "color"; write: "setColor"; index: 0; isFinal: true }
         Property {
             name: "progress"
@@ -161,9 +164,10 @@ Module {
             "QtQuick.Controls.Material.impl/Ripple 2.7",
             "QtQuick.Controls.Material.impl/Ripple 2.11",
             "QtQuick.Controls.Material.impl/Ripple 6.0",
-            "QtQuick.Controls.Material.impl/Ripple 6.3"
+            "QtQuick.Controls.Material.impl/Ripple 6.3",
+            "QtQuick.Controls.Material.impl/Ripple 6.7"
         ]
-        exportMetaObjectRevisions: [512, 513, 516, 519, 523, 1536, 1539]
+        exportMetaObjectRevisions: [512, 513, 516, 519, 523, 1536, 1539, 1543]
         Enum {
             name: "Trigger"
             values: ["Press", "Release"]
@@ -216,8 +220,11 @@ Module {
         name: "QQuickMaterialTextContainer"
         accessSemantics: "reference"
         prototype: "QQuickPaintedItem"
-        exports: ["QtQuick.Controls.Material.impl/MaterialTextContainer 6.5"]
-        exportMetaObjectRevisions: [1541]
+        exports: [
+            "QtQuick.Controls.Material.impl/MaterialTextContainer 6.5",
+            "QtQuick.Controls.Material.impl/MaterialTextContainer 6.7"
+        ]
+        exportMetaObjectRevisions: [1541, 1543]
         Enum {
             name: "PlaceHolderHAlignment"
             values: [

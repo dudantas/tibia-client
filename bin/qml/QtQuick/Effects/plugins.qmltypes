@@ -13,8 +13,11 @@ Module {
         defaultProperty: "data"
         parentProperty: "parent"
         prototype: "QQuickItem"
-        exports: ["QtQuick.Effects/MultiEffect 6.5"]
-        exportMetaObjectRevisions: [1541]
+        exports: [
+            "QtQuick.Effects/MultiEffect 6.5",
+            "QtQuick.Effects/MultiEffect 6.7"
+        ]
+        exportMetaObjectRevisions: [1541, 1543]
         Property {
             name: "source"
             type: "QQuickItem"

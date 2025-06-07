@@ -145,7 +145,7 @@ Module {
         }
         Property {
             name: "result"
-            type: "StandardCode"
+            type: "int"
             read: "result"
             write: "setResult"
             notify: "resultChanged"
@@ -166,7 +166,7 @@ Module {
         Method { name: "reject" }
         Method {
             name: "done"
-            Parameter { name: "result"; type: "StandardCode" }
+            Parameter { name: "result"; type: "int" }
         }
     }
     Component {

@@ -867,6 +867,123 @@ Module {
         }
     }
     Component {
+        file: "private/qquickwebengineforeigntypes_p.h"
+        name: "QWebEngineWebAuthUxRequest"
+        accessSemantics: "reference"
+        prototype: "QObject"
+        exports: ["QtWebEngine/WebEngineWebAuthUxRequest 6.7"]
+        isCreatable: false
+        exportMetaObjectRevisions: [1543]
+        Enum {
+            name: "WebAuthUxState"
+            isScoped: true
+            values: [
+                "NotStarted",
+                "SelectAccount",
+                "CollectPin",
+                "FinishTokenCollection",
+                "RequestFailed",
+                "Cancelled",
+                "Completed"
+            ]
+        }
+        Enum {
+            name: "PinEntryReason"
+            isScoped: true
+            values: ["Set", "Change", "Challenge"]
+        }
+        Enum {
+            name: "PinEntryError"
+            isScoped: true
+            values: [
+                "NoError",
+                "InternalUvLocked",
+                "WrongPin",
+                "TooShort",
+                "InvalidCharacters",
+                "SameAsCurrentPin"
+            ]
+        }
+        Enum {
+            name: "RequestFailureReason"
+            isScoped: true
+            values: [
+                "Timeout",
+                "KeyNotRegistered",
+                "KeyAlreadyRegistered",
+                "SoftPinBlock",
+                "HardPinBlock",
+                "AuthenticatorRemovedDuringPinEntry",
+                "AuthenticatorMissingResidentKeys",
+                "AuthenticatorMissingUserVerification",
+                "AuthenticatorMissingLargeBlob",
+                "NoCommonAlgorithms",
+                "StorageFull",
+                "UserConsentDenied",
+                "WinUserCancelled"
+            ]
+        }
+        Property {
+            name: "userNames"
+            type: "QStringList"
+            read: "userNames"
+            index: 0
+            isReadonly: true
+            isFinal: true
+            isConstant: true
+        }
+        Property {
+            name: "state"
+            type: "WebAuthUxState"
+            read: "state"
+            notify: "stateChanged"
+            index: 1
+            isReadonly: true
+            isFinal: true
+        }
+        Property {
+            name: "relyingPartyId"
+            type: "QString"
+            read: "relyingPartyId"
+            index: 2
+            isReadonly: true
+            isFinal: true
+            isConstant: true
+        }
+        Property {
+            name: "pinRequest"
+            type: "QWebEngineWebAuthPinRequest"
+            read: "pinRequest"
+            index: 3
+            isReadonly: true
+            isFinal: true
+            isConstant: true
+        }
+        Property {
+            name: "requestFailureReason"
+            type: "RequestFailureReason"
+            read: "requestFailureReason"
+            index: 4
+            isReadonly: true
+            isFinal: true
+            isConstant: true
+        }
+        Signal {
+            name: "stateChanged"
+            Parameter { name: "state"; type: "QWebEngineWebAuthUxRequest::WebAuthUxState" }
+        }
+        Method { name: "cancel" }
+        Method { name: "retry" }
+        Method {
+            name: "setSelectedAccount"
+            Parameter { name: "selectedAccount"; type: "QString" }
+        }
+        Method {
+            name: "setPin"
+            Parameter { name: "pin"; type: "QString" }
+        }
+    }
+    Component {
         file: "private/qquickwebengineaction_p.h"
         name: "QQuickWebEngineAction"
         accessSemantics: "reference"
@@ -1301,9 +1418,10 @@ Module {
             "QtWebEngine/WebEngineProfile 1.3",
             "QtWebEngine/WebEngineProfile 1.5",
             "QtWebEngine/WebEngineProfile 6.0",
-            "QtWebEngine/WebEngineProfile 6.5"
+            "QtWebEngine/WebEngineProfile 6.5",
+            "QtWebEngine/WebEngineProfile 6.7"
         ]
-        exportMetaObjectRevisions: [257, 258, 259, 261, 1536, 1541]
+        exportMetaObjectRevisions: [257, 258, 259, 261, 1536, 1541, 1543]
         Enum {
             name: "HttpCacheType"
             values: ["MemoryHttpCache", "DiskHttpCache", "NoCache"]
@@ -1459,6 +1577,7 @@ Module {
         Signal { name: "spellCheckEnabledChanged"; revision: 259 }
         Signal { name: "downloadPathChanged"; revision: 261 }
         Signal { name: "pushServiceEnabledChanged"; revision: 1541 }
+        Signal { name: "clearHttpCacheCompleted"; revision: 1543 }
         Signal {
             name: "downloadRequested"
             Parameter { name: "download"; type: "QQuickWebEngineDownloadRequest"; isPointer: true }
@@ -1490,7 +1609,8 @@ Module {
             "QtWebEngine/WebEngineSettings 1.8",
             "QtWebEngine/WebEngineSettings 6.0",
             "QtWebEngine/WebEngineSettings 6.4",
-            "QtWebEngine/WebEngineSettings 6.6"
+            "QtWebEngine/WebEngineSettings 6.6",
+            "QtWebEngine/WebEngineSettings 6.7"
         ]
         isCreatable: false
         exportMetaObjectRevisions: [
@@ -1504,7 +1624,8 @@ Module {
             264,
             1536,
             1540,
-            1542
+            1542,
+            1543
         ]
         Enum {
             name: "UnknownUrlSchemePolicy"
@@ -1831,6 +1952,16 @@ Module {
             index: 32
             isFinal: true
         }
+        Property {
+            name: "forceDarkMode"
+            revision: 1543
+            type: "bool"
+            read: "forceDarkMode"
+            write: "setForceDarkMode"
+            notify: "forceDarkModeChanged"
+            index: 33
+            isFinal: true
+        }
         Signal { name: "autoLoadImagesChanged" }
         Signal { name: "javascriptEnabledChanged" }
         Signal { name: "javascriptCanOpenWindowsChanged" }
@@ -1864,6 +1995,7 @@ Module {
         Signal { name: "pdfViewerEnabledChanged"; revision: 264 }
         Signal { name: "navigateOnDropEnabledChanged"; revision: 1540 }
         Signal { name: "readingFromCanvasEnabledChanged"; revision: 1542 }
+        Signal { name: "forceDarkModeChanged"; revision: 1543 }
     }
     Component {
         file: "private/qquickwebenginesingleton_p.h"
@@ -2028,7 +2160,8 @@ Module {
             "QtWebEngine/WebEngineView 6.0",
             "QtWebEngine/WebEngineView 6.3",
             "QtWebEngine/WebEngineView 6.4",
-            "QtWebEngine/WebEngineView 6.6"
+            "QtWebEngine/WebEngineView 6.6",
+            "QtWebEngine/WebEngineView 6.7"
         ]
         exportMetaObjectRevisions: [
             256,
@@ -2051,7 +2184,8 @@ Module {
             1536,
             1539,
             1540,
-            1542
+            1542,
+            1543
         ]
         Enum {
             name: "NavigationRequestAction"
@@ -2324,6 +2458,7 @@ Module {
         }
         Enum {
             name: "LifecycleState"
+            isScoped: true
             values: ["Active", "Frozen", "Discarded"]
         }
         Property {
@@ -2799,6 +2934,16 @@ Module {
             name: "fileSystemAccessRequested"
             revision: 1540
             Parameter { name: "request"; type: "QWebEngineFileSystemAccessRequest" }
+        }
+        Signal {
+            name: "webAuthUxRequested"
+            revision: 1543
+            Parameter { name: "request"; type: "QWebEngineWebAuthUxRequest"; isPointer: true }
+        }
+        Signal {
+            name: "desktopMediaRequested"
+            revision: 1543
+            Parameter { name: "request"; type: "QWebEngineDesktopMediaRequest" }
         }
         Method {
             name: "runJavaScript"

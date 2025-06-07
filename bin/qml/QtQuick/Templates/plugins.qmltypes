@@ -92,7 +92,8 @@ Module {
             "QtQuick.Templates/AbstractButton 2.7",
             "QtQuick.Templates/AbstractButton 2.11",
             "QtQuick.Templates/AbstractButton 6.0",
-            "QtQuick.Templates/AbstractButton 6.3"
+            "QtQuick.Templates/AbstractButton 6.3",
+            "QtQuick.Templates/AbstractButton 6.7"
         ]
         exportMetaObjectRevisions: [
             512,
@@ -104,7 +105,8 @@ Module {
             519,
             523,
             1536,
-            1539
+            1539,
+            1543
         ]
         Enum {
             name: "Display"
@@ -519,9 +521,20 @@ Module {
             "QtQuick.Templates/ApplicationWindow 2.13",
             "QtQuick.Templates/ApplicationWindow 2.14",
             "QtQuick.Templates/ApplicationWindow 6.0",
-            "QtQuick.Templates/ApplicationWindow 6.2"
+            "QtQuick.Templates/ApplicationWindow 6.2",
+            "QtQuick.Templates/ApplicationWindow 6.7"
         ]
-        exportMetaObjectRevisions: [512, 513, 514, 515, 525, 526, 1536, 1538]
+        exportMetaObjectRevisions: [
+            512,
+            513,
+            514,
+            515,
+            525,
+            526,
+            1536,
+            1538,
+            1543
+        ]
         attachedType: "QQuickApplicationWindowAttached"
         Property {
             name: "background"
@@ -720,9 +733,20 @@ Module {
             "QtQuick.Templates/BusyIndicator 2.7",
             "QtQuick.Templates/BusyIndicator 2.11",
             "QtQuick.Templates/BusyIndicator 6.0",
-            "QtQuick.Templates/BusyIndicator 6.3"
+            "QtQuick.Templates/BusyIndicator 6.3",
+            "QtQuick.Templates/BusyIndicator 6.7"
         ]
-        exportMetaObjectRevisions: [512, 513, 516, 517, 519, 523, 1536, 1539]
+        exportMetaObjectRevisions: [
+            512,
+            513,
+            516,
+            517,
+            519,
+            523,
+            1536,
+            1539,
+            1543
+        ]
         Property {
             name: "running"
             type: "bool"
@@ -749,7 +773,8 @@ Module {
             "QtQuick.Templates/Button 2.7",
             "QtQuick.Templates/Button 2.11",
             "QtQuick.Templates/Button 6.0",
-            "QtQuick.Templates/Button 6.3"
+            "QtQuick.Templates/Button 6.3",
+            "QtQuick.Templates/Button 6.7"
         ]
         exportMetaObjectRevisions: [
             512,
@@ -761,7 +786,8 @@ Module {
             519,
             523,
             1536,
-            1539
+            1539,
+            1543
         ]
         Property {
             name: "highlighted"
@@ -977,7 +1003,8 @@ Module {
             "QtQuick.Templates/CheckBox 2.7",
             "QtQuick.Templates/CheckBox 2.11",
             "QtQuick.Templates/CheckBox 6.0",
-            "QtQuick.Templates/CheckBox 6.3"
+            "QtQuick.Templates/CheckBox 6.3",
+            "QtQuick.Templates/CheckBox 6.7"
         ]
         exportMetaObjectRevisions: [
             512,
@@ -989,7 +1016,8 @@ Module {
             519,
             523,
             1536,
-            1539
+            1539,
+            1543
         ]
         Property {
             name: "tristate"
@@ -1038,7 +1066,8 @@ Module {
             "QtQuick.Templates/CheckDelegate 2.7",
             "QtQuick.Templates/CheckDelegate 2.11",
             "QtQuick.Templates/CheckDelegate 6.0",
-            "QtQuick.Templates/CheckDelegate 6.3"
+            "QtQuick.Templates/CheckDelegate 6.3",
+            "QtQuick.Templates/CheckDelegate 6.7"
         ]
         exportMetaObjectRevisions: [
             512,
@@ -1050,7 +1079,8 @@ Module {
             519,
             523,
             1536,
-            1539
+            1539,
+            1543
         ]
         Property {
             name: "tristate"
@@ -1101,7 +1131,8 @@ Module {
             "QtQuick.Templates/ComboBox 2.14",
             "QtQuick.Templates/ComboBox 2.15",
             "QtQuick.Templates/ComboBox 6.0",
-            "QtQuick.Templates/ComboBox 6.3"
+            "QtQuick.Templates/ComboBox 6.3",
+            "QtQuick.Templates/ComboBox 6.7"
         ]
         exportMetaObjectRevisions: [
             512,
@@ -1114,7 +1145,8 @@ Module {
             526,
             527,
             1536,
-            1539
+            1539,
+            1543
         ]
         Enum {
             name: "ImplicitContentWidthPolicy"
@@ -1463,7 +1495,8 @@ Module {
             "QtQuick.Templates/Container 2.7",
             "QtQuick.Templates/Container 2.11",
             "QtQuick.Templates/Container 6.0",
-            "QtQuick.Templates/Container 6.3"
+            "QtQuick.Templates/Container 6.3",
+            "QtQuick.Templates/Container 6.7"
         ]
         exportMetaObjectRevisions: [
             512,
@@ -1474,7 +1507,8 @@ Module {
             519,
             523,
             1536,
-            1539
+            1539,
+            1543
         ]
         Property {
             name: "count"
@@ -1614,9 +1648,20 @@ Module {
             "QtQuick.Templates/Control 2.7",
             "QtQuick.Templates/Control 2.11",
             "QtQuick.Templates/Control 6.0",
-            "QtQuick.Templates/Control 6.3"
+            "QtQuick.Templates/Control 6.3",
+            "QtQuick.Templates/Control 6.7"
         ]
-        exportMetaObjectRevisions: [512, 513, 516, 517, 519, 523, 1536, 1539]
+        exportMetaObjectRevisions: [
+            512,
+            513,
+            516,
+            517,
+            519,
+            523,
+            1536,
+            1539,
+            1543
+        ]
         Property {
             name: "font"
             type: "QFont"
@@ -1925,9 +1970,8 @@ Module {
         Signal { name: "bottomPaddingChanged" }
         Signal { name: "spacingChanged" }
         Signal { name: "localeChanged" }
-        Signal { name: "mirroredChanged" }
-        Signal { name: "focusPolicyChanged" }
         Signal { name: "focusReasonChanged" }
+        Signal { name: "mirroredChanged" }
         Signal { name: "visualFocusChanged" }
         Signal { name: "hoveredChanged" }
         Signal { name: "hoverEnabledChanged" }
@@ -1951,8 +1995,11 @@ Module {
         name: "QQuickDayOfWeekRow"
         accessSemantics: "reference"
         prototype: "QQuickControl"
-        exports: ["QtQuick.Templates/AbstractDayOfWeekRow 6.3"]
-        exportMetaObjectRevisions: [1539]
+        exports: [
+            "QtQuick.Templates/AbstractDayOfWeekRow 6.3",
+            "QtQuick.Templates/AbstractDayOfWeekRow 6.7"
+        ]
+        exportMetaObjectRevisions: [1539, 1543]
         Property {
             name: "source"
             type: "QVariant"
@@ -1988,9 +2035,20 @@ Module {
             "QtQuick.Templates/DelayButton 2.7",
             "QtQuick.Templates/DelayButton 2.11",
             "QtQuick.Templates/DelayButton 6.0",
-            "QtQuick.Templates/DelayButton 6.3"
+            "QtQuick.Templates/DelayButton 6.3",
+            "QtQuick.Templates/DelayButton 6.7"
         ]
-        exportMetaObjectRevisions: [514, 515, 516, 517, 519, 523, 1536, 1539]
+        exportMetaObjectRevisions: [
+            514,
+            515,
+            516,
+            517,
+            519,
+            523,
+            1536,
+            1539,
+            1543
+        ]
         Property {
             name: "delay"
             type: "int"
@@ -2040,7 +2098,8 @@ Module {
             "QtQuick.Templates/Dial 2.11",
             "QtQuick.Templates/Dial 6.0",
             "QtQuick.Templates/Dial 6.3",
-            "QtQuick.Templates/Dial 6.6"
+            "QtQuick.Templates/Dial 6.6",
+            "QtQuick.Templates/Dial 6.7"
         ]
         exportMetaObjectRevisions: [
             512,
@@ -2052,7 +2111,8 @@ Module {
             523,
             1536,
             1539,
-            1542
+            1542,
+            1543
         ]
         Enum {
             name: "SnapMode"
@@ -2372,9 +2432,20 @@ Module {
             "QtQuick.Templates/DialogButtonBox 2.7",
             "QtQuick.Templates/DialogButtonBox 2.11",
             "QtQuick.Templates/DialogButtonBox 6.0",
-            "QtQuick.Templates/DialogButtonBox 6.3"
+            "QtQuick.Templates/DialogButtonBox 6.3",
+            "QtQuick.Templates/DialogButtonBox 6.7"
         ]
-        exportMetaObjectRevisions: [513, 515, 516, 517, 519, 523, 1536, 1539]
+        exportMetaObjectRevisions: [
+            513,
+            515,
+            516,
+            517,
+            519,
+            523,
+            1536,
+            1539,
+            1543
+        ]
         attachedType: "QQuickDialogButtonBoxAttached"
         Enum {
             name: "Position"
@@ -2550,9 +2621,20 @@ Module {
             "QtQuick.Templates/Frame 2.7",
             "QtQuick.Templates/Frame 2.11",
             "QtQuick.Templates/Frame 6.0",
-            "QtQuick.Templates/Frame 6.3"
+            "QtQuick.Templates/Frame 6.3",
+            "QtQuick.Templates/Frame 6.7"
         ]
-        exportMetaObjectRevisions: [512, 513, 516, 517, 519, 523, 1536, 1539]
+        exportMetaObjectRevisions: [
+            512,
+            513,
+            516,
+            517,
+            519,
+            523,
+            1536,
+            1539,
+            1543
+        ]
     }
     Component {
         file: "private/qquickgroupbox_p.h"
@@ -2568,9 +2650,20 @@ Module {
             "QtQuick.Templates/GroupBox 2.7",
             "QtQuick.Templates/GroupBox 2.11",
             "QtQuick.Templates/GroupBox 6.0",
-            "QtQuick.Templates/GroupBox 6.3"
+            "QtQuick.Templates/GroupBox 6.3",
+            "QtQuick.Templates/GroupBox 6.7"
         ]
-        exportMetaObjectRevisions: [512, 513, 516, 517, 519, 523, 1536, 1539]
+        exportMetaObjectRevisions: [
+            512,
+            513,
+            516,
+            517,
+            519,
+            523,
+            1536,
+            1539,
+            1543
+        ]
         Property {
             name: "title"
             type: "QString"
@@ -2643,9 +2736,19 @@ Module {
             "QtQuick.Templates/HorizontalHeaderView 6.3",
             "QtQuick.Templates/HorizontalHeaderView 6.4",
             "QtQuick.Templates/HorizontalHeaderView 6.5",
-            "QtQuick.Templates/HorizontalHeaderView 6.6"
+            "QtQuick.Templates/HorizontalHeaderView 6.6",
+            "QtQuick.Templates/HorizontalHeaderView 6.7"
         ]
-        exportMetaObjectRevisions: [527, 1536, 1538, 1539, 1540, 1541, 1542]
+        exportMetaObjectRevisions: [
+            527,
+            1536,
+            1538,
+            1539,
+            1540,
+            1541,
+            1542,
+            1543
+        ]
     }
     Component {
         file: "private/qquickicon_p.h"
@@ -2782,7 +2885,8 @@ Module {
             "QtQuick.Templates/ItemDelegate 2.7",
             "QtQuick.Templates/ItemDelegate 2.11",
             "QtQuick.Templates/ItemDelegate 6.0",
-            "QtQuick.Templates/ItemDelegate 6.3"
+            "QtQuick.Templates/ItemDelegate 6.3",
+            "QtQuick.Templates/ItemDelegate 6.7"
         ]
         exportMetaObjectRevisions: [
             512,
@@ -2794,7 +2898,8 @@ Module {
             519,
             523,
             1536,
-            1539
+            1539,
+            1543
         ]
         Property {
             name: "highlighted"
@@ -2827,7 +2932,8 @@ Module {
             "QtQuick.Templates/Label 2.11",
             "QtQuick.Templates/Label 6.0",
             "QtQuick.Templates/Label 6.2",
-            "QtQuick.Templates/Label 6.3"
+            "QtQuick.Templates/Label 6.3",
+            "QtQuick.Templates/Label 6.7"
         ]
         exportMetaObjectRevisions: [
             512,
@@ -2843,7 +2949,8 @@ Module {
             523,
             1536,
             1538,
-            1539
+            1539,
+            1543
         ]
         Property {
             name: "font"
@@ -3165,9 +3272,10 @@ Module {
             "QtQuick.Templates/MenuBar 2.7",
             "QtQuick.Templates/MenuBar 2.11",
             "QtQuick.Templates/MenuBar 6.0",
-            "QtQuick.Templates/MenuBar 6.3"
+            "QtQuick.Templates/MenuBar 6.3",
+            "QtQuick.Templates/MenuBar 6.7"
         ]
-        exportMetaObjectRevisions: [515, 516, 517, 519, 523, 1536, 1539]
+        exportMetaObjectRevisions: [515, 516, 517, 519, 523, 1536, 1539, 1543]
         Property {
             name: "delegate"
             type: "QQmlComponent"
@@ -3239,9 +3347,10 @@ Module {
             "QtQuick.Templates/MenuBarItem 2.7",
             "QtQuick.Templates/MenuBarItem 2.11",
             "QtQuick.Templates/MenuBarItem 6.0",
-            "QtQuick.Templates/MenuBarItem 6.3"
+            "QtQuick.Templates/MenuBarItem 6.3",
+            "QtQuick.Templates/MenuBarItem 6.7"
         ]
-        exportMetaObjectRevisions: [515, 516, 517, 519, 523, 1536, 1539]
+        exportMetaObjectRevisions: [515, 516, 517, 519, 523, 1536, 1539, 1543]
         Property {
             name: "menuBar"
             type: "QQuickMenuBar"
@@ -3292,7 +3401,8 @@ Module {
             "QtQuick.Templates/MenuItem 2.7",
             "QtQuick.Templates/MenuItem 2.11",
             "QtQuick.Templates/MenuItem 6.0",
-            "QtQuick.Templates/MenuItem 6.3"
+            "QtQuick.Templates/MenuItem 6.3",
+            "QtQuick.Templates/MenuItem 6.7"
         ]
         exportMetaObjectRevisions: [
             512,
@@ -3304,7 +3414,8 @@ Module {
             519,
             523,
             1536,
-            1539
+            1539,
+            1543
         ]
         Property {
             name: "highlighted"
@@ -3366,17 +3477,21 @@ Module {
             "QtQuick.Templates/MenuSeparator 2.7",
             "QtQuick.Templates/MenuSeparator 2.11",
             "QtQuick.Templates/MenuSeparator 6.0",
-            "QtQuick.Templates/MenuSeparator 6.3"
+            "QtQuick.Templates/MenuSeparator 6.3",
+            "QtQuick.Templates/MenuSeparator 6.7"
         ]
-        exportMetaObjectRevisions: [513, 516, 517, 519, 523, 1536, 1539]
+        exportMetaObjectRevisions: [513, 516, 517, 519, 523, 1536, 1539, 1543]
     }
     Component {
         file: "private/qquickmonthgrid_p.h"
         name: "QQuickMonthGrid"
         accessSemantics: "reference"
         prototype: "QQuickControl"
-        exports: ["QtQuick.Templates/AbstractMonthGrid 6.3"]
-        exportMetaObjectRevisions: [1539]
+        exports: [
+            "QtQuick.Templates/AbstractMonthGrid 6.3",
+            "QtQuick.Templates/AbstractMonthGrid 6.7"
+        ]
+        exportMetaObjectRevisions: [1539, 1543]
         Property {
             name: "month"
             type: "int"
@@ -3458,10 +3573,11 @@ Module {
             "QtQuick.Templates/Overlay 2.7",
             "QtQuick.Templates/Overlay 2.11",
             "QtQuick.Templates/Overlay 6.0",
-            "QtQuick.Templates/Overlay 6.3"
+            "QtQuick.Templates/Overlay 6.3",
+            "QtQuick.Templates/Overlay 6.7"
         ]
         isCreatable: false
-        exportMetaObjectRevisions: [515, 516, 519, 523, 1536, 1539]
+        exportMetaObjectRevisions: [515, 516, 519, 523, 1536, 1539, 1543]
         attachedType: "QQuickOverlayAttached"
         Property {
             name: "modal"
@@ -3543,9 +3659,20 @@ Module {
             "QtQuick.Templates/Page 2.7",
             "QtQuick.Templates/Page 2.11",
             "QtQuick.Templates/Page 6.0",
-            "QtQuick.Templates/Page 6.3"
+            "QtQuick.Templates/Page 6.3",
+            "QtQuick.Templates/Page 6.7"
         ]
-        exportMetaObjectRevisions: [512, 513, 516, 517, 519, 523, 1536, 1539]
+        exportMetaObjectRevisions: [
+            512,
+            513,
+            516,
+            517,
+            519,
+            523,
+            1536,
+            1539,
+            1543
+        ]
         Property {
             name: "title"
             type: "QString"
@@ -3636,9 +3763,20 @@ Module {
             "QtQuick.Templates/PageIndicator 2.7",
             "QtQuick.Templates/PageIndicator 2.11",
             "QtQuick.Templates/PageIndicator 6.0",
-            "QtQuick.Templates/PageIndicator 6.3"
+            "QtQuick.Templates/PageIndicator 6.3",
+            "QtQuick.Templates/PageIndicator 6.7"
         ]
-        exportMetaObjectRevisions: [512, 513, 516, 517, 519, 523, 1536, 1539]
+        exportMetaObjectRevisions: [
+            512,
+            513,
+            516,
+            517,
+            519,
+            523,
+            1536,
+            1539,
+            1543
+        ]
         Property {
             name: "count"
             type: "int"
@@ -3695,9 +3833,20 @@ Module {
             "QtQuick.Templates/Pane 2.7",
             "QtQuick.Templates/Pane 2.11",
             "QtQuick.Templates/Pane 6.0",
-            "QtQuick.Templates/Pane 6.3"
+            "QtQuick.Templates/Pane 6.3",
+            "QtQuick.Templates/Pane 6.7"
         ]
-        exportMetaObjectRevisions: [512, 513, 516, 517, 519, 523, 1536, 1539]
+        exportMetaObjectRevisions: [
+            512,
+            513,
+            516,
+            517,
+            519,
+            523,
+            1536,
+            1539,
+            1543
+        ]
         Property {
             name: "contentWidth"
             type: "double"
@@ -4440,9 +4589,20 @@ Module {
             "QtQuick.Templates/ProgressBar 2.7",
             "QtQuick.Templates/ProgressBar 2.11",
             "QtQuick.Templates/ProgressBar 6.0",
-            "QtQuick.Templates/ProgressBar 6.3"
+            "QtQuick.Templates/ProgressBar 6.3",
+            "QtQuick.Templates/ProgressBar 6.7"
         ]
-        exportMetaObjectRevisions: [512, 513, 516, 517, 519, 523, 1536, 1539]
+        exportMetaObjectRevisions: [
+            512,
+            513,
+            516,
+            517,
+            519,
+            523,
+            1536,
+            1539,
+            1543
+        ]
         Property {
             name: "from"
             type: "double"
@@ -4519,7 +4679,8 @@ Module {
             "QtQuick.Templates/RadioButton 2.7",
             "QtQuick.Templates/RadioButton 2.11",
             "QtQuick.Templates/RadioButton 6.0",
-            "QtQuick.Templates/RadioButton 6.3"
+            "QtQuick.Templates/RadioButton 6.3",
+            "QtQuick.Templates/RadioButton 6.7"
         ]
         exportMetaObjectRevisions: [
             512,
@@ -4531,7 +4692,8 @@ Module {
             519,
             523,
             1536,
-            1539
+            1539,
+            1543
         ]
     }
     Component {
@@ -4549,7 +4711,8 @@ Module {
             "QtQuick.Templates/RadioDelegate 2.7",
             "QtQuick.Templates/RadioDelegate 2.11",
             "QtQuick.Templates/RadioDelegate 6.0",
-            "QtQuick.Templates/RadioDelegate 6.3"
+            "QtQuick.Templates/RadioDelegate 6.3",
+            "QtQuick.Templates/RadioDelegate 6.7"
         ]
         exportMetaObjectRevisions: [
             512,
@@ -4561,7 +4724,8 @@ Module {
             519,
             523,
             1536,
-            1539
+            1539,
+            1543
         ]
     }
     Component {
@@ -4579,7 +4743,8 @@ Module {
             "QtQuick.Templates/RangeSlider 2.7",
             "QtQuick.Templates/RangeSlider 2.11",
             "QtQuick.Templates/RangeSlider 6.0",
-            "QtQuick.Templates/RangeSlider 6.3"
+            "QtQuick.Templates/RangeSlider 6.3",
+            "QtQuick.Templates/RangeSlider 6.7"
         ]
         exportMetaObjectRevisions: [
             512,
@@ -4591,7 +4756,8 @@ Module {
             519,
             523,
             1536,
-            1539
+            1539,
+            1543
         ]
         Enum {
             name: "SnapMode"
@@ -4830,7 +4996,8 @@ Module {
             "QtQuick.Templates/RoundButton 2.7",
             "QtQuick.Templates/RoundButton 2.11",
             "QtQuick.Templates/RoundButton 6.0",
-            "QtQuick.Templates/RoundButton 6.3"
+            "QtQuick.Templates/RoundButton 6.3",
+            "QtQuick.Templates/RoundButton 6.7"
         ]
         exportMetaObjectRevisions: [
             513,
@@ -4841,7 +5008,8 @@ Module {
             519,
             523,
             1536,
-            1539
+            1539,
+            1543
         ]
         Property {
             name: "radius"
@@ -4870,7 +5038,8 @@ Module {
             "QtQuick.Templates/ScrollBar 2.7",
             "QtQuick.Templates/ScrollBar 2.11",
             "QtQuick.Templates/ScrollBar 6.0",
-            "QtQuick.Templates/ScrollBar 6.3"
+            "QtQuick.Templates/ScrollBar 6.3",
+            "QtQuick.Templates/ScrollBar 6.7"
         ]
         exportMetaObjectRevisions: [
             512,
@@ -4882,7 +5051,8 @@ Module {
             519,
             523,
             1536,
-            1539
+            1539,
+            1543
         ]
         attachedType: "QQuickScrollBarAttached"
         Enum {
@@ -5113,7 +5283,8 @@ Module {
             "QtQuick.Templates/ScrollIndicator 2.7",
             "QtQuick.Templates/ScrollIndicator 2.11",
             "QtQuick.Templates/ScrollIndicator 6.0",
-            "QtQuick.Templates/ScrollIndicator 6.3"
+            "QtQuick.Templates/ScrollIndicator 6.3",
+            "QtQuick.Templates/ScrollIndicator 6.7"
         ]
         exportMetaObjectRevisions: [
             512,
@@ -5124,7 +5295,8 @@ Module {
             519,
             523,
             1536,
-            1539
+            1539,
+            1543
         ]
         attachedType: "QQuickScrollIndicatorAttached"
         Property {
@@ -5271,9 +5443,20 @@ Module {
             "QtQuick.Templates/ScrollView 2.11",
             "QtQuick.Templates/ScrollView 6.0",
             "QtQuick.Templates/ScrollView 6.3",
-            "QtQuick.Templates/ScrollView 6.6"
+            "QtQuick.Templates/ScrollView 6.6",
+            "QtQuick.Templates/ScrollView 6.7"
         ]
-        exportMetaObjectRevisions: [514, 516, 517, 519, 523, 1536, 1539, 1542]
+        exportMetaObjectRevisions: [
+            514,
+            516,
+            517,
+            519,
+            523,
+            1536,
+            1539,
+            1542,
+            1543
+        ]
         Property {
             name: "effectiveScrollBarWidth"
             revision: 1542
@@ -5304,9 +5487,10 @@ Module {
         prototype: "QQuickControl"
         exports: [
             "QtQuick.Templates/SelectionRectangle 6.2",
-            "QtQuick.Templates/SelectionRectangle 6.3"
+            "QtQuick.Templates/SelectionRectangle 6.3",
+            "QtQuick.Templates/SelectionRectangle 6.7"
         ]
-        exportMetaObjectRevisions: [1538, 1539]
+        exportMetaObjectRevisions: [1538, 1539, 1543]
         attachedType: "QQuickSelectionRectangleAttached"
         Enum {
             name: "SelectionMode"
@@ -5419,7 +5603,8 @@ Module {
             "QtQuick.Templates/Slider 2.7",
             "QtQuick.Templates/Slider 2.11",
             "QtQuick.Templates/Slider 6.0",
-            "QtQuick.Templates/Slider 6.3"
+            "QtQuick.Templates/Slider 6.3",
+            "QtQuick.Templates/Slider 6.7"
         ]
         exportMetaObjectRevisions: [
             512,
@@ -5431,7 +5616,8 @@ Module {
             519,
             523,
             1536,
-            1539
+            1539,
+            1543
         ]
         Enum {
             name: "SnapMode"
@@ -5629,7 +5815,8 @@ Module {
             "QtQuick.Templates/SpinBox 2.11",
             "QtQuick.Templates/SpinBox 6.0",
             "QtQuick.Templates/SpinBox 6.3",
-            "QtQuick.Templates/SpinBox 6.6"
+            "QtQuick.Templates/SpinBox 6.6",
+            "QtQuick.Templates/SpinBox 6.7"
         ]
         exportMetaObjectRevisions: [
             512,
@@ -5642,7 +5829,8 @@ Module {
             523,
             1536,
             1539,
-            1542
+            1542,
+            1543
         ]
         Property {
             name: "from"
@@ -5846,9 +6034,10 @@ Module {
         exports: [
             "QtQuick.Templates/SplitView 2.13",
             "QtQuick.Templates/SplitView 6.0",
-            "QtQuick.Templates/SplitView 6.3"
+            "QtQuick.Templates/SplitView 6.3",
+            "QtQuick.Templates/SplitView 6.7"
         ]
-        exportMetaObjectRevisions: [525, 1536, 1539]
+        exportMetaObjectRevisions: [525, 1536, 1539, 1543]
         attachedType: "QQuickSplitViewAttached"
         Property {
             name: "orientation"
@@ -6004,7 +6193,8 @@ Module {
             "QtQuick.Templates/StackView 2.7",
             "QtQuick.Templates/StackView 2.11",
             "QtQuick.Templates/StackView 6.0",
-            "QtQuick.Templates/StackView 6.3"
+            "QtQuick.Templates/StackView 6.3",
+            "QtQuick.Templates/StackView 6.7"
         ]
         exportMetaObjectRevisions: [
             512,
@@ -6015,7 +6205,8 @@ Module {
             519,
             523,
             1536,
-            1539
+            1539,
+            1543
         ]
         attachedType: "QQuickStackViewAttached"
         Enum {
@@ -6188,6 +6379,265 @@ Module {
         Method { name: "push"; isJavaScriptFunction: true }
         Method { name: "pop"; isJavaScriptFunction: true }
         Method { name: "replace"; isJavaScriptFunction: true }
+        Method {
+            name: "pushItems"
+            revision: 1543
+            type: "QQuickItem"
+            isPointer: true
+            Parameter { name: "args"; type: "QQuickStackViewArg"; isList: true }
+            Parameter { name: "operation"; type: "Operation" }
+        }
+        Method {
+            name: "pushItems"
+            revision: 1543
+            type: "QQuickItem"
+            isPointer: true
+            isCloned: true
+            Parameter { name: "args"; type: "QQuickStackViewArg"; isList: true }
+        }
+        Method {
+            name: "pushItem"
+            revision: 1543
+            type: "QQuickItem"
+            isPointer: true
+            Parameter { name: "item"; type: "QQuickItem"; isPointer: true }
+            Parameter { name: "properties"; type: "QVariantMap" }
+            Parameter { name: "operation"; type: "Operation" }
+        }
+        Method {
+            name: "pushItem"
+            revision: 1543
+            type: "QQuickItem"
+            isPointer: true
+            isCloned: true
+            Parameter { name: "item"; type: "QQuickItem"; isPointer: true }
+            Parameter { name: "properties"; type: "QVariantMap" }
+        }
+        Method {
+            name: "pushItem"
+            revision: 1543
+            type: "QQuickItem"
+            isPointer: true
+            isCloned: true
+            Parameter { name: "item"; type: "QQuickItem"; isPointer: true }
+        }
+        Method {
+            name: "pushItem"
+            revision: 1543
+            type: "QQuickItem"
+            isPointer: true
+            Parameter { name: "component"; type: "QQmlComponent"; isPointer: true }
+            Parameter { name: "properties"; type: "QVariantMap" }
+            Parameter { name: "operation"; type: "Operation" }
+        }
+        Method {
+            name: "pushItem"
+            revision: 1543
+            type: "QQuickItem"
+            isPointer: true
+            isCloned: true
+            Parameter { name: "component"; type: "QQmlComponent"; isPointer: true }
+            Parameter { name: "properties"; type: "QVariantMap" }
+        }
+        Method {
+            name: "pushItem"
+            revision: 1543
+            type: "QQuickItem"
+            isPointer: true
+            isCloned: true
+            Parameter { name: "component"; type: "QQmlComponent"; isPointer: true }
+        }
+        Method {
+            name: "pushItem"
+            revision: 1543
+            type: "QQuickItem"
+            isPointer: true
+            Parameter { name: "url"; type: "QUrl" }
+            Parameter { name: "properties"; type: "QVariantMap" }
+            Parameter { name: "operation"; type: "Operation" }
+        }
+        Method {
+            name: "pushItem"
+            revision: 1543
+            type: "QQuickItem"
+            isPointer: true
+            isCloned: true
+            Parameter { name: "url"; type: "QUrl" }
+            Parameter { name: "properties"; type: "QVariantMap" }
+        }
+        Method {
+            name: "pushItem"
+            revision: 1543
+            type: "QQuickItem"
+            isPointer: true
+            isCloned: true
+            Parameter { name: "url"; type: "QUrl" }
+        }
+        Method {
+            name: "popToItem"
+            revision: 1543
+            type: "QQuickItem"
+            isPointer: true
+            Parameter { name: "item"; type: "QQuickItem"; isPointer: true }
+            Parameter { name: "operation"; type: "Operation" }
+        }
+        Method {
+            name: "popToItem"
+            revision: 1543
+            type: "QQuickItem"
+            isPointer: true
+            isCloned: true
+            Parameter { name: "item"; type: "QQuickItem"; isPointer: true }
+        }
+        Method {
+            name: "popToIndex"
+            revision: 1543
+            type: "QQuickItem"
+            isPointer: true
+            Parameter { name: "index"; type: "int" }
+            Parameter { name: "operation"; type: "Operation" }
+        }
+        Method {
+            name: "popToIndex"
+            revision: 1543
+            type: "QQuickItem"
+            isPointer: true
+            isCloned: true
+            Parameter { name: "index"; type: "int" }
+        }
+        Method {
+            name: "popCurrentItem"
+            revision: 1543
+            type: "QQuickItem"
+            isPointer: true
+            Parameter { name: "operation"; type: "Operation" }
+        }
+        Method {
+            name: "popCurrentItem"
+            revision: 1543
+            type: "QQuickItem"
+            isPointer: true
+            isCloned: true
+        }
+        Method {
+            name: "replaceCurrentItem"
+            revision: 1543
+            type: "QQuickItem"
+            isPointer: true
+            Parameter { name: "args"; type: "QQuickStackViewArg"; isList: true }
+            Parameter { name: "operation"; type: "Operation" }
+        }
+        Method {
+            name: "replaceCurrentItem"
+            revision: 1543
+            type: "QQuickItem"
+            isPointer: true
+            isCloned: true
+            Parameter { name: "args"; type: "QQuickStackViewArg"; isList: true }
+        }
+        Method {
+            name: "replaceCurrentItem"
+            revision: 1543
+            type: "QQuickItem"
+            isPointer: true
+            Parameter { name: "item"; type: "QQuickItem"; isPointer: true }
+            Parameter { name: "properties"; type: "QVariantMap" }
+            Parameter { name: "operation"; type: "Operation" }
+        }
+        Method {
+            name: "replaceCurrentItem"
+            revision: 1543
+            type: "QQuickItem"
+            isPointer: true
+            isCloned: true
+            Parameter { name: "item"; type: "QQuickItem"; isPointer: true }
+            Parameter { name: "properties"; type: "QVariantMap" }
+        }
+        Method {
+            name: "replaceCurrentItem"
+            revision: 1543
+            type: "QQuickItem"
+            isPointer: true
+            isCloned: true
+            Parameter { name: "item"; type: "QQuickItem"; isPointer: true }
+        }
+        Method {
+            name: "replaceCurrentItem"
+            revision: 1543
+            type: "QQuickItem"
+            isPointer: true
+            Parameter { name: "component"; type: "QQmlComponent"; isPointer: true }
+            Parameter { name: "properties"; type: "QVariantMap" }
+            Parameter { name: "operation"; type: "Operation" }
+        }
+        Method {
+            name: "replaceCurrentItem"
+            revision: 1543
+            type: "QQuickItem"
+            isPointer: true
+            isCloned: true
+            Parameter { name: "component"; type: "QQmlComponent"; isPointer: true }
+            Parameter { name: "properties"; type: "QVariantMap" }
+        }
+        Method {
+            name: "replaceCurrentItem"
+            revision: 1543
+            type: "QQuickItem"
+            isPointer: true
+            isCloned: true
+            Parameter { name: "component"; type: "QQmlComponent"; isPointer: true }
+        }
+        Method {
+            name: "replaceCurrentItem"
+            revision: 1543
+            type: "QQuickItem"
+            isPointer: true
+            Parameter { name: "url"; type: "QUrl" }
+            Parameter { name: "properties"; type: "QVariantMap" }
+            Parameter { name: "operation"; type: "Operation" }
+        }
+        Method {
+            name: "replaceCurrentItem"
+            revision: 1543
+            type: "QQuickItem"
+            isPointer: true
+            isCloned: true
+            Parameter { name: "url"; type: "QUrl" }
+            Parameter { name: "properties"; type: "QVariantMap" }
+        }
+        Method {
+            name: "replaceCurrentItem"
+            revision: 1543
+            type: "QQuickItem"
+            isPointer: true
+            isCloned: true
+            Parameter { name: "url"; type: "QUrl" }
+        }
+    }
+    Component {
+        file: "private/qquickstackview_p.h"
+        name: "QQuickStackViewArg"
+        accessSemantics: "value"
+        Method {
+            name: "QQuickStackViewArg"
+            isConstructor: true
+            Parameter { name: "item"; type: "QQuickItem"; isPointer: true }
+        }
+        Method {
+            name: "QQuickStackViewArg"
+            isConstructor: true
+            Parameter { name: "url"; type: "QUrl" }
+        }
+        Method {
+            name: "QQuickStackViewArg"
+            isConstructor: true
+            Parameter { name: "component"; type: "QQmlComponent"; isPointer: true }
+        }
+        Method {
+            name: "QQuickStackViewArg"
+            isConstructor: true
+            Parameter { name: "properties"; type: "QVariantMap" }
+        }
     }
     Component {
         file: "private/qquickstackview_p.h"
@@ -6379,7 +6829,8 @@ Module {
             "QtQuick.Templates/SwipeDelegate 2.7",
             "QtQuick.Templates/SwipeDelegate 2.11",
             "QtQuick.Templates/SwipeDelegate 6.0",
-            "QtQuick.Templates/SwipeDelegate 6.3"
+            "QtQuick.Templates/SwipeDelegate 6.3",
+            "QtQuick.Templates/SwipeDelegate 6.7"
         ]
         exportMetaObjectRevisions: [
             512,
@@ -6391,7 +6842,8 @@ Module {
             519,
             523,
             1536,
-            1539
+            1539,
+            1543
         ]
         attachedType: "QQuickSwipeDelegateAttached"
         Enum {
@@ -6442,7 +6894,8 @@ Module {
             "QtQuick.Templates/SwipeView 2.7",
             "QtQuick.Templates/SwipeView 2.11",
             "QtQuick.Templates/SwipeView 6.0",
-            "QtQuick.Templates/SwipeView 6.3"
+            "QtQuick.Templates/SwipeView 6.3",
+            "QtQuick.Templates/SwipeView 6.7"
         ]
         exportMetaObjectRevisions: [
             512,
@@ -6454,7 +6907,8 @@ Module {
             519,
             523,
             1536,
-            1539
+            1539,
+            1543
         ]
         attachedType: "QQuickSwipeViewAttached"
         Property {
@@ -6574,7 +7028,8 @@ Module {
             "QtQuick.Templates/Switch 2.7",
             "QtQuick.Templates/Switch 2.11",
             "QtQuick.Templates/Switch 6.0",
-            "QtQuick.Templates/Switch 6.3"
+            "QtQuick.Templates/Switch 6.3",
+            "QtQuick.Templates/Switch 6.7"
         ]
         exportMetaObjectRevisions: [
             512,
@@ -6586,7 +7041,8 @@ Module {
             519,
             523,
             1536,
-            1539
+            1539,
+            1543
         ]
         Property {
             name: "position"
@@ -6624,7 +7080,8 @@ Module {
             "QtQuick.Templates/SwitchDelegate 2.7",
             "QtQuick.Templates/SwitchDelegate 2.11",
             "QtQuick.Templates/SwitchDelegate 6.0",
-            "QtQuick.Templates/SwitchDelegate 6.3"
+            "QtQuick.Templates/SwitchDelegate 6.3",
+            "QtQuick.Templates/SwitchDelegate 6.7"
         ]
         exportMetaObjectRevisions: [
             512,
@@ -6636,7 +7093,8 @@ Module {
             519,
             523,
             1536,
-            1539
+            1539,
+            1543
         ]
         Property {
             name: "position"
@@ -6674,7 +7132,8 @@ Module {
             "QtQuick.Templates/TabBar 2.7",
             "QtQuick.Templates/TabBar 2.11",
             "QtQuick.Templates/TabBar 6.0",
-            "QtQuick.Templates/TabBar 6.3"
+            "QtQuick.Templates/TabBar 6.3",
+            "QtQuick.Templates/TabBar 6.7"
         ]
         exportMetaObjectRevisions: [
             512,
@@ -6685,7 +7144,8 @@ Module {
             519,
             523,
             1536,
-            1539
+            1539,
+            1543
         ]
         attachedType: "QQuickTabBarAttached"
         Enum {
@@ -6755,7 +7215,8 @@ Module {
             "QtQuick.Templates/TabButton 2.7",
             "QtQuick.Templates/TabButton 2.11",
             "QtQuick.Templates/TabButton 6.0",
-            "QtQuick.Templates/TabButton 6.3"
+            "QtQuick.Templates/TabButton 6.3",
+            "QtQuick.Templates/TabButton 6.7"
         ]
         exportMetaObjectRevisions: [
             512,
@@ -6767,7 +7228,8 @@ Module {
             519,
             523,
             1536,
-            1539
+            1539,
+            1543
         ]
     }
     Component {
@@ -6790,7 +7252,8 @@ Module {
             "QtQuick.Templates/TextArea 6.0",
             "QtQuick.Templates/TextArea 6.2",
             "QtQuick.Templates/TextArea 6.3",
-            "QtQuick.Templates/TextArea 6.4"
+            "QtQuick.Templates/TextArea 6.4",
+            "QtQuick.Templates/TextArea 6.7"
         ]
         exportMetaObjectRevisions: [
             512,
@@ -6806,7 +7269,8 @@ Module {
             1536,
             1538,
             1539,
-            1540
+            1540,
+            1543
         ]
         attachedType: "QQuickTextAreaAttached"
         Property {
@@ -7024,7 +7488,8 @@ Module {
             "QtQuick.Templates/TextField 6.0",
             "QtQuick.Templates/TextField 6.2",
             "QtQuick.Templates/TextField 6.3",
-            "QtQuick.Templates/TextField 6.4"
+            "QtQuick.Templates/TextField 6.4",
+            "QtQuick.Templates/TextField 6.7"
         ]
         exportMetaObjectRevisions: [
             512,
@@ -7039,7 +7504,8 @@ Module {
             1536,
             1538,
             1539,
-            1540
+            1540,
+            1543
         ]
         Property {
             name: "font"
@@ -7234,9 +7700,20 @@ Module {
             "QtQuick.Templates/ToolBar 2.7",
             "QtQuick.Templates/ToolBar 2.11",
             "QtQuick.Templates/ToolBar 6.0",
-            "QtQuick.Templates/ToolBar 6.3"
+            "QtQuick.Templates/ToolBar 6.3",
+            "QtQuick.Templates/ToolBar 6.7"
         ]
-        exportMetaObjectRevisions: [512, 513, 516, 517, 519, 523, 1536, 1539]
+        exportMetaObjectRevisions: [
+            512,
+            513,
+            516,
+            517,
+            519,
+            523,
+            1536,
+            1539,
+            1543
+        ]
         Enum {
             name: "Position"
             values: ["Header", "Footer"]
@@ -7267,7 +7744,8 @@ Module {
             "QtQuick.Templates/ToolButton 2.7",
             "QtQuick.Templates/ToolButton 2.11",
             "QtQuick.Templates/ToolButton 6.0",
-            "QtQuick.Templates/ToolButton 6.3"
+            "QtQuick.Templates/ToolButton 6.3",
+            "QtQuick.Templates/ToolButton 6.7"
         ]
         exportMetaObjectRevisions: [
             512,
@@ -7279,7 +7757,8 @@ Module {
             519,
             523,
             1536,
-            1539
+            1539,
+            1543
         ]
     }
     Component {
@@ -7294,9 +7773,10 @@ Module {
             "QtQuick.Templates/ToolSeparator 2.7",
             "QtQuick.Templates/ToolSeparator 2.11",
             "QtQuick.Templates/ToolSeparator 6.0",
-            "QtQuick.Templates/ToolSeparator 6.3"
+            "QtQuick.Templates/ToolSeparator 6.3",
+            "QtQuick.Templates/ToolSeparator 6.7"
         ]
-        exportMetaObjectRevisions: [513, 516, 517, 519, 523, 1536, 1539]
+        exportMetaObjectRevisions: [513, 516, 517, 519, 523, 1536, 1539, 1543]
         Property {
             name: "orientation"
             type: "Qt::Orientation"
@@ -7460,9 +7940,10 @@ Module {
         exports: [
             "QtQuick.Templates/TreeViewDelegate 6.3",
             "QtQuick.Templates/TreeViewDelegate 6.4",
-            "QtQuick.Templates/TreeViewDelegate 6.5"
+            "QtQuick.Templates/TreeViewDelegate 6.5",
+            "QtQuick.Templates/TreeViewDelegate 6.7"
         ]
-        exportMetaObjectRevisions: [1539, 1540, 1541]
+        exportMetaObjectRevisions: [1539, 1540, 1541, 1543]
         Property {
             name: "indentation"
             type: "double"
@@ -7601,7 +8082,8 @@ Module {
             "QtQuick.Templates/Tumbler 2.7",
             "QtQuick.Templates/Tumbler 2.11",
             "QtQuick.Templates/Tumbler 6.0",
-            "QtQuick.Templates/Tumbler 6.3"
+            "QtQuick.Templates/Tumbler 6.3",
+            "QtQuick.Templates/Tumbler 6.7"
         ]
         exportMetaObjectRevisions: [
             512,
@@ -7612,7 +8094,8 @@ Module {
             519,
             523,
             1536,
-            1539
+            1539,
+            1543
         ]
         attachedType: "QQuickTumblerAttached"
         Enum {
@@ -7762,17 +8245,30 @@ Module {
             "QtQuick.Templates/VerticalHeaderView 6.3",
             "QtQuick.Templates/VerticalHeaderView 6.4",
             "QtQuick.Templates/VerticalHeaderView 6.5",
-            "QtQuick.Templates/VerticalHeaderView 6.6"
+            "QtQuick.Templates/VerticalHeaderView 6.6",
+            "QtQuick.Templates/VerticalHeaderView 6.7"
         ]
-        exportMetaObjectRevisions: [527, 1536, 1538, 1539, 1540, 1541, 1542]
+        exportMetaObjectRevisions: [
+            527,
+            1536,
+            1538,
+            1539,
+            1540,
+            1541,
+            1542,
+            1543
+        ]
     }
     Component {
         file: "private/qquickweeknumbercolumn_p.h"
         name: "QQuickWeekNumberColumn"
         accessSemantics: "reference"
         prototype: "QQuickControl"
-        exports: ["QtQuick.Templates/AbstractWeekNumberColumn 6.3"]
-        exportMetaObjectRevisions: [1539]
+        exports: [
+            "QtQuick.Templates/AbstractWeekNumberColumn 6.3",
+            "QtQuick.Templates/AbstractWeekNumberColumn 6.7"
+        ]
+        exportMetaObjectRevisions: [1539, 1543]
         Property {
             name: "month"
             type: "int"

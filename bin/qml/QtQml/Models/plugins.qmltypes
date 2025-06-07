@@ -1389,6 +1389,13 @@ Module {
             isConstant: true
         }
         Method { name: "toString"; type: "QString" }
+        Method {
+            name: "data"
+            revision: 1543
+            type: "QVariant"
+            Parameter { name: "role"; type: "int" }
+        }
+        Method { name: "data"; revision: 1543; type: "QVariant"; isCloned: true }
     }
     Component {
         file: "private/qqmlobjectmodel_p.h"
@@ -1515,6 +1522,13 @@ Module {
             isFinal: true
         }
         Method { name: "toString"; type: "QString" }
+        Method {
+            name: "data"
+            revision: 1543
+            type: "QVariant"
+            Parameter { name: "role"; type: "int" }
+        }
+        Method { name: "data"; revision: 1543; type: "QVariant"; isCloned: true }
     }
     Component {
         file: "private/qquickpackage_p.h"

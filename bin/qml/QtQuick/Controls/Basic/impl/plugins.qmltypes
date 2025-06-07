@@ -20,9 +20,10 @@ Module {
             "QtQuick.Controls.Basic.impl/BusyIndicatorImpl 2.7",
             "QtQuick.Controls.Basic.impl/BusyIndicatorImpl 2.11",
             "QtQuick.Controls.Basic.impl/BusyIndicatorImpl 6.0",
-            "QtQuick.Controls.Basic.impl/BusyIndicatorImpl 6.3"
+            "QtQuick.Controls.Basic.impl/BusyIndicatorImpl 6.3",
+            "QtQuick.Controls.Basic.impl/BusyIndicatorImpl 6.7"
         ]
-        exportMetaObjectRevisions: [512, 513, 516, 519, 523, 1536, 1539]
+        exportMetaObjectRevisions: [512, 513, 516, 519, 523, 1536, 1539, 1543]
         Property { name: "pen"; type: "QColor"; read: "pen"; write: "setPen"; index: 0; isFinal: true }
         Property { name: "fill"; type: "QColor"; read: "fill"; write: "setFill"; index: 1; isFinal: true }
         Property { name: "running"; type: "bool"; read: "isRunning"; write: "setRunning"; index: 2 }
@@ -39,9 +40,10 @@ Module {
             "QtQuick.Controls.Basic.impl/DialImpl 2.7",
             "QtQuick.Controls.Basic.impl/DialImpl 2.11",
             "QtQuick.Controls.Basic.impl/DialImpl 6.0",
-            "QtQuick.Controls.Basic.impl/DialImpl 6.3"
+            "QtQuick.Controls.Basic.impl/DialImpl 6.3",
+            "QtQuick.Controls.Basic.impl/DialImpl 6.7"
         ]
-        exportMetaObjectRevisions: [512, 513, 516, 519, 523, 1536, 1539]
+        exportMetaObjectRevisions: [512, 513, 516, 519, 523, 1536, 1539, 1543]
         Property {
             name: "progress"
             type: "double"
@@ -82,9 +84,10 @@ Module {
             "QtQuick.Controls.Basic.impl/ProgressBarImpl 2.7",
             "QtQuick.Controls.Basic.impl/ProgressBarImpl 2.11",
             "QtQuick.Controls.Basic.impl/ProgressBarImpl 6.0",
-            "QtQuick.Controls.Basic.impl/ProgressBarImpl 6.3"
+            "QtQuick.Controls.Basic.impl/ProgressBarImpl 6.3",
+            "QtQuick.Controls.Basic.impl/ProgressBarImpl 6.7"
         ]
-        exportMetaObjectRevisions: [512, 513, 516, 519, 523, 1536, 1539]
+        exportMetaObjectRevisions: [512, 513, 516, 519, 523, 1536, 1539, 1543]
         Property {
             name: "indeterminate"
             type: "bool"
