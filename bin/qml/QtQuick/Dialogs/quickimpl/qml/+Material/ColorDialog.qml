@@ -2,8 +2,6 @@
 // SPDX-License-Identifier: LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only
 
 import QtQuick
-import QtQuick.Controls
-import QtQuick.Controls.impl
 import QtQuick.Controls.Material
 import QtQuick.Controls.Material.impl
 import QtQuick.Dialogs
@@ -59,6 +57,7 @@ ColorDialogImpl {
             rightPadding: 24
             topPadding: 24
             bottomPadding: 24
+            visible: parent.parent?.parent === Overlay.overlay
 
             Layout.preferredWidth: control.title.length > 0 ? implicitWidth : 0
             Layout.preferredHeight: control.title.length > 0 ? implicitHeight : 15

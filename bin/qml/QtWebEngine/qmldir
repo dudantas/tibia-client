@@ -5,5 +5,6 @@ classname QtWebEnginePlugin
 typeinfo plugins.qmltypes
 depends QtQuick auto
 depends QtWebChannel auto
+depends QtQuick
 prefer :/qt-project.org/imports/QtWebEngine/
 

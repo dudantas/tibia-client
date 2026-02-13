@@ -4,6 +4,6 @@ optional plugin modelsplugin
 classname QtQmlModelsPlugin
 designersupported
 typeinfo plugins.qmltypes
-depends QtQml.Base auto
+depends QML 1.0
 prefer :/qt-project.org/imports/QtQml/Models/
 

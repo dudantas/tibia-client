@@ -3,9 +3,9 @@
 
 import Qt.labs.folderlistmodel
 import QtQuick
-import QtQuick.Controls
 import QtQuick.Controls.impl
 import QtQuick.Controls.Universal
+import QtQuick.Controls.Universal.impl
 import QtQuick.Dialogs
 import QtQuick.Dialogs.quickimpl
 import QtQuick.Layouts
@@ -49,6 +49,7 @@ FolderDialogImpl {
             elide: Label.ElideRight
             // TODO: QPlatformTheme::TitleBarFont
             font.pixelSize: 20
+            visible: parent.parent?.parent === Overlay.overlay
 
             Layout.leftMargin: 24
             Layout.rightMargin: 24
@@ -70,6 +71,7 @@ FolderDialogImpl {
             id: breadcrumbBar
             dialog: control
 
+            Layout.topMargin: parent.parent?.parent !== Overlay.overlay ? 12 : 0
             Layout.leftMargin: 24
             Layout.rightMargin: 24
             Layout.preferredWidth: 400

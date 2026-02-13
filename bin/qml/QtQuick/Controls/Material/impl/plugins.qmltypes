@@ -106,6 +106,14 @@ Module {
             index: 6
             isFinal: true
         }
+        Property { name: "leftPadding"; type: "int"; write: "setLeftPadding"; index: 7; isFinal: true }
+        Property {
+            name: "floatingLeftPadding"
+            type: "int"
+            write: "setFloatingLeftPadding"
+            index: 8
+            isFinal: true
+        }
         Signal { name: "filledChanged" }
         Signal { name: "largestHeightChanged" }
         Signal { name: "controlHasActiveFocusChanged" }
