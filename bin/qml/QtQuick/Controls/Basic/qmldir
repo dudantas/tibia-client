@@ -3,8 +3,8 @@ linktarget Qt6::qtquickcontrols2basicstyleplugin
 plugin qtquickcontrols2basicstyleplugin
 classname QtQuickControls2BasicStylePlugin
 typeinfo plugins.qmltypes
-import QtQuick.Controls.impl auto
 depends QtQuick auto
+depends QtQuick.Templates auto
 prefer :/qt-project.org/imports/QtQuick/Controls/Basic/
 AbstractButton 6.0 AbstractButton.qml
 AbstractButton 2.0 AbstractButton.qml

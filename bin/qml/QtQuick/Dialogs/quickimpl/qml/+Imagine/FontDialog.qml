@@ -2,8 +2,6 @@
 // SPDX-License-Identifier: LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only
 
 import QtQuick
-import QtQuick.Controls
-import QtQuick.Controls.impl
 import QtQuick.Controls.Imagine
 import QtQuick.Controls.Imagine.impl
 import QtQuick.Dialogs
@@ -86,7 +84,7 @@ FontDialogImpl {
         leftPadding: 16
         rightPadding: 16
         topPadding: 12
-        visible: control.title.length > 0
+        visible: content.parent?.parent === Overlay.overlay && control.title.length > 0
 
         background: NinePatchImage {
             width: parent.width
