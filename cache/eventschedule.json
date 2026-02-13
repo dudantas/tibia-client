@@ -1,0 +1,115 @@
+{
+    "eventlist": [
+        {
+            "colordark": "#2b3e50",
+            "colorlight": "#3d5a73",
+            "description": "Increases the success rate of forges by 20%.",
+            "displaypriority": 5,
+            "enddate": 1731812400,
+            "isseasonal": false,
+            "name": "Forge Time",
+            "specialevent": true,
+            "startdate": 1731380400
+        },
+        {
+            "colordark": "#3a4f2a",
+            "colorlight": "#4f713a",
+            "description": "Doubles the bestiary counter when defeating monsters.",
+            "displaypriority": 5,
+            "enddate": 1731812400,
+            "isseasonal": false,
+            "name": "Double Bestiary",
+            "specialevent": true,
+            "startdate": 1731380400
+        },
+        {
+            "colordark": "#5a3a2a",
+            "colorlight": "#7b4f3a",
+            "description": "Exercise weapons are faster, doubling their speed.",
+            "displaypriority": 5,
+            "enddate": 1731812400,
+            "isseasonal": false,
+            "name": "Fast Exercise",
+            "specialevent": true,
+            "startdate": 1731380400
+        },
+        {
+            "colordark": "#2b1e10",
+            "colorlight": "#4a2e18",
+            "description": "Increases loot by 50%.",
+            "displaypriority": 6,
+            "enddate": 1731812400,
+            "isseasonal": false,
+            "name": "50% Loot Bonus",
+            "specialevent": true,
+            "startdate": 1731380400
+        },
+        {
+            "colordark": "#234d00",
+            "colorlight": "#3a7500",
+            "description": "Increases experience by 50%.",
+            "displaypriority": 6,
+            "enddate": 1731812400,
+            "isseasonal": false,
+            "name": "50% Exp Bonus",
+            "specialevent": true,
+            "startdate": 1731380400
+        },
+        {
+            "colordark": "#2d3c5a",
+            "colorlight": "#4a5f7d",
+            "description": "Reduces boss cooldown time by 50%.",
+            "displaypriority": 6,
+            "enddate": 1731812400,
+            "isseasonal": false,
+            "name": "Boss Cooldown Reduction",
+            "specialevent": true,
+            "startdate": 1731380400
+        },
+        {
+            "colordark": "#002d00",
+            "colorlight": "#004400",
+            "description": "Double experience when hunting monsters.",
+            "displaypriority": 6,
+            "enddate": 1731812400,
+            "isseasonal": true,
+            "name": "Double Exp",
+            "specialevent": true,
+            "startdate": 1731380400
+        },
+        {
+            "colordark": "#2a1d00",
+            "colorlight": "#4c3300",
+            "description": "Doubles the amount of loot obtained from monsters.",
+            "displaypriority": 6,
+            "enddate": 1731812400,
+            "isseasonal": true,
+            "name": "Double Loot",
+            "specialevent": true,
+            "startdate": 1731380400
+        },
+        {
+            "colordark": "#3a005a",
+            "colorlight": "#4e0075",
+            "description": "Doubles the bestiary counter for bosses.",
+            "displaypriority": 5,
+            "enddate": 1731812400,
+            "isseasonal": false,
+            "name": "Double Bosstiary",
+            "specialevent": true,
+            "startdate": 1731380400
+        },
+        {
+            "colordark": "#4d2f00",
+            "colorlight": "#6e3e00",
+            "description": "Monsters respawn twice as fast.",
+            "displaypriority": 6,
+            "enddate": 1731639600,
+            "isseasonal": true,
+            "name": "Fast Respawn",
+            "specialevent": true,
+            "startdate": 1730430000
+        }
+    ],
+    "lastupdatetimestamp": 1770943470
+}
