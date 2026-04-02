@@ -7,7 +7,7 @@ import QtQuick.tooling 1.2
 
 Module {
     Component {
-        file: "qplatformtheme.h"
+        file: "qpa/qplatformtheme.h"
         name: "QPlatformTheme"
         accessSemantics: "value"
         Enum {
@@ -380,7 +380,8 @@ Module {
             "QtQuick.Controls.impl/ColorImage 6.0",
             "QtQuick.Controls.impl/ColorImage 6.2",
             "QtQuick.Controls.impl/ColorImage 6.3",
-            "QtQuick.Controls.impl/ColorImage 6.7"
+            "QtQuick.Controls.impl/ColorImage 6.7",
+            "QtQuick.Controls.impl/ColorImage 6.8"
         ]
         exportMetaObjectRevisions: [
             515,
@@ -393,7 +394,8 @@ Module {
             1536,
             1538,
             1539,
-            1543
+            1543,
+            1544
         ]
         Property {
             name: "color"
@@ -434,7 +436,8 @@ Module {
             "QtQuick.Controls.impl/IconImage 6.0",
             "QtQuick.Controls.impl/IconImage 6.2",
             "QtQuick.Controls.impl/IconImage 6.3",
-            "QtQuick.Controls.impl/IconImage 6.7"
+            "QtQuick.Controls.impl/IconImage 6.7",
+            "QtQuick.Controls.impl/IconImage 6.8"
         ]
         exportMetaObjectRevisions: [
             515,
@@ -447,7 +450,8 @@ Module {
             1536,
             1538,
             1539,
-            1543
+            1543,
+            1544
         ]
         Property {
             name: "name"
@@ -693,7 +697,8 @@ Module {
             "QtQuick.Controls.impl/NinePatchImage 6.0",
             "QtQuick.Controls.impl/NinePatchImage 6.2",
             "QtQuick.Controls.impl/NinePatchImage 6.3",
-            "QtQuick.Controls.impl/NinePatchImage 6.7"
+            "QtQuick.Controls.impl/NinePatchImage 6.7",
+            "QtQuick.Controls.impl/NinePatchImage 6.8"
         ]
         exportMetaObjectRevisions: [
             515,
@@ -706,7 +711,8 @@ Module {
             1536,
             1538,
             1539,
-            1543
+            1543,
+            1544
         ]
         Property {
             name: "topPadding"
@@ -799,91 +805,6 @@ Module {
             "QtQuick.Controls.impl/NinePatchImageSelector 6.0"
         ]
         exportMetaObjectRevisions: [515, 1536]
-    }
-    Component {
-        file: "private/qquickoverlay_p.h"
-        name: "QQuickOverlayAttached"
-        accessSemantics: "reference"
-        prototype: "QObject"
-        Property {
-            name: "overlay"
-            type: "QQuickOverlay"
-            isPointer: true
-            read: "overlay"
-            notify: "overlayChanged"
-            index: 0
-            isReadonly: true
-            isFinal: true
-        }
-        Property {
-            name: "modal"
-            type: "QQmlComponent"
-            isPointer: true
-            read: "modal"
-            write: "setModal"
-            notify: "modalChanged"
-            index: 1
-            isFinal: true
-        }
-        Property {
-            name: "modeless"
-            type: "QQmlComponent"
-            isPointer: true
-            read: "modeless"
-            write: "setModeless"
-            notify: "modelessChanged"
-            index: 2
-            isFinal: true
-        }
-        Signal { name: "overlayChanged" }
-        Signal { name: "modalChanged" }
-        Signal { name: "modelessChanged" }
-        Signal { name: "pressed" }
-        Signal { name: "released" }
-    }
-    Component {
-        file: "private/qtquickcontrols2foreign_p.h"
-        name: "QQuickOverlay"
-        accessSemantics: "reference"
-        defaultProperty: "data"
-        parentProperty: "parent"
-        prototype: "QQuickItem"
-        exports: [
-            "QtQuick.Controls.impl/Overlay 2.3",
-            "QtQuick.Controls.impl/Overlay 2.4",
-            "QtQuick.Controls.impl/Overlay 2.7",
-            "QtQuick.Controls.impl/Overlay 2.11",
-            "QtQuick.Controls.impl/Overlay 6.0",
-            "QtQuick.Controls.impl/Overlay 6.3",
-            "QtQuick.Controls.impl/Overlay 6.7"
-        ]
-        isCreatable: false
-        exportMetaObjectRevisions: [515, 516, 519, 523, 1536, 1539, 1543]
-        attachedType: "QQuickOverlayAttached"
-        Property {
-            name: "modal"
-            type: "QQmlComponent"
-            isPointer: true
-            read: "modal"
-            write: "setModal"
-            notify: "modalChanged"
-            index: 0
-            isFinal: true
-        }
-        Property {
-            name: "modeless"
-            type: "QQmlComponent"
-            isPointer: true
-            read: "modeless"
-            write: "setModeless"
-            notify: "modelessChanged"
-            index: 1
-            isFinal: true
-        }
-        Signal { name: "modalChanged" }
-        Signal { name: "modelessChanged" }
-        Signal { name: "pressed" }
-        Signal { name: "released" }
     }
     Component {
         file: "private/qquickpaddedrectangle_p.h"
@@ -1008,39 +929,6 @@ Module {
             type: "QVariant"
             Parameter { name: "themeHint"; type: "QPlatformTheme::ThemeHint" }
         }
-    }
-    Component {
-        file: "private/qtquickcontrols2foreign_p.h"
-        name: "QQuickSplitHandleAttached"
-        accessSemantics: "reference"
-        prototype: "QObject"
-        exports: [
-            "QtQuick.Controls.impl/SplitHandle 2.13",
-            "QtQuick.Controls.impl/SplitHandle 6.0"
-        ]
-        isCreatable: false
-        exportMetaObjectRevisions: [525, 1536]
-        attachedType: "QQuickSplitHandleAttached"
-        Property {
-            name: "hovered"
-            type: "bool"
-            read: "isHovered"
-            notify: "hoveredChanged"
-            index: 0
-            isReadonly: true
-            isFinal: true
-        }
-        Property {
-            name: "pressed"
-            type: "bool"
-            read: "isPressed"
-            notify: "pressedChanged"
-            index: 1
-            isReadonly: true
-            isFinal: true
-        }
-        Signal { name: "hoveredChanged" }
-        Signal { name: "pressedChanged" }
     }
     Component {
         file: "private/qquickchecklabel_p.h"

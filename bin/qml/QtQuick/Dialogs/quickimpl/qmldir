@@ -6,6 +6,7 @@ typeinfo plugins.qmltypes
 depends QtQuick auto
 depends QtQuick.Templates auto
 depends QtQuick.Layouts auto
+depends QtQuick
 prefer :/qt-project.org/imports/QtQuick/Dialogs/quickimpl/
 ColorDialog 6.0 qml/ColorDialog.qml
 ColorInputs 6.0 qml/ColorInputs.qml

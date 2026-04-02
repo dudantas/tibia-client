@@ -173,7 +173,8 @@ Module {
             "QtQuick.Layouts/Layout 2.11",
             "QtQuick.Layouts/Layout 6.0",
             "QtQuick.Layouts/Layout 6.3",
-            "QtQuick.Layouts/Layout 6.7"
+            "QtQuick.Layouts/Layout 6.7",
+            "QtQuick.Layouts/Layout 6.8"
         ]
         isCreatable: false
         exportMetaObjectRevisions: [
@@ -185,9 +186,14 @@ Module {
             523,
             1536,
             1539,
-            1543
+            1543,
+            1544
         ]
         attachedType: "QQuickLayoutAttached"
+        Enum {
+            name: "SizePolicy"
+            values: ["SizePolicyImplicit", "SizePolicyExplicit"]
+        }
         Method { name: "invalidateSenderItem" }
         Method { name: "_q_dumpLayoutTree" }
     }
@@ -269,12 +275,22 @@ Module {
             isFinal: true
         }
         Property {
+            name: "useDefaultSizePolicy"
+            revision: 1544
+            type: "QQuickLayout::SizePolicy"
+            read: "useDefaultSizePolicy"
+            write: "setUseDefaultSizePolicy"
+            notify: "useDefaultSizePolicyChanged"
+            index: 8
+            isFinal: true
+        }
+        Property {
             name: "row"
             type: "int"
             read: "row"
             write: "setRow"
             notify: "rowChanged"
-            index: 8
+            index: 9
             isFinal: true
         }
         Property {
@@ -283,7 +299,7 @@ Module {
             read: "column"
             write: "setColumn"
             notify: "columnChanged"
-            index: 9
+            index: 10
             isFinal: true
         }
         Property {
@@ -292,7 +308,7 @@ Module {
             read: "rowSpan"
             write: "setRowSpan"
             notify: "rowSpanChanged"
-            index: 10
+            index: 11
             isFinal: true
         }
         Property {
@@ -301,7 +317,7 @@ Module {
             read: "columnSpan"
             write: "setColumnSpan"
             notify: "columnSpanChanged"
-            index: 11
+            index: 12
             isFinal: true
         }
         Property {
@@ -310,7 +326,7 @@ Module {
             read: "alignment"
             write: "setAlignment"
             notify: "alignmentChanged"
-            index: 12
+            index: 13
             isFinal: true
         }
         Property {
@@ -319,7 +335,7 @@ Module {
             read: "horizontalStretchFactor"
             write: "setHorizontalStretchFactor"
             notify: "horizontalStretchFactorChanged"
-            index: 13
+            index: 14
             isFinal: true
         }
         Property {
@@ -328,7 +344,7 @@ Module {
             read: "verticalStretchFactor"
             write: "setVerticalStretchFactor"
             notify: "verticalStretchFactorChanged"
-            index: 14
+            index: 15
             isFinal: true
         }
         Property {
@@ -337,7 +353,7 @@ Module {
             read: "margins"
             write: "setMargins"
             notify: "marginsChanged"
-            index: 15
+            index: 16
             isFinal: true
         }
         Property {
@@ -347,7 +363,7 @@ Module {
             write: "setLeftMargin"
             reset: "resetLeftMargin"
             notify: "leftMarginChanged"
-            index: 16
+            index: 17
             isFinal: true
         }
         Property {
@@ -357,7 +373,7 @@ Module {
             write: "setTopMargin"
             reset: "resetTopMargin"
             notify: "topMarginChanged"
-            index: 17
+            index: 18
             isFinal: true
         }
         Property {
@@ -367,7 +383,7 @@ Module {
             write: "setRightMargin"
             reset: "resetRightMargin"
             notify: "rightMarginChanged"
-            index: 18
+            index: 19
             isFinal: true
         }
         Property {
@@ -377,7 +393,7 @@ Module {
             write: "setBottomMargin"
             reset: "resetBottomMargin"
             notify: "bottomMarginChanged"
-            index: 19
+            index: 20
             isFinal: true
         }
         Signal { name: "minimumWidthChanged" }
@@ -388,6 +404,7 @@ Module {
         Signal { name: "maximumHeightChanged" }
         Signal { name: "fillWidthChanged" }
         Signal { name: "fillHeightChanged" }
+        Signal { name: "useDefaultSizePolicyChanged"; revision: 1544 }
         Signal { name: "leftMarginChanged" }
         Signal { name: "topMarginChanged" }
         Signal { name: "rightMarginChanged" }
@@ -482,7 +499,8 @@ Module {
         }
         Property {
             name: "proxies"
-            type: "QList<QQuickLayoutItemProxy*>"
+            type: "QQuickLayoutItemProxy"
+            isList: true
             read: "getProxies"
             notify: "proxiesChanged"
             index: 2

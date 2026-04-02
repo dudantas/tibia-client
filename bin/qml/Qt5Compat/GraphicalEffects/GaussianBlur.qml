@@ -133,7 +133,7 @@ Item {
         weights, the x-axis shows the pixel distance.
 
         The value ranges from 0.0 (no deviation) to inf (maximum deviation). By
-        default, devaition is binded to radius. When radius increases, deviation
+        default, deviation is bound to radius. When radius increases, deviation
         is automatically increased linearly. With the radius value of 8, the
         deviation default value becomes approximately 2.7034. This value
         produces a compromise between the blur quality and overall blurriness.

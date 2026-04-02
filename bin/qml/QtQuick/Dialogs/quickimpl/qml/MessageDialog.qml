@@ -2,8 +2,8 @@
 // SPDX-License-Identifier: LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only
 
 import QtQuick
-import QtQuick.Controls
-import QtQuick.Controls.impl
+import QtQuick.Controls.Basic
+import QtQuick.Controls.Basic.impl
 import QtQuick.Dialogs
 import QtQuick.Dialogs.quickimpl
 import QtQuick.Layouts
@@ -41,6 +41,7 @@ MessageDialogImpl {
 
     header: Pane {
         palette.window: control.palette.light
+        visible: parent?.parent === Overlay.overlay
         padding: 20
 
         contentItem: Label {

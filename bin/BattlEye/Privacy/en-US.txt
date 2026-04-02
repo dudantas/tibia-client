@@ -1,0 +1,17 @@
+In order to serve its purpose of preventing and detecting the use of cheat software with the goal of ensuring a fair game environment, BattlEye may process the following information from you:
+
+- IP address
+- Game identifiers (e.g. in-game name, account ID, etc.)
+- Hardware device information and identifiers (e.g. serial numbers)
+- Information about the running operating system
+- Information about game-related and operating-system-related files and memory
+- Information about running processes, drivers and other executable code
+- File names included in other information listed here, which might also contain your operating system user name
+
+BattlEye follows a data minimization policy that ensures that data is only being stored when necessary, i.e. when BattlEye finds information that may potentially indicate the use of cheat software. As a result, BattlEye generally will not store any information on most users.
+
+BattlEye may store the information for the entire duration of the provision of its services for the game.
+
+You may contact CipSoft at any time to exercise your rights in relation to this data processing. See BattlEye's Privacy Policy, https://www.battleye.com/privacy-policy/, and CipSoft's Privacy Policy, http://www.tibia.com/support/?subtopic=legaldocuments&page=privacy, for more information.
+
+By clicking "OK", you acknowledge that BattlEye is processing your information as described above.

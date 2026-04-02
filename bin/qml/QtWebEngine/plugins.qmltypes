@@ -73,14 +73,39 @@ Module {
     }
     Component {
         file: "private/qquickwebengineforeigntypes_p.h"
+        name: "QWebEngineWebAuthPinRequest"
+        accessSemantics: "value"
+        exports: ["QtWebEngine/webEngineWebAuthPinRequest 6.8"]
+        isCreatable: false
+        exportMetaObjectRevisions: [1544]
+        Property {
+            name: "reason"
+            type: "QWebEngineWebAuthUxRequest::PinEntryReason"
+            index: 0
+            isFinal: true
+            isConstant: true
+        }
+        Property {
+            name: "error"
+            type: "QWebEngineWebAuthUxRequest::PinEntryError"
+            index: 1
+            isFinal: true
+            isConstant: true
+        }
+        Property { name: "minPinLength"; type: "int"; index: 2; isFinal: true; isConstant: true }
+        Property { name: "remainingAttempts"; type: "int"; index: 3; isFinal: true; isConstant: true }
+    }
+    Component {
+        file: "private/qquickwebengineforeigntypes_p.h"
         name: "QWebEngineCertificateError"
         accessSemantics: "value"
         exports: [
             "QtWebEngine/webEngineCertificateError 1.1",
-            "QtWebEngine/webEngineCertificateError 6.0"
+            "QtWebEngine/webEngineCertificateError 6.0",
+            "QtWebEngine/webEngineCertificateError 6.8"
         ]
         isCreatable: false
-        exportMetaObjectRevisions: [257, 1536]
+        exportMetaObjectRevisions: [257, 1536, 1544]
         Enum {
             name: "Type"
             values: [
@@ -140,6 +165,16 @@ Module {
             isFinal: true
             isConstant: true
         }
+        Property {
+            name: "isMainFrame"
+            revision: 1544
+            type: "bool"
+            read: "isMainFrame"
+            index: 4
+            isReadonly: true
+            isFinal: true
+            isConstant: true
+        }
         Method { name: "defer" }
         Method { name: "rejectCertificate" }
         Method { name: "acceptCertificate" }
@@ -151,10 +186,11 @@ Module {
         prototype: "QWebEngineCertificateError"
         exports: [
             "QtWebEngine/WebEngineCertificateError 1.1",
-            "QtWebEngine/WebEngineCertificateError 6.0"
+            "QtWebEngine/WebEngineCertificateError 6.0",
+            "QtWebEngine/WebEngineCertificateError 6.8"
         ]
         isCreatable: false
-        exportMetaObjectRevisions: [257, 1536]
+        exportMetaObjectRevisions: [257, 1536, 1544]
     }
     Component {
         file: "private/qquickwebengineforeigntypes_p.h"
@@ -554,10 +590,11 @@ Module {
         prototype: "QObject"
         exports: [
             "QtWebEngine/WebEngineNavigationRequest 1.0",
-            "QtWebEngine/WebEngineNavigationRequest 6.0"
+            "QtWebEngine/WebEngineNavigationRequest 6.0",
+            "QtWebEngine/WebEngineNavigationRequest 6.8"
         ]
         isCreatable: false
-        exportMetaObjectRevisions: [256, 1536]
+        exportMetaObjectRevisions: [256, 1536, 1544]
         Enum {
             name: "NavigationType"
             values: [
@@ -593,10 +630,20 @@ Module {
             isConstant: true
         }
         Property {
+            name: "hasFormData"
+            revision: 1544
+            type: "bool"
+            read: "hasFormData"
+            index: 2
+            isReadonly: true
+            isFinal: true
+            isConstant: true
+        }
+        Property {
             name: "navigationType"
             type: "NavigationType"
             read: "navigationType"
-            index: 2
+            index: 3
             isReadonly: true
             isFinal: true
             isConstant: true
@@ -607,7 +654,7 @@ Module {
             read: "action"
             write: "setAction"
             notify: "actionChanged"
-            index: 3
+            index: 4
             isFinal: true
         }
         Signal { name: "actionChanged" }
@@ -683,6 +730,93 @@ Module {
         Method { name: "show" }
         Method { name: "click" }
         Method { name: "close" }
+    }
+    Component {
+        file: "private/qquickwebengineforeigntypes_p.h"
+        name: "QWebEnginePermission"
+        accessSemantics: "value"
+        exports: ["QtWebEngine/webEnginePermission 6.8"]
+        isCreatable: false
+        enforcesScopedEnums: true
+        exportMetaObjectRevisions: [1544]
+        Enum {
+            name: "PermissionType"
+            isScoped: true
+            type: "quint8"
+            values: [
+                "Unsupported",
+                "MediaAudioCapture",
+                "MediaVideoCapture",
+                "MediaAudioVideoCapture",
+                "DesktopVideoCapture",
+                "DesktopAudioVideoCapture",
+                "MouseLock",
+                "Notifications",
+                "Geolocation",
+                "ClipboardReadWrite",
+                "LocalFontsAccess"
+            ]
+        }
+        Enum {
+            name: "State"
+            isScoped: true
+            type: "quint8"
+            values: ["Invalid", "Ask", "Granted", "Denied"]
+        }
+        Property {
+            name: "origin"
+            type: "QUrl"
+            read: "origin"
+            index: 0
+            isReadonly: true
+            isFinal: true
+            isConstant: true
+        }
+        Property {
+            name: "permissionType"
+            type: "PermissionType"
+            read: "permissionType"
+            index: 1
+            isReadonly: true
+            isFinal: true
+            isConstant: true
+        }
+        Property {
+            name: "state"
+            type: "State"
+            read: "state"
+            index: 2
+            isReadonly: true
+            isFinal: true
+            isConstant: true
+        }
+        Property {
+            name: "isValid"
+            type: "bool"
+            read: "isValid"
+            index: 3
+            isReadonly: true
+            isFinal: true
+            isConstant: true
+        }
+        Method { name: "grant" }
+        Method { name: "deny" }
+        Method { name: "reset" }
+        Method {
+            name: "isPersistent"
+            type: "bool"
+            Parameter { name: "permissionType"; type: "QWebEnginePermission::PermissionType" }
+        }
+    }
+    Component {
+        file: "private/qquickwebengineforeigntypes_p.h"
+        name: "QWebEnginePermissionDerived"
+        accessSemantics: "none"
+        prototype: "QWebEnginePermission"
+        exports: ["QtWebEngine/WebEnginePermission 6.8"]
+        isCreatable: false
+        enforcesScopedEnums: true
+        exportMetaObjectRevisions: [1544]
     }
     Component {
         file: "private/qquickwebengineforeigntypes_p.h"
@@ -873,6 +1007,7 @@ Module {
         prototype: "QObject"
         exports: ["QtWebEngine/WebEngineWebAuthUxRequest 6.7"]
         isCreatable: false
+        enforcesScopedEnums: true
         exportMetaObjectRevisions: [1543]
         Enum {
             name: "WebAuthUxState"
@@ -1229,7 +1364,7 @@ Module {
         Method { name: "dialogReject" }
     }
     Component {
-        file: "private/qquickwebenginedownloadrequest_p.h"
+        file: "qquickwebenginedownloadrequest.h"
         name: "QQuickWebEngineDownloadRequest"
         accessSemantics: "reference"
         prototype: "QWebEngineDownloadRequest"
@@ -1419,9 +1554,19 @@ Module {
             "QtWebEngine/WebEngineProfile 1.5",
             "QtWebEngine/WebEngineProfile 6.0",
             "QtWebEngine/WebEngineProfile 6.5",
-            "QtWebEngine/WebEngineProfile 6.7"
+            "QtWebEngine/WebEngineProfile 6.7",
+            "QtWebEngine/WebEngineProfile 6.8"
         ]
-        exportMetaObjectRevisions: [257, 258, 259, 261, 1536, 1541, 1543]
+        exportMetaObjectRevisions: [
+            257,
+            258,
+            259,
+            261,
+            1536,
+            1541,
+            1543,
+            1544
+        ]
         Enum {
             name: "HttpCacheType"
             values: ["MemoryHttpCache", "DiskHttpCache", "NoCache"]
@@ -1433,6 +1578,12 @@ Module {
                 "AllowPersistentCookies",
                 "ForcePersistentCookies"
             ]
+        }
+        Enum {
+            name: "PersistentPermissionsPolicy"
+            isScoped: true
+            type: "quint8"
+            values: ["AskEveryTime", "StoreInMemory", "StoreOnDisk"]
         }
         Property {
             name: "storageName"
@@ -1508,12 +1659,22 @@ Module {
             isFinal: true
         }
         Property {
+            name: "persistentPermissionsPolicy"
+            revision: 1544
+            type: "PersistentPermissionsPolicy"
+            read: "persistentPermissionsPolicy"
+            write: "setPersistentPermissionsPolicy"
+            notify: "persistentPermissionsPolicyChanged"
+            index: 8
+            isFinal: true
+        }
+        Property {
             name: "httpCacheMaximumSize"
             type: "int"
             read: "httpCacheMaximumSize"
             write: "setHttpCacheMaximumSize"
             notify: "httpCacheMaximumSizeChanged"
-            index: 8
+            index: 9
             isFinal: true
         }
         Property {
@@ -1523,7 +1684,7 @@ Module {
             read: "spellCheckLanguages"
             write: "setSpellCheckLanguages"
             notify: "spellCheckLanguagesChanged"
-            index: 9
+            index: 10
             isFinal: true
         }
         Property {
@@ -1533,7 +1694,7 @@ Module {
             read: "isSpellCheckEnabled"
             write: "setSpellCheckEnabled"
             notify: "spellCheckEnabledChanged"
-            index: 10
+            index: 11
             isFinal: true
         }
         Property {
@@ -1541,7 +1702,7 @@ Module {
             type: "QQuickWebEngineScriptCollection"
             isPointer: true
             read: "userScripts"
-            index: 11
+            index: 12
             isReadonly: true
         }
         Property {
@@ -1551,7 +1712,7 @@ Module {
             read: "downloadPath"
             write: "setDownloadPath"
             notify: "downloadPathChanged"
-            index: 12
+            index: 13
             isFinal: true
         }
         Property {
@@ -1561,7 +1722,17 @@ Module {
             read: "isPushServiceEnabled"
             write: "setPushServiceEnabled"
             notify: "pushServiceEnabledChanged"
-            index: 13
+            index: 14
+            isFinal: true
+        }
+        Property {
+            name: "clientHints"
+            revision: 1544
+            type: "QWebEngineClientHints"
+            isPointer: true
+            read: "clientHints"
+            index: 15
+            isReadonly: true
             isFinal: true
         }
         Signal { name: "storageNameChanged" }
@@ -1578,6 +1749,7 @@ Module {
         Signal { name: "downloadPathChanged"; revision: 261 }
         Signal { name: "pushServiceEnabledChanged"; revision: 1541 }
         Signal { name: "clearHttpCacheCompleted"; revision: 1543 }
+        Signal { name: "persistentPermissionsPolicyChanged"; revision: 1544 }
         Signal {
             name: "downloadRequested"
             Parameter { name: "download"; type: "QQuickWebEngineDownloadRequest"; isPointer: true }
@@ -1592,6 +1764,33 @@ Module {
             Parameter { name: "notification"; type: "QWebEngineNotification"; isPointer: true }
         }
         Method { name: "clearHttpCache"; revision: 258 }
+        Method {
+            name: "queryPermission"
+            revision: 1544
+            type: "QWebEnginePermission"
+            Parameter { name: "securityOrigin"; type: "QUrl" }
+            Parameter { name: "permissionType"; type: "QWebEnginePermission::PermissionType" }
+        }
+        Method {
+            name: "listAllPermissions"
+            revision: 1544
+            type: "QWebEnginePermission"
+            isList: true
+        }
+        Method {
+            name: "listPermissionsForOrigin"
+            revision: 1544
+            type: "QWebEnginePermission"
+            isList: true
+            Parameter { name: "securityOrigin"; type: "QUrl" }
+        }
+        Method {
+            name: "listPermissionsForPermissionType"
+            revision: 1544
+            type: "QWebEnginePermission"
+            isList: true
+            Parameter { name: "permissionType"; type: "QWebEnginePermission::PermissionType" }
+        }
     }
     Component {
         file: "private/qquickwebenginesettings_p.h"
@@ -1610,7 +1809,8 @@ Module {
             "QtWebEngine/WebEngineSettings 6.0",
             "QtWebEngine/WebEngineSettings 6.4",
             "QtWebEngine/WebEngineSettings 6.6",
-            "QtWebEngine/WebEngineSettings 6.7"
+            "QtWebEngine/WebEngineSettings 6.7",
+            "QtWebEngine/WebEngineSettings 6.8"
         ]
         isCreatable: false
         exportMetaObjectRevisions: [
@@ -1625,7 +1825,8 @@ Module {
             1536,
             1540,
             1542,
-            1543
+            1543,
+            1544
         ]
         Enum {
             name: "UnknownUrlSchemePolicy"
@@ -1634,6 +1835,12 @@ Module {
                 "AllowUnknownUrlSchemesFromUserInteraction",
                 "AllowAllUnknownUrlSchemes"
             ]
+        }
+        Enum {
+            name: "ImageAnimationPolicy"
+            isScoped: true
+            type: "quint8"
+            values: ["Allow", "AnimateOnce", "Disallow"]
         }
         Property {
             name: "autoLoadImages"
@@ -1962,6 +2169,26 @@ Module {
             index: 33
             isFinal: true
         }
+        Property {
+            name: "scrollAnimatorEnabled"
+            revision: 1544
+            type: "bool"
+            read: "scrollAnimatorEnabled"
+            write: "setScrollAnimatorEnabled"
+            notify: "scrollAnimatorEnabledChanged"
+            index: 34
+            isFinal: true
+        }
+        Property {
+            name: "imageAnimationPolicy"
+            revision: 1544
+            type: "ImageAnimationPolicy"
+            read: "imageAnimationPolicy"
+            write: "setImageAnimationPolicy"
+            notify: "imageAnimationPolicyChanged"
+            index: 35
+            isFinal: true
+        }
         Signal { name: "autoLoadImagesChanged" }
         Signal { name: "javascriptEnabledChanged" }
         Signal { name: "javascriptCanOpenWindowsChanged" }
@@ -1996,6 +2223,8 @@ Module {
         Signal { name: "navigateOnDropEnabledChanged"; revision: 1540 }
         Signal { name: "readingFromCanvasEnabledChanged"; revision: 1542 }
         Signal { name: "forceDarkModeChanged"; revision: 1543 }
+        Signal { name: "scrollAnimatorEnabledChanged"; revision: 1544 }
+        Signal { name: "imageAnimationPolicyChanged"; revision: 1544 }
     }
     Component {
         file: "private/qquickwebenginesingleton_p.h"
@@ -2161,8 +2390,10 @@ Module {
             "QtWebEngine/WebEngineView 6.3",
             "QtWebEngine/WebEngineView 6.4",
             "QtWebEngine/WebEngineView 6.6",
-            "QtWebEngine/WebEngineView 6.7"
+            "QtWebEngine/WebEngineView 6.7",
+            "QtWebEngine/WebEngineView 6.8"
         ]
+        enforcesScopedEnums: true
         exportMetaObjectRevisions: [
             256,
             257,
@@ -2185,7 +2416,8 @@ Module {
             1539,
             1540,
             1542,
-            1543
+            1543,
+            1544
         ]
         Enum {
             name: "NavigationRequestAction"
@@ -2242,7 +2474,9 @@ Module {
                 "Geolocation",
                 "DesktopVideoCapture",
                 "DesktopAudioVideoCapture",
-                "Notifications"
+                "Notifications",
+                "ClipboardReadWrite",
+                "LocalFontsAccess"
             ]
         }
         Enum {
@@ -2741,6 +2975,15 @@ Module {
             index: 27
             isFinal: true
         }
+        Property {
+            name: "mainFrame"
+            revision: 1544
+            type: "QWebEngineFrame"
+            read: "mainFrame"
+            index: 28
+            isReadonly: true
+            isFinal: true
+        }
         Signal { name: "titleChanged" }
         Signal { name: "urlChanged" }
         Signal { name: "iconChanged" }
@@ -2945,6 +3188,16 @@ Module {
             revision: 1543
             Parameter { name: "request"; type: "QWebEngineDesktopMediaRequest" }
         }
+        Signal {
+            name: "printRequestedByFrame"
+            revision: 1544
+            Parameter { name: "frame"; type: "QWebEngineFrame" }
+        }
+        Signal {
+            name: "permissionRequested"
+            revision: 1544
+            Parameter { name: "permissionRequest"; type: "QWebEnginePermission" }
+        }
         Method {
             name: "runJavaScript"
             Parameter { type: "QString" }
@@ -3095,6 +3348,12 @@ Module {
         Method {
             name: "acceptAsNewWindow"
             Parameter { name: "request"; type: "QWebEngineNewWindowRequest"; isPointer: true }
+        }
+        Method {
+            name: "findFrameByName"
+            revision: 1544
+            type: "QWebEngineFrame"
+            Parameter { name: "name"; type: "QString" }
         }
     }
     Component {

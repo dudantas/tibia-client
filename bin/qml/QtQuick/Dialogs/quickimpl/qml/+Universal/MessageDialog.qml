@@ -2,7 +2,6 @@
 // SPDX-License-Identifier: LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only
 
 import QtQuick
-import QtQuick.Controls
 import QtQuick.Controls.Universal
 import QtQuick.Dialogs
 import QtQuick.Dialogs.quickimpl
@@ -38,7 +37,7 @@ MessageDialogImpl {
         elide: Label.ElideRight
         // TODO: QPlatformTheme::TitleBarFont
         font.pixelSize: 20
-        visible: control.title.length > 0
+        visible: parent?.parent === Overlay.overlay && control.title.length > 0
 
         leftPadding: 24
         rightPadding: 24

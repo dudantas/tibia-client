@@ -24,6 +24,7 @@ Module {
         }
         Enum {
             name: "CheckIndexOption"
+            isScoped: true
             values: [
                 "NoOption",
                 "IndexIsValid",
@@ -684,6 +685,7 @@ Module {
         exportMetaObjectRevisions: [512, 1536]
         Signal { name: "delegateChanged" }
     }
+    Component { file: "private/qqmlchangeset_p.h"; name: "QQmlChangeSet"; accessSemantics: "value" }
     Component {
         file: "private/qqmldelegatemodel_p.h"
         name: "QQmlDelegateModel"
@@ -1282,8 +1284,7 @@ Module {
         Property { name: "count"; type: "int"; read: "count"; index: 0; isReadonly: true; isFinal: true }
         Property {
             name: "engine"
-            type: "QV4::ExecutionEngine"
-            isPointer: true
+            type: "QQmlV4ExecutionEnginePtr"
             read: "engine"
             write: "setEngine"
             notify: "engineChanged"
@@ -1292,7 +1293,7 @@ Module {
         }
         Signal {
             name: "engineChanged"
-            Parameter { name: "engine"; type: "QV4::ExecutionEngine"; isPointer: true }
+            Parameter { name: "engine"; type: "QQmlV4ExecutionEnginePtr" }
         }
         Method { name: "addref" }
         Method { name: "release" }

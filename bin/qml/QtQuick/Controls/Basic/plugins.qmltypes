@@ -379,4 +379,81 @@ Module {
             isConstant: true
         }
     }
+    Component {
+        file: "private/qtquickcontrols2basicforeign_p.h"
+        name: "QQuickOverlay"
+        accessSemantics: "reference"
+        defaultProperty: "data"
+        parentProperty: "parent"
+        prototype: "QQuickItem"
+        exports: [
+            "QtQuick.Controls.Basic/Overlay 2.3",
+            "QtQuick.Controls.Basic/Overlay 2.4",
+            "QtQuick.Controls.Basic/Overlay 2.7",
+            "QtQuick.Controls.Basic/Overlay 2.11",
+            "QtQuick.Controls.Basic/Overlay 6.0",
+            "QtQuick.Controls.Basic/Overlay 6.3",
+            "QtQuick.Controls.Basic/Overlay 6.7"
+        ]
+        isCreatable: false
+        exportMetaObjectRevisions: [515, 516, 519, 523, 1536, 1539, 1543]
+        attachedType: "QQuickOverlayAttached"
+        Property {
+            name: "modal"
+            type: "QQmlComponent"
+            isPointer: true
+            read: "modal"
+            write: "setModal"
+            notify: "modalChanged"
+            index: 0
+            isFinal: true
+        }
+        Property {
+            name: "modeless"
+            type: "QQmlComponent"
+            isPointer: true
+            read: "modeless"
+            write: "setModeless"
+            notify: "modelessChanged"
+            index: 1
+            isFinal: true
+        }
+        Signal { name: "modalChanged" }
+        Signal { name: "modelessChanged" }
+        Signal { name: "pressed" }
+        Signal { name: "released" }
+    }
+    Component {
+        file: "private/qtquickcontrols2basicforeign_p.h"
+        name: "QQuickSplitHandleAttached"
+        accessSemantics: "reference"
+        prototype: "QObject"
+        exports: [
+            "QtQuick.Controls.Basic/SplitHandle 2.13",
+            "QtQuick.Controls.Basic/SplitHandle 6.0"
+        ]
+        isCreatable: false
+        exportMetaObjectRevisions: [525, 1536]
+        attachedType: "QQuickSplitHandleAttached"
+        Property {
+            name: "hovered"
+            type: "bool"
+            read: "isHovered"
+            notify: "hoveredChanged"
+            index: 0
+            isReadonly: true
+            isFinal: true
+        }
+        Property {
+            name: "pressed"
+            type: "bool"
+            read: "isPressed"
+            notify: "pressedChanged"
+            index: 1
+            isReadonly: true
+            isFinal: true
+        }
+        Signal { name: "hoveredChanged" }
+        Signal { name: "pressedChanged" }
+    }
 }

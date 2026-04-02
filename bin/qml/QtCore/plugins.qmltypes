@@ -349,6 +349,7 @@ Module {
         exportMetaObjectRevisions: [1540]
         Enum {
             name: "Endian"
+            isScoped: true
             values: ["Big", "Little"]
         }
         Property {

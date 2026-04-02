@@ -7,76 +7,6 @@ import QtQuick.tooling 1.2
 
 Module {
     Component {
-        file: "qplatformdialoghelper.h"
-        name: "QPlatformDialogHelper"
-        accessSemantics: "reference"
-        prototype: "QObject"
-        Enum {
-            name: "StandardButtons"
-            alias: "StandardButton"
-            isFlag: true
-            values: [
-                "NoButton",
-                "Ok",
-                "Save",
-                "SaveAll",
-                "Open",
-                "Yes",
-                "YesToAll",
-                "No",
-                "NoToAll",
-                "Abort",
-                "Retry",
-                "Ignore",
-                "Close",
-                "Cancel",
-                "Discard",
-                "Help",
-                "Apply",
-                "Reset",
-                "RestoreDefaults",
-                "FirstButton",
-                "LastButton",
-                "LowestBit",
-                "HighestBit"
-            ]
-        }
-        Enum {
-            name: "ButtonRole"
-            values: [
-                "InvalidRole",
-                "AcceptRole",
-                "RejectRole",
-                "DestructiveRole",
-                "ActionRole",
-                "HelpRole",
-                "YesRole",
-                "NoRole",
-                "ResetRole",
-                "ApplyRole",
-                "NRoles",
-                "RoleMask",
-                "AlternateRole",
-                "Stretch",
-                "Reverse",
-                "EOL"
-            ]
-        }
-        Enum {
-            name: "ButtonLayout"
-            values: [
-                "UnknownLayout",
-                "WinLayout",
-                "MacLayout",
-                "KdeLayout",
-                "GnomeLayout",
-                "AndroidLayout"
-            ]
-        }
-        Signal { name: "accept" }
-        Signal { name: "reject" }
-    }
-    Component {
         file: "private/qtquickdialogs2quickimplforeign_p.h"
         name: "QQuickAbstractButton"
         accessSemantics: "reference"
@@ -281,6 +211,8 @@ Module {
         Signal { name: "implicitIndicatorWidthChanged"; revision: 517 }
         Signal { name: "implicitIndicatorHeightChanged"; revision: 517 }
         Method { name: "toggle" }
+        Method { name: "click"; revision: 1544 }
+        Method { name: "animateClick"; revision: 1544 }
         Method { name: "accessiblePressAction" }
     }
     Component {
@@ -399,8 +331,11 @@ Module {
         name: "QQuickColorDialogImpl"
         accessSemantics: "reference"
         prototype: "QQuickDialog"
-        exports: ["QtQuick.Dialogs.quickimpl/ColorDialogImpl 6.4"]
-        exportMetaObjectRevisions: [1540]
+        exports: [
+            "QtQuick.Dialogs.quickimpl/ColorDialogImpl 6.4",
+            "QtQuick.Dialogs.quickimpl/ColorDialogImpl 6.8"
+        ]
+        exportMetaObjectRevisions: [1540, 1544]
         attachedType: "QQuickColorDialogImplAttached"
         Property {
             name: "color"
@@ -1265,9 +1200,10 @@ Module {
         exports: [
             "QtQuick.Dialogs.quickimpl/FileDialogDelegate 6.2",
             "QtQuick.Dialogs.quickimpl/FileDialogDelegate 6.3",
-            "QtQuick.Dialogs.quickimpl/FileDialogDelegate 6.7"
+            "QtQuick.Dialogs.quickimpl/FileDialogDelegate 6.7",
+            "QtQuick.Dialogs.quickimpl/FileDialogDelegate 6.8"
         ]
-        exportMetaObjectRevisions: [1538, 1539, 1543]
+        exportMetaObjectRevisions: [1538, 1539, 1543, 1544]
         Property {
             name: "dialog"
             type: "QQuickDialog"
@@ -1293,8 +1229,11 @@ Module {
         name: "QQuickFileDialogImpl"
         accessSemantics: "reference"
         prototype: "QQuickDialog"
-        exports: ["QtQuick.Dialogs.quickimpl/FileDialogImpl 6.2"]
-        exportMetaObjectRevisions: [1538]
+        exports: [
+            "QtQuick.Dialogs.quickimpl/FileDialogImpl 6.2",
+            "QtQuick.Dialogs.quickimpl/FileDialogImpl 6.8"
+        ]
+        exportMetaObjectRevisions: [1538, 1544]
         attachedType: "QQuickFileDialogImplAttached"
         Property {
             name: "currentFolder"
@@ -1587,8 +1526,11 @@ Module {
         name: "QQuickFolderDialogImpl"
         accessSemantics: "reference"
         prototype: "QQuickDialog"
-        exports: ["QtQuick.Dialogs.quickimpl/FolderDialogImpl 6.3"]
-        exportMetaObjectRevisions: [1539]
+        exports: [
+            "QtQuick.Dialogs.quickimpl/FolderDialogImpl 6.3",
+            "QtQuick.Dialogs.quickimpl/FolderDialogImpl 6.8"
+        ]
+        exportMetaObjectRevisions: [1539, 1544]
         attachedType: "QQuickFolderDialogImplAttached"
         Property {
             name: "currentFolder"
@@ -1649,8 +1591,11 @@ Module {
         name: "QQuickFontDialogImpl"
         accessSemantics: "reference"
         prototype: "QQuickDialog"
-        exports: ["QtQuick.Dialogs.quickimpl/FontDialogImpl 6.2"]
-        exportMetaObjectRevisions: [1538]
+        exports: [
+            "QtQuick.Dialogs.quickimpl/FontDialogImpl 6.2",
+            "QtQuick.Dialogs.quickimpl/FontDialogImpl 6.8"
+        ]
+        exportMetaObjectRevisions: [1538, 1544]
         attachedType: "QQuickFontDialogImplAttached"
         Property {
             name: "currentFont"
@@ -1847,8 +1792,11 @@ Module {
         name: "QQuickMessageDialogImpl"
         accessSemantics: "reference"
         prototype: "QQuickDialog"
-        exports: ["QtQuick.Dialogs.quickimpl/MessageDialogImpl 6.3"]
-        exportMetaObjectRevisions: [1539]
+        exports: [
+            "QtQuick.Dialogs.quickimpl/MessageDialogImpl 6.3",
+            "QtQuick.Dialogs.quickimpl/MessageDialogImpl 6.8"
+        ]
+        exportMetaObjectRevisions: [1539, 1544]
         attachedType: "QQuickMessageDialogImplAttached"
         Property {
             name: "text"
@@ -1950,6 +1898,10 @@ Module {
                 "Bottom",
                 "BottomRight"
             ]
+        }
+        Enum {
+            name: "PopupType"
+            values: ["Item", "Window", "Native"]
         }
         Property {
             name: "x"
@@ -2504,6 +2456,16 @@ Module {
             index: 55
             isFinal: true
         }
+        Property {
+            name: "popupType"
+            revision: 1544
+            type: "PopupType"
+            read: "popupType"
+            write: "setPopupType"
+            notify: "popupTypeChanged"
+            index: 56
+            isFinal: true
+        }
         Signal { name: "opened" }
         Signal { name: "closed" }
         Signal { name: "aboutToShow" }
@@ -2566,6 +2528,7 @@ Module {
         Signal { name: "leftInsetChanged"; revision: 517 }
         Signal { name: "rightInsetChanged"; revision: 517 }
         Signal { name: "bottomInsetChanged"; revision: 517 }
+        Signal { name: "popupTypeChanged"; revision: 1544 }
         Method { name: "open" }
         Method { name: "close" }
         Method {

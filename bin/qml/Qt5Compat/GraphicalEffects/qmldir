@@ -6,6 +6,7 @@ designersupported
 typeinfo plugins.qmltypes
 depends Qt5Compat.GraphicalEffects.private
 depends QtQuick.Window
+depends QtQuick
 prefer :/qt-project.org/imports/Qt5Compat/GraphicalEffects/
 Blend 6.0 Blend.qml
 Blend 1.0 Blend.qml

@@ -5,6 +5,7 @@ classname QtQuickControls2MaterialStyleImplPlugin
 typeinfo plugins.qmltypes
 depends QtQuick auto
 depends QtQuick.Controls.impl auto
+depends QtQuick
 prefer :/qt-project.org/imports/QtQuick/Controls/Material/impl/
 BoxShadow 6.0 BoxShadow.qml
 BoxShadow 2.0 BoxShadow.qml
