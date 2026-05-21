@@ -78,6 +78,7 @@ Module {
         }
         Enum {
             name: "RoundedScale"
+            isScoped: true
             values: [
                 "NotRounded",
                 "ExtraSmallScale",
@@ -90,6 +91,7 @@ Module {
         }
         Enum {
             name: "ContainerStyle"
+            isScoped: true
             values: ["Filled", "Outlined"]
         }
         Property {

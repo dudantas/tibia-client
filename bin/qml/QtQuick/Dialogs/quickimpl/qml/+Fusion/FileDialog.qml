@@ -3,7 +3,6 @@
 
 import Qt.labs.folderlistmodel
 import QtQuick
-import QtQuick.Controls
 import QtQuick.Controls.impl
 import QtQuick.Controls.Fusion
 import QtQuick.Controls.Fusion.impl
@@ -101,6 +100,7 @@ FileDialogImpl {
             elide: Label.ElideRight
             font.bold: true
             padding: 6
+            visible: parent.parent?.parent === Overlay.overlay
 
             Layout.fillWidth: true
             Layout.leftMargin: 12
@@ -113,6 +113,7 @@ FileDialogImpl {
             id: breadcrumbBar
             dialog: control
 
+            Layout.topMargin: parent.parent?.parent === Overlay.overlay ? 0 : 12
             Layout.fillWidth: true
             Layout.leftMargin: 12
             Layout.rightMargin: 12

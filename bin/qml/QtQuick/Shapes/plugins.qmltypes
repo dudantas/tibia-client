@@ -282,9 +282,19 @@ Module {
             "QtQuick.Shapes/ShapePath 2.14",
             "QtQuick.Shapes/ShapePath 6.0",
             "QtQuick.Shapes/ShapePath 6.6",
-            "QtQuick.Shapes/ShapePath 6.7"
+            "QtQuick.Shapes/ShapePath 6.7",
+            "QtQuick.Shapes/ShapePath 6.8"
         ]
-        exportMetaObjectRevisions: [256, 270, 512, 526, 1536, 1542, 1543]
+        exportMetaObjectRevisions: [
+            256,
+            270,
+            512,
+            526,
+            1536,
+            1542,
+            1543,
+            1544
+        ]
         Enum {
             name: "FillRule"
             values: ["OddEvenFill", "WindingFill"]
@@ -424,6 +434,27 @@ Module {
             index: 12
             isFinal: true
         }
+        Property {
+            name: "fillTransform"
+            revision: 1544
+            type: "QMatrix4x4"
+            read: "fillTransform"
+            write: "setFillTransform"
+            notify: "fillTransformChanged"
+            index: 13
+            isFinal: true
+        }
+        Property {
+            name: "fillItem"
+            revision: 1544
+            type: "QQuickItem"
+            isPointer: true
+            read: "fillItem"
+            write: "setFillItem"
+            notify: "fillItemChanged"
+            index: 14
+            isFinal: true
+        }
         Signal { name: "shapePathChanged" }
         Signal { name: "strokeColorChanged" }
         Signal { name: "strokeWidthChanged" }
@@ -436,7 +467,10 @@ Module {
         Signal { name: "dashOffsetChanged" }
         Signal { name: "dashPatternChanged" }
         Signal { name: "pathHintsChanged"; revision: 1543 }
+        Signal { name: "fillTransformChanged"; revision: 1544 }
+        Signal { name: "fillItemChanged"; revision: 1544 }
         Method { name: "_q_fillGradientChanged" }
+        Method { name: "_q_fillItemDestroyed" }
     }
     Component {
         file: "private/qquickshape_p.h"

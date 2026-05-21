@@ -3,7 +3,6 @@
 
 import Qt.labs.folderlistmodel
 import QtQuick
-import QtQuick.Controls
 import QtQuick.Controls.impl
 import QtQuick.Controls.Material
 import QtQuick.Controls.Material.impl
@@ -79,7 +78,7 @@ FileDialogImpl {
 
         Label {
             text: control.title
-            visible: control.title.length > 0
+            visible: parent.parent?.parent === Overlay.overlay && control.title.length > 0
             elide: Label.ElideRight
             font.bold: true
             font.pixelSize: 16
@@ -94,6 +93,7 @@ FileDialogImpl {
             id: breadcrumbBar
             dialog: control
 
+            Layout.topMargin: parent.parent?.parent !== Overlay.overlay ? 12 : 0
             Layout.leftMargin: 24
             Layout.rightMargin: 24
             Layout.fillWidth: true

@@ -81,6 +81,8 @@ Module {
                 "HelpChanged",
                 "DefaultActionChanged",
                 "AcceleratorChanged",
+                "Announcement",
+                "IdentifierChanged",
                 "InvalidEvent"
             ]
         }
@@ -165,6 +167,16 @@ Module {
                 "ComplementaryContent",
                 "UserRole"
             ]
+        }
+        Enum {
+            name: "Attribute"
+            isScoped: true
+            values: ["Custom", "Level"]
+        }
+        Enum {
+            name: "AnnouncementPoliteness"
+            isScoped: true
+            values: ["Polite", "Assertive"]
         }
     }
     Component {
@@ -261,7 +273,7 @@ Module {
         Property { name: "state"; type: "State"; read: "state"; index: 4; isReadonly: true; isConstant: true }
         Property {
             name: "timestamp"
-            type: "ulong"
+            type: "uint"
             read: "timestamp"
             index: 5
             isReadonly: true
@@ -269,7 +281,7 @@ Module {
         }
         Property {
             name: "pressTimestamp"
-            type: "ulong"
+            type: "uint"
             read: "pressTimestamp"
             index: 6
             isReadonly: true
@@ -277,7 +289,7 @@ Module {
         }
         Property {
             name: "lastTimestamp"
-            type: "ulong"
+            type: "uint"
             read: "lastTimestamp"
             index: 7
             isReadonly: true
@@ -634,6 +646,7 @@ Module {
         file: "private/qquickforeignutils_p.h"
         name: "QImage"
         accessSemantics: "value"
+        prototype: "QPaintDevice"
         Enum {
             name: "Format"
             values: [
@@ -673,6 +686,7 @@ Module {
                 "Format_RGBX32FPx4",
                 "Format_RGBA32FPx4",
                 "Format_RGBA32FPx4_Premultiplied",
+                "Format_CMYK8888",
                 "NImageFormats"
             ]
         }
@@ -689,6 +703,7 @@ Module {
             name: "DeviceTypes"
             alias: "DeviceType"
             isFlag: true
+            isScoped: true
             values: [
                 "Unknown",
                 "Mouse",
@@ -705,6 +720,7 @@ Module {
             name: "Capabilities"
             alias: "Capability"
             isFlag: true
+            isScoped: true
             values: [
                 "None",
                 "Position",
@@ -739,7 +755,6 @@ Module {
             read: "capabilities"
             index: 2
             isReadonly: true
-            isConstant: true
         }
         Property {
             name: "systemId"
@@ -998,6 +1013,7 @@ Module {
             name: "PointerTypes"
             alias: "PointerType"
             isFlag: true
+            isScoped: true
             values: [
                 "Unknown",
                 "Generic",
@@ -1164,10 +1180,11 @@ Module {
         exports: [
             "QtQuick/Accessible 2.0",
             "QtQuick/Accessible 6.0",
-            "QtQuick/Accessible 6.2"
+            "QtQuick/Accessible 6.2",
+            "QtQuick/Accessible 6.8"
         ]
         isCreatable: false
-        exportMetaObjectRevisions: [512, 1536, 1538]
+        exportMetaObjectRevisions: [512, 1536, 1538, 1544]
         attachedType: "QQuickAccessibleAttached"
         Property {
             name: "role"
@@ -1197,12 +1214,21 @@ Module {
             isFinal: true
         }
         Property {
+            name: "id"
+            type: "QString"
+            read: "id"
+            write: "setId"
+            notify: "idChanged"
+            index: 3
+            isFinal: true
+        }
+        Property {
             name: "ignored"
             type: "bool"
             read: "ignored"
             write: "setIgnored"
             notify: "ignoredChanged"
-            index: 3
+            index: 4
             isFinal: true
         }
         Property {
@@ -1211,7 +1237,7 @@ Module {
             read: "checkable"
             write: "set_checkable"
             notify: "checkableChanged"
-            index: 4
+            index: 5
             isFinal: true
         }
         Property {
@@ -1220,7 +1246,7 @@ Module {
             read: "checked"
             write: "set_checked"
             notify: "checkedChanged"
-            index: 5
+            index: 6
             isFinal: true
         }
         Property {
@@ -1229,7 +1255,7 @@ Module {
             read: "editable"
             write: "set_editable"
             notify: "editableChanged"
-            index: 6
+            index: 7
             isFinal: true
         }
         Property {
@@ -1238,7 +1264,7 @@ Module {
             read: "focusable"
             write: "set_focusable"
             notify: "focusableChanged"
-            index: 7
+            index: 8
             isFinal: true
         }
         Property {
@@ -1247,7 +1273,7 @@ Module {
             read: "focused"
             write: "set_focused"
             notify: "focusedChanged"
-            index: 8
+            index: 9
             isFinal: true
         }
         Property {
@@ -1256,7 +1282,7 @@ Module {
             read: "multiLine"
             write: "set_multiLine"
             notify: "multiLineChanged"
-            index: 9
+            index: 10
             isFinal: true
         }
         Property {
@@ -1265,7 +1291,7 @@ Module {
             read: "readOnly"
             write: "set_readOnly"
             notify: "readOnlyChanged"
-            index: 10
+            index: 11
             isFinal: true
         }
         Property {
@@ -1274,7 +1300,7 @@ Module {
             read: "selected"
             write: "set_selected"
             notify: "selectedChanged"
-            index: 11
+            index: 12
             isFinal: true
         }
         Property {
@@ -1283,7 +1309,7 @@ Module {
             read: "selectable"
             write: "set_selectable"
             notify: "selectableChanged"
-            index: 12
+            index: 13
             isFinal: true
         }
         Property {
@@ -1292,7 +1318,7 @@ Module {
             read: "pressed"
             write: "set_pressed"
             notify: "pressedChanged"
-            index: 13
+            index: 14
             isFinal: true
         }
         Property {
@@ -1301,7 +1327,7 @@ Module {
             read: "checkStateMixed"
             write: "set_checkStateMixed"
             notify: "checkStateMixedChanged"
-            index: 14
+            index: 15
             isFinal: true
         }
         Property {
@@ -1310,7 +1336,7 @@ Module {
             read: "defaultButton"
             write: "set_defaultButton"
             notify: "defaultButtonChanged"
-            index: 15
+            index: 16
             isFinal: true
         }
         Property {
@@ -1319,7 +1345,7 @@ Module {
             read: "passwordEdit"
             write: "set_passwordEdit"
             notify: "passwordEditChanged"
-            index: 16
+            index: 17
             isFinal: true
         }
         Property {
@@ -1328,7 +1354,7 @@ Module {
             read: "selectableText"
             write: "set_selectableText"
             notify: "selectableTextChanged"
-            index: 17
+            index: 18
             isFinal: true
         }
         Property {
@@ -1337,7 +1363,7 @@ Module {
             read: "searchEdit"
             write: "set_searchEdit"
             notify: "searchEditChanged"
-            index: 18
+            index: 19
             isFinal: true
         }
         Signal {
@@ -1403,6 +1429,7 @@ Module {
         Signal { name: "roleChanged" }
         Signal { name: "nameChanged" }
         Signal { name: "descriptionChanged" }
+        Signal { name: "idChanged" }
         Signal { name: "ignoredChanged" }
         Signal { name: "pressAction" }
         Signal { name: "toggleAction" }
@@ -1425,6 +1452,18 @@ Module {
             revision: 1538
             type: "QString"
             Parameter { name: "html"; type: "QString" }
+        }
+        Method {
+            name: "announce"
+            revision: 1544
+            Parameter { name: "message"; type: "QString" }
+            Parameter { name: "politeness"; type: "QAccessible::AnnouncementPoliteness" }
+        }
+        Method {
+            name: "announce"
+            revision: 1544
+            isCloned: true
+            Parameter { name: "message"; type: "QString" }
         }
     }
     Component {
@@ -1807,7 +1846,8 @@ Module {
             "QtQuick/AnimatedImage 6.0",
             "QtQuick/AnimatedImage 6.2",
             "QtQuick/AnimatedImage 6.3",
-            "QtQuick/AnimatedImage 6.7"
+            "QtQuick/AnimatedImage 6.7",
+            "QtQuick/AnimatedImage 6.8"
         ]
         exportMetaObjectRevisions: [
             512,
@@ -1822,7 +1862,8 @@ Module {
             1536,
             1538,
             1539,
-            1543
+            1543,
+            1544
         ]
         Property {
             name: "playing"
@@ -2598,7 +2639,8 @@ Module {
             "QtQuick/BorderImage 6.0",
             "QtQuick/BorderImage 6.2",
             "QtQuick/BorderImage 6.3",
-            "QtQuick/BorderImage 6.7"
+            "QtQuick/BorderImage 6.7",
+            "QtQuick/BorderImage 6.8"
         ]
         exportMetaObjectRevisions: [
             512,
@@ -2611,7 +2653,8 @@ Module {
             1536,
             1538,
             1539,
-            1543
+            1543,
+            1544
         ]
         Enum {
             name: "TileMode"
@@ -2879,9 +2922,9 @@ Module {
         name: "QQuickCloseEvent"
         accessSemantics: "reference"
         prototype: "QObject"
-        exports: ["QtQuick/CloseEvent 6.7"]
+        exports: ["QtQuick/CloseEvent 2.0", "QtQuick/CloseEvent 6.0"]
         isCreatable: false
-        exportMetaObjectRevisions: [1543]
+        exportMetaObjectRevisions: [512, 1536]
         Property {
             name: "accepted"
             type: "bool"
@@ -3157,6 +3200,7 @@ Module {
         accessSemantics: "none"
         exports: ["QtQuick/ColorSpace 2.15", "QtQuick/ColorSpace 6.0"]
         isCreatable: false
+        enforcesScopedEnums: true
         exportMetaObjectRevisions: [527, 1536]
         Enum {
             name: "NamedColorSpace"
@@ -3192,16 +3236,49 @@ Module {
                 "SRgbLinear",
                 "AdobeRgb",
                 "DisplayP3",
-                "ProPhotoRgb"
+                "ProPhotoRgb",
+                "Bt2020",
+                "Bt2100Pq",
+                "Bt2100Hlg"
             ]
         }
         Enum {
             name: "Primaries"
-            values: ["Custom", "SRgb", "AdobeRgb", "DciP3D65", "ProPhotoRgb"]
+            isScoped: true
+            values: [
+                "Custom",
+                "SRgb",
+                "AdobeRgb",
+                "DciP3D65",
+                "ProPhotoRgb",
+                "Bt2020"
+            ]
         }
         Enum {
             name: "TransferFunction"
-            values: ["Custom", "Linear", "Gamma", "SRgb", "ProPhotoRgb"]
+            isScoped: true
+            values: [
+                "Custom",
+                "Linear",
+                "Gamma",
+                "SRgb",
+                "ProPhotoRgb",
+                "Bt2020",
+                "St2084",
+                "Hlg"
+            ]
+        }
+        Enum {
+            name: "TransformModel"
+            isScoped: true
+            type: "quint8"
+            values: ["ThreeComponentMatrix", "ElementListProcessing"]
+        }
+        Enum {
+            name: "ColorModel"
+            isScoped: true
+            type: "quint8"
+            values: ["Undefined", "Rgb", "Gray", "Cmyk"]
         }
     }
     Component {
@@ -3323,6 +3400,7 @@ Module {
             type: "QVariant"
             Parameter { name: "factor"; type: "QVariant" }
         }
+        Method { name: "QQuickColorValueType"; isConstructor: true }
         Method {
             name: "QQuickColorValueType"
             isConstructor: true
@@ -3585,12 +3663,21 @@ Module {
             isFinal: true
         }
         Property {
+            name: "imageSourceSize"
+            type: "QSize"
+            read: "imageSourceSize"
+            write: "setImageSourceSize"
+            notify: "imageSourceSizeChanged"
+            index: 5
+            isFinal: true
+        }
+        Property {
             name: "keys"
             type: "QStringList"
             read: "keys"
             write: "setKeys"
             notify: "keysChanged"
-            index: 5
+            index: 6
             isFinal: true
         }
         Property {
@@ -3599,7 +3686,7 @@ Module {
             read: "mimeData"
             write: "setMimeData"
             notify: "mimeDataChanged"
-            index: 6
+            index: 7
             isFinal: true
         }
         Property {
@@ -3608,7 +3695,7 @@ Module {
             read: "supportedActions"
             write: "setSupportedActions"
             notify: "supportedActionsChanged"
-            index: 7
+            index: 8
             isFinal: true
         }
         Property {
@@ -3617,7 +3704,7 @@ Module {
             read: "proposedAction"
             write: "setProposedAction"
             notify: "proposedActionChanged"
-            index: 8
+            index: 9
             isFinal: true
         }
         Property {
@@ -3626,7 +3713,7 @@ Module {
             read: "dragType"
             write: "setDragType"
             notify: "dragTypeChanged"
-            index: 9
+            index: 10
             isFinal: true
         }
         Signal { name: "dragStarted" }
@@ -3639,6 +3726,7 @@ Module {
         Signal { name: "targetChanged" }
         Signal { name: "hotSpotChanged" }
         Signal { name: "imageSourceChanged" }
+        Signal { name: "imageSourceSizeChanged" }
         Signal { name: "keysChanged" }
         Signal { name: "mimeDataChanged" }
         Signal { name: "supportedActionsChanged" }
@@ -4979,6 +5067,8 @@ Module {
                 "NoAntialias",
                 "NoSubpixelAntialias",
                 "PreferNoShaping",
+                "ContextFontMerging",
+                "PreferTypoLineMetrics",
                 "NoFontMerging"
             ]
         }
@@ -5193,7 +5283,24 @@ Module {
             index: 17
             isFinal: true
         }
+        Property {
+            name: "contextFontMerging"
+            type: "bool"
+            read: "contextFontMerging"
+            write: "setContextFontMerging"
+            index: 18
+            isFinal: true
+        }
+        Property {
+            name: "preferTypoLineMetrics"
+            type: "bool"
+            read: "preferTypoLineMetrics"
+            write: "setPreferTypoLineMetrics"
+            index: 19
+            isFinal: true
+        }
         Method { name: "toString"; type: "QString" }
+        Method { name: "QQuickFontValueType"; isConstructor: true }
     }
     Component {
         file: "private/qquickframeanimation_p.h"
@@ -5750,6 +5857,16 @@ Module {
         name: "QQuickGridViewAttached"
         accessSemantics: "reference"
         prototype: "QQuickItemViewAttached"
+        Property {
+            name: "view"
+            type: "QQuickGridView"
+            isPointer: true
+            read: "view"
+            notify: "viewChanged"
+            index: 0
+            isReadonly: true
+            isFinal: true
+        }
     }
     Component {
         file: "private/qquickhandlerpoint_p.h"
@@ -5912,7 +6029,8 @@ Module {
             "QtQuick/Image 6.0",
             "QtQuick/Image 6.2",
             "QtQuick/Image 6.3",
-            "QtQuick/Image 6.7"
+            "QtQuick/Image 6.7",
+            "QtQuick/Image 6.8"
         ]
         exportMetaObjectRevisions: [
             512,
@@ -5927,7 +6045,8 @@ Module {
             1536,
             1538,
             1539,
-            1543
+            1543,
+            1544
         ]
         Enum {
             name: "HAlignment"
@@ -6055,10 +6174,11 @@ Module {
             "QtQuick/ImageBase 6.0",
             "QtQuick/ImageBase 6.2",
             "QtQuick/ImageBase 6.3",
-            "QtQuick/ImageBase 6.7"
+            "QtQuick/ImageBase 6.7",
+            "QtQuick/ImageBase 6.8"
         ]
         isCreatable: false
-        exportMetaObjectRevisions: [526, 527, 1536, 1538, 1539, 1543]
+        exportMetaObjectRevisions: [526, 527, 1536, 1538, 1539, 1543, 1544]
         Enum {
             name: "LoadPixmapOptions"
             alias: "LoadPixmapOption"
@@ -6127,13 +6247,22 @@ Module {
             index: 6
         }
         Property {
+            name: "retainWhileLoading"
+            revision: 1544
+            type: "bool"
+            read: "retainWhileLoading"
+            write: "setRetainWhileLoading"
+            notify: "retainWhileLoadingChanged"
+            index: 7
+        }
+        Property {
             name: "currentFrame"
             revision: 526
             type: "int"
             read: "currentFrame"
             write: "setCurrentFrame"
             notify: "currentFrameChanged"
-            index: 7
+            index: 8
         }
         Property {
             name: "frameCount"
@@ -6141,7 +6270,7 @@ Module {
             type: "int"
             read: "frameCount"
             notify: "frameCountChanged"
-            index: 8
+            index: 9
             isReadonly: true
         }
         Property {
@@ -6151,7 +6280,7 @@ Module {
             read: "colorSpace"
             write: "setColorSpace"
             notify: "colorSpaceChanged"
-            index: 9
+            index: 10
         }
         Signal {
             name: "sourceChanged"
@@ -6174,6 +6303,7 @@ Module {
         Signal { name: "sourceClipRectChanged"; revision: 527 }
         Signal { name: "colorSpaceChanged"; revision: 527 }
         Signal { name: "mirrorVerticallyChanged"; revision: 1538 }
+        Signal { name: "retainWhileLoadingChanged"; revision: 1544 }
         Method { name: "requestFinished" }
         Method {
             name: "requestProgress"
@@ -6872,7 +7002,7 @@ Module {
         Method {
             name: "_q_createJSWrapper"
             type: "qulonglong"
-            Parameter { type: "QV4::ExecutionEngine"; isPointer: true }
+            Parameter { type: "QQmlV4ExecutionEnginePtr" }
         }
         Method {
             name: "grabToImage"
@@ -7650,21 +7780,11 @@ Module {
         accessSemantics: "reference"
         prototype: "QObject"
         Property {
-            name: "view"
-            type: "QQuickItemView"
-            isPointer: true
-            read: "view"
-            notify: "viewChanged"
-            index: 0
-            isReadonly: true
-            isFinal: true
-        }
-        Property {
             name: "isCurrentItem"
             type: "bool"
             read: "isCurrentItem"
             notify: "currentItemChanged"
-            index: 1
+            index: 0
             isReadonly: true
             isFinal: true
         }
@@ -7674,7 +7794,7 @@ Module {
             read: "delayRemove"
             write: "setDelayRemove"
             notify: "delayRemoveChanged"
-            index: 2
+            index: 1
             isFinal: true
         }
         Property {
@@ -7682,7 +7802,7 @@ Module {
             type: "QString"
             read: "section"
             notify: "sectionChanged"
-            index: 3
+            index: 2
             isReadonly: true
             isFinal: true
         }
@@ -7691,7 +7811,7 @@ Module {
             type: "QString"
             read: "prevSection"
             notify: "prevSectionChanged"
-            index: 4
+            index: 3
             isReadonly: true
             isFinal: true
         }
@@ -7700,7 +7820,7 @@ Module {
             type: "QString"
             read: "nextSection"
             notify: "nextSectionChanged"
-            index: 5
+            index: 4
             isReadonly: true
             isFinal: true
         }
@@ -7720,9 +7840,13 @@ Module {
         name: "QQuickKeyEvent"
         accessSemantics: "reference"
         prototype: "QObject"
-        exports: ["QtQuick/KeyEvent 6.7"]
+        exports: [
+            "QtQuick/KeyEvent 2.0",
+            "QtQuick/KeyEvent 2.2",
+            "QtQuick/KeyEvent 6.0"
+        ]
         isCreatable: false
-        exportMetaObjectRevisions: [1543]
+        exportMetaObjectRevisions: [512, 514, 1536]
         Property {
             name: "key"
             type: "int"
@@ -8278,6 +8402,16 @@ Module {
         name: "QQuickListViewAttached"
         accessSemantics: "reference"
         prototype: "QQuickItemViewAttached"
+        Property {
+            name: "view"
+            type: "QQuickListView"
+            isPointer: true
+            read: "view"
+            notify: "viewChanged"
+            index: 0
+            isReadonly: true
+            isFinal: true
+        }
     }
     Component {
         file: "private/qquickloader_p.h"
@@ -8532,6 +8666,7 @@ Module {
             type: "bool"
             Parameter { name: "m"; type: "QMatrix4x4" }
         }
+        Method { name: "QQuickMatrix4x4ValueType"; isConstructor: true }
     }
     Component {
         file: "private/qquickmousearea_p.h"
@@ -8747,9 +8882,14 @@ Module {
         name: "QQuickMouseEvent"
         accessSemantics: "reference"
         prototype: "QObject"
-        exports: ["QtQuick/MouseEvent 6.7"]
+        exports: [
+            "QtQuick/MouseEvent 2.0",
+            "QtQuick/MouseEvent 2.7",
+            "QtQuick/MouseEvent 2.11",
+            "QtQuick/MouseEvent 6.0"
+        ]
         isCreatable: false
-        exportMetaObjectRevisions: [1543]
+        exportMetaObjectRevisions: [512, 519, 523, 1536]
         Property {
             name: "x"
             type: "double"
@@ -9853,6 +9993,98 @@ Module {
     }
     Component {
         file: "private/qquickpath_p.h"
+        name: "QQuickPathRectangle"
+        accessSemantics: "reference"
+        prototype: "QQuickCurve"
+        exports: ["QtQuick/PathRectangle 6.8"]
+        exportMetaObjectRevisions: [1544]
+        Property {
+            name: "width"
+            type: "double"
+            read: "width"
+            write: "setWidth"
+            notify: "widthChanged"
+            index: 0
+            isFinal: true
+        }
+        Property {
+            name: "height"
+            type: "double"
+            read: "height"
+            write: "setHeight"
+            notify: "heightChanged"
+            index: 1
+            isFinal: true
+        }
+        Property {
+            name: "strokeAdjustment"
+            type: "double"
+            read: "strokeAdjustment"
+            write: "setStrokeAdjustment"
+            notify: "strokeAdjustmentChanged"
+            index: 2
+            isFinal: true
+        }
+        Property {
+            name: "radius"
+            type: "double"
+            read: "radius"
+            write: "setRadius"
+            notify: "radiusChanged"
+            index: 3
+            isFinal: true
+        }
+        Property {
+            name: "topLeftRadius"
+            type: "double"
+            read: "topLeftRadius"
+            write: "setTopLeftRadius"
+            reset: "resetTopLeftRadius"
+            notify: "topLeftRadiusChanged"
+            index: 4
+            isFinal: true
+        }
+        Property {
+            name: "topRightRadius"
+            type: "double"
+            read: "topRightRadius"
+            write: "setTopRightRadius"
+            reset: "resetTopRightRadius"
+            notify: "topRightRadiusChanged"
+            index: 5
+            isFinal: true
+        }
+        Property {
+            name: "bottomLeftRadius"
+            type: "double"
+            read: "bottomLeftRadius"
+            write: "setBottomLeftRadius"
+            reset: "resetBottomLeftRadius"
+            notify: "bottomLeftRadiusChanged"
+            index: 6
+            isFinal: true
+        }
+        Property {
+            name: "bottomRightRadius"
+            type: "double"
+            read: "bottomRightRadius"
+            write: "setBottomRightRadius"
+            reset: "resetBottomRightRadius"
+            notify: "bottomRightRadiusChanged"
+            index: 7
+            isFinal: true
+        }
+        Signal { name: "widthChanged" }
+        Signal { name: "heightChanged" }
+        Signal { name: "strokeAdjustmentChanged" }
+        Signal { name: "radiusChanged" }
+        Signal { name: "topLeftRadiusChanged" }
+        Signal { name: "topRightRadiusChanged" }
+        Signal { name: "bottomLeftRadiusChanged" }
+        Signal { name: "bottomRightRadiusChanged" }
+    }
+    Component {
+        file: "private/qquickpath_p.h"
         name: "QQuickPathSvg"
         accessSemantics: "reference"
         prototype: "QQuickCurve"
@@ -10794,6 +11026,99 @@ Module {
         }
     }
     Component {
+        file: "private/qquickvaluetypes_p.h"
+        name: "QQuickPlanarTransform"
+        accessSemantics: "reference"
+        prototype: "QObject"
+        exports: ["QtQuick/PlanarTransform 6.8"]
+        isCreatable: false
+        isSingleton: true
+        exportMetaObjectRevisions: [1544]
+        Method { name: "identity"; type: "QMatrix4x4" }
+        Method {
+            name: "fromAffineMatrix"
+            type: "QMatrix4x4"
+            Parameter { name: "scaleX"; type: "float" }
+            Parameter { name: "shearY"; type: "float" }
+            Parameter { name: "shearX"; type: "float" }
+            Parameter { name: "scaleY"; type: "float" }
+            Parameter { name: "translateX"; type: "float" }
+            Parameter { name: "translateY"; type: "float" }
+        }
+        Method {
+            name: "fromTranslate"
+            type: "QMatrix4x4"
+            Parameter { name: "translateX"; type: "float" }
+            Parameter { name: "translateY"; type: "float" }
+        }
+        Method {
+            name: "fromScale"
+            type: "QMatrix4x4"
+            Parameter { name: "scaleX"; type: "float" }
+            Parameter { name: "scaleY"; type: "float" }
+            Parameter { name: "originX"; type: "float" }
+            Parameter { name: "originY"; type: "float" }
+        }
+        Method {
+            name: "fromScale"
+            type: "QMatrix4x4"
+            isCloned: true
+            Parameter { name: "scaleX"; type: "float" }
+            Parameter { name: "scaleY"; type: "float" }
+            Parameter { name: "originX"; type: "float" }
+        }
+        Method {
+            name: "fromScale"
+            type: "QMatrix4x4"
+            isCloned: true
+            Parameter { name: "scaleX"; type: "float" }
+            Parameter { name: "scaleY"; type: "float" }
+        }
+        Method {
+            name: "fromRotate"
+            type: "QMatrix4x4"
+            Parameter { name: "angle"; type: "float" }
+            Parameter { name: "originX"; type: "float" }
+            Parameter { name: "originY"; type: "float" }
+        }
+        Method {
+            name: "fromRotate"
+            type: "QMatrix4x4"
+            isCloned: true
+            Parameter { name: "angle"; type: "float" }
+            Parameter { name: "originX"; type: "float" }
+        }
+        Method {
+            name: "fromRotate"
+            type: "QMatrix4x4"
+            isCloned: true
+            Parameter { name: "angle"; type: "float" }
+        }
+        Method {
+            name: "fromShear"
+            type: "QMatrix4x4"
+            Parameter { name: "shearX"; type: "float" }
+            Parameter { name: "shearY"; type: "float" }
+            Parameter { name: "originX"; type: "float" }
+            Parameter { name: "originY"; type: "float" }
+        }
+        Method {
+            name: "fromShear"
+            type: "QMatrix4x4"
+            isCloned: true
+            Parameter { name: "shearX"; type: "float" }
+            Parameter { name: "shearY"; type: "float" }
+            Parameter { name: "originX"; type: "float" }
+        }
+        Method {
+            name: "fromShear"
+            type: "QMatrix4x4"
+            isCloned: true
+            Parameter { name: "shearX"; type: "float" }
+            Parameter { name: "shearY"; type: "float" }
+        }
+    }
+    Component {
         file: "private/qquickpointhandler_p.h"
         name: "QQuickPointHandler"
         accessSemantics: "reference"
@@ -11379,6 +11704,7 @@ Module {
             type: "bool"
             Parameter { name: "q"; type: "QQuaternion" }
         }
+        Method { name: "QQuickQuaternionValueType"; isConstructor: true }
     }
     Component {
         file: "private/qquickrectangle_p.h"
@@ -13156,7 +13482,8 @@ Module {
             "QtQuick/TableView 6.4",
             "QtQuick/TableView 6.5",
             "QtQuick/TableView 6.6",
-            "QtQuick/TableView 6.7"
+            "QtQuick/TableView 6.7",
+            "QtQuick/TableView 6.8"
         ]
         exportMetaObjectRevisions: [
             524,
@@ -13167,7 +13494,8 @@ Module {
             1540,
             1541,
             1542,
-            1543
+            1543,
+            1544
         ]
         attachedType: "QQuickTableViewAttached"
         Enum {
@@ -13505,6 +13833,20 @@ Module {
         Signal { name: "editTriggersChanged"; revision: 1541 }
         Signal { name: "layoutChanged"; revision: 1541 }
         Signal { name: "selectionModeChanged"; revision: 1542 }
+        Signal {
+            name: "rowMoved"
+            revision: 1544
+            Parameter { name: "logicalIndex"; type: "int" }
+            Parameter { name: "oldVisualIndex"; type: "int" }
+            Parameter { name: "newVisualIndex"; type: "int" }
+        }
+        Signal {
+            name: "columnMoved"
+            revision: 1544
+            Parameter { name: "logicalIndex"; type: "int" }
+            Parameter { name: "oldVisualIndex"; type: "int" }
+            Parameter { name: "newVisualIndex"; type: "int" }
+        }
         Method { name: "forceLayout" }
         Method {
             name: "positionViewAtCell"
@@ -13791,6 +14133,20 @@ Module {
             Parameter { name: "row"; type: "int" }
             Parameter { name: "mode"; type: "PositionMode" }
         }
+        Method {
+            name: "moveColumn"
+            revision: 1544
+            Parameter { name: "source"; type: "int" }
+            Parameter { name: "destination"; type: "int" }
+        }
+        Method {
+            name: "moveRow"
+            revision: 1544
+            Parameter { name: "source"; type: "int" }
+            Parameter { name: "destination"; type: "int" }
+        }
+        Method { name: "clearColumnReordering"; revision: 1544 }
+        Method { name: "clearRowReordering"; revision: 1544 }
     }
     Component {
         file: "private/qquicktableview_p.h"
@@ -14421,15 +14777,31 @@ Module {
         }
     }
     Component {
+        file: "private/qquicktextedit_p.h"
+        name: "QTextBlock"
+        accessSemantics: "value"
+        extension: "QQuickTextBlockForeign"
+    }
+    Component {
+        file: "private/qquicktextedit_p.h"
+        name: "QQuickTextBlockForeign"
+        accessSemantics: "value"
+    }
+    Component {
         file: "qquicktextdocument.h"
         name: "QQuickTextDocument"
         accessSemantics: "reference"
         prototype: "QObject"
-        exports: ["QtQuick/TextDocument 6.7"]
+        exports: [
+            "QtQuick/TextDocument 2.0",
+            "QtQuick/TextDocument 6.0",
+            "QtQuick/TextDocument 6.7"
+        ]
         isCreatable: false
-        exportMetaObjectRevisions: [1543]
+        exportMetaObjectRevisions: [512, 1536, 1543]
         Enum {
             name: "Status"
+            isScoped: true
             type: "quint8"
             values: [
                 "Null",
@@ -16185,9 +16557,10 @@ Module {
             "QtQuick/TreeView 6.4",
             "QtQuick/TreeView 6.5",
             "QtQuick/TreeView 6.6",
-            "QtQuick/TreeView 6.7"
+            "QtQuick/TreeView 6.7",
+            "QtQuick/TreeView 6.8"
         ]
-        exportMetaObjectRevisions: [1539, 1540, 1541, 1542, 1543]
+        exportMetaObjectRevisions: [1539, 1540, 1541, 1542, 1543, 1544]
         Property {
             name: "rootIndex"
             revision: 1542
@@ -16354,6 +16727,7 @@ Module {
             type: "bool"
             Parameter { name: "vec"; type: "QVector2D" }
         }
+        Method { name: "QQuickVector2DValueType"; isConstructor: true }
     }
     Component {
         file: "private/qquickvaluetypes_p.h"
@@ -16422,6 +16796,7 @@ Module {
             type: "bool"
             Parameter { name: "vec"; type: "QVector3D" }
         }
+        Method { name: "QQuickVector3DValueType"; isConstructor: true }
     }
     Component {
         file: "private/qquickanimation_p.h"
@@ -16507,6 +16882,7 @@ Module {
             type: "bool"
             Parameter { name: "vec"; type: "QVector4D" }
         }
+        Method { name: "QQuickVector4DValueType"; isConstructor: true }
     }
     Component {
         file: "private/qquicklistview_p.h"
@@ -16630,9 +17006,9 @@ Module {
         name: "QQuickWheelEvent"
         accessSemantics: "reference"
         prototype: "QObject"
-        exports: ["QtQuick/WheelEvent 6.7"]
+        exports: ["QtQuick/WheelEvent 2.0", "QtQuick/WheelEvent 6.0"]
         isCreatable: false
-        exportMetaObjectRevisions: [1543]
+        exportMetaObjectRevisions: [512, 1536]
         Property {
             name: "device"
             type: "QPointingDevice"
@@ -17101,29 +17477,6 @@ Module {
             notify: "screenChanged"
             index: 2
         }
-        Property {
-            name: "parent"
-            revision: 1543
-            type: "QObject"
-            isPointer: true
-            read: "visualParent"
-            write: "setVisualParent"
-            notify: "visualParentChanged"
-            index: 3
-            isFinal: true
-        }
-        Property { name: "x"; type: "int"; read: "x"; write: "setX"; notify: "xChanged"; index: 4 }
-        Property { name: "y"; type: "int"; read: "y"; write: "setY"; notify: "yChanged"; index: 5 }
-        Property {
-            name: "z"
-            revision: 1543
-            type: "double"
-            read: "z"
-            write: "setZ"
-            notify: "zChanged"
-            index: 6
-            isFinal: true
-        }
         Signal {
             name: "visibleChanged"
             Parameter { name: "arg"; type: "bool" }
@@ -17131,11 +17484,6 @@ Module {
         Signal {
             name: "visibilityChanged"
             Parameter { name: "visibility"; type: "QWindow::Visibility" }
-        }
-        Signal {
-            name: "visualParentChanged"
-            revision: 1543
-            Parameter { type: "QObject"; isPointer: true }
         }
         Signal { name: "screenChanged"; revision: 515 }
         Signal {
@@ -17146,7 +17494,6 @@ Module {
             name: "yChanged"
             Parameter { name: "arg"; type: "int" }
         }
-        Signal { name: "zChanged"; revision: 1543 }
         Method { name: "applyWindowVisibility"; revision: 1543 }
         Method { name: "updateTransientParent"; revision: 1543 }
     }
@@ -17324,11 +17671,20 @@ Module {
             isFinal: true
         }
         Property {
+            name: "contextMenuTrigger"
+            type: "Qt::ContextMenuTrigger"
+            read: "contextMenuTrigger"
+            write: "setContextMenuTrigger"
+            notify: "contextMenuTriggerChanged"
+            index: 13
+            isFinal: true
+        }
+        Property {
             name: "startDragDistance"
             type: "int"
             read: "startDragDistance"
             notify: "startDragDistanceChanged"
-            index: 13
+            index: 14
             isReadonly: true
             isFinal: true
         }
@@ -17337,7 +17693,7 @@ Module {
             type: "int"
             read: "startDragTime"
             notify: "startDragTimeChanged"
-            index: 14
+            index: 15
             isReadonly: true
             isFinal: true
         }
@@ -17345,7 +17701,7 @@ Module {
             name: "startDragVelocity"
             type: "int"
             read: "startDragVelocity"
-            index: 15
+            index: 16
             isReadonly: true
             isFinal: true
             isConstant: true
@@ -17354,7 +17710,7 @@ Module {
             name: "useRtlExtensions"
             type: "bool"
             read: "useRtlExtensions"
-            index: 16
+            index: 17
             isReadonly: true
             isFinal: true
             isConstant: true
@@ -17364,7 +17720,7 @@ Module {
             type: "Qt::TabFocusBehavior"
             read: "tabFocusBehavior"
             notify: "tabFocusBehaviorChanged"
-            index: 17
+            index: 18
             isReadonly: true
             isFinal: true
         }
@@ -17372,7 +17728,7 @@ Module {
             name: "singleClickActivation"
             type: "bool"
             read: "singleClickActivation"
-            index: 18
+            index: 19
             isReadonly: true
             isFinal: true
             isConstant: true
@@ -17383,7 +17739,7 @@ Module {
             read: "useHoverEffects"
             write: "setUseHoverEffects"
             notify: "useHoverEffectsChanged"
-            index: 19
+            index: 20
             isFinal: true
         }
         Property {
@@ -17391,7 +17747,7 @@ Module {
             type: "int"
             read: "wheelScrollLines"
             notify: "wheelScrollLinesChanged"
-            index: 20
+            index: 21
             isReadonly: true
             isFinal: true
         }
@@ -17401,14 +17757,14 @@ Module {
             read: "mouseQuickSelectionThreshold"
             write: "setMouseQuickSelectionThreshold"
             notify: "mouseQuickSelectionThresholdChanged"
-            index: 21
+            index: 22
             isFinal: true
         }
         Property {
             name: "mouseDoubleClickDistance"
             type: "int"
             read: "mouseDoubleClickDistance"
-            index: 22
+            index: 23
             isReadonly: true
             isFinal: true
             isConstant: true
@@ -17417,7 +17773,7 @@ Module {
             name: "touchDoubleTapDistance"
             type: "int"
             read: "touchDoubleTapDistance"
-            index: 23
+            index: 24
             isReadonly: true
             isFinal: true
             isConstant: true
@@ -17426,9 +17782,10 @@ Module {
             name: "colorScheme"
             type: "Qt::ColorScheme"
             read: "colorScheme"
+            write: "setColorScheme"
+            reset: "unsetColorScheme"
             notify: "colorSchemeChanged"
-            index: 24
-            isReadonly: true
+            index: 25
             isFinal: true
         }
         Signal {
@@ -17466,6 +17823,10 @@ Module {
         Signal {
             name: "showShortcutsInContextMenusChanged"
             Parameter { type: "bool" }
+        }
+        Signal {
+            name: "contextMenuTriggerChanged"
+            Parameter { name: "contextMenuTrigger"; type: "Qt::ContextMenuTrigger" }
         }
         Signal {
             name: "wheelScrollLinesChanged"

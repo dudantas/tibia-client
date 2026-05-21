@@ -3,7 +3,7 @@
 
 
 import QtQuick
-import QtQuick.Controls
+import QtQuick.Controls.impl
 import QtQuick.Controls.Fusion
 import QtQuick.Dialogs
 import QtQuick.Dialogs.quickimpl
@@ -47,6 +47,7 @@ MessageDialogImpl {
 
     header: Label {
         text: control.title
+        visible: parent?.parent === Overlay.overlay
         horizontalAlignment: Label.AlignHCenter
         elide: Label.ElideRight
         font.bold: true
@@ -117,9 +118,9 @@ MessageDialogImpl {
             Layout.bottomMargin: 12
 
             background: Rectangle {
-                color: Qt.rgba(1,1,1,1)
+                color: detailedTextArea.palette.base
                 radius: 3
-                border.color: Qt.darker(control.palette.light)
+                border.color: detailedTextArea.activeFocus ? Fusion.highlightedOutline(detailedTextArea.palette) : Fusion.outline(detailedTextArea.palette)
                 border.width: 1
             }
         }

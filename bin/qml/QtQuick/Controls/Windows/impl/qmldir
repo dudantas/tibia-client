@@ -5,6 +5,8 @@ classname QtQuickControls2WindowsStyleImplPlugin
 typeinfo QuickControls2WindowsStyleImpl.qmltypes
 depends QtQuick auto
 prefer :/qt-project.org/imports/QtQuick/Controls/Windows/impl/
+CheckIndicator 6.0 CheckIndicator.qml
+CheckIndicator 2.0 CheckIndicator.qml
 SwitchIndicator 6.0 SwitchIndicator.qml
-SwitchIndicator 6.0 SwitchIndicator.qml
+SwitchIndicator 2.0 SwitchIndicator.qml
 
