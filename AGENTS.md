@@ -4,6 +4,8 @@
 
 Before changing release assets, read `docs/client-release-checklist.md`.
 
+For full release preparation from a client zip, use the repository skill at `.codex/skills/tibia-client-release/SKILL.md`.
+
 Mandatory checks:
 
 1. Keep `.gitattributes` present so JSON and `.sha256` files are committed with LF line endings.

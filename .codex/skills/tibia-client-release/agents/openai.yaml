@@ -1,0 +1,4 @@
+interface:
+  display_name: "Tibia Client Release"
+  short_description: "Prepare and publish tibia-client releases from a client zip."
+  default_prompt: "Use this skill when I provide a Tibia client zip path and ask you to prepare or publish a tibia-client release."
