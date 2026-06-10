@@ -1,0 +1,11 @@
+.gitattributes text eol=lf
+*.json text eol=lf
+*.sha256 text eol=lf
+*.lzma binary
+*.ogg binary
+*.dat binary
+*.bmp binary
+*.png binary
+*.dll binary
+*.exe binary
+*.pak binary
