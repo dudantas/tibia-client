@@ -1,6 +1,11 @@
 .gitattributes text eol=lf
+.gitignore text eol=lf
 *.json text eol=lf
 *.sha256 text eol=lf
+*.md text eol=lf
+*.mjs text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
 *.lzma binary
 *.ogg binary
 *.dat binary
@@ -9,3 +14,4 @@
 *.dll binary
 *.exe binary
 *.pak binary
+*.rar binary
