@@ -191,7 +191,9 @@ jobs:
             --pattern "tibia-8.6-extended.zip" `
             --dir $legacyTemplates
 
-          $editorExe = (Resolve-Path "$env:RUNNER_TEMP\assets-editor\Assets Editor.exe").Path
+          # Invoke the DLL through dotnet instead of the GUI .exe so PowerShell waits
+          # for completion and receives a reliable exit code.
+          $editorDll = (Resolve-Path "$env:RUNNER_TEMP\assets-editor\Assets Editor.dll").Path
           $assetsInput = Join-Path $repoRoot "assets"
           $legacyClients = @(
             @{
@@ -210,7 +212,7 @@ jobs:
             $profileOutput = Join-Path $env:RUNNER_TEMP "legacy-assets\$profile"
             New-Item -ItemType Directory -Force -Path $profileOutput | Out-Null
 
-            & $editorExe export-legacy `
+            dotnet $editorDll export-legacy `
               --profile $profile `
               --input $assetsInput `
               --output $profileOutput `
@@ -220,7 +222,7 @@ jobs:
               throw "Assets Editor export failed for profile $profile."
             }
 
-            & $editorExe validate-legacy `
+            dotnet $editorDll validate-legacy `
               --profile $profile `
               --dat (Join-Path $profileOutput "Tibia.dat") `
               --spr (Join-Path $profileOutput "Tibia.spr")
