@@ -1,0 +1,338 @@
+---
+name: Release
+
+on:
+  push:
+    tags:
+      - "[0-9]*.[0-9]*.*"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing client release tag to publish.
+        required: true
+        type: string
+      dry_run:
+        description: Validate and package, but do not create or update the GitHub release.
+        required: false
+        type: boolean
+        default: true
+
+concurrency:
+  group: client-release-${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref_name }}
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    name: Publish Client Release
+    runs-on: windows-latest
+    permissions:
+      contents: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      RELEASE_TAG: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref_name }}
+      DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run }}
+      ASSETS_EDITOR_REPOSITORY: dudantas/Assets-Editor
+      # PR Arch-Mina/Assets-Editor#90 adds the export-legacy CLI required here.
+      ASSETS_EDITOR_REF: 6e4ffc430b847e779ee527db452a43b92e5f3ede
+    steps:
+      - name: Checkout client tag
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+          ref: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref }}
+
+      - name: Validate release metadata
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = "Stop"
+
+          $packageVersion = (Get-Content -Raw package.json | ConvertFrom-Json).version
+          if ($packageVersion -ne $env:RELEASE_TAG) {
+            throw "package.json version '$packageVersion' does not match release tag '$env:RELEASE_TAG'."
+          }
+
+          node .codex\skills\tibia-client-release\scripts\validate-release.mjs
+
+      - name: Resolve legacy client templates
+        id: templates
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = "Stop"
+
+          $releases = gh api "repos/dudantas/tibia-client/releases?per_page=100" | ConvertFrom-Json
+          $templateRelease = $releases |
+            Where-Object {
+              -not $_.draft -and
+              -not $_.prerelease -and
+              $_.tag_name -ne $env:RELEASE_TAG -and
+              ($_.assets | Where-Object { $_.name -eq "client-11.zip" }) -and
+              ($_.assets | Where-Object { $_.name -eq "tibia-8.6-extended.zip" })
+            } |
+            Sort-Object { [DateTime]$_.published_at } -Descending |
+            Select-Object -First 1
+
+          if ($null -eq $templateRelease) {
+            throw "No previous dudantas/tibia-client release was found with client-11.zip and tibia-8.6-extended.zip templates."
+          }
+
+          "legacy_template_tag=$($templateRelease.tag_name)" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
+
+          @(
+            "Resolved legacy client template release:"
+            ""
+            "- Tag: $($templateRelease.tag_name)"
+            "- Published: $($templateRelease.published_at)"
+          ) | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append
+
+      - name: Checkout Assets Editor CLI
+        uses: actions/checkout@v6
+        with:
+          repository: dudantas/Assets-Editor
+          ref: ${{ env.ASSETS_EDITOR_REF }}
+          path: assets-editor
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Install .NET 10 SDK
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = "Stop"
+          $dotnetInstall = Join-Path $env:RUNNER_TEMP "dotnet-install.ps1"
+          Invoke-WebRequest "https://dot.net/v1/dotnet-install.ps1" -OutFile $dotnetInstall
+          & $dotnetInstall -Channel 10.0 -Quality ga -InstallDir "$env:ProgramFiles\dotnet"
+          dotnet --list-sdks
+
+      - name: Build Assets Editor CLI
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = "Stop"
+          dotnet restore "assets-editor\Assets Editor\Assets Editor.sln"
+          dotnet publish "assets-editor\Assets Editor\AssetsEditor.csproj" `
+            --configuration Release `
+            --framework net10.0-windows7.0 `
+            --output "$env:RUNNER_TEMP\assets-editor"
+
+      - name: Package release assets
+        shell: pwsh
+        env:
+          LEGACY_TEMPLATE_TAG: ${{ steps.templates.outputs.legacy_template_tag }}
+        run: |
+          $ErrorActionPreference = "Stop"
+
+          $repoRoot = (Resolve-Path ".").Path
+          $dist = Join-Path $PWD "dist"
+          New-Item -ItemType Directory -Force -Path $dist | Out-Null
+
+          $sevenZip = (Get-Command 7z -ErrorAction SilentlyContinue).Source
+          if (-not $sevenZip) {
+            $sevenZip = Join-Path $env:ProgramFiles "7-Zip\7z.exe"
+          }
+          if (-not (Test-Path $sevenZip)) {
+            throw "7-Zip was not found; cannot extract or package release files."
+          }
+
+          $archives = Get-ChildItem -Path $repoRoot -Recurse -File -Include "*.rar", "*.zip", "*.7z" |
+            Where-Object { $_.FullName -notlike "$dist*" -and $_.FullName -notlike "*\.git\*" -and $_.FullName -notlike "*\assets-editor\*" }
+          foreach ($archive in $archives) {
+            & $sevenZip x $archive.FullName "-o$($archive.Directory.FullName)" -y
+            if ($LASTEXITCODE -ne 0) {
+              throw "Failed to extract client runtime archive: $($archive.FullName)"
+            }
+            Remove-Item -LiteralPath $archive.FullName -Force
+          }
+
+          $mandatoryClientEntries = @(
+            "assets",
+            "assets.json",
+            "assets.json.sha256",
+            "bin",
+            "conf",
+            "package.json"
+          )
+          $optionalClientEntries = @(
+            "3rdpartylicences",
+            "docs",
+            "partial.package.json.version",
+            "sounds"
+          )
+
+          $clientPaths = @()
+          foreach ($entry in $mandatoryClientEntries) {
+            $path = Join-Path $repoRoot $entry
+            if (-not (Test-Path $path)) {
+              throw "Required client release entry is missing: $entry"
+            }
+            $clientPaths += $path
+          }
+          foreach ($entry in $optionalClientEntries) {
+            $path = Join-Path $repoRoot $entry
+            if (Test-Path $path) {
+              $clientPaths += $path
+            }
+          }
+
+          $clientManifest = @(
+            "client_repository=dudantas/tibia-client"
+            "client_tag=$env:RELEASE_TAG"
+            "client_commit_sha=$env:GITHUB_SHA"
+          )
+          $clientManifest | Set-Content -Path (Join-Path $repoRoot "TIBIA_CLIENT_SOURCE.txt") -Encoding UTF8
+          $clientPaths += (Join-Path $repoRoot "TIBIA_CLIENT_SOURCE.txt")
+
+          $clientZip = Join-Path $dist "tibia-client-$env:RELEASE_TAG.zip"
+          Compress-Archive -Path $clientPaths -DestinationPath $clientZip -Force
+
+          $legacyTemplates = Join-Path $env:RUNNER_TEMP "legacy-client-templates"
+          New-Item -ItemType Directory -Force -Path $legacyTemplates | Out-Null
+          gh release download $env:LEGACY_TEMPLATE_TAG `
+            --repo dudantas/tibia-client `
+            --pattern "client-11.zip" `
+            --pattern "tibia-8.6-extended.zip" `
+            --dir $legacyTemplates
+
+          # Invoke the DLL through dotnet instead of the GUI .exe so PowerShell waits
+          # for completion and receives a reliable exit code.
+          $editorDll = (Resolve-Path "$env:RUNNER_TEMP\assets-editor\Assets Editor.dll").Path
+          $assetsInput = Join-Path $repoRoot "assets"
+          $legacyClients = @(
+            @{
+              Profile = "cip860-extended"
+              Template = "tibia-8.6-extended.zip"
+            },
+            @{
+              Profile = "client11-15x"
+              Template = "client-11.zip"
+            }
+          )
+
+          foreach ($legacyClient in $legacyClients) {
+            $profile = $legacyClient.Profile
+            $templateName = $legacyClient.Template
+            $profileOutput = Join-Path $env:RUNNER_TEMP "legacy-assets\$profile"
+            New-Item -ItemType Directory -Force -Path $profileOutput | Out-Null
+
+            dotnet $editorDll export-legacy `
+              --profile $profile `
+              --input $assetsInput `
+              --output $profileOutput `
+              --overwrite `
+              --no-backup
+            if ($LASTEXITCODE -ne 0) {
+              throw "Assets Editor export failed for profile $profile."
+            }
+
+            dotnet $editorDll validate-legacy `
+              --profile $profile `
+              --dat (Join-Path $profileOutput "Tibia.dat") `
+              --spr (Join-Path $profileOutput "Tibia.spr")
+            if ($LASTEXITCODE -ne 0) {
+              throw "Assets Editor validation failed for profile $profile."
+            }
+
+            $templateZip = Join-Path $legacyTemplates $templateName
+            if (-not (Test-Path $templateZip)) {
+              throw "Legacy client template was not downloaded: $templateName"
+            }
+
+            $legacyClientRoot = Join-Path $env:RUNNER_TEMP "legacy-client-packages\$profile"
+            New-Item -ItemType Directory -Force -Path $legacyClientRoot | Out-Null
+
+            & $sevenZip x $templateZip "-o$legacyClientRoot" -y
+            if ($LASTEXITCODE -ne 0) {
+              throw "Failed to extract legacy client template: $templateZip"
+            }
+
+            $targetDat = Get-ChildItem -Path $legacyClientRoot -Recurse -File -Filter "Tibia.dat" | Select-Object -First 1
+            $targetSpr = Get-ChildItem -Path $legacyClientRoot -Recurse -File -Filter "Tibia.spr" | Select-Object -First 1
+            if ($null -eq $targetDat -or $null -eq $targetSpr) {
+              throw "Legacy client template $templateName does not contain Tibia.dat and Tibia.spr."
+            }
+
+            Copy-Item -LiteralPath (Join-Path $profileOutput "Tibia.dat") -Destination $targetDat.FullName -Force
+            Copy-Item -LiteralPath (Join-Path $profileOutput "Tibia.spr") -Destination $targetSpr.FullName -Force
+
+            $itemFlag = Join-Path $profileOutput "itemFlag.otml"
+            if (Test-Path $itemFlag) {
+              Copy-Item -LiteralPath $itemFlag -Destination (Join-Path $targetDat.Directory.FullName "itemFlag.otml") -Force
+            }
+
+            @(
+              "client_repository=dudantas/tibia-client"
+              "client_tag=$env:RELEASE_TAG"
+              "client_commit_sha=$env:GITHUB_SHA"
+              "legacy_template_tag=$env:LEGACY_TEMPLATE_TAG"
+              "legacy_template_asset=$templateName"
+              "assets_editor_repository=$env:ASSETS_EDITOR_REPOSITORY"
+              "assets_editor_ref=$env:ASSETS_EDITOR_REF"
+              "legacy_profile=$profile"
+            ) | Set-Content -Path (Join-Path $legacyClientRoot "TIBIA_CLIENT_SOURCE.txt") -Encoding UTF8
+
+            $legacyZip = Join-Path $dist $templateName
+            if (Test-Path $legacyZip) {
+              Remove-Item -LiteralPath $legacyZip -Force
+            }
+            Push-Location $legacyClientRoot
+            try {
+              & $sevenZip a -tzip $legacyZip ".\*" -mx=9
+              if ($LASTEXITCODE -ne 0) {
+                throw "Failed to package updated legacy client: $templateName"
+              }
+            }
+            finally {
+              Pop-Location
+            }
+          }
+
+          @(
+            "Prepared release assets:"
+            ""
+            (Get-ChildItem -Path $dist -File | Sort-Object Name | ForEach-Object { "- $($_.Name)" })
+          ) | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append
+
+      - name: Publish GitHub release
+        if: env.DRY_RUN != 'true'
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = "Stop"
+
+          $releaseExists = $true
+          gh release view $env:RELEASE_TAG --repo dudantas/tibia-client *> $null
+          if ($LASTEXITCODE -ne 0) {
+            $releaseExists = $false
+          }
+
+          if (-not $releaseExists) {
+            gh release create $env:RELEASE_TAG `
+              --repo dudantas/tibia-client `
+              --verify-tag `
+              --title $env:RELEASE_TAG `
+              --notes $env:RELEASE_TAG
+          }
+          else {
+            gh release edit $env:RELEASE_TAG `
+              --repo dudantas/tibia-client `
+              --title $env:RELEASE_TAG `
+              --notes $env:RELEASE_TAG
+          }
+
+          gh release upload $env:RELEASE_TAG `
+            "dist\tibia-client-$env:RELEASE_TAG.zip" `
+            "dist\client-11.zip" `
+            "dist\tibia-8.6-extended.zip" `
+            --repo dudantas/tibia-client `
+            --clobber
+
+          gh release edit $env:RELEASE_TAG `
+            --repo dudantas/tibia-client `
+            --latest
+
+      - name: Summarize dry run
+        if: env.DRY_RUN == 'true'
+        shell: pwsh
+        run: |
+          @(
+            "Dry run completed for $env:RELEASE_TAG."
+            ""
+            "Release creation and asset upload were skipped."
+          ) | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append
