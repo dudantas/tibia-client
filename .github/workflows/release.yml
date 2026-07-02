@@ -33,7 +33,7 @@ jobs:
       DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run }}
       ASSETS_EDITOR_REPOSITORY: dudantas/Assets-Editor
       # PR Arch-Mina/Assets-Editor#90 adds the export-legacy CLI required here.
-      ASSETS_EDITOR_REF: d8b1c0115574d8c6a9e7a296a0e281a9bc783584
+      ASSETS_EDITOR_REF: 6e4ffc430b847e779ee527db452a43b92e5f3ede
     steps:
       - name: Checkout client tag
         uses: actions/checkout@v6
