@@ -6,6 +6,12 @@
 *.mjs text eol=lf
 *.yaml text eol=lf
 *.yml text eol=lf
+
+# Official payloads are validated by assets.json hashes.
+# Preserve their exact bytes, including CRLF when the official file uses it.
+assets/** binary -eol
+sounds/** binary -eol
+
 *.lzma binary
 *.ogg binary
 *.dat binary
