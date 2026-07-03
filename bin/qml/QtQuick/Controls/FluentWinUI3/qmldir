@@ -85,4 +85,5 @@ StyleImage 6.0 StyleImage.qml
 StyleImage 2.0 StyleImage.qml
 FocusFrame 6.0 FocusFrame.qml
 FocusFrame 2.0 FocusFrame.qml
+depends QtQuick
 

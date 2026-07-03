@@ -11,13 +11,17 @@ T.ToolBar {
     id: control
 
     implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset,
-                            contentWidth + leftPadding + rightPadding)
+                            implicitContentWidth + leftPadding + rightPadding)
     implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset,
-                             contentHeight + topPadding + bottomPadding)
+                             implicitContentHeight + topPadding + bottomPadding)
 
-    horizontalPadding: 6
-    topPadding: control.position === T.ToolBar.Footer ? 1 : 0
-    bottomPadding: control.position === T.ToolBar.Header ? 1 : 0
+    leftPadding: SafeArea.margins.left + 6
+    rightPadding: SafeArea.margins.right + 6
+
+    topPadding: SafeArea.margins.top
+        + (control.position === T.ToolBar.Footer ? 1 : 0)
+    bottomPadding: SafeArea.margins.bottom
+        + (control.position === T.ToolBar.Header ? 1 : 0)
 
     background: Rectangle {
         implicitHeight: 26

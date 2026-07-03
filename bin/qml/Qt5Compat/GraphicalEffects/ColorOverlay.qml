@@ -13,7 +13,7 @@ import Qt5Compat.GraphicalEffects.private
     \brief Alters the colors of the source item by applying an overlay color.
 
     The effect is similar to what happens when a colorized glass is put on top
-    of a grayscale image. The color for the overlay is given in the RGBA format.
+    of a grayscale image. The color for the overlay is given in the ARGB format.
 
     \table
     \header

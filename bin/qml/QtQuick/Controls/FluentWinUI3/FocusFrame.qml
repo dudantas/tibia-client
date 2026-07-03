@@ -5,8 +5,15 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 
+@Deprecated {
+    reason: "FocusFrame component has been moved to private FluentWinUI3.impl module \
+    and is no longer part of the public QML API."
+}
 Rectangle {
-
+    Component.onCompleted: {
+        print("FocusFrame has been moved to private FluentWinUI3.impl module "
+             + "and is no longer part of the public QML API.")
+    }
     function moveToItem(item) {
         if (!item) {
             targetItem = null;

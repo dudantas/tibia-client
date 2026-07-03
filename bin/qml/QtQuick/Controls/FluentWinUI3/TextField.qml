@@ -4,7 +4,7 @@
 import QtQuick
 import QtQuick.Templates as T
 import QtQuick.Controls.impl
-import QtQuick.Controls.FluentWinUI3.impl
+import QtQuick.Controls.FluentWinUI3.impl as Impl
 
 T.TextField {
     id: control
@@ -20,17 +20,17 @@ T.TextField {
         activeFocus && "focused",
         enabled && !activeFocus && hovered && "hovered",
     ].filter(Boolean).join("_") || "normal"
-    readonly property var config: Config.controls.textfield[__currentState] || {}
+    readonly property var __config: Config.controls.textfield[__currentState] || {}
 
-    topPadding: config.topPadding || 0
-    bottomPadding: config.bottomPadding || 0
-    leftPadding: config.leftPadding || 0
-    rightPadding: config.rightPadding || 0
+    topPadding: __config.topPadding || 0
+    bottomPadding: __config.bottomPadding || 0
+    leftPadding: __config.leftPadding || 0
+    rightPadding: __config.rightPadding || 0
 
-    topInset: -config.topInset || 0
-    bottomInset: -config.bottomInset || 0
-    leftInset: -config.leftInset || 0
-    rightInset: -config.rightInset || 0
+    topInset: -__config.topInset || 0
+    bottomInset: -__config.bottomInset || 0
+    leftInset: -__config.leftInset || 0
+    rightInset: -__config.rightInset || 0
 
     color: control.palette.text
     selectionColor: control.palette.highlight
@@ -55,17 +55,17 @@ T.TextField {
         renderType: control.renderType
     }
 
-    background: StyleImage {
-        imageConfig: control.config.background
+    background: Impl.StyleImage {
+        imageConfig: control.__config.background
         Item{
             visible: control.activeFocus
             width: parent.width
             height: 2
             y: parent.height - height
-            FocusStroke {
+            Impl.FocusStroke {
                 width: parent.width
                 height: parent.height
-                radius: control.config.background.bottomOffset
+                radius: control.__config.background.bottomOffset
                 color: control.palette.accent
             }
         }

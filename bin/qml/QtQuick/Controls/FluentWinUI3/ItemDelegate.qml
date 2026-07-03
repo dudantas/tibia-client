@@ -3,6 +3,7 @@
 
 import QtQuick
 import QtQuick.Controls.impl
+import QtQuick.Controls.FluentWinUI3.impl as Impl
 import QtQuick.Templates as T
 
 T.ItemDelegate {
@@ -14,17 +15,17 @@ T.ItemDelegate {
                              implicitContentHeight + topPadding + bottomPadding,
                              implicitIndicatorHeight + topPadding + bottomPadding)
 
-    spacing: config.spacing || 0
+    spacing: __config.spacing || 0
 
-    topPadding: config.topPadding || 0 + verticalOffset
-    leftPadding: config.leftPadding || 0 + __horizontalOffset
-    rightPadding: config.rightPadding || 0 + __horizontalOffset
-    bottomPadding: config.bottomPadding || 0 + __verticalOffset
+    topPadding: __config.topPadding || 0 + verticalOffset
+    leftPadding: __config.leftPadding || 0 + __horizontalOffset
+    rightPadding: __config.rightPadding || 0 + __horizontalOffset
+    bottomPadding: __config.bottomPadding || 0 + __verticalOffset
 
-    topInset: -config.topInset || 0
-    bottomInset: -config.bottomInset || 0
-    leftInset: -config.leftInset || 0
-    rightInset: -config.rightInset || 0
+    topInset: -__config.topInset || 0
+    bottomInset: -__config.bottomInset || 0
+    leftInset: -__config.leftInset || 0
+    rightInset: -__config.rightInset || 0
 
     icon.width: 16
     icon.height: 16
@@ -42,7 +43,7 @@ T.ItemDelegate {
         control.enabled && !control.down && control.hovered && "hovered",
         control.down && "pressed"
     ].filter(Boolean).join("_") || "normal"
-    readonly property var config: Config.controls.itemdelegate[__currentState] || {}
+    readonly property var __config: Config.controls.itemdelegate[__currentState] || {}
 
     readonly property Item __focusFrameTarget: control
 
@@ -61,9 +62,9 @@ T.ItemDelegate {
         implicitWidth: 160
         implicitHeight: 40
 
-        property Item backgroundImage: StyleImage {
+        property Item backgroundImage: Impl.StyleImage {
             parent: control.background
-            imageConfig: control.config.background
+            imageConfig: control.__config.background
             implicitWidth: parent.width - control.__horizontalOffset * 2
             implicitHeight: parent.height - control.__verticalOffset * 2
             x: control.__horizontalOffset

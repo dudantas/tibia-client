@@ -17,10 +17,10 @@ FileDialogImpl {
     id: control
 
     implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset,
-                            contentWidth + leftPadding + rightPadding,
+                            implicitContentWidth + leftPadding + rightPadding,
                             implicitFooterWidth)
     implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset,
-                             contentHeight + topPadding + bottomPadding
+                             implicitContentHeight + topPadding + bottomPadding
                              + (implicitHeaderHeight > 0 ? implicitHeaderHeight + spacing : 0)
                              + (implicitFooterHeight > 0 ? implicitFooterHeight + spacing : 0))
 
@@ -39,7 +39,6 @@ FileDialogImpl {
         dim: true
         modal: true
         title: qsTr("Overwrite file?")
-        width: control.width - control.leftPadding - control.rightPadding
         clip: true
 
         contentItem: Label {
@@ -60,6 +59,7 @@ FileDialogImpl {
     FileDialogImpl.fileNameLabel: fileNameLabel
     FileDialogImpl.fileNameTextField: fileNameTextField
     FileDialogImpl.overwriteConfirmationDialog: overwriteConfirmationDialog
+    FileDialogImpl.sideBar: sideBar
 
     background: Rectangle {
         implicitWidth: 600
@@ -101,28 +101,41 @@ FileDialogImpl {
         }
     }
 
-    contentItem: ListView {
-        id: fileDialogListView
-        objectName: "fileDialogListView"
-        clip: true
+    contentItem: RowLayout {
+        id: contentLayout
 
-        ScrollBar.vertical: ScrollBar {}
-
-        model: FolderListModel {
-            folder: control.currentFolder
-            nameFilters: control.selectedNameFilter.globs
-            showDirsFirst: PlatformTheme.themeHint(PlatformTheme.ShowDirectoriesFirst)
-            sortCaseSensitive: false
-        }
-        delegate: DialogsImpl.FileDialogDelegate {
-            objectName: "fileDialogDelegate" + index
-            width: ListView.view.width
-            highlighted: ListView.isCurrentItem
+        DialogsImpl.SideBar {
+            id: sideBar
             dialog: control
-            fileDetailRowWidth: nameFiltersComboBox.width
+            Layout.fillHeight: true
+            implicitWidth: 150
+        }
 
-            KeyNavigation.backtab: breadcrumbBar
-            KeyNavigation.tab: fileNameTextField.visible ? fileNameTextField : nameFiltersComboBox
+        ListView {
+            id: fileDialogListView
+            objectName: "fileDialogListView"
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            clip: true
+
+            ScrollBar.vertical: ScrollBar {}
+
+            model: FolderListModel {
+                folder: control.currentFolder
+                nameFilters: control.selectedNameFilter.globs
+                showDirsFirst: PlatformTheme.themeHint(PlatformTheme.ShowDirectoriesFirst)
+                sortCaseSensitive: false
+            }
+            delegate: DialogsImpl.FileDialogDelegate {
+                objectName: "fileDialogDelegate" + index
+                width: ListView.view.width
+                highlighted: ListView.isCurrentItem
+                dialog: control
+                fileDetailRowWidth: nameFiltersComboBox.width
+
+                KeyNavigation.backtab: breadcrumbBar
+                KeyNavigation.tab: fileNameTextField.visible ? fileNameTextField : nameFiltersComboBox
+            }
         }
     }
 

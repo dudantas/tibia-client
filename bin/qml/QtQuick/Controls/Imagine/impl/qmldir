@@ -6,4 +6,5 @@ typeinfo QuickControls2ImagineStyleImpl.qmltypes
 import QtQuick.Controls.impl auto
 prefer :/qt-project.org/imports/QtQuick/Controls/Imagine/impl/
 OpacityMask 6.0 OpacityMask.qml
+depends QtQuick
 

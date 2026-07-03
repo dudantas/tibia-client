@@ -18,4 +18,5 @@ GaussianInnerShadow 6.0 GaussianInnerShadow.qml
 GaussianInnerShadow 1.0 GaussianInnerShadow.qml
 GaussianMaskedBlur 6.0 GaussianMaskedBlur.qml
 GaussianMaskedBlur 1.0 GaussianMaskedBlur.qml
+depends QtQuick
 

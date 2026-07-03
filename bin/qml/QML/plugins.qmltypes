@@ -54,7 +54,7 @@ Module {
             read: "args"
             index: 0
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "name"
@@ -160,7 +160,14 @@ Module {
             index: 1
             isReadonly: true
         }
-        Property { name: "url"; type: "QUrl"; read: "url"; index: 2; isReadonly: true; isConstant: true }
+        Property {
+            name: "url"
+            type: "QUrl"
+            read: "url"
+            index: 2
+            isReadonly: true
+            isPropertyConstant: true
+        }
         Signal {
             name: "statusChanged"
             Parameter { type: "QQmlComponent::Status" }
@@ -195,7 +202,7 @@ Module {
             Parameter { type: "QByteArray" }
             Parameter { name: "baseUrl"; type: "QUrl" }
         }
-        Method { name: "errorString"; type: "QString" }
+        Method { name: "errorString"; type: "QString"; isMethodConstant: true }
         Method { name: "createObject"; isJavaScriptFunction: true }
         Method {
             name: "createObject"
@@ -392,11 +399,18 @@ Module {
         }
         Property {
             name: "bezierCurve"
-            type: "QVariantList"
+            type: "double"
+            isList: true
             read: "bezierCurve"
             write: "setBezierCurve"
             index: 4
             isFinal: true
+        }
+        Method { name: "QQmlEasingValueType"; isConstructor: true }
+        Method {
+            name: "QQmlEasingValueType"
+            isConstructor: true
+            Parameter { name: "easing"; type: "QEasingCurve" }
         }
     }
     Component {
@@ -1291,7 +1305,7 @@ Module {
         Enum {
             name: "TagSeparator"
             isScoped: true
-            type: "quint8"
+            type: "qint8"
             values: ["Dash", "Underscore"]
         }
         Enum {
@@ -1346,7 +1360,7 @@ Module {
             read: "firstDayOfWeek"
             index: 0
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "measurementSystem"
@@ -1354,7 +1368,7 @@ Module {
             read: "measurementSystem"
             index: 1
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "textDirection"
@@ -1362,7 +1376,7 @@ Module {
             read: "textDirection"
             index: 2
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "weekDays"
@@ -1371,7 +1385,7 @@ Module {
             read: "weekDays"
             index: 3
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "uiLanguages"
@@ -1379,16 +1393,23 @@ Module {
             read: "uiLanguages"
             index: 4
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
-        Property { name: "name"; type: "QString"; read: "name"; index: 5; isReadonly: true; isConstant: true }
+        Property {
+            name: "name"
+            type: "QString"
+            read: "name"
+            index: 5
+            isReadonly: true
+            isPropertyConstant: true
+        }
         Property {
             name: "nativeLanguageName"
             type: "QString"
             read: "nativeLanguageName"
             index: 6
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "nativeCountryName"
@@ -1396,7 +1417,7 @@ Module {
             read: "nativeCountryName"
             index: 7
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "nativeTerritoryName"
@@ -1404,7 +1425,7 @@ Module {
             read: "nativeTerritoryName"
             index: 8
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "decimalPoint"
@@ -1412,7 +1433,7 @@ Module {
             read: "decimalPoint"
             index: 9
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "groupSeparator"
@@ -1420,7 +1441,7 @@ Module {
             read: "groupSeparator"
             index: 10
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "percent"
@@ -1428,7 +1449,7 @@ Module {
             read: "percent"
             index: 11
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "zeroDigit"
@@ -1436,7 +1457,7 @@ Module {
             read: "zeroDigit"
             index: 12
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "negativeSign"
@@ -1444,7 +1465,7 @@ Module {
             read: "negativeSign"
             index: 13
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "positiveSign"
@@ -1452,7 +1473,7 @@ Module {
             read: "positiveSign"
             index: 14
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "exponential"
@@ -1460,7 +1481,7 @@ Module {
             read: "exponential"
             index: 15
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "amText"
@@ -1468,7 +1489,7 @@ Module {
             read: "amText"
             index: 16
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "pmText"
@@ -1476,7 +1497,7 @@ Module {
             read: "pmText"
             index: 17
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "numberOptions"
@@ -1488,30 +1509,35 @@ Module {
         Method {
             name: "currencySymbol"
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "format"; type: "QLocale::CurrencySymbolFormat" }
         }
-        Method { name: "currencySymbol"; type: "QString"; isCloned: true }
+        Method { name: "currencySymbol"; type: "QString"; isCloned: true; isMethodConstant: true }
         Method {
             name: "dateTimeFormat"
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "format"; type: "QLocale::FormatType" }
         }
-        Method { name: "dateTimeFormat"; type: "QString"; isCloned: true }
+        Method { name: "dateTimeFormat"; type: "QString"; isCloned: true; isMethodConstant: true }
         Method {
             name: "timeFormat"
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "format"; type: "QLocale::FormatType" }
         }
-        Method { name: "timeFormat"; type: "QString"; isCloned: true }
+        Method { name: "timeFormat"; type: "QString"; isCloned: true; isMethodConstant: true }
         Method {
             name: "dateFormat"
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "format"; type: "QLocale::FormatType" }
         }
-        Method { name: "dateFormat"; type: "QString"; isCloned: true }
+        Method { name: "dateFormat"; type: "QString"; isCloned: true; isMethodConstant: true }
         Method {
             name: "monthName"
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "index"; type: "int" }
             Parameter { name: "format"; type: "QLocale::FormatType" }
         }
@@ -1519,11 +1545,13 @@ Module {
             name: "monthName"
             type: "QString"
             isCloned: true
+            isMethodConstant: true
             Parameter { name: "index"; type: "int" }
         }
         Method {
             name: "standaloneMonthName"
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "index"; type: "int" }
             Parameter { name: "format"; type: "QLocale::FormatType" }
         }
@@ -1531,11 +1559,13 @@ Module {
             name: "standaloneMonthName"
             type: "QString"
             isCloned: true
+            isMethodConstant: true
             Parameter { name: "index"; type: "int" }
         }
         Method {
             name: "dayName"
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "index"; type: "int" }
             Parameter { name: "format"; type: "QLocale::FormatType" }
         }
@@ -1543,11 +1573,13 @@ Module {
             name: "dayName"
             type: "QString"
             isCloned: true
+            isMethodConstant: true
             Parameter { name: "index"; type: "int" }
         }
         Method {
             name: "standaloneDayName"
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "index"; type: "int" }
             Parameter { name: "format"; type: "QLocale::FormatType" }
         }
@@ -1555,12 +1587,14 @@ Module {
             name: "standaloneDayName"
             type: "QString"
             isCloned: true
+            isMethodConstant: true
             Parameter { name: "index"; type: "int" }
         }
-        Method { name: "formattedDataSize"; isJavaScriptFunction: true }
+        Method { name: "formattedDataSize"; isJavaScriptFunction: true; isMethodConstant: true }
         Method {
             name: "formattedDataSize"
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "bytes"; type: "double" }
             Parameter { name: "precision"; type: "int" }
             Parameter { name: "format"; type: "QLocale::DataSizeFormats" }
@@ -1569,6 +1603,7 @@ Module {
             name: "formattedDataSize"
             type: "QString"
             isCloned: true
+            isMethodConstant: true
             Parameter { name: "bytes"; type: "double" }
             Parameter { name: "precision"; type: "int" }
         }
@@ -1576,23 +1611,27 @@ Module {
             name: "formattedDataSize"
             type: "QString"
             isCloned: true
+            isMethodConstant: true
             Parameter { name: "bytes"; type: "double" }
         }
-        Method { name: "toString"; isJavaScriptFunction: true }
-        Method { name: "toString"; type: "QString" }
+        Method { name: "toString"; isJavaScriptFunction: true; isMethodConstant: true }
+        Method { name: "toString"; type: "QString"; isMethodConstant: true }
         Method {
             name: "toString"
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "i"; type: "int" }
         }
         Method {
             name: "toString"
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "f"; type: "double" }
         }
         Method {
             name: "toString"
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "f"; type: "double" }
             Parameter { name: "format"; type: "QString" }
             Parameter { name: "precision"; type: "int" }
@@ -1601,18 +1640,21 @@ Module {
             name: "toString"
             type: "QString"
             isCloned: true
+            isMethodConstant: true
             Parameter { name: "f"; type: "double" }
             Parameter { name: "format"; type: "QString" }
         }
         Method {
             name: "toString"
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "dateTime"; type: "QDateTime" }
             Parameter { name: "format"; type: "QString" }
         }
         Method {
             name: "toString"
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "dateTime"; type: "QDateTime" }
             Parameter { name: "format"; type: "QLocale::FormatType" }
         }
@@ -1620,6 +1662,7 @@ Module {
             name: "toString"
             type: "QString"
             isCloned: true
+            isMethodConstant: true
             Parameter { name: "dateTime"; type: "QDateTime" }
         }
         Method {
@@ -1655,7 +1698,12 @@ Module {
             index: 3
             isFinal: true
         }
-        Method { name: "toString"; type: "QString" }
+        Method { name: "toString"; type: "QString"; isMethodConstant: true }
+        Method {
+            name: "QQmlMarginsFValueType"
+            isConstructor: true
+            Parameter { name: "margins"; type: "QMarginsF" }
+        }
         Method {
             name: "QQmlMarginsFValueType"
             isConstructor: true
@@ -1676,7 +1724,12 @@ Module {
         Property { name: "right"; type: "int"; read: "right"; write: "setRight"; index: 1; isFinal: true }
         Property { name: "top"; type: "int"; read: "top"; write: "setTop"; index: 2; isFinal: true }
         Property { name: "bottom"; type: "int"; read: "bottom"; write: "setBottom"; index: 3; isFinal: true }
-        Method { name: "toString"; type: "QString" }
+        Method { name: "toString"; type: "QString"; isMethodConstant: true }
+        Method {
+            name: "QQmlMarginsValueType"
+            isConstructor: true
+            Parameter { name: "margins"; type: "QMargins" }
+        }
         Method {
             name: "QQmlMarginsValueType"
             isConstructor: true
@@ -1695,14 +1748,21 @@ Module {
         name: "QQmlPlatform"
         accessSemantics: "reference"
         prototype: "QObject"
-        Property { name: "os"; type: "QString"; read: "os"; index: 0; isReadonly: true; isConstant: true }
+        Property {
+            name: "os"
+            type: "QString"
+            read: "os"
+            index: 0
+            isReadonly: true
+            isPropertyConstant: true
+        }
         Property {
             name: "pluginName"
             type: "QString"
             read: "pluginName"
             index: 1
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
     }
     Component {
@@ -1720,8 +1780,13 @@ Module {
         accessSemantics: "value"
         Property { name: "x"; type: "double"; read: "x"; write: "setX"; index: 0; isFinal: true }
         Property { name: "y"; type: "double"; read: "y"; write: "setY"; index: 1; isFinal: true }
-        Method { name: "toString"; type: "QString" }
+        Method { name: "toString"; type: "QString"; isMethodConstant: true }
         Method { name: "QQmlPointFValueType"; isConstructor: true }
+        Method {
+            name: "QQmlPointFValueType"
+            isConstructor: true
+            Parameter { name: "point"; type: "QPointF" }
+        }
         Method {
             name: "QQmlPointFValueType"
             isConstructor: true
@@ -1740,7 +1805,12 @@ Module {
         accessSemantics: "value"
         Property { name: "x"; type: "int"; read: "x"; write: "setX"; index: 0; isFinal: true }
         Property { name: "y"; type: "int"; read: "y"; write: "setY"; index: 1; isFinal: true }
-        Method { name: "toString"; type: "QString" }
+        Method { name: "toString"; type: "QString"; isMethodConstant: true }
+        Method {
+            name: "QQmlPointValueType"
+            isConstructor: true
+            Parameter { name: "point"; type: "QPoint" }
+        }
         Method {
             name: "QQmlPointValueType"
             isConstructor: true
@@ -1759,7 +1829,7 @@ Module {
             index: 0
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "name"
@@ -1768,7 +1838,7 @@ Module {
             index: 1
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
     }
     Component {
@@ -1854,6 +1924,13 @@ Module {
     }
     Component {
         file: "private/qqmlbuiltins_p.h"
+        name: "QVariantHash"
+        accessSemantics: "value"
+        extension: "Object"
+        extensionIsJavaScript: true
+    }
+    Component {
+        file: "private/qqmlbuiltins_p.h"
         name: "QVariantList"
         accessSemantics: "sequence"
         valueType: "QVariant"
@@ -1901,7 +1978,7 @@ Module {
             name: "objectNameChanged"
             Parameter { name: "objectName"; type: "QString" }
         }
-        Method { name: "toString"; type: "QString" }
+        Method { name: "toString"; type: "QString"; isMethodConstant: true }
         Method {
             name: "destroy"
             Parameter { name: "delay"; type: "int" }
@@ -1956,8 +2033,13 @@ Module {
         Property { name: "right"; type: "double"; read: "right"; index: 5; isReadonly: true; isFinal: true }
         Property { name: "top"; type: "double"; read: "top"; index: 6; isReadonly: true; isFinal: true }
         Property { name: "bottom"; type: "double"; read: "bottom"; index: 7; isReadonly: true; isFinal: true }
-        Method { name: "toString"; type: "QString" }
+        Method { name: "toString"; type: "QString"; isMethodConstant: true }
         Method { name: "QQmlRectFValueType"; isConstructor: true }
+        Method {
+            name: "QQmlRectFValueType"
+            isConstructor: true
+            Parameter { name: "rect"; type: "QRectF" }
+        }
         Method {
             name: "QQmlRectFValueType"
             isConstructor: true
@@ -1982,7 +2064,12 @@ Module {
         Property { name: "right"; type: "int"; read: "right"; index: 5; isReadonly: true; isFinal: true }
         Property { name: "top"; type: "int"; read: "top"; index: 6; isReadonly: true; isFinal: true }
         Property { name: "bottom"; type: "int"; read: "bottom"; index: 7; isReadonly: true; isFinal: true }
-        Method { name: "toString"; type: "QString" }
+        Method { name: "toString"; type: "QString"; isMethodConstant: true }
+        Method {
+            name: "QQmlRectValueType"
+            isConstructor: true
+            Parameter { name: "rect"; type: "QRect" }
+        }
         Method {
             name: "QQmlRectValueType"
             isConstructor: true
@@ -2033,8 +2120,13 @@ Module {
             index: 1
             isFinal: true
         }
-        Method { name: "toString"; type: "QString" }
+        Method { name: "toString"; type: "QString"; isMethodConstant: true }
         Method { name: "QQmlSizeFValueType"; isConstructor: true }
+        Method {
+            name: "QQmlSizeFValueType"
+            isConstructor: true
+            Parameter { name: "size"; type: "QSizeF" }
+        }
         Method {
             name: "QQmlSizeFValueType"
             isConstructor: true
@@ -2053,7 +2145,12 @@ Module {
         accessSemantics: "value"
         Property { name: "width"; type: "int"; read: "width"; write: "setWidth"; index: 0; isFinal: true }
         Property { name: "height"; type: "int"; read: "height"; write: "setHeight"; index: 1; isFinal: true }
-        Method { name: "toString"; type: "QString" }
+        Method { name: "toString"; type: "QString"; isMethodConstant: true }
+        Method {
+            name: "QQmlSizeValueType"
+            isConstructor: true
+            Parameter { name: "size"; type: "QSize" }
+        }
         Method {
             name: "QQmlSizeValueType"
             isConstructor: true
@@ -2362,6 +2459,8 @@ Module {
                 "WindowOverridesSystemGestures",
                 "WindowDoesNotAcceptFocus",
                 "MaximizeUsingFullscreenGeometryHint",
+                "ExpandedClientAreaHint",
+                "NoTitleBarBackgroundHint",
                 "CustomizeWindowHint",
                 "WindowStaysOnBottomHint",
                 "WindowCloseButtonHint",
@@ -2407,6 +2506,8 @@ Module {
                 "WindowOverridesSystemGestures",
                 "WindowDoesNotAcceptFocus",
                 "MaximizeUsingFullscreenGeometryHint",
+                "ExpandedClientAreaHint",
+                "NoTitleBarBackgroundHint",
                 "CustomizeWindowHint",
                 "WindowStaysOnBottomHint",
                 "WindowCloseButtonHint",
@@ -3847,7 +3948,7 @@ Module {
             read: "application"
             index: 0
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "platform"
@@ -3856,7 +3957,7 @@ Module {
             read: "platform"
             index: 1
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "inputMethod"
@@ -3865,7 +3966,7 @@ Module {
             read: "inputMethod"
             index: 2
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "styleHints"
@@ -3874,7 +3975,7 @@ Module {
             read: "styleHints"
             index: 3
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "uiLanguage"
@@ -3887,6 +3988,7 @@ Module {
         Method {
             name: "include"
             type: "QJSValue"
+            isMethodConstant: true
             Parameter { name: "url"; type: "QString" }
             Parameter { name: "callback"; type: "QJSValue" }
         }
@@ -3894,21 +3996,25 @@ Module {
             name: "include"
             type: "QJSValue"
             isCloned: true
+            isMethodConstant: true
             Parameter { name: "url"; type: "QString" }
         }
         Method {
             name: "isQtObject"
             type: "bool"
+            isMethodConstant: true
             Parameter { name: "value"; type: "QJSValue" }
         }
         Method {
             name: "color"
             type: "QVariant"
+            isMethodConstant: true
             Parameter { name: "name"; type: "QString" }
         }
         Method {
             name: "rgba"
             type: "QVariant"
+            isMethodConstant: true
             Parameter { name: "r"; type: "double" }
             Parameter { name: "g"; type: "double" }
             Parameter { name: "b"; type: "double" }
@@ -3918,6 +4024,7 @@ Module {
             name: "rgba"
             type: "QVariant"
             isCloned: true
+            isMethodConstant: true
             Parameter { name: "r"; type: "double" }
             Parameter { name: "g"; type: "double" }
             Parameter { name: "b"; type: "double" }
@@ -3925,6 +4032,7 @@ Module {
         Method {
             name: "hsla"
             type: "QVariant"
+            isMethodConstant: true
             Parameter { name: "h"; type: "double" }
             Parameter { name: "s"; type: "double" }
             Parameter { name: "l"; type: "double" }
@@ -3934,6 +4042,7 @@ Module {
             name: "hsla"
             type: "QVariant"
             isCloned: true
+            isMethodConstant: true
             Parameter { name: "h"; type: "double" }
             Parameter { name: "s"; type: "double" }
             Parameter { name: "l"; type: "double" }
@@ -3941,6 +4050,7 @@ Module {
         Method {
             name: "hsva"
             type: "QVariant"
+            isMethodConstant: true
             Parameter { name: "h"; type: "double" }
             Parameter { name: "s"; type: "double" }
             Parameter { name: "v"; type: "double" }
@@ -3950,6 +4060,7 @@ Module {
             name: "hsva"
             type: "QVariant"
             isCloned: true
+            isMethodConstant: true
             Parameter { name: "h"; type: "double" }
             Parameter { name: "s"; type: "double" }
             Parameter { name: "v"; type: "double" }
@@ -3957,12 +4068,14 @@ Module {
         Method {
             name: "colorEqual"
             type: "bool"
+            isMethodConstant: true
             Parameter { name: "lhs"; type: "QVariant" }
             Parameter { name: "rhs"; type: "QVariant" }
         }
         Method {
             name: "rect"
             type: "QRectF"
+            isMethodConstant: true
             Parameter { name: "x"; type: "double" }
             Parameter { name: "y"; type: "double" }
             Parameter { name: "width"; type: "double" }
@@ -3971,24 +4084,28 @@ Module {
         Method {
             name: "point"
             type: "QPointF"
+            isMethodConstant: true
             Parameter { name: "x"; type: "double" }
             Parameter { name: "y"; type: "double" }
         }
         Method {
             name: "size"
             type: "QSizeF"
+            isMethodConstant: true
             Parameter { name: "width"; type: "double" }
             Parameter { name: "height"; type: "double" }
         }
         Method {
             name: "vector2d"
             type: "QVariant"
+            isMethodConstant: true
             Parameter { name: "x"; type: "double" }
             Parameter { name: "y"; type: "double" }
         }
         Method {
             name: "vector3d"
             type: "QVariant"
+            isMethodConstant: true
             Parameter { name: "x"; type: "double" }
             Parameter { name: "y"; type: "double" }
             Parameter { name: "z"; type: "double" }
@@ -3996,6 +4113,7 @@ Module {
         Method {
             name: "vector4d"
             type: "QVariant"
+            isMethodConstant: true
             Parameter { name: "x"; type: "double" }
             Parameter { name: "y"; type: "double" }
             Parameter { name: "z"; type: "double" }
@@ -4004,15 +4122,17 @@ Module {
         Method {
             name: "quaternion"
             type: "QVariant"
+            isMethodConstant: true
             Parameter { name: "scalar"; type: "double" }
             Parameter { name: "x"; type: "double" }
             Parameter { name: "y"; type: "double" }
             Parameter { name: "z"; type: "double" }
         }
-        Method { name: "matrix4x4"; type: "QVariant" }
+        Method { name: "matrix4x4"; type: "QVariant"; isMethodConstant: true }
         Method {
             name: "matrix4x4"
             type: "QVariant"
+            isMethodConstant: true
             Parameter { name: "m11"; type: "double" }
             Parameter { name: "m12"; type: "double" }
             Parameter { name: "m13"; type: "double" }
@@ -4033,11 +4153,13 @@ Module {
         Method {
             name: "matrix4x4"
             type: "QVariant"
+            isMethodConstant: true
             Parameter { name: "value"; type: "QJSValue" }
         }
         Method {
             name: "lighter"
             type: "QVariant"
+            isMethodConstant: true
             Parameter { name: "color"; type: "QJSValue" }
             Parameter { name: "factor"; type: "double" }
         }
@@ -4045,11 +4167,13 @@ Module {
             name: "lighter"
             type: "QVariant"
             isCloned: true
+            isMethodConstant: true
             Parameter { name: "color"; type: "QJSValue" }
         }
         Method {
             name: "darker"
             type: "QVariant"
+            isMethodConstant: true
             Parameter { name: "color"; type: "QJSValue" }
             Parameter { name: "factor"; type: "double" }
         }
@@ -4057,119 +4181,139 @@ Module {
             name: "darker"
             type: "QVariant"
             isCloned: true
+            isMethodConstant: true
             Parameter { name: "color"; type: "QJSValue" }
         }
         Method {
             name: "alpha"
             type: "QVariant"
+            isMethodConstant: true
             Parameter { name: "baseColor"; type: "QJSValue" }
             Parameter { name: "value"; type: "double" }
         }
         Method {
             name: "tint"
             type: "QVariant"
+            isMethodConstant: true
             Parameter { name: "baseColor"; type: "QJSValue" }
             Parameter { name: "tintColor"; type: "QJSValue" }
         }
         Method {
             name: "formatDate"
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "date"; type: "QDate" }
             Parameter { name: "format"; type: "QString" }
         }
         Method {
             name: "formatDate"
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "dateTime"; type: "QDateTime" }
             Parameter { name: "format"; type: "QString" }
         }
         Method {
             name: "formatDate"
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "string"; type: "QString" }
             Parameter { name: "format"; type: "QString" }
         }
         Method {
             name: "formatDate"
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "date"; type: "QDate" }
             Parameter { name: "format"; type: "Qt::DateFormat" }
         }
         Method {
             name: "formatDate"
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "dateTime"; type: "QDateTime" }
             Parameter { name: "format"; type: "Qt::DateFormat" }
         }
         Method {
             name: "formatDate"
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "string"; type: "QString" }
             Parameter { name: "format"; type: "Qt::DateFormat" }
         }
         Method {
             name: "formatTime"
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "time"; type: "QTime" }
             Parameter { name: "format"; type: "QString" }
         }
         Method {
             name: "formatTime"
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "dateTime"; type: "QDateTime" }
             Parameter { name: "format"; type: "QString" }
         }
         Method {
             name: "formatTime"
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "time"; type: "QString" }
             Parameter { name: "format"; type: "QString" }
         }
         Method {
             name: "formatTime"
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "time"; type: "QTime" }
             Parameter { name: "format"; type: "Qt::DateFormat" }
         }
         Method {
             name: "formatTime"
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "dateTime"; type: "QDateTime" }
             Parameter { name: "format"; type: "Qt::DateFormat" }
         }
         Method {
             name: "formatTime"
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "time"; type: "QString" }
             Parameter { name: "format"; type: "Qt::DateFormat" }
         }
         Method {
             name: "formatDateTime"
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "date"; type: "QDateTime" }
             Parameter { name: "format"; type: "QString" }
         }
         Method {
             name: "formatDateTime"
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "string"; type: "QString" }
             Parameter { name: "format"; type: "QString" }
         }
         Method {
             name: "formatDateTime"
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "date"; type: "QDateTime" }
             Parameter { name: "format"; type: "Qt::DateFormat" }
         }
         Method {
             name: "formatDateTime"
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "string"; type: "QString" }
             Parameter { name: "format"; type: "Qt::DateFormat" }
         }
         Method {
             name: "formatDate"
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "date"; type: "QDate" }
             Parameter { name: "locale"; type: "QLocale" }
             Parameter { name: "formatType"; type: "QLocale::FormatType" }
@@ -4178,6 +4322,7 @@ Module {
             name: "formatDate"
             type: "QString"
             isCloned: true
+            isMethodConstant: true
             Parameter { name: "date"; type: "QDate" }
             Parameter { name: "locale"; type: "QLocale" }
         }
@@ -4185,11 +4330,13 @@ Module {
             name: "formatDate"
             type: "QString"
             isCloned: true
+            isMethodConstant: true
             Parameter { name: "date"; type: "QDate" }
         }
         Method {
             name: "formatDate"
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "dateTime"; type: "QDateTime" }
             Parameter { name: "locale"; type: "QLocale" }
             Parameter { name: "formatType"; type: "QLocale::FormatType" }
@@ -4198,6 +4345,7 @@ Module {
             name: "formatDate"
             type: "QString"
             isCloned: true
+            isMethodConstant: true
             Parameter { name: "dateTime"; type: "QDateTime" }
             Parameter { name: "locale"; type: "QLocale" }
         }
@@ -4205,11 +4353,13 @@ Module {
             name: "formatDate"
             type: "QString"
             isCloned: true
+            isMethodConstant: true
             Parameter { name: "dateTime"; type: "QDateTime" }
         }
         Method {
             name: "formatDate"
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "string"; type: "QString" }
             Parameter { name: "locale"; type: "QLocale" }
             Parameter { name: "formatType"; type: "QLocale::FormatType" }
@@ -4218,6 +4368,7 @@ Module {
             name: "formatDate"
             type: "QString"
             isCloned: true
+            isMethodConstant: true
             Parameter { name: "string"; type: "QString" }
             Parameter { name: "locale"; type: "QLocale" }
         }
@@ -4225,11 +4376,13 @@ Module {
             name: "formatDate"
             type: "QString"
             isCloned: true
+            isMethodConstant: true
             Parameter { name: "string"; type: "QString" }
         }
         Method {
             name: "formatTime"
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "time"; type: "QTime" }
             Parameter { name: "locale"; type: "QLocale" }
             Parameter { name: "formatType"; type: "QLocale::FormatType" }
@@ -4238,6 +4391,7 @@ Module {
             name: "formatTime"
             type: "QString"
             isCloned: true
+            isMethodConstant: true
             Parameter { name: "time"; type: "QTime" }
             Parameter { name: "locale"; type: "QLocale" }
         }
@@ -4245,11 +4399,13 @@ Module {
             name: "formatTime"
             type: "QString"
             isCloned: true
+            isMethodConstant: true
             Parameter { name: "time"; type: "QTime" }
         }
         Method {
             name: "formatTime"
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "dateTime"; type: "QDateTime" }
             Parameter { name: "locale"; type: "QLocale" }
             Parameter { name: "formatType"; type: "QLocale::FormatType" }
@@ -4258,6 +4414,7 @@ Module {
             name: "formatTime"
             type: "QString"
             isCloned: true
+            isMethodConstant: true
             Parameter { name: "dateTime"; type: "QDateTime" }
             Parameter { name: "locale"; type: "QLocale" }
         }
@@ -4265,11 +4422,13 @@ Module {
             name: "formatTime"
             type: "QString"
             isCloned: true
+            isMethodConstant: true
             Parameter { name: "dateTime"; type: "QDateTime" }
         }
         Method {
             name: "formatTime"
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "time"; type: "QString" }
             Parameter { name: "locale"; type: "QLocale" }
             Parameter { name: "formatType"; type: "QLocale::FormatType" }
@@ -4278,6 +4437,7 @@ Module {
             name: "formatTime"
             type: "QString"
             isCloned: true
+            isMethodConstant: true
             Parameter { name: "time"; type: "QString" }
             Parameter { name: "locale"; type: "QLocale" }
         }
@@ -4285,11 +4445,13 @@ Module {
             name: "formatTime"
             type: "QString"
             isCloned: true
+            isMethodConstant: true
             Parameter { name: "time"; type: "QString" }
         }
         Method {
             name: "formatDateTime"
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "date"; type: "QDateTime" }
             Parameter { name: "locale"; type: "QLocale" }
             Parameter { name: "formatType"; type: "QLocale::FormatType" }
@@ -4298,6 +4460,7 @@ Module {
             name: "formatDateTime"
             type: "QString"
             isCloned: true
+            isMethodConstant: true
             Parameter { name: "date"; type: "QDateTime" }
             Parameter { name: "locale"; type: "QLocale" }
         }
@@ -4305,11 +4468,13 @@ Module {
             name: "formatDateTime"
             type: "QString"
             isCloned: true
+            isMethodConstant: true
             Parameter { name: "date"; type: "QDateTime" }
         }
         Method {
             name: "formatDateTime"
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "string"; type: "QString" }
             Parameter { name: "locale"; type: "QLocale" }
             Parameter { name: "formatType"; type: "QLocale::FormatType" }
@@ -4318,6 +4483,7 @@ Module {
             name: "formatDateTime"
             type: "QString"
             isCloned: true
+            isMethodConstant: true
             Parameter { name: "string"; type: "QString" }
             Parameter { name: "locale"; type: "QLocale" }
         }
@@ -4325,65 +4491,77 @@ Module {
             name: "formatDateTime"
             type: "QString"
             isCloned: true
+            isMethodConstant: true
             Parameter { name: "string"; type: "QString" }
         }
-        Method { name: "locale"; type: "QLocale" }
+        Method { name: "locale"; type: "QLocale"; isMethodConstant: true }
         Method {
             name: "locale"
             type: "QLocale"
+            isMethodConstant: true
             Parameter { name: "name"; type: "QString" }
         }
         Method {
             name: "url"
             type: "QUrl"
+            isMethodConstant: true
             Parameter { name: "url"; type: "QUrl" }
         }
         Method {
             name: "resolvedUrl"
             type: "QUrl"
+            isMethodConstant: true
             Parameter { name: "url"; type: "QUrl" }
         }
         Method {
             name: "resolvedUrl"
             type: "QUrl"
+            isMethodConstant: true
             Parameter { name: "url"; type: "QUrl" }
             Parameter { name: "context"; type: "QObject"; isPointer: true }
         }
         Method {
             name: "openUrlExternally"
             type: "bool"
+            isMethodConstant: true
             Parameter { name: "url"; type: "QUrl" }
         }
         Method {
             name: "font"
             type: "QVariant"
+            isMethodConstant: true
             Parameter { name: "fontSpecifier"; type: "QJSValue" }
         }
-        Method { name: "fontFamilies"; type: "QStringList" }
+        Method { name: "fontFamilies"; type: "QStringList"; isMethodConstant: true }
         Method {
             name: "md5"
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "data"; type: "QString" }
         }
         Method {
             name: "btoa"
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "data"; type: "QString" }
         }
         Method {
             name: "atob"
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "data"; type: "QString" }
         }
-        Method { name: "quit" }
+        Method { name: "quit"; isMethodConstant: true }
         Method {
             name: "exit"
+            isMethodConstant: true
             Parameter { name: "retCode"; type: "int" }
         }
         Method {
             name: "createQmlObject"
             type: "QObject"
             isPointer: true
+            isMethodConstant: true
             Parameter { name: "qml"; type: "QString" }
             Parameter { name: "parent"; type: "QObject"; isPointer: true }
             Parameter { name: "url"; type: "QUrl" }
@@ -4393,6 +4571,7 @@ Module {
             type: "QObject"
             isPointer: true
             isCloned: true
+            isMethodConstant: true
             Parameter { name: "qml"; type: "QString" }
             Parameter { name: "parent"; type: "QObject"; isPointer: true }
         }
@@ -4400,6 +4579,7 @@ Module {
             name: "createComponent"
             type: "QQmlComponent"
             isPointer: true
+            isMethodConstant: true
             Parameter { name: "url"; type: "QUrl" }
             Parameter { name: "parent"; type: "QObject"; isPointer: true }
         }
@@ -4407,6 +4587,7 @@ Module {
             name: "createComponent"
             type: "QQmlComponent"
             isPointer: true
+            isMethodConstant: true
             Parameter { name: "url"; type: "QUrl" }
             Parameter { name: "mode"; type: "QQmlComponent::CompilationMode" }
             Parameter { name: "parent"; type: "QObject"; isPointer: true }
@@ -4416,6 +4597,7 @@ Module {
             type: "QQmlComponent"
             isPointer: true
             isCloned: true
+            isMethodConstant: true
             Parameter { name: "url"; type: "QUrl" }
             Parameter { name: "mode"; type: "QQmlComponent::CompilationMode" }
         }
@@ -4424,12 +4606,14 @@ Module {
             type: "QQmlComponent"
             isPointer: true
             isCloned: true
+            isMethodConstant: true
             Parameter { name: "url"; type: "QUrl" }
         }
         Method {
             name: "createComponent"
             type: "QQmlComponent"
             isPointer: true
+            isMethodConstant: true
             Parameter { name: "moduleUri"; type: "QString" }
             Parameter { name: "typeName"; type: "QString" }
             Parameter { name: "parent"; type: "QObject"; isPointer: true }
@@ -4438,6 +4622,7 @@ Module {
             name: "createComponent"
             type: "QQmlComponent"
             isPointer: true
+            isMethodConstant: true
             Parameter { name: "moduleUri"; type: "QString" }
             Parameter { name: "typeName"; type: "QString" }
             Parameter { name: "mode"; type: "QQmlComponent::CompilationMode" }
@@ -4448,6 +4633,7 @@ Module {
             type: "QQmlComponent"
             isPointer: true
             isCloned: true
+            isMethodConstant: true
             Parameter { name: "moduleUri"; type: "QString" }
             Parameter { name: "typeName"; type: "QString" }
             Parameter { name: "mode"; type: "QQmlComponent::CompilationMode" }
@@ -4457,12 +4643,14 @@ Module {
             type: "QQmlComponent"
             isPointer: true
             isCloned: true
+            isMethodConstant: true
             Parameter { name: "moduleUri"; type: "QString" }
             Parameter { name: "typeName"; type: "QString" }
         }
         Method {
             name: "binding"
             type: "QJSValue"
+            isMethodConstant: true
             Parameter { name: "function"; type: "QJSValue" }
         }
         Method { name: "callLater"; isJavaScriptFunction: true }

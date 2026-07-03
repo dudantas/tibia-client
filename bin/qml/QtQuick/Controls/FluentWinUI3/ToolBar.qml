@@ -3,33 +3,34 @@
 
 import QtQuick
 import QtQuick.Templates as T
+import QtQuick.Controls.FluentWinUI3.impl as Impl
 
 T.ToolBar {
     id: control
 
     implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset,
-                            contentWidth + leftPadding + rightPadding)
+                            implicitContentWidth + leftPadding + rightPadding)
     implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset,
-                             contentHeight + topPadding + bottomPadding)
+                             implicitContentHeight + topPadding + bottomPadding)
 
-    spacing: config.spacing || 0
+    spacing: __config.spacing || 0
 
-    topPadding: config.topPadding || 0
-    bottomPadding: config.bottomPadding || 0
-    leftPadding: config.leftPadding || 0
-    rightPadding: config.rightPadding || 0
+    topPadding: SafeArea.margins.top + (__config.topPadding || 0)
+    bottomPadding: SafeArea.margins.bottom + (__config.bottomPadding || 0)
+    leftPadding: SafeArea.margins.left + (__config.leftPadding || 0)
+    rightPadding: SafeArea.margins.right + (__config.rightPadding || 0)
 
-    topInset: -config.topInset || 0
-    bottomInset: -config.bottomInset || 0
-    leftInset: -config.leftInset || 0
-    rightInset: -config.rightInset || 0
+    topInset: -__config.topInset || 0
+    bottomInset: -__config.bottomInset || 0
+    leftInset: -__config.leftInset || 0
+    rightInset: -__config.rightInset || 0
 
     readonly property string __currentState: position === ToolBar.Header
         ? (enabled ? "normal" : "disabled")
         : (enabled ? "normal_footer" : "disabled_footer")
-    readonly property var config: Config.controls.toolbar[__currentState] || {}
+    readonly property var __config: Config.controls.toolbar[__currentState] || {}
 
-    background: StyleImage {
-        imageConfig: control.config.background
+    background: Impl.StyleImage {
+        imageConfig: control.__config.background
     }
 }

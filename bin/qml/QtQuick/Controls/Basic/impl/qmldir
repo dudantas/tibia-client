@@ -5,4 +5,5 @@ classname QtQuickControls2BasicStyleImplPlugin
 typeinfo plugins.qmltypes
 depends QtQuick auto
 prefer :/qt-project.org/imports/QtQuick/Controls/Basic/impl/
+depends QtQuick
 

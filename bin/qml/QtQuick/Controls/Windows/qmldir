@@ -61,4 +61,5 @@ ScrollBar 6.0 ScrollBar.qml
 ScrollBar 2.0 ScrollBar.qml
 ScrollView 6.0 ScrollView.qml
 ScrollView 2.0 ScrollView.qml
+depends QtQuick
 

@@ -6,7 +6,6 @@ designersupported
 typeinfo plugins.qmltypes
 depends Qt5Compat.GraphicalEffects.private
 depends QtQuick.Window
-depends QtQuick
 prefer :/qt-project.org/imports/Qt5Compat/GraphicalEffects/
 Blend 6.0 Blend.qml
 Blend 1.0 Blend.qml
@@ -58,4 +57,5 @@ ThresholdMask 6.0 ThresholdMask.qml
 ThresholdMask 1.0 ThresholdMask.qml
 ZoomBlur 6.0 ZoomBlur.qml
 ZoomBlur 1.0 ZoomBlur.qml
+depends QtQuick
 

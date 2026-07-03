@@ -153,8 +153,10 @@ jobs:
           $optionalClientEntries = @(
             "3rdpartylicences",
             "docs",
+            "package.json.version",
             "partial.package.json.version",
-            "sounds"
+            "sounds",
+            "storeimages"
           )
 
           $clientPaths = @()

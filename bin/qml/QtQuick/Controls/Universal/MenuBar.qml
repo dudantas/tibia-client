@@ -10,9 +10,14 @@ T.MenuBar {
     id: control
 
     implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset,
-                            contentWidth + leftPadding + rightPadding)
+                            implicitContentWidth + leftPadding + rightPadding)
     implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset,
-                             contentHeight + topPadding + bottomPadding)
+                             implicitContentHeight + topPadding + bottomPadding)
+
+    topPadding: SafeArea.margins.top
+    leftPadding: SafeArea.margins.left
+    rightPadding: SafeArea.margins.right
+    bottomPadding: SafeArea.margins.bottom
 
     delegate: MenuBarItem { }
 

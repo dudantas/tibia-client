@@ -108,4 +108,5 @@ Tumbler 6.0 Tumbler.qml
 Tumbler 2.0 Tumbler.qml
 VerticalHeaderView 2.15 VerticalHeaderView.qml
 VerticalHeaderView 6.0 VerticalHeaderView.qml
+depends QtQuick
 

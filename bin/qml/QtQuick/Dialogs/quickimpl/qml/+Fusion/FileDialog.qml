@@ -17,11 +17,11 @@ FileDialogImpl {
     id: control
 
     implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset,
-                            contentWidth + leftPadding + rightPadding,
+                            implicitContentWidth + leftPadding + rightPadding,
                             implicitHeaderWidth,
                             implicitFooterWidth)
     implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset,
-                             contentHeight + topPadding + bottomPadding
+                             implicitContentHeight + topPadding + bottomPadding
                              + (implicitHeaderHeight > 0 ? implicitHeaderHeight + spacing : 0)
                              + (implicitFooterHeight > 0 ? implicitFooterHeight + spacing : 0))
 
@@ -38,7 +38,6 @@ FileDialogImpl {
         dim: true
         modal: true
         title: qsTr("Overwrite file?")
-        width: control.width - control.leftPadding - control.rightPadding
 
         contentItem: Label {
             text: qsTr("“%1” already exists.\nDo you want to replace it?").arg(control.fileName)
@@ -70,6 +69,7 @@ FileDialogImpl {
     FileDialogImpl.fileNameLabel: fileNameLabel
     FileDialogImpl.fileNameTextField: fileNameTextField
     FileDialogImpl.overwriteConfirmationDialog: overwriteConfirmationDialog
+    FileDialogImpl.sideBar: sideBar
 
     background: Rectangle {
         implicitWidth: 600
@@ -122,36 +122,49 @@ FileDialogImpl {
         }
     }
 
-    contentItem: Frame {
-        padding: 0
-        verticalPadding: 1
+    contentItem: RowLayout {
+        id: contentLayout
 
-        ListView {
-            id: fileDialogListView
-            objectName: "fileDialogListView"
-            anchors.fill: parent
-            clip: true
-            focus: true
-            boundsBehavior: Flickable.StopAtBounds
+        DialogsImpl.SideBar {
+            id: sideBar
+            dialog: control
+            Layout.fillHeight: true
+            implicitWidth: 150
+        }
 
-            ScrollBar.vertical: ScrollBar {}
+        Frame {
+            padding: 0
+            verticalPadding: 1
+            Layout.fillWidth: true
+            Layout.fillHeight: true
 
-            model: FolderListModel {
-                folder: control.currentFolder
-                nameFilters: control.selectedNameFilter.globs
-                showDirsFirst: PlatformTheme.themeHint(PlatformTheme.ShowDirectoriesFirst)
-                sortCaseSensitive: false
-            }
-            delegate: DialogsImpl.FileDialogDelegate {
-                objectName: "fileDialogDelegate" + index
-                x: 1
-                width: ListView.view.width - 2
-                highlighted: ListView.isCurrentItem
-                dialog: control
-                fileDetailRowWidth: nameFiltersComboBox.width
+            ListView {
+                id: fileDialogListView
+                objectName: "fileDialogListView"
+                anchors.fill: parent
+                clip: true
+                focus: true
+                boundsBehavior: Flickable.StopAtBounds
 
-                KeyNavigation.backtab: breadcrumbBar
-                KeyNavigation.tab: fileNameTextField.visible ? fileNameTextField : nameFiltersComboBox
+                ScrollBar.vertical: ScrollBar {}
+
+                model: FolderListModel {
+                    folder: control.currentFolder
+                    nameFilters: control.selectedNameFilter.globs
+                    showDirsFirst: PlatformTheme.themeHint(PlatformTheme.ShowDirectoriesFirst)
+                    sortCaseSensitive: false
+                }
+                delegate: DialogsImpl.FileDialogDelegate {
+                    objectName: "fileDialogDelegate" + index
+                    x: 1
+                    width: ListView.view.width - 2
+                    highlighted: ListView.isCurrentItem
+                    dialog: control
+                    fileDetailRowWidth: nameFiltersComboBox.width
+
+                    KeyNavigation.backtab: breadcrumbBar
+                    KeyNavigation.tab: fileNameTextField.visible ? fileNameTextField : nameFiltersComboBox
+                }
             }
         }
     }

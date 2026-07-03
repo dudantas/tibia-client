@@ -13,6 +13,6 @@ optional import QtQuick.Controls.Windows auto
 optional import QtQuick.Controls.macOS auto
 optional import QtQuick.Controls.iOS auto
 default import QtQuick.Controls.Basic auto
-depends QtQuick
 prefer :/qt-project.org/imports/QtQuick/Controls/
+depends QtQuick
 

@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only
 
 import QtQuick
+import QtQuick.Controls.impl
 import QtQuick.Controls.Basic
 import QtQuick.Controls.Basic.impl
 import QtQuick.Dialogs
@@ -13,11 +14,11 @@ ColorDialogImpl {
     id: control
 
     implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset,
-                            contentWidth + leftPadding + rightPadding,
+                            implicitContentWidth + leftPadding + rightPadding,
                             implicitHeaderWidth,
                             implicitFooterWidth)
     implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset,
-                             contentHeight + topPadding + bottomPadding
+                             implicitContentHeight + topPadding + bottomPadding
                              + (implicitHeaderHeight > 0 ? implicitHeaderHeight + spacing : 0)
                              + (implicitFooterHeight > 0 ? implicitFooterHeight + spacing : 0))
 
@@ -187,9 +188,7 @@ ColorDialogImpl {
 
         ColorInputs {
             id: inputs
-
             color: control.color
-
             Layout.fillWidth: true
             Layout.leftMargin: 12
             Layout.rightMargin: 12

@@ -222,7 +222,7 @@ Module {
             read: "selectedNameFilter"
             index: 8
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "defaultSuffix"

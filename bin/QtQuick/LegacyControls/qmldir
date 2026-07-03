@@ -26,4 +26,5 @@ TableViewOld 1.0 TableViewOld.qml
 TableViewSelection 1.0 TableViewSelection.qml
 TableViewStyle 1.0 TableViewStyle.qml
 singleton TextSingleton 1.0 TextSingleton.qml
+depends QtQuick
 

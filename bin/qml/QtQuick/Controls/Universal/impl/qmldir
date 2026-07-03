@@ -11,4 +11,5 @@ RadioIndicator 6.0 RadioIndicator.qml
 RadioIndicator 2.0 RadioIndicator.qml
 SwitchIndicator 6.0 SwitchIndicator.qml
 SwitchIndicator 2.0 SwitchIndicator.qml
+depends QtQuick
 

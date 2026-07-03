@@ -25,7 +25,7 @@ Module {
             index: 0
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "overlayModalColor"
@@ -34,7 +34,7 @@ Module {
             index: 1
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "overlayDimColor"
@@ -43,7 +43,7 @@ Module {
             index: 2
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "textColor"
@@ -52,7 +52,7 @@ Module {
             index: 3
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "textDarkColor"
@@ -61,7 +61,7 @@ Module {
             index: 4
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "textLightColor"
@@ -70,7 +70,7 @@ Module {
             index: 5
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "textLinkColor"
@@ -79,7 +79,7 @@ Module {
             index: 6
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "textSelectionColor"
@@ -88,7 +88,7 @@ Module {
             index: 7
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "textDisabledColor"
@@ -97,7 +97,7 @@ Module {
             index: 8
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "textDisabledLightColor"
@@ -106,7 +106,7 @@ Module {
             index: 9
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "textPlaceholderColor"
@@ -115,7 +115,7 @@ Module {
             index: 10
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "focusColor"
@@ -124,7 +124,7 @@ Module {
             index: 11
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "focusLightColor"
@@ -133,7 +133,7 @@ Module {
             index: 12
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "focusPressedColor"
@@ -142,7 +142,7 @@ Module {
             index: 13
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "buttonColor"
@@ -151,7 +151,7 @@ Module {
             index: 14
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "buttonPressedColor"
@@ -160,7 +160,7 @@ Module {
             index: 15
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "buttonCheckedColor"
@@ -169,7 +169,7 @@ Module {
             index: 16
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "buttonCheckedPressedColor"
@@ -178,7 +178,7 @@ Module {
             index: 17
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "buttonCheckedFocusColor"
@@ -187,7 +187,7 @@ Module {
             index: 18
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "toolButtonColor"
@@ -196,7 +196,7 @@ Module {
             index: 19
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "tabButtonColor"
@@ -205,7 +205,7 @@ Module {
             index: 20
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "tabButtonPressedColor"
@@ -214,7 +214,7 @@ Module {
             index: 21
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "tabButtonCheckedPressedColor"
@@ -223,7 +223,7 @@ Module {
             index: 22
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "delegateColor"
@@ -232,7 +232,7 @@ Module {
             index: 23
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "delegatePressedColor"
@@ -241,7 +241,7 @@ Module {
             index: 24
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "delegateFocusColor"
@@ -250,7 +250,7 @@ Module {
             index: 25
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "indicatorPressedColor"
@@ -259,7 +259,7 @@ Module {
             index: 26
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "indicatorDisabledColor"
@@ -268,7 +268,7 @@ Module {
             index: 27
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "indicatorFrameColor"
@@ -277,7 +277,7 @@ Module {
             index: 28
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "indicatorFramePressedColor"
@@ -286,7 +286,7 @@ Module {
             index: 29
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "indicatorFrameDisabledColor"
@@ -295,7 +295,7 @@ Module {
             index: 30
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "frameDarkColor"
@@ -304,7 +304,7 @@ Module {
             index: 31
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "frameLightColor"
@@ -313,7 +313,7 @@ Module {
             index: 32
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "scrollBarColor"
@@ -322,7 +322,7 @@ Module {
             index: 33
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "scrollBarPressedColor"
@@ -331,7 +331,7 @@ Module {
             index: 34
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "progressBarColor"
@@ -340,7 +340,7 @@ Module {
             index: 35
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "pageIndicatorColor"
@@ -349,7 +349,7 @@ Module {
             index: 36
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "separatorColor"
@@ -358,7 +358,7 @@ Module {
             index: 37
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "disabledDarkColor"
@@ -367,7 +367,7 @@ Module {
             index: 38
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "disabledLightColor"
@@ -376,7 +376,33 @@ Module {
             index: 39
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
+        }
+    }
+    Component {
+        file: "private/qtquickcontrols2basicforeign_p.h"
+        name: "QQuickContextMenu"
+        accessSemantics: "reference"
+        prototype: "QObject"
+        interfaces: ["QQmlParserStatus"]
+        exports: ["QtQuick.Controls.Basic/ContextMenu 6.9"]
+        isCreatable: false
+        exportMetaObjectRevisions: [1545]
+        attachedType: "QQuickContextMenu"
+        Property {
+            name: "menu"
+            type: "QQuickMenu"
+            isPointer: true
+            read: "menu"
+            write: "setMenu"
+            notify: "menuChanged"
+            index: 0
+            isFinal: true
+        }
+        Signal { name: "menuChanged" }
+        Signal {
+            name: "requested"
+            Parameter { name: "position"; type: "QPointF" }
         }
     }
     Component {

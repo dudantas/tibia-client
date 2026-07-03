@@ -253,7 +253,7 @@ Module {
             index: 16
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "dividerColor"
@@ -533,7 +533,7 @@ Module {
             index: 47
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "buttonVerticalPadding"
@@ -542,7 +542,7 @@ Module {
             index: 48
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "buttonHeight"
@@ -551,7 +551,7 @@ Module {
             index: 49
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "delegateHeight"
@@ -560,7 +560,7 @@ Module {
             index: 50
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "dialogButtonBoxHeight"
@@ -569,7 +569,7 @@ Module {
             index: 51
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "dialogTitleFontPixelSize"
@@ -578,7 +578,7 @@ Module {
             index: 52
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "dialogRoundedScale"
@@ -587,7 +587,7 @@ Module {
             index: 53
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "frameVerticalPadding"
@@ -596,7 +596,7 @@ Module {
             index: 54
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "menuItemHeight"
@@ -605,7 +605,7 @@ Module {
             index: 55
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "menuItemVerticalPadding"
@@ -614,7 +614,7 @@ Module {
             index: 56
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "switchIndicatorWidth"
@@ -623,7 +623,7 @@ Module {
             index: 57
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "switchIndicatorHeight"
@@ -632,7 +632,7 @@ Module {
             index: 58
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "switchNormalHandleHeight"
@@ -641,7 +641,7 @@ Module {
             index: 59
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "switchCheckedHandleHeight"
@@ -650,7 +650,7 @@ Module {
             index: 60
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "switchLargestHandleHeight"
@@ -659,7 +659,7 @@ Module {
             index: 61
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "switchDelegateVerticalPadding"
@@ -668,7 +668,7 @@ Module {
             index: 62
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "textFieldHeight"
@@ -677,7 +677,7 @@ Module {
             index: 63
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "textFieldHorizontalPadding"
@@ -686,7 +686,7 @@ Module {
             index: 64
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "textFieldVerticalPadding"
@@ -695,7 +695,7 @@ Module {
             index: 65
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "tooltipHeight"
@@ -704,7 +704,7 @@ Module {
             index: 66
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Signal { name: "themeChanged" }
         Signal { name: "primaryChanged" }
@@ -723,6 +723,7 @@ Module {
         Method {
             name: "buttonColor"
             type: "QColor"
+            isMethodConstant: true
             Parameter { name: "theme"; type: "Theme" }
             Parameter { name: "background"; type: "QVariant" }
             Parameter { name: "accent"; type: "QVariant" }
@@ -734,6 +735,7 @@ Module {
         Method {
             name: "color"
             type: "QColor"
+            isMethodConstant: true
             Parameter { name: "color"; type: "Color" }
             Parameter { name: "shade"; type: "Shade" }
         }
@@ -741,23 +743,27 @@ Module {
             name: "color"
             type: "QColor"
             isCloned: true
+            isMethodConstant: true
             Parameter { name: "color"; type: "Color" }
         }
         Method {
             name: "shade"
             type: "QColor"
+            isMethodConstant: true
             Parameter { name: "color"; type: "QColor" }
             Parameter { name: "shade"; type: "Shade" }
         }
         Method {
             name: "buttonLeftPadding"
             type: "int"
+            isMethodConstant: true
             Parameter { name: "flat"; type: "bool" }
             Parameter { name: "hasIcon"; type: "bool" }
         }
         Method {
             name: "buttonRightPadding"
             type: "int"
+            isMethodConstant: true
             Parameter { name: "flat"; type: "bool" }
             Parameter { name: "hasIcon"; type: "bool" }
             Parameter { name: "hasText"; type: "bool" }

@@ -5,4 +5,5 @@ classname QtQuickEffectsPlugin
 typeinfo plugins.qmltypes
 depends QtQuick auto
 prefer :/qt-project.org/imports/QtQuick/Effects/
+depends QtQuick
 

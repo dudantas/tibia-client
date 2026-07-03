@@ -14,11 +14,11 @@ FontDialogImpl {
     id: control
 
     implicitWidth: Math.max(control.implicitBackgroundWidth + control.leftInset + control.rightInset,
-                            control.contentWidth + control.leftPadding + control.rightPadding,
+                            control.implicitContentWidth + control.leftPadding + control.rightPadding,
                             control.implicitHeaderWidth,
                             control.implicitFooterWidth)
     implicitHeight: Math.max(control.implicitBackgroundHeight + control.topInset + control.bottomInset,
-                             control.contentHeight + control.topPadding + control.bottomPadding
+                             control.implicitContentHeight + control.topPadding + control.bottomPadding
                              + (control.implicitHeaderHeight > 0 ? control.implicitHeaderHeight + control.spacing : 0)
                              + (control.implicitFooterHeight > 0 ? control.implicitFooterHeight + control.spacing : 0))
 
