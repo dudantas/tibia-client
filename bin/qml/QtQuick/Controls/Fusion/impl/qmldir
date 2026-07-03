@@ -17,4 +17,7 @@ SliderHandle 6.0 SliderHandle.qml
 SliderHandle 2.0 SliderHandle.qml
 SwitchIndicator 6.0 SwitchIndicator.qml
 SwitchIndicator 2.0 SwitchIndicator.qml
+TextFieldBackground 6.0 TextFieldBackground.qml
+TextFieldBackground 2.0 TextFieldBackground.qml
+depends QtQuick
 

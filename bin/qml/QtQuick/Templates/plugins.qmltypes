@@ -7,6 +7,88 @@ import QtQuick.tooling 1.2
 
 Module {
     Component {
+        file: "private/qquickdialog_p.h"
+        name: "QColorDialogOptions"
+        accessSemantics: "none"
+        Enum {
+            name: "ColorDialogOptions"
+            alias: "ColorDialogOption"
+            isFlag: true
+            values: [
+                "ShowAlphaChannel",
+                "NoButtons",
+                "DontUseNativeDialog",
+                "NoEyeDropperButton"
+            ]
+        }
+    }
+    Component {
+        file: "private/qquickdialog_p.h"
+        name: "QFileDialogOptions"
+        accessSemantics: "none"
+        Enum {
+            name: "ViewMode"
+            values: ["Detail", "List"]
+        }
+        Enum {
+            name: "FileMode"
+            values: [
+                "AnyFile",
+                "ExistingFile",
+                "Directory",
+                "ExistingFiles",
+                "DirectoryOnly"
+            ]
+        }
+        Enum {
+            name: "AcceptMode"
+            values: ["AcceptOpen", "AcceptSave"]
+        }
+        Enum {
+            name: "DialogLabel"
+            values: [
+                "LookIn",
+                "FileName",
+                "FileType",
+                "Accept",
+                "Reject",
+                "DialogLabelCount"
+            ]
+        }
+        Enum {
+            name: "FileDialogOptions"
+            alias: "FileDialogOption"
+            isFlag: true
+            values: [
+                "ShowDirsOnly",
+                "DontResolveSymlinks",
+                "DontConfirmOverwrite",
+                "DontUseNativeDialog",
+                "ReadOnly",
+                "HideNameFilterDetails",
+                "DontUseCustomDirectoryIcons"
+            ]
+        }
+    }
+    Component {
+        file: "private/qquickdialog_p.h"
+        name: "QFontDialogOptions"
+        accessSemantics: "none"
+        Enum {
+            name: "FontDialogOptions"
+            alias: "FontDialogOption"
+            isFlag: true
+            values: [
+                "NoButtons",
+                "DontUseNativeDialog",
+                "ScalableFonts",
+                "NonScalableFonts",
+                "MonospacedFonts",
+                "ProportionalFonts"
+            ]
+        }
+    }
+    Component {
         file: "qpa/qplatformdialoghelper.h"
         name: "QPlatformDialogHelper"
         accessSemantics: "reference"
@@ -526,7 +608,8 @@ Module {
             "QtQuick.Templates/ApplicationWindow 2.14",
             "QtQuick.Templates/ApplicationWindow 6.0",
             "QtQuick.Templates/ApplicationWindow 6.2",
-            "QtQuick.Templates/ApplicationWindow 6.7"
+            "QtQuick.Templates/ApplicationWindow 6.7",
+            "QtQuick.Templates/ApplicationWindow 6.9"
         ]
         exportMetaObjectRevisions: [
             512,
@@ -537,7 +620,8 @@ Module {
             526,
             1536,
             1538,
-            1543
+            1543,
+            1545
         ]
         attachedType: "QQuickApplicationWindowAttached"
         Property {
@@ -558,7 +642,7 @@ Module {
             index: 1
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "contentData"
@@ -643,6 +727,54 @@ Module {
             index: 9
             privateClass: "QQuickApplicationWindowPrivate"
         }
+        Property {
+            name: "topPadding"
+            revision: 1545
+            type: "double"
+            read: "topPadding"
+            write: "setTopPadding"
+            reset: "resetTopPadding"
+            notify: "topPaddingChanged"
+            index: 10
+            privateClass: "QQuickApplicationWindowPrivate->control"
+            isFinal: true
+        }
+        Property {
+            name: "leftPadding"
+            revision: 1545
+            type: "double"
+            read: "leftPadding"
+            write: "setLeftPadding"
+            reset: "resetLeftPadding"
+            notify: "leftPaddingChanged"
+            index: 11
+            privateClass: "QQuickApplicationWindowPrivate->control"
+            isFinal: true
+        }
+        Property {
+            name: "rightPadding"
+            revision: 1545
+            type: "double"
+            read: "rightPadding"
+            write: "setRightPadding"
+            reset: "resetRightPadding"
+            notify: "rightPaddingChanged"
+            index: 12
+            privateClass: "QQuickApplicationWindowPrivate->control"
+            isFinal: true
+        }
+        Property {
+            name: "bottomPadding"
+            revision: 1545
+            type: "double"
+            read: "bottomPadding"
+            write: "setBottomPadding"
+            reset: "resetBottomPadding"
+            notify: "bottomPaddingChanged"
+            index: 13
+            privateClass: "QQuickApplicationWindowPrivate->control"
+            isFinal: true
+        }
         Signal { name: "backgroundChanged" }
         Signal { name: "activeFocusControlChanged" }
         Signal { name: "headerChanged" }
@@ -650,6 +782,10 @@ Module {
         Signal { name: "fontChanged" }
         Signal { name: "localeChanged" }
         Signal { name: "menuBarChanged"; revision: 515 }
+        Signal { name: "topPaddingChanged"; revision: 1545 }
+        Signal { name: "leftPaddingChanged"; revision: 1545 }
+        Signal { name: "rightPaddingChanged"; revision: 1545 }
+        Signal { name: "bottomPaddingChanged"; revision: 1545 }
         Method { name: "_q_updateActiveFocus" }
     }
     Component {
@@ -975,21 +1111,25 @@ Module {
         Method {
             name: "monthAt"
             type: "int"
+            isMethodConstant: true
             Parameter { name: "index"; type: "int" }
         }
         Method {
             name: "yearAt"
             type: "int"
+            isMethodConstant: true
             Parameter { name: "index"; type: "int" }
         }
         Method {
             name: "indexOf"
             type: "int"
+            isMethodConstant: true
             Parameter { name: "date"; type: "QDate" }
         }
         Method {
             name: "indexOf"
             type: "int"
+            isMethodConstant: true
             Parameter { name: "year"; type: "int" }
             Parameter { name: "month"; type: "int" }
         }
@@ -1463,11 +1603,13 @@ Module {
         Method {
             name: "textAt"
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "index"; type: "int" }
         }
         Method {
             name: "find"
             type: "int"
+            isMethodConstant: true
             Parameter { name: "text"; type: "QString" }
             Parameter { name: "flags"; type: "Qt::MatchFlags" }
         }
@@ -1475,18 +1617,21 @@ Module {
             name: "find"
             type: "int"
             isCloned: true
+            isMethodConstant: true
             Parameter { name: "text"; type: "QString" }
         }
         Method {
             name: "valueAt"
             revision: 526
             type: "QVariant"
+            isMethodConstant: true
             Parameter { name: "index"; type: "int" }
         }
         Method {
             name: "indexOfValue"
             revision: 526
             type: "int"
+            isMethodConstant: true
             Parameter { name: "value"; type: "QVariant" }
         }
     }
@@ -1536,7 +1681,7 @@ Module {
             index: 1
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "contentData"
@@ -1614,6 +1759,7 @@ Module {
             name: "itemAt"
             type: "QQuickItem"
             isPointer: true
+            isMethodConstant: true
             Parameter { name: "index"; type: "int" }
         }
         Method {
@@ -1640,6 +1786,33 @@ Module {
             type: "QQuickItem"
             isPointer: true
             Parameter { name: "index"; type: "int" }
+        }
+    }
+    Component {
+        file: "private/qquickcontextmenu_p.h"
+        name: "QQuickContextMenu"
+        accessSemantics: "reference"
+        prototype: "QObject"
+        interfaces: ["QQmlParserStatus"]
+        deferredNames: ["menu"]
+        exports: ["QtQuick.Templates/ContextMenu 6.9"]
+        isCreatable: false
+        exportMetaObjectRevisions: [1545]
+        attachedType: "QQuickContextMenu"
+        Property {
+            name: "menu"
+            type: "QQuickMenu"
+            isPointer: true
+            read: "menu"
+            write: "setMenu"
+            notify: "menuChanged"
+            index: 0
+            isFinal: true
+        }
+        Signal { name: "menuChanged" }
+        Signal {
+            name: "requested"
+            Parameter { name: "position"; type: "QPointF" }
         }
     }
     Component {
@@ -2426,6 +2599,7 @@ Module {
             revision: 515
             type: "QQuickAbstractButton"
             isPointer: true
+            isMethodConstant: true
             Parameter { name: "button"; type: "QPlatformDialogHelper::StandardButton" }
         }
     }
@@ -2532,6 +2706,7 @@ Module {
             name: "standardButton"
             type: "QQuickAbstractButton"
             isPointer: true
+            isMethodConstant: true
             Parameter { name: "button"; type: "QPlatformDialogHelper::StandardButton" }
         }
     }
@@ -2752,7 +2927,8 @@ Module {
             "QtQuick.Templates/HorizontalHeaderView 6.5",
             "QtQuick.Templates/HorizontalHeaderView 6.6",
             "QtQuick.Templates/HorizontalHeaderView 6.7",
-            "QtQuick.Templates/HorizontalHeaderView 6.8"
+            "QtQuick.Templates/HorizontalHeaderView 6.8",
+            "QtQuick.Templates/HorizontalHeaderView 6.9"
         ]
         exportMetaObjectRevisions: [
             527,
@@ -2763,7 +2939,8 @@ Module {
             1541,
             1542,
             1543,
-            1544
+            1544,
+            1545
         ]
         Property {
             name: "movableColumns"
@@ -3095,7 +3272,7 @@ Module {
             index: 0
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "contentData"
@@ -3199,6 +3376,7 @@ Module {
             name: "itemAt"
             type: "QQuickItem"
             isPointer: true
+            isMethodConstant: true
             Parameter { name: "index"; type: "int" }
         }
         Method {
@@ -3231,6 +3409,7 @@ Module {
             revision: 515
             type: "QQuickMenu"
             isPointer: true
+            isMethodConstant: true
             Parameter { name: "index"; type: "int" }
         }
         Method {
@@ -3261,6 +3440,7 @@ Module {
             revision: 515
             type: "QQuickAction"
             isPointer: true
+            isMethodConstant: true
             Parameter { name: "index"; type: "int" }
         }
         Method {
@@ -3286,7 +3466,74 @@ Module {
             isPointer: true
             Parameter { name: "index"; type: "int" }
         }
-        Method { name: "popup"; revision: 515; isJavaScriptFunction: true }
+        Method {
+            name: "popup"
+            revision: 515
+            Parameter { name: "parent"; type: "QQuickItem"; isPointer: true }
+            Parameter { name: "x"; type: "double" }
+            Parameter { name: "y"; type: "double" }
+            Parameter { name: "menuItem"; type: "QQuickItem"; isPointer: true }
+        }
+        Method {
+            name: "popup"
+            revision: 515
+            isCloned: true
+            Parameter { name: "parent"; type: "QQuickItem"; isPointer: true }
+            Parameter { name: "x"; type: "double" }
+            Parameter { name: "y"; type: "double" }
+        }
+        Method {
+            name: "popup"
+            revision: 515
+            Parameter { name: "parent"; type: "QQuickItem"; isPointer: true }
+            Parameter { name: "position"; type: "QPointF" }
+            Parameter { name: "menuItem"; type: "QQuickItem"; isPointer: true }
+        }
+        Method {
+            name: "popup"
+            revision: 515
+            isCloned: true
+            Parameter { name: "parent"; type: "QQuickItem"; isPointer: true }
+            Parameter { name: "position"; type: "QPointF" }
+        }
+        Method {
+            name: "popup"
+            revision: 515
+            Parameter { name: "parent"; type: "QQuickItem"; isPointer: true }
+            Parameter { name: "menuItem"; type: "QQuickItem"; isPointer: true }
+        }
+        Method {
+            name: "popup"
+            revision: 515
+            Parameter { name: "parent"; type: "QQuickItem"; isPointer: true }
+        }
+        Method { name: "popup"; revision: 515; isCloned: true }
+        Method {
+            name: "popup"
+            revision: 515
+            Parameter { name: "x"; type: "double" }
+            Parameter { name: "y"; type: "double" }
+            Parameter { name: "menuItem"; type: "QQuickItem"; isPointer: true }
+        }
+        Method {
+            name: "popup"
+            revision: 515
+            isCloned: true
+            Parameter { name: "x"; type: "double" }
+            Parameter { name: "y"; type: "double" }
+        }
+        Method {
+            name: "popup"
+            revision: 515
+            Parameter { name: "position"; type: "QPointF" }
+            Parameter { name: "menuItem"; type: "QQuickItem"; isPointer: true }
+        }
+        Method {
+            name: "popup"
+            revision: 515
+            isCloned: true
+            Parameter { name: "position"; type: "QPointF" }
+        }
         Method { name: "dismiss"; revision: 515 }
     }
     Component {
@@ -3343,6 +3590,7 @@ Module {
             name: "menuAt"
             type: "QQuickMenu"
             isPointer: true
+            isMethodConstant: true
             Parameter { name: "index"; type: "int" }
         }
         Method {
@@ -3608,19 +3856,19 @@ Module {
         Signal { name: "delegateChanged" }
         Signal {
             name: "pressed"
-            Parameter { name: "date"; type: "QDate" }
+            Parameter { name: "date"; type: "QDateTime" }
         }
         Signal {
             name: "released"
-            Parameter { name: "date"; type: "QDate" }
+            Parameter { name: "date"; type: "QDateTime" }
         }
         Signal {
             name: "clicked"
-            Parameter { name: "date"; type: "QDate" }
+            Parameter { name: "date"; type: "QDateTime" }
         }
         Signal {
             name: "pressAndHold"
-            Parameter { name: "date"; type: "QDate" }
+            Parameter { name: "date"; type: "QDateTime" }
         }
     }
     Component {
@@ -3970,7 +4218,7 @@ Module {
         accessSemantics: "reference"
         defaultProperty: "contentData"
         prototype: "QObject"
-        interfaces: ["QQmlParserStatus"]
+        interfaces: ["QQmlParserStatus", "QQuickSafeAreaAttachable"]
         deferredNames: ["background", "contentItem"]
         exports: [
             "QtQuick.Templates/Popup 2.0",
@@ -4479,7 +4727,7 @@ Module {
             privateClass: "QQuickPopupPrivate"
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "implicitContentWidth"
@@ -4887,7 +5135,7 @@ Module {
             index: 2
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "second"
@@ -4897,7 +5145,7 @@ Module {
             index: 3
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "stepSize"
@@ -4983,6 +5231,7 @@ Module {
             name: "valueAt"
             revision: 517
             type: "double"
+            isMethodConstant: true
             Parameter { name: "position"; type: "double" }
         }
     }
@@ -5306,7 +5555,7 @@ Module {
             index: 14
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "__increaseVisual"
@@ -5316,7 +5565,7 @@ Module {
             index: 15
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Signal { name: "sizeChanged" }
         Signal { name: "positionChanged" }
@@ -5896,6 +6145,7 @@ Module {
             name: "valueAt"
             revision: 513
             type: "double"
+            isMethodConstant: true
             Parameter { name: "position"; type: "double" }
         }
     }
@@ -6023,7 +6273,7 @@ Module {
             index: 9
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "down"
@@ -6033,7 +6283,7 @@ Module {
             index: 10
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "inputMethodHints"
@@ -6960,7 +7210,7 @@ Module {
             index: 0
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
     }
     Component {
@@ -7341,6 +7591,59 @@ Module {
         ]
     }
     Component {
+        file: "private/qquicktableviewdelegate_p.h"
+        name: "QQuickTableViewDelegate"
+        accessSemantics: "reference"
+        prototype: "QQuickItemDelegate"
+        exports: ["QtQuick.Templates/TableViewDelegate 6.9"]
+        exportMetaObjectRevisions: [1545]
+        Property {
+            name: "tableView"
+            type: "QQuickTableView"
+            isPointer: true
+            read: "tableView"
+            write: "setTableView"
+            notify: "tableViewChanged"
+            index: 0
+            isFinal: true
+            isRequired: true
+        }
+        Property {
+            name: "current"
+            type: "bool"
+            read: "current"
+            write: "setCurrent"
+            notify: "currentChanged"
+            index: 1
+            isFinal: true
+            isRequired: true
+        }
+        Property {
+            name: "selected"
+            type: "bool"
+            read: "selected"
+            write: "setSelected"
+            notify: "selectedChanged"
+            index: 2
+            isFinal: true
+            isRequired: true
+        }
+        Property {
+            name: "editing"
+            type: "bool"
+            read: "editing"
+            write: "setEditing"
+            notify: "editingChanged"
+            index: 3
+            isFinal: true
+            isRequired: true
+        }
+        Signal { name: "tableViewChanged" }
+        Signal { name: "currentChanged" }
+        Signal { name: "selectedChanged" }
+        Signal { name: "editingChanged" }
+    }
+    Component {
         file: "private/qquicktextarea_p.h"
         name: "QQuickTextArea"
         accessSemantics: "reference"
@@ -7361,7 +7664,8 @@ Module {
             "QtQuick.Templates/TextArea 6.2",
             "QtQuick.Templates/TextArea 6.3",
             "QtQuick.Templates/TextArea 6.4",
-            "QtQuick.Templates/TextArea 6.7"
+            "QtQuick.Templates/TextArea 6.7",
+            "QtQuick.Templates/TextArea 6.9"
         ]
         exportMetaObjectRevisions: [
             512,
@@ -7378,7 +7682,8 @@ Module {
             1538,
             1539,
             1540,
-            1543
+            1543,
+            1545
         ]
         attachedType: "QQuickTextAreaAttached"
         Property {
@@ -8025,7 +8330,7 @@ Module {
             index: 4
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Signal { name: "textChanged" }
         Signal { name: "delayChanged" }
@@ -8195,7 +8500,8 @@ Module {
             "QtQuick.Templates/Tumbler 2.11",
             "QtQuick.Templates/Tumbler 6.0",
             "QtQuick.Templates/Tumbler 6.3",
-            "QtQuick.Templates/Tumbler 6.7"
+            "QtQuick.Templates/Tumbler 6.7",
+            "QtQuick.Templates/Tumbler 6.9"
         ]
         exportMetaObjectRevisions: [
             512,
@@ -8207,7 +8513,8 @@ Module {
             523,
             1536,
             1539,
-            1543
+            1543,
+            1545
         ]
         attachedType: "QQuickTumblerAttached"
         Enum {
@@ -8298,6 +8605,17 @@ Module {
             isReadonly: true
             isFinal: true
         }
+        Property {
+            name: "flickDeceleration"
+            revision: 1545
+            type: "double"
+            read: "flickDeceleration"
+            write: "setFlickDeceleration"
+            reset: "resetFlickDeceleration"
+            notify: "flickDecelerationChanged"
+            index: 8
+            isFinal: true
+        }
         Signal { name: "modelChanged" }
         Signal { name: "countChanged" }
         Signal { name: "currentIndexChanged" }
@@ -8306,6 +8624,7 @@ Module {
         Signal { name: "visibleItemCountChanged" }
         Signal { name: "wrapChanged"; revision: 513 }
         Signal { name: "movingChanged"; revision: 514 }
+        Signal { name: "flickDecelerationChanged"; revision: 1545 }
         Method { name: "_q_updateItemWidths" }
         Method { name: "_q_updateItemHeights" }
         Method { name: "_q_onViewCurrentIndexChanged" }
@@ -8332,7 +8651,7 @@ Module {
             index: 0
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "displacement"
@@ -8359,7 +8678,8 @@ Module {
             "QtQuick.Templates/VerticalHeaderView 6.5",
             "QtQuick.Templates/VerticalHeaderView 6.6",
             "QtQuick.Templates/VerticalHeaderView 6.7",
-            "QtQuick.Templates/VerticalHeaderView 6.8"
+            "QtQuick.Templates/VerticalHeaderView 6.8",
+            "QtQuick.Templates/VerticalHeaderView 6.9"
         ]
         exportMetaObjectRevisions: [
             527,
@@ -8370,7 +8690,8 @@ Module {
             1541,
             1542,
             1543,
-            1544
+            1544,
+            1545
         ]
         Property {
             name: "movableRows"

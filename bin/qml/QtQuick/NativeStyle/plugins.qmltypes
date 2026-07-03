@@ -71,7 +71,7 @@ Module {
             index: 7
             isReadonly: true
         }
-        Property { name: "transitionDuration"; type: "int"; index: 8; isConstant: true }
+        Property { name: "transitionDuration"; type: "int"; index: 8; isPropertyConstant: true }
         Signal { name: "controlChanged" }
         Signal { name: "contentPaddingChanged" }
         Signal { name: "layoutMarginsChanged" }
@@ -80,6 +80,7 @@ Module {
         Method {
             name: "styleFont"
             type: "QFont"
+            isMethodConstant: true
             Parameter { name: "control"; type: "QQuickItem"; isPointer: true }
         }
     }

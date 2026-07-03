@@ -6,7 +6,6 @@ typeinfo plugins.qmltypes
 depends QtQuick auto
 depends QtQuick.Templates auto
 depends QtQuick.Layouts auto
-depends QtQuick
 prefer :/qt-project.org/imports/QtQuick/Dialogs/quickimpl/
 ColorDialog 6.0 qml/ColorDialog.qml
 ColorInputs 6.0 qml/ColorInputs.qml
@@ -23,7 +22,9 @@ HueGradient 6.0 qml/HueGradient.qml
 MessageDialog 6.0 qml/MessageDialog.qml
 PickerHandle 6.0 qml/PickerHandle.qml
 SaturationLightnessPicker 6.0 qml/SaturationLightnessPicker.qml
+SideBar 6.0 qml/SideBar.qml
 ColorDialog 6.0 qml/+Fusion/ColorDialog.qml
+ColorInputs 6.0 qml/+Fusion/ColorInputs.qml
 FileDialog 6.0 qml/+Fusion/FileDialog.qml
 FileDialogDelegate 6.0 qml/+Fusion/FileDialogDelegate.qml
 FolderBreadcrumbBar 6.0 qml/+Fusion/FolderBreadcrumbBar.qml
@@ -31,7 +32,9 @@ FolderDialog 6.0 qml/+Fusion/FolderDialog.qml
 FolderDialogDelegate 6.0 qml/+Fusion/FolderDialogDelegate.qml
 FontDialog 6.0 qml/+Fusion/FontDialog.qml
 MessageDialog 6.0 qml/+Fusion/MessageDialog.qml
+SideBar 6.0 qml/+Fusion/SideBar.qml
 ColorDialog 6.0 qml/+Imagine/ColorDialog.qml
+ColorInputs 6.0 qml/+Imagine/ColorInputs.qml
 FileDialog 6.0 qml/+Imagine/FileDialog.qml
 FileDialogDelegate 6.0 qml/+Imagine/FileDialogDelegate.qml
 FolderBreadcrumbBar 6.0 qml/+Imagine/FolderBreadcrumbBar.qml
@@ -39,7 +42,9 @@ FolderDialog 6.0 qml/+Imagine/FolderDialog.qml
 FolderDialogDelegate 6.0 qml/+Imagine/FolderDialogDelegate.qml
 FontDialog 6.0 qml/+Imagine/FontDialog.qml
 MessageDialog 6.0 qml/+Imagine/MessageDialog.qml
+SideBar 6.0 qml/+Imagine/SideBar.qml
 ColorDialog 6.0 qml/+Material/ColorDialog.qml
+ColorInputs 6.0 qml/+Material/ColorInputs.qml
 FileDialog 6.0 qml/+Material/FileDialog.qml
 FileDialogDelegate 6.0 qml/+Material/FileDialogDelegate.qml
 FolderBreadcrumbBar 6.0 qml/+Material/FolderBreadcrumbBar.qml
@@ -47,6 +52,8 @@ FolderDialog 6.0 qml/+Material/FolderDialog.qml
 FolderDialogDelegate 6.0 qml/+Material/FolderDialogDelegate.qml
 FontDialog 6.0 qml/+Material/FontDialog.qml
 MessageDialog 6.0 qml/+Material/MessageDialog.qml
+SideBar 6.0 qml/+Material/SideBar.qml
+ColorInputs 6.0 qml/+Universal/ColorInputs.qml
 ColorDialog 6.0 qml/+Universal/ColorDialog.qml
 FileDialog 6.0 qml/+Universal/FileDialog.qml
 FileDialogDelegate 6.0 qml/+Universal/FileDialogDelegate.qml
@@ -55,4 +62,6 @@ FolderDialog 6.0 qml/+Universal/FolderDialog.qml
 FolderDialogDelegate 6.0 qml/+Universal/FolderDialogDelegate.qml
 FontDialog 6.0 qml/+Universal/FontDialog.qml
 MessageDialog 6.0 qml/+Universal/MessageDialog.qml
+SideBar 6.0 qml/+Universal/SideBar.qml
+depends QtQuick
 

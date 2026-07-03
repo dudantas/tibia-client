@@ -165,6 +165,7 @@ Module {
                 "Heading",
                 "Note",
                 "ComplementaryContent",
+                "BlockQuote",
                 "UserRole"
             ]
         }
@@ -255,29 +256,36 @@ Module {
             name: "device"
             type: "QPointingDevice"
             isPointer: true
-            isConstant: true
+            isTypeConstant: true
             read: "device"
             index: 1
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
-        Property { name: "id"; type: "int"; read: "id"; index: 2; isReadonly: true; isConstant: true }
+        Property { name: "id"; type: "int"; read: "id"; index: 2; isReadonly: true; isPropertyConstant: true }
         Property {
             name: "uniqueId"
             type: "QPointingDeviceUniqueId"
             read: "uniqueId"
             index: 3
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
-        Property { name: "state"; type: "State"; read: "state"; index: 4; isReadonly: true; isConstant: true }
+        Property {
+            name: "state"
+            type: "State"
+            read: "state"
+            index: 4
+            isReadonly: true
+            isPropertyConstant: true
+        }
         Property {
             name: "timestamp"
             type: "uint"
             read: "timestamp"
             index: 5
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "pressTimestamp"
@@ -285,7 +293,7 @@ Module {
             read: "pressTimestamp"
             index: 6
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "lastTimestamp"
@@ -293,7 +301,7 @@ Module {
             read: "lastTimestamp"
             index: 7
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "timeHeld"
@@ -301,7 +309,7 @@ Module {
             read: "timeHeld"
             index: 8
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "pressure"
@@ -309,7 +317,7 @@ Module {
             read: "pressure"
             index: 9
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "rotation"
@@ -317,7 +325,7 @@ Module {
             read: "rotation"
             index: 10
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "ellipseDiameters"
@@ -325,7 +333,7 @@ Module {
             read: "ellipseDiameters"
             index: 11
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "velocity"
@@ -333,7 +341,7 @@ Module {
             read: "velocity"
             index: 12
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "position"
@@ -341,7 +349,7 @@ Module {
             read: "position"
             index: 13
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "pressPosition"
@@ -349,7 +357,7 @@ Module {
             read: "pressPosition"
             index: 14
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "grabPosition"
@@ -357,7 +365,7 @@ Module {
             read: "grabPosition"
             index: 15
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "lastPosition"
@@ -365,7 +373,7 @@ Module {
             read: "lastPosition"
             index: 16
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "scenePosition"
@@ -373,7 +381,7 @@ Module {
             read: "scenePosition"
             index: 17
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "scenePressPosition"
@@ -381,7 +389,7 @@ Module {
             read: "scenePressPosition"
             index: 18
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "sceneGrabPosition"
@@ -389,7 +397,7 @@ Module {
             read: "sceneGrabPosition"
             index: 19
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "sceneLastPosition"
@@ -397,7 +405,7 @@ Module {
             read: "sceneLastPosition"
             index: 20
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "globalPosition"
@@ -405,7 +413,7 @@ Module {
             read: "globalPosition"
             index: 21
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "globalPressPosition"
@@ -413,7 +421,7 @@ Module {
             read: "globalPressPosition"
             index: 22
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "globalGrabPosition"
@@ -421,7 +429,7 @@ Module {
             read: "globalGrabPosition"
             index: 23
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "globalLastPosition"
@@ -429,7 +437,7 @@ Module {
             read: "globalLastPosition"
             index: 24
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
     }
     Component {
@@ -440,6 +448,51 @@ Module {
         exports: ["QtQuick/EventPoint 6.6"]
         isCreatable: false
         exportMetaObjectRevisions: [1542]
+    }
+    Component {
+        file: "private/qquickforeignutils_p.h"
+        name: "QFontVariableAxis"
+        accessSemantics: "value"
+        Property {
+            name: "tag"
+            type: "QByteArray"
+            read: "tagString"
+            index: 0
+            isReadonly: true
+            isPropertyConstant: true
+        }
+        Property {
+            name: "name"
+            type: "QString"
+            read: "name"
+            index: 1
+            isReadonly: true
+            isPropertyConstant: true
+        }
+        Property {
+            name: "minimumValue"
+            type: "double"
+            read: "minimumValue"
+            index: 2
+            isReadonly: true
+            isPropertyConstant: true
+        }
+        Property {
+            name: "maximumValue"
+            type: "double"
+            read: "maximumValue"
+            index: 3
+            isReadonly: true
+            isPropertyConstant: true
+        }
+        Property {
+            name: "defaultValue"
+            type: "double"
+            read: "defaultValue"
+            index: 4
+            isReadonly: true
+            isPropertyConstant: true
+        }
     }
     Component {
         file: "qbrush.h"
@@ -696,9 +749,9 @@ Module {
         name: "QInputDevice"
         accessSemantics: "reference"
         prototype: "QObject"
-        exports: ["QtQuick/InputDevice 6.0"]
+        exports: ["QtQuick/InputDevice 6.0", "QtQuick/InputDevice 6.9"]
         isCreatable: false
-        exportMetaObjectRevisions: [1536]
+        exportMetaObjectRevisions: [1536, 1545]
         Enum {
             name: "DeviceTypes"
             alias: "DeviceType"
@@ -740,19 +793,27 @@ Module {
                 "All"
             ]
         }
-        Property { name: "name"; type: "QString"; read: "name"; index: 0; isReadonly: true; isConstant: true }
+        Property {
+            name: "name"
+            type: "QString"
+            read: "name"
+            index: 0
+            isReadonly: true
+            isPropertyConstant: true
+        }
         Property {
             name: "type"
             type: "DeviceType"
             read: "type"
             index: 1
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "capabilities"
             type: "Capabilities"
             read: "capabilities"
+            notify: "capabilitiesChanged"
             index: 2
             isReadonly: true
         }
@@ -762,7 +823,7 @@ Module {
             read: "systemId"
             index: 3
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "seatName"
@@ -770,7 +831,7 @@ Module {
             read: "seatName"
             index: 4
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "availableVirtualGeometry"
@@ -783,6 +844,11 @@ Module {
         Signal {
             name: "availableVirtualGeometryChanged"
             Parameter { name: "area"; type: "QRect" }
+        }
+        Signal {
+            name: "capabilitiesChanged"
+            revision: 1545
+            Parameter { name: "capabilities"; type: "Capabilities" }
         }
     }
     Component {
@@ -1006,9 +1072,13 @@ Module {
         name: "QPointingDevice"
         accessSemantics: "reference"
         prototype: "QInputDevice"
-        exports: ["QtQuick/PointerDevice 2.12", "QtQuick/PointerDevice 6.0"]
+        exports: [
+            "QtQuick/PointerDevice 2.12",
+            "QtQuick/PointerDevice 6.0",
+            "QtQuick/PointerDevice 6.9"
+        ]
         isCreatable: false
-        exportMetaObjectRevisions: [524, 1536]
+        exportMetaObjectRevisions: [524, 1536, 1545]
         Enum {
             name: "PointerTypes"
             alias: "PointerType"
@@ -1042,7 +1112,7 @@ Module {
             read: "pointerType"
             index: 0
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "maximumPoints"
@@ -1050,7 +1120,7 @@ Module {
             read: "maximumPoints"
             index: 1
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "buttonCount"
@@ -1058,7 +1128,7 @@ Module {
             read: "buttonCount"
             index: 2
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "uniqueId"
@@ -1066,13 +1136,14 @@ Module {
             read: "uniqueId"
             index: 3
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Signal {
             name: "grabChanged"
+            isMethodConstant: true
             Parameter { name: "grabber"; type: "QObject"; isPointer: true }
             Parameter { name: "transition"; type: "GrabTransition" }
-            Parameter { name: "event"; type: "QPointerEvent"; isPointer: true; isConstant: true }
+            Parameter { name: "event"; type: "QPointerEvent"; isPointer: true; isTypeConstant: true }
             Parameter { name: "point"; type: "QEventPoint" }
         }
     }
@@ -1092,7 +1163,7 @@ Module {
             read: "numericId"
             index: 0
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
     }
     Component {
@@ -1532,7 +1603,7 @@ Module {
             read: "anchors"
             index: 1
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
     }
     Component {
@@ -2380,7 +2451,7 @@ Module {
             index: 2
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "state"
@@ -2398,7 +2469,7 @@ Module {
             index: 4
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "displayName"
@@ -2427,7 +2498,7 @@ Module {
             index: 7
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Signal { name: "activeChanged" }
         Signal { name: "displayNameChanged" }
@@ -2667,7 +2738,7 @@ Module {
             read: "border"
             index: 0
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "horizontalTileMode"
@@ -2721,7 +2792,7 @@ Module {
             read: "border"
             index: 0
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "size"
@@ -2872,16 +2943,19 @@ Module {
         Method {
             name: "isImageLoaded"
             type: "bool"
+            isMethodConstant: true
             Parameter { name: "url"; type: "QUrl" }
         }
         Method {
             name: "isImageLoading"
             type: "bool"
+            isMethodConstant: true
             Parameter { name: "url"; type: "QUrl" }
         }
         Method {
             name: "isImageError"
             type: "bool"
+            isMethodConstant: true
             Parameter { name: "url"; type: "QUrl" }
         }
         Method { name: "sceneGraphInitialized" }
@@ -2900,6 +2974,7 @@ Module {
         Method {
             name: "save"
             type: "bool"
+            isMethodConstant: true
             Parameter { name: "filename"; type: "QString" }
             Parameter { name: "imageSize"; type: "QSizeF" }
         }
@@ -2907,14 +2982,16 @@ Module {
             name: "save"
             type: "bool"
             isCloned: true
+            isMethodConstant: true
             Parameter { name: "filename"; type: "QString" }
         }
         Method {
             name: "toDataURL"
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "type"; type: "QString" }
         }
-        Method { name: "toDataURL"; type: "QString"; isCloned: true }
+        Method { name: "toDataURL"; type: "QString"; isCloned: true; isMethodConstant: true }
         Method { name: "delayedCreate" }
     }
     Component {
@@ -3285,6 +3362,7 @@ Module {
         file: "private/qquickvaluetypes_p.h"
         name: "QQuickColorSpaceValueType"
         accessSemantics: "value"
+        prototype: "QColorSpace"
         Property {
             name: "namedColorSpace"
             type: "QQuickColorSpaceEnums::NamedColorSpace"
@@ -3324,6 +3402,7 @@ Module {
         file: "private/qquickvaluetypes_p.h"
         name: "QQuickColorValueType"
         accessSemantics: "value"
+        prototype: "QColor"
         Property { name: "r"; type: "double"; read: "r"; write: "setR"; index: 0; isFinal: true }
         Property { name: "g"; type: "double"; read: "g"; write: "setG"; index: 1; isFinal: true }
         Property { name: "b"; type: "double"; read: "b"; write: "setB"; index: 2; isFinal: true }
@@ -3377,30 +3456,39 @@ Module {
             isFinal: true
         }
         Property { name: "valid"; type: "bool"; read: "isValid"; index: 10; isReadonly: true; isFinal: true }
-        Method { name: "toString"; type: "QString" }
+        Method { name: "toString"; type: "QString"; isMethodConstant: true }
         Method {
             name: "alpha"
-            type: "QVariant"
+            type: "QColor"
+            isMethodConstant: true
             Parameter { name: "value"; type: "double" }
         }
         Method {
             name: "lighter"
-            type: "QVariant"
+            type: "QColor"
+            isMethodConstant: true
             Parameter { name: "factor"; type: "double" }
         }
-        Method { name: "lighter"; type: "QVariant"; isCloned: true }
+        Method { name: "lighter"; type: "QColor"; isCloned: true; isMethodConstant: true }
         Method {
             name: "darker"
-            type: "QVariant"
+            type: "QColor"
+            isMethodConstant: true
             Parameter { name: "factor"; type: "double" }
         }
-        Method { name: "darker"; type: "QVariant"; isCloned: true }
+        Method { name: "darker"; type: "QColor"; isCloned: true; isMethodConstant: true }
         Method {
             name: "tint"
-            type: "QVariant"
-            Parameter { name: "factor"; type: "QVariant" }
+            type: "QColor"
+            isMethodConstant: true
+            Parameter { name: "tintColor"; type: "QColor" }
         }
         Method { name: "QQuickColorValueType"; isConstructor: true }
+        Method {
+            name: "QQuickColorValueType"
+            isConstructor: true
+            Parameter { name: "color"; type: "QColor" }
+        }
         Method {
             name: "QQuickColorValueType"
             isConstructor: true
@@ -3906,11 +3994,13 @@ Module {
         Method {
             name: "getDataAsString"
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "format"; type: "QString" }
         }
         Method {
             name: "getDataAsArrayBuffer"
             type: "QByteArray"
+            isMethodConstant: true
             Parameter { name: "format"; type: "QString" }
         }
         Method { name: "acceptProposedAction" }
@@ -3950,7 +4040,7 @@ Module {
             read: "xAxis"
             index: 0
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "yAxis"
@@ -3959,7 +4049,7 @@ Module {
             read: "yAxis"
             index: 1
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "translation"
@@ -4043,7 +4133,7 @@ Module {
             read: "drag"
             index: 2
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Signal { name: "containsDragChanged" }
         Signal { name: "keysChanged" }
@@ -4136,7 +4226,8 @@ Module {
             "QtQuick/Flickable 2.12",
             "QtQuick/Flickable 6.0",
             "QtQuick/Flickable 6.3",
-            "QtQuick/Flickable 6.7"
+            "QtQuick/Flickable 6.7",
+            "QtQuick/Flickable 6.9"
         ]
         exportMetaObjectRevisions: [
             512,
@@ -4149,7 +4240,8 @@ Module {
             524,
             1536,
             1539,
-            1543
+            1543,
+            1545
         ]
         Enum {
             name: "BoundsBehavior"
@@ -4215,7 +4307,7 @@ Module {
             read: "contentItem"
             index: 4
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "topMargin"
@@ -4458,7 +4550,7 @@ Module {
             read: "visibleArea"
             index: 34
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "pixelAligned"
@@ -4496,11 +4588,21 @@ Module {
             isReadonly: true
         }
         Property {
+            name: "acceptedButtons"
+            revision: 1545
+            type: "Qt::MouseButtons"
+            read: "acceptedButtons"
+            write: "setAcceptedButtons"
+            notify: "acceptedButtonsChanged"
+            index: 39
+            isFinal: true
+        }
+        Property {
             name: "flickableData"
             type: "QObject"
             isList: true
             read: "flickableData"
-            index: 39
+            index: 40
             isReadonly: true
         }
         Property {
@@ -4508,7 +4610,7 @@ Module {
             type: "QQuickItem"
             isList: true
             read: "flickableChildren"
-            index: 40
+            index: 41
             isReadonly: true
         }
         Signal { name: "contentWidthChanged" }
@@ -4555,6 +4657,7 @@ Module {
         Signal { name: "atYEndChanged" }
         Signal { name: "atXBeginningChanged" }
         Signal { name: "atYBeginningChanged" }
+        Signal { name: "acceptedButtonsChanged"; revision: 1545 }
         Method { name: "movementStarting" }
         Method { name: "movementEnding" }
         Method {
@@ -4811,6 +4914,119 @@ Module {
                 "PreferFullHinting"
             ]
         }
+        Enum {
+            name: "Style"
+            values: ["StyleNormal", "StyleItalic", "StyleOblique"]
+        }
+    }
+    Component {
+        file: "private/qquickfontinfo_p.h"
+        name: "QQuickFontInfo"
+        accessSemantics: "reference"
+        prototype: "QObject"
+        exports: ["QtQuick/FontInfo 6.9"]
+        exportMetaObjectRevisions: [1545]
+        Property {
+            name: "font"
+            type: "QFont"
+            read: "font"
+            write: "setFont"
+            notify: "fontChanged"
+            index: 0
+            isFinal: true
+        }
+        Property {
+            name: "family"
+            type: "QString"
+            read: "family"
+            notify: "fontChanged"
+            index: 1
+            isReadonly: true
+            isFinal: true
+        }
+        Property {
+            name: "styleName"
+            type: "QString"
+            read: "styleName"
+            notify: "fontChanged"
+            index: 2
+            isReadonly: true
+            isFinal: true
+        }
+        Property {
+            name: "pixelSize"
+            type: "int"
+            read: "pixelSize"
+            notify: "fontChanged"
+            index: 3
+            isReadonly: true
+            isFinal: true
+        }
+        Property {
+            name: "pointSize"
+            type: "double"
+            read: "pointSize"
+            notify: "fontChanged"
+            index: 4
+            isReadonly: true
+            isFinal: true
+        }
+        Property {
+            name: "italic"
+            type: "bool"
+            read: "italic"
+            notify: "fontChanged"
+            index: 5
+            isReadonly: true
+            isFinal: true
+        }
+        Property {
+            name: "weight"
+            type: "int"
+            read: "weight"
+            notify: "fontChanged"
+            index: 6
+            isReadonly: true
+            isFinal: true
+        }
+        Property {
+            name: "bold"
+            type: "bool"
+            read: "bold"
+            notify: "fontChanged"
+            index: 7
+            isReadonly: true
+            isFinal: true
+        }
+        Property {
+            name: "fixedPitch"
+            type: "bool"
+            read: "fixedPitch"
+            notify: "fontChanged"
+            index: 8
+            isReadonly: true
+            isFinal: true
+        }
+        Property {
+            name: "style"
+            type: "QQuickFontEnums::Style"
+            read: "style"
+            notify: "fontChanged"
+            index: 9
+            isReadonly: true
+            isFinal: true
+        }
+        Property {
+            name: "variableAxes"
+            type: "QFontVariableAxis"
+            isList: true
+            read: "variableAxes"
+            notify: "fontChanged"
+            index: 10
+            isReadonly: true
+            isFinal: true
+        }
+        Signal { name: "fontChanged" }
     }
     Component {
         file: "private/qquickfontloader_p.h"
@@ -4869,8 +5085,12 @@ Module {
         name: "QQuickFontMetrics"
         accessSemantics: "reference"
         prototype: "QObject"
-        exports: ["QtQuick/FontMetrics 2.4", "QtQuick/FontMetrics 6.0"]
-        exportMetaObjectRevisions: [516, 1536]
+        exports: [
+            "QtQuick/FontMetrics 2.4",
+            "QtQuick/FontMetrics 6.0",
+            "QtQuick/FontMetrics 6.9"
+        ]
+        exportMetaObjectRevisions: [516, 1536, 1545]
         Property {
             name: "font"
             type: "QFont"
@@ -4991,6 +5211,15 @@ Module {
             index: 14
             isReadonly: true
         }
+        Property {
+            name: "capitalHeight"
+            revision: 1545
+            type: "double"
+            read: "capitalHeight"
+            notify: "fontChanged"
+            index: 15
+            isReadonly: true
+        }
         Signal {
             name: "fontChanged"
             Parameter { name: "font"; type: "QFont" }
@@ -4998,21 +5227,25 @@ Module {
         Method {
             name: "advanceWidth"
             type: "double"
+            isMethodConstant: true
             Parameter { name: "text"; type: "QString" }
         }
         Method {
             name: "boundingRect"
             type: "QRectF"
+            isMethodConstant: true
             Parameter { name: "text"; type: "QString" }
         }
         Method {
             name: "tightBoundingRect"
             type: "QRectF"
+            isMethodConstant: true
             Parameter { name: "text"; type: "QString" }
         }
         Method {
             name: "elidedText"
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "text"; type: "QString" }
             Parameter { name: "mode"; type: "Qt::TextElideMode" }
             Parameter { name: "width"; type: "double" }
@@ -5022,6 +5255,7 @@ Module {
             name: "elidedText"
             type: "QString"
             isCloned: true
+            isMethodConstant: true
             Parameter { name: "text"; type: "QString" }
             Parameter { name: "mode"; type: "Qt::TextElideMode" }
             Parameter { name: "width"; type: "double" }
@@ -5160,6 +5394,7 @@ Module {
         file: "private/qquickvaluetypes_p.h"
         name: "QQuickFontValueType"
         accessSemantics: "value"
+        prototype: "QFont"
         Property {
             name: "family"
             type: "QString"
@@ -5299,8 +5534,13 @@ Module {
             index: 19
             isFinal: true
         }
-        Method { name: "toString"; type: "QString" }
+        Method { name: "toString"; type: "QString"; isMethodConstant: true }
         Method { name: "QQuickFontValueType"; isConstructor: true }
+        Method {
+            name: "QQuickFontValueType"
+            isConstructor: true
+            Parameter { name: "font"; type: "QFont" }
+        }
     }
     Component {
         file: "private/qquickframeanimation_p.h"
@@ -5388,7 +5628,7 @@ Module {
             index: 0
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "dragThreshold"
@@ -5397,7 +5637,7 @@ Module {
             index: 1
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Method { name: "grab" }
     }
@@ -5783,7 +6023,8 @@ Module {
             "QtQuick/GridView 2.15",
             "QtQuick/GridView 6.0",
             "QtQuick/GridView 6.3",
-            "QtQuick/GridView 6.7"
+            "QtQuick/GridView 6.7",
+            "QtQuick/GridView 6.9"
         ]
         exportMetaObjectRevisions: [
             512,
@@ -5799,7 +6040,8 @@ Module {
             527,
             1536,
             1539,
-            1543
+            1543,
+            1545
         ]
         attachedType: "QQuickGridViewAttached"
         Enum {
@@ -6505,7 +6747,9 @@ Module {
                 "ItemRotationHasChanged",
                 "ItemAntialiasingHasChanged",
                 "ItemDevicePixelRatioHasChanged",
-                "ItemEnabledHasChanged"
+                "ItemEnabledHasChanged",
+                "ItemScaleHasChanged",
+                "ItemTransformHasChanged"
             ]
         }
         Enum {
@@ -6703,7 +6947,7 @@ Module {
             privateClass: "QQuickItemPrivate"
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "left"
@@ -6713,7 +6957,7 @@ Module {
             privateClass: "QQuickItemPrivate"
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "right"
@@ -6723,7 +6967,7 @@ Module {
             privateClass: "QQuickItemPrivate"
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "horizontalCenter"
@@ -6733,7 +6977,7 @@ Module {
             privateClass: "QQuickItemPrivate"
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "top"
@@ -6743,7 +6987,7 @@ Module {
             privateClass: "QQuickItemPrivate"
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "bottom"
@@ -6753,7 +6997,7 @@ Module {
             privateClass: "QQuickItemPrivate"
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "verticalCenter"
@@ -6763,7 +7007,7 @@ Module {
             privateClass: "QQuickItemPrivate"
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "baseline"
@@ -6773,7 +7017,7 @@ Module {
             privateClass: "QQuickItemPrivate"
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "baselineOffset"
@@ -6920,7 +7164,7 @@ Module {
             privateClass: "QQuickItemPrivate"
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Signal {
             name: "childrenRectChanged"
@@ -7021,31 +7265,35 @@ Module {
         Method {
             name: "contains"
             type: "bool"
+            isMethodConstant: true
             Parameter { name: "point"; type: "QPointF" }
         }
         Method {
             name: "mapFromItem"
             type: "QPointF"
-            Parameter { name: "item"; type: "QQuickItem"; isPointer: true; isConstant: true }
+            isMethodConstant: true
+            Parameter { name: "item"; type: "QQuickItem"; isPointer: true; isTypeConstant: true }
             Parameter { name: "point"; type: "QPointF" }
         }
         Method {
             name: "mapFromItem"
             type: "QPointF"
-            Parameter { name: "item"; type: "QQuickItem"; isPointer: true; isConstant: true }
+            Parameter { name: "item"; type: "QQuickItem"; isPointer: true; isTypeConstant: true }
             Parameter { name: "x"; type: "double" }
             Parameter { name: "y"; type: "double" }
         }
         Method {
             name: "mapFromItem"
             type: "QRectF"
-            Parameter { name: "item"; type: "QQuickItem"; isPointer: true; isConstant: true }
+            isMethodConstant: true
+            Parameter { name: "item"; type: "QQuickItem"; isPointer: true; isTypeConstant: true }
             Parameter { name: "rect"; type: "QRectF" }
         }
         Method {
             name: "mapFromItem"
             type: "QRectF"
-            Parameter { name: "item"; type: "QQuickItem"; isPointer: true; isConstant: true }
+            isMethodConstant: true
+            Parameter { name: "item"; type: "QQuickItem"; isPointer: true; isTypeConstant: true }
             Parameter { name: "x"; type: "double" }
             Parameter { name: "y"; type: "double" }
             Parameter { name: "width"; type: "double" }
@@ -7054,26 +7302,29 @@ Module {
         Method {
             name: "mapToItem"
             type: "QPointF"
-            Parameter { name: "item"; type: "QQuickItem"; isPointer: true; isConstant: true }
+            isMethodConstant: true
+            Parameter { name: "item"; type: "QQuickItem"; isPointer: true; isTypeConstant: true }
             Parameter { name: "point"; type: "QPointF" }
         }
         Method {
             name: "mapToItem"
             type: "QPointF"
-            Parameter { name: "item"; type: "QQuickItem"; isPointer: true; isConstant: true }
+            Parameter { name: "item"; type: "QQuickItem"; isPointer: true; isTypeConstant: true }
             Parameter { name: "x"; type: "double" }
             Parameter { name: "y"; type: "double" }
         }
         Method {
             name: "mapToItem"
             type: "QRectF"
-            Parameter { name: "item"; type: "QQuickItem"; isPointer: true; isConstant: true }
+            isMethodConstant: true
+            Parameter { name: "item"; type: "QQuickItem"; isPointer: true; isTypeConstant: true }
             Parameter { name: "rect"; type: "QRectF" }
         }
         Method {
             name: "mapToItem"
             type: "QRectF"
-            Parameter { name: "item"; type: "QQuickItem"; isPointer: true; isConstant: true }
+            isMethodConstant: true
+            Parameter { name: "item"; type: "QQuickItem"; isPointer: true; isTypeConstant: true }
             Parameter { name: "x"; type: "double" }
             Parameter { name: "y"; type: "double" }
             Parameter { name: "width"; type: "double" }
@@ -7083,6 +7334,7 @@ Module {
             name: "mapFromGlobal"
             revision: 519
             type: "QPointF"
+            isMethodConstant: true
             Parameter { name: "x"; type: "double" }
             Parameter { name: "y"; type: "double" }
         }
@@ -7090,12 +7342,14 @@ Module {
             name: "mapFromGlobal"
             revision: 519
             type: "QPointF"
+            isMethodConstant: true
             Parameter { name: "point"; type: "QPointF" }
         }
         Method {
             name: "mapToGlobal"
             revision: 519
             type: "QPointF"
+            isMethodConstant: true
             Parameter { name: "x"; type: "double" }
             Parameter { name: "y"; type: "double" }
         }
@@ -7103,6 +7357,7 @@ Module {
             name: "mapToGlobal"
             revision: 519
             type: "QPointF"
+            isMethodConstant: true
             Parameter { name: "point"; type: "QPointF" }
         }
         Method { name: "forceActiveFocus" }
@@ -7128,11 +7383,12 @@ Module {
             name: "childAt"
             type: "QQuickItem"
             isPointer: true
+            isMethodConstant: true
             Parameter { name: "x"; type: "double" }
             Parameter { name: "y"; type: "double" }
         }
         Method { name: "ensurePolished"; revision: 1539 }
-        Method { name: "dumpItemTree"; revision: 1539 }
+        Method { name: "dumpItemTree"; revision: 1539; isMethodConstant: true }
     }
     Component {
         file: "qquickitemgrabresult.h"
@@ -7145,21 +7401,30 @@ Module {
             read: "image"
             index: 0
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
-        Property { name: "url"; type: "QUrl"; read: "url"; index: 1; isReadonly: true; isConstant: true }
+        Property {
+            name: "url"
+            type: "QUrl"
+            read: "url"
+            index: 1
+            isReadonly: true
+            isPropertyConstant: true
+        }
         Signal { name: "ready" }
         Method { name: "setup" }
         Method { name: "render" }
         Method {
             name: "saveToFile"
             type: "bool"
+            isMethodConstant: true
             Parameter { name: "fileName"; type: "QString" }
         }
         Method {
             name: "saveToFile"
             revision: 1538
             type: "bool"
+            isMethodConstant: true
             Parameter { name: "fileName"; type: "QUrl" }
         }
     }
@@ -7346,7 +7611,8 @@ Module {
             "QtQuick/ItemView 2.15",
             "QtQuick/ItemView 6.0",
             "QtQuick/ItemView 6.3",
-            "QtQuick/ItemView 6.7"
+            "QtQuick/ItemView 6.7",
+            "QtQuick/ItemView 6.9"
         ]
         isCreatable: false
         exportMetaObjectRevisions: [
@@ -7362,7 +7628,8 @@ Module {
             527,
             1536,
             1539,
-            1543
+            1543,
+            1545
         ]
         Enum {
             name: "LayoutDirection"
@@ -7753,6 +8020,7 @@ Module {
         Method {
             name: "indexAt"
             type: "int"
+            isMethodConstant: true
             Parameter { name: "x"; type: "double" }
             Parameter { name: "y"; type: "double" }
         }
@@ -7760,6 +8028,7 @@ Module {
             name: "itemAt"
             type: "QQuickItem"
             isPointer: true
+            isMethodConstant: true
             Parameter { name: "x"; type: "double" }
             Parameter { name: "y"; type: "double" }
         }
@@ -7768,6 +8037,7 @@ Module {
             revision: 525
             type: "QQuickItem"
             isPointer: true
+            isMethodConstant: true
             Parameter { name: "index"; type: "int" }
         }
         Method { name: "positionViewAtBeginning" }
@@ -7854,7 +8124,7 @@ Module {
             index: 0
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "text"
@@ -7863,7 +8133,7 @@ Module {
             index: 1
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "modifiers"
@@ -7872,7 +8142,7 @@ Module {
             index: 2
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "isAutoRepeat"
@@ -7881,7 +8151,7 @@ Module {
             index: 3
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "count"
@@ -7890,7 +8160,7 @@ Module {
             index: 4
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "nativeScanCode"
@@ -7899,7 +8169,7 @@ Module {
             index: 5
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "accepted"
@@ -7913,6 +8183,7 @@ Module {
             name: "matches"
             revision: 514
             type: "bool"
+            isMethodConstant: true
             Parameter { name: "key"; type: "QKeySequence::StandardKey" }
         }
     }
@@ -8267,7 +8538,8 @@ Module {
             "QtQuick/ListView 2.15",
             "QtQuick/ListView 6.0",
             "QtQuick/ListView 6.3",
-            "QtQuick/ListView 6.7"
+            "QtQuick/ListView 6.7",
+            "QtQuick/ListView 6.9"
         ]
         exportMetaObjectRevisions: [
             512,
@@ -8283,7 +8555,8 @@ Module {
             527,
             1536,
             1539,
-            1543
+            1543,
+            1545
         ]
         attachedType: "QQuickListViewAttached"
         Enum {
@@ -8349,7 +8622,7 @@ Module {
             read: "sectionCriteria"
             index: 5
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "currentSection"
@@ -8553,6 +8826,7 @@ Module {
         file: "private/qquickvaluetypes_p.h"
         name: "QQuickMatrix4x4ValueType"
         accessSemantics: "value"
+        prototype: "QMatrix4x4"
         Property { name: "m11"; type: "double"; read: "m11"; write: "setM11"; index: 0; isFinal: true }
         Property { name: "m12"; type: "double"; read: "m12"; write: "setM12"; index: 1; isFinal: true }
         Property { name: "m13"; type: "double"; read: "m13"; write: "setM13"; index: 2; isFinal: true }
@@ -8605,65 +8879,77 @@ Module {
         Method {
             name: "times"
             type: "QMatrix4x4"
+            isMethodConstant: true
             Parameter { name: "m"; type: "QMatrix4x4" }
         }
         Method {
             name: "times"
             type: "QVector4D"
+            isMethodConstant: true
             Parameter { name: "vec"; type: "QVector4D" }
         }
         Method {
             name: "times"
             type: "QVector3D"
+            isMethodConstant: true
             Parameter { name: "vec"; type: "QVector3D" }
         }
         Method {
             name: "times"
             type: "QMatrix4x4"
+            isMethodConstant: true
             Parameter { name: "factor"; type: "double" }
         }
         Method {
             name: "plus"
             type: "QMatrix4x4"
+            isMethodConstant: true
             Parameter { name: "m"; type: "QMatrix4x4" }
         }
         Method {
             name: "minus"
             type: "QMatrix4x4"
+            isMethodConstant: true
             Parameter { name: "m"; type: "QMatrix4x4" }
         }
         Method {
             name: "row"
             type: "QVector4D"
+            isMethodConstant: true
             Parameter { name: "n"; type: "int" }
         }
         Method {
             name: "column"
             type: "QVector4D"
+            isMethodConstant: true
             Parameter { name: "m"; type: "int" }
         }
-        Method { name: "determinant"; type: "double" }
-        Method { name: "inverted"; type: "QMatrix4x4" }
-        Method { name: "transposed"; type: "QMatrix4x4" }
+        Method { name: "determinant"; type: "double"; isMethodConstant: true }
+        Method { name: "inverted"; type: "QMatrix4x4"; isMethodConstant: true }
+        Method { name: "transposed"; type: "QMatrix4x4"; isMethodConstant: true }
         Method {
             name: "map"
             type: "QPointF"
+            isMethodConstant: true
             Parameter { name: "p"; type: "QPointF" }
         }
         Method {
             name: "mapRect"
             type: "QRectF"
+            isMethodConstant: true
             Parameter { name: "r"; type: "QRectF" }
         }
         Method {
             name: "fuzzyEquals"
             type: "bool"
+            isMethodConstant: true
             Parameter { name: "m"; type: "QMatrix4x4" }
             Parameter { name: "epsilon"; type: "double" }
         }
         Method {
             name: "fuzzyEquals"
             type: "bool"
+            isMethodConstant: true
             Parameter { name: "m"; type: "QMatrix4x4" }
         }
         Method { name: "QQuickMatrix4x4ValueType"; isConstructor: true }
@@ -8779,7 +9065,7 @@ Module {
             read: "drag"
             index: 9
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "preventStealing"
@@ -8897,7 +9183,7 @@ Module {
             index: 0
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "y"
@@ -8906,7 +9192,7 @@ Module {
             index: 1
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "button"
@@ -8915,7 +9201,7 @@ Module {
             index: 2
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "buttons"
@@ -8924,7 +9210,7 @@ Module {
             index: 3
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "modifiers"
@@ -8933,7 +9219,7 @@ Module {
             index: 4
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "source"
@@ -8943,7 +9229,7 @@ Module {
             index: 5
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "isClick"
@@ -8952,7 +9238,7 @@ Module {
             index: 6
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "wasHeld"
@@ -8961,7 +9247,7 @@ Module {
             index: 7
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "accepted"
@@ -8979,7 +9265,7 @@ Module {
             index: 9
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
     }
     Component {
@@ -9040,7 +9326,7 @@ Module {
             read: "touchPoints"
             index: 0
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "minimumTouchPoints"
@@ -9371,9 +9657,10 @@ Module {
             "QtQuick/Path 2.0",
             "QtQuick/Path 2.14",
             "QtQuick/Path 6.0",
-            "QtQuick/Path 6.6"
+            "QtQuick/Path 6.6",
+            "QtQuick/Path 6.9"
         ]
-        exportMetaObjectRevisions: [512, 526, 1536, 1542]
+        exportMetaObjectRevisions: [512, 526, 1536, 1542, 1545]
         Property {
             name: "pathElements"
             type: "QQuickPathElement"
@@ -9425,16 +9712,27 @@ Module {
             notify: "scaleChanged"
             index: 5
         }
+        Property {
+            name: "asynchronous"
+            revision: 1545
+            type: "bool"
+            read: "isAsynchronous"
+            write: "setAsynchronous"
+            notify: "asynchronousChanged"
+            index: 6
+        }
         Signal { name: "changed" }
         Signal { name: "startXChanged" }
         Signal { name: "startYChanged" }
         Signal { name: "simplifyChanged"; revision: 1542 }
         Signal { name: "scaleChanged"; revision: 526 }
+        Signal { name: "asynchronousChanged"; revision: 1545 }
         Method { name: "processPath" }
         Method {
             name: "pointAtPercent"
             revision: 526
             type: "QPointF"
+            isMethodConstant: true
             Parameter { name: "t"; type: "double" }
         }
     }
@@ -10456,6 +10754,7 @@ Module {
         Method {
             name: "indexAt"
             type: "int"
+            isMethodConstant: true
             Parameter { name: "x"; type: "double" }
             Parameter { name: "y"; type: "double" }
         }
@@ -10463,6 +10762,7 @@ Module {
             name: "itemAt"
             type: "QQuickItem"
             isPointer: true
+            isMethodConstant: true
             Parameter { name: "x"; type: "double" }
             Parameter { name: "y"; type: "double" }
         }
@@ -10471,6 +10771,7 @@ Module {
             revision: 525
             type: "QQuickItem"
             isPointer: true
+            isMethodConstant: true
             Parameter { name: "index"; type: "int" }
         }
     }
@@ -10487,7 +10788,7 @@ Module {
             index: 0
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "isCurrentItem"
@@ -10727,7 +11028,7 @@ Module {
             read: "pinch"
             index: 1
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Signal { name: "enabledChanged" }
         Signal {
@@ -10872,7 +11173,7 @@ Module {
             read: "scaleAxis"
             index: 0
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "minimumScale"
@@ -10921,7 +11222,7 @@ Module {
             read: "rotationAxis"
             index: 6
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "minimumRotation"
@@ -10970,7 +11271,7 @@ Module {
             read: "xAxis"
             index: 12
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "yAxis"
@@ -10979,7 +11280,7 @@ Module {
             read: "yAxis"
             index: 13
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "translation"
@@ -11645,6 +11946,7 @@ Module {
         file: "private/qquickvaluetypes_p.h"
         name: "QQuickQuaternionValueType"
         accessSemantics: "value"
+        prototype: "QQuaternion"
         Property {
             name: "scalar"
             type: "double"
@@ -11656,55 +11958,68 @@ Module {
         Property { name: "x"; type: "double"; read: "x"; write: "setX"; index: 1; isFinal: true }
         Property { name: "y"; type: "double"; read: "y"; write: "setY"; index: 2; isFinal: true }
         Property { name: "z"; type: "double"; read: "z"; write: "setZ"; index: 3; isFinal: true }
-        Method { name: "toString"; type: "QString" }
+        Method { name: "toString"; type: "QString"; isMethodConstant: true }
         Method {
             name: "dotProduct"
             type: "double"
+            isMethodConstant: true
             Parameter { name: "q"; type: "QQuaternion" }
         }
         Method {
             name: "times"
             type: "QQuaternion"
+            isMethodConstant: true
             Parameter { name: "q"; type: "QQuaternion" }
         }
         Method {
             name: "times"
             type: "QVector3D"
+            isMethodConstant: true
             Parameter { name: "vec"; type: "QVector3D" }
         }
         Method {
             name: "times"
             type: "QQuaternion"
+            isMethodConstant: true
             Parameter { name: "factor"; type: "double" }
         }
         Method {
             name: "plus"
             type: "QQuaternion"
+            isMethodConstant: true
             Parameter { name: "q"; type: "QQuaternion" }
         }
         Method {
             name: "minus"
             type: "QQuaternion"
+            isMethodConstant: true
             Parameter { name: "q"; type: "QQuaternion" }
         }
-        Method { name: "normalized"; type: "QQuaternion" }
-        Method { name: "inverted"; type: "QQuaternion" }
-        Method { name: "conjugated"; type: "QQuaternion" }
-        Method { name: "length"; type: "double" }
-        Method { name: "toEulerAngles"; type: "QVector3D" }
-        Method { name: "toVector4d"; type: "QVector4D" }
+        Method { name: "normalized"; type: "QQuaternion"; isMethodConstant: true }
+        Method { name: "inverted"; type: "QQuaternion"; isMethodConstant: true }
+        Method { name: "conjugated"; type: "QQuaternion"; isMethodConstant: true }
+        Method { name: "length"; type: "double"; isMethodConstant: true }
+        Method { name: "toEulerAngles"; type: "QVector3D"; isMethodConstant: true }
+        Method { name: "toVector4d"; type: "QVector4D"; isMethodConstant: true }
         Method {
             name: "fuzzyEquals"
             type: "bool"
+            isMethodConstant: true
             Parameter { name: "q"; type: "QQuaternion" }
             Parameter { name: "epsilon"; type: "double" }
         }
         Method {
             name: "fuzzyEquals"
             type: "bool"
+            isMethodConstant: true
             Parameter { name: "q"; type: "QQuaternion" }
         }
         Method { name: "QQuickQuaternionValueType"; isConstructor: true }
+        Method {
+            name: "QQuickQuaternionValueType"
+            isConstructor: true
+            Parameter { name: "quat"; type: "QQuaternion" }
+        }
     }
     Component {
         file: "private/qquickrectangle_p.h"
@@ -11747,7 +12062,7 @@ Module {
             read: "border"
             index: 2
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "radius"
@@ -11884,6 +12199,7 @@ Module {
             name: "itemAt"
             type: "QQuickItem"
             isPointer: true
+            isMethodConstant: true
             Parameter { name: "index"; type: "int" }
         }
     }
@@ -12049,6 +12365,36 @@ Module {
         }
         Signal { name: "layoutDirectionChanged" }
         Signal { name: "effectiveLayoutDirectionChanged" }
+    }
+    Component {
+        file: "private/qquicksafearea_p.h"
+        name: "QQuickSafeArea"
+        accessSemantics: "reference"
+        prototype: "QObject"
+        exports: ["QtQuick/SafeArea 6.9"]
+        isCreatable: false
+        exportMetaObjectRevisions: [1545]
+        attachedType: "QQuickSafeArea"
+        Property {
+            name: "margins"
+            type: "QMarginsF"
+            read: "margins"
+            notify: "marginsChanged"
+            index: 0
+            isReadonly: true
+            isFinal: true
+        }
+        Property {
+            name: "additionalMargins"
+            type: "QMarginsF"
+            read: "additionalMargins"
+            write: "setAdditionalMargins"
+            notify: "additionalMarginsChanged"
+            index: 1
+            isFinal: true
+        }
+        Signal { name: "marginsChanged" }
+        Signal { name: "additionalMarginsChanged" }
     }
     Component {
         file: "private/qquicktranslate_p.h"
@@ -12655,6 +13001,59 @@ Module {
         }
         Method { name: "invalidateSceneGraph" }
         Method { name: "scheduleUpdate" }
+    }
+    Component {
+        file: "private/qquicktranslate_p.h"
+        name: "QQuickShear"
+        accessSemantics: "reference"
+        prototype: "QQuickTransform"
+        exports: ["QtQuick/Shear 6.9"]
+        exportMetaObjectRevisions: [1545]
+        Property {
+            name: "origin"
+            type: "QVector3D"
+            read: "origin"
+            write: "setOrigin"
+            notify: "originChanged"
+            index: 0
+        }
+        Property {
+            name: "xFactor"
+            type: "double"
+            read: "xFactor"
+            write: "setXFactor"
+            notify: "xFactorChanged"
+            index: 1
+        }
+        Property {
+            name: "yFactor"
+            type: "double"
+            read: "yFactor"
+            write: "setYFactor"
+            notify: "yFactorChanged"
+            index: 2
+        }
+        Property {
+            name: "xAngle"
+            type: "double"
+            read: "xAngle"
+            write: "setXAngle"
+            notify: "xAngleChanged"
+            index: 3
+        }
+        Property {
+            name: "yAngle"
+            type: "double"
+            read: "yAngle"
+            write: "setYAngle"
+            notify: "yAngleChanged"
+            index: 4
+        }
+        Signal { name: "originChanged" }
+        Signal { name: "xFactorChanged" }
+        Signal { name: "yFactorChanged" }
+        Signal { name: "xAngleChanged" }
+        Signal { name: "yAngleChanged" }
     }
     Component {
         file: "private/qquickshortcut_p.h"
@@ -13483,7 +13882,8 @@ Module {
             "QtQuick/TableView 6.5",
             "QtQuick/TableView 6.6",
             "QtQuick/TableView 6.7",
-            "QtQuick/TableView 6.8"
+            "QtQuick/TableView 6.8",
+            "QtQuick/TableView 6.9"
         ]
         exportMetaObjectRevisions: [
             524,
@@ -13495,7 +13895,8 @@ Module {
             1541,
             1542,
             1543,
-            1544
+            1544,
+            1545
         ]
         attachedType: "QQuickTableViewAttached"
         Enum {
@@ -13932,12 +14333,14 @@ Module {
             name: "itemAtCell"
             type: "QQuickItem"
             isPointer: true
+            isMethodConstant: true
             Parameter { name: "cell"; type: "QPoint" }
         }
         Method {
             name: "cellAtPosition"
             revision: 1540
             type: "QPoint"
+            isMethodConstant: true
             Parameter { name: "position"; type: "QPointF" }
             Parameter { name: "includeSpacing"; type: "bool" }
         }
@@ -13946,12 +14349,14 @@ Module {
             revision: 1540
             type: "QPoint"
             isCloned: true
+            isMethodConstant: true
             Parameter { name: "position"; type: "QPointF" }
         }
         Method {
             name: "cellAtPosition"
             revision: 1540
             type: "QPoint"
+            isMethodConstant: true
             Parameter { name: "x"; type: "double" }
             Parameter { name: "y"; type: "double" }
             Parameter { name: "includeSpacing"; type: "bool" }
@@ -13961,6 +14366,7 @@ Module {
             revision: 1540
             type: "QPoint"
             isCloned: true
+            isMethodConstant: true
             Parameter { name: "x"; type: "double" }
             Parameter { name: "y"; type: "double" }
         }
@@ -13968,12 +14374,14 @@ Module {
             name: "modelIndex"
             revision: 1540
             type: "QModelIndex"
+            isMethodConstant: true
             Parameter { name: "row"; type: "int" }
             Parameter { name: "column"; type: "int" }
         }
         Method {
             name: "cellAtPos"
             type: "QPoint"
+            isMethodConstant: true
             Parameter { name: "position"; type: "QPointF" }
             Parameter { name: "includeSpacing"; type: "bool" }
         }
@@ -13981,11 +14389,13 @@ Module {
             name: "cellAtPos"
             type: "QPoint"
             isCloned: true
+            isMethodConstant: true
             Parameter { name: "position"; type: "QPointF" }
         }
         Method {
             name: "cellAtPos"
             type: "QPoint"
+            isMethodConstant: true
             Parameter { name: "x"; type: "double" }
             Parameter { name: "y"; type: "double" }
             Parameter { name: "includeSpacing"; type: "bool" }
@@ -13994,6 +14404,7 @@ Module {
             name: "cellAtPos"
             type: "QPoint"
             isCloned: true
+            isMethodConstant: true
             Parameter { name: "x"; type: "double" }
             Parameter { name: "y"; type: "double" }
         }
@@ -14001,42 +14412,49 @@ Module {
             name: "isColumnLoaded"
             revision: 1538
             type: "bool"
+            isMethodConstant: true
             Parameter { name: "column"; type: "int" }
         }
         Method {
             name: "isRowLoaded"
             revision: 1538
             type: "bool"
+            isMethodConstant: true
             Parameter { name: "row"; type: "int" }
         }
         Method {
             name: "columnWidth"
             revision: 1538
             type: "double"
+            isMethodConstant: true
             Parameter { name: "column"; type: "int" }
         }
         Method {
             name: "rowHeight"
             revision: 1538
             type: "double"
+            isMethodConstant: true
             Parameter { name: "row"; type: "int" }
         }
         Method {
             name: "implicitColumnWidth"
             revision: 1538
             type: "double"
+            isMethodConstant: true
             Parameter { name: "column"; type: "int" }
         }
         Method {
             name: "implicitRowHeight"
             revision: 1538
             type: "double"
+            isMethodConstant: true
             Parameter { name: "row"; type: "int" }
         }
         Method {
             name: "index"
             revision: 1540
             type: "QModelIndex"
+            isMethodConstant: true
             Parameter { name: "row"; type: "int" }
             Parameter { name: "column"; type: "int" }
         }
@@ -14044,24 +14462,28 @@ Module {
             name: "modelIndex"
             revision: 1540
             type: "QModelIndex"
+            isMethodConstant: true
             Parameter { name: "cell"; type: "QPoint" }
         }
         Method {
             name: "cellAtIndex"
             revision: 1540
             type: "QPoint"
+            isMethodConstant: true
             Parameter { name: "index"; type: "QModelIndex" }
         }
         Method {
             name: "rowAtIndex"
             revision: 1540
             type: "int"
+            isMethodConstant: true
             Parameter { name: "index"; type: "QModelIndex" }
         }
         Method {
             name: "columnAtIndex"
             revision: 1540
             type: "int"
+            isMethodConstant: true
             Parameter { name: "index"; type: "QModelIndex" }
         }
         Method {
@@ -14075,6 +14497,7 @@ Module {
             name: "explicitColumnWidth"
             revision: 1541
             type: "double"
+            isMethodConstant: true
             Parameter { name: "column"; type: "int" }
         }
         Method {
@@ -14088,6 +14511,7 @@ Module {
             name: "explicitRowHeight"
             revision: 1541
             type: "double"
+            isMethodConstant: true
             Parameter { name: "row"; type: "int" }
         }
         Method {
@@ -14101,12 +14525,14 @@ Module {
             revision: 1541
             type: "QQuickItem"
             isPointer: true
+            isMethodConstant: true
             Parameter { name: "index"; type: "QModelIndex" }
         }
         Method {
             name: "itemAtCell"
             type: "QQuickItem"
             isPointer: true
+            isMethodConstant: true
             Parameter { name: "column"; type: "int" }
             Parameter { name: "row"; type: "int" }
         }
@@ -14772,6 +15198,7 @@ Module {
             name: "linkAt"
             revision: 515
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "x"; type: "double" }
             Parameter { name: "y"; type: "double" }
         }
@@ -14868,8 +15295,12 @@ Module {
         accessSemantics: "reference"
         prototype: "QQuickImplicitSizeItem"
         interfaces: ["QQuickTextInterface"]
-        exports: ["QtQuick/TextEdit 6.4", "QtQuick/TextEdit 6.7"]
-        exportMetaObjectRevisions: [1540, 1543]
+        exports: [
+            "QtQuick/TextEdit 6.4",
+            "QtQuick/TextEdit 6.7",
+            "QtQuick/TextEdit 6.9"
+        ]
+        exportMetaObjectRevisions: [1540, 1543, 1545]
         Enum {
             name: "HAlignment"
             values: [
@@ -15222,7 +15653,7 @@ Module {
             index: 38
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "hoveredLink"
@@ -15310,7 +15741,7 @@ Module {
             index: 47
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Signal { name: "textChanged" }
         Signal { name: "preeditTextChanged"; revision: 519 }
@@ -15416,6 +15847,7 @@ Module {
             revision: 522
             Parameter { name: "distance"; type: "double" }
         }
+        Signal { name: "textEdited"; revision: 1545 }
         Method { name: "selectAll" }
         Method { name: "selectWord" }
         Method {
@@ -15492,17 +15924,20 @@ Module {
             name: "inputMethodQuery"
             revision: 516
             type: "QVariant"
+            isMethodConstant: true
             Parameter { name: "query"; type: "Qt::InputMethodQuery" }
             Parameter { name: "argument"; type: "QVariant" }
         }
         Method {
             name: "positionToRectangle"
             type: "QRectF"
+            isMethodConstant: true
             Parameter { type: "int" }
         }
         Method {
             name: "positionAt"
             type: "int"
+            isMethodConstant: true
             Parameter { name: "x"; type: "double" }
             Parameter { name: "y"; type: "double" }
         }
@@ -15518,12 +15953,14 @@ Module {
         Method {
             name: "getText"
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "start"; type: "int" }
             Parameter { name: "end"; type: "int" }
         }
         Method {
             name: "getFormattedText"
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "start"; type: "int" }
             Parameter { name: "end"; type: "int" }
         }
@@ -15531,6 +15968,7 @@ Module {
             name: "linkAt"
             revision: 515
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "x"; type: "double" }
             Parameter { name: "y"; type: "double" }
         }
@@ -16097,10 +16535,11 @@ Module {
         Method { name: "q_updateAlignment" }
         Method { name: "triggerPreprocess" }
         Method { name: "q_validatorChanged" }
-        Method { name: "positionAt"; isJavaScriptFunction: true }
+        Method { name: "positionAt"; isJavaScriptFunction: true; isMethodConstant: true }
         Method {
             name: "positionToRectangle"
             type: "QRectF"
+            isMethodConstant: true
             Parameter { name: "pos"; type: "int" }
         }
         Method {
@@ -16116,12 +16555,14 @@ Module {
             name: "inputMethodQuery"
             revision: 516
             type: "QVariant"
+            isMethodConstant: true
             Parameter { name: "query"; type: "Qt::InputMethodQuery" }
             Parameter { name: "argument"; type: "QVariant" }
         }
         Method {
             name: "getText"
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "start"; type: "int" }
             Parameter { name: "end"; type: "int" }
         }
@@ -16558,9 +16999,10 @@ Module {
             "QtQuick/TreeView 6.5",
             "QtQuick/TreeView 6.6",
             "QtQuick/TreeView 6.7",
-            "QtQuick/TreeView 6.8"
+            "QtQuick/TreeView 6.8",
+            "QtQuick/TreeView 6.9"
         ]
-        exportMetaObjectRevisions: [1539, 1540, 1541, 1542, 1543, 1544]
+        exportMetaObjectRevisions: [1539, 1540, 1541, 1542, 1543, 1544, 1545]
         Property {
             name: "rootIndex"
             revision: 1542
@@ -16586,11 +17028,13 @@ Module {
         Method {
             name: "depth"
             type: "int"
+            isMethodConstant: true
             Parameter { name: "row"; type: "int" }
         }
         Method {
             name: "isExpanded"
             type: "bool"
+            isMethodConstant: true
             Parameter { name: "row"; type: "int" }
         }
         Method {
@@ -16632,17 +17076,20 @@ Module {
         Method {
             name: "modelIndex"
             type: "QModelIndex"
+            isMethodConstant: true
             Parameter { name: "cell"; type: "QPoint" }
         }
         Method {
             name: "cellAtIndex"
             type: "QPoint"
+            isMethodConstant: true
             Parameter { name: "index"; type: "QModelIndex" }
         }
         Method {
             name: "modelIndex"
             revision: 1540
             type: "QModelIndex"
+            isMethodConstant: true
             Parameter { name: "row"; type: "int" }
             Parameter { name: "column"; type: "int" }
         }
@@ -16684,50 +17131,63 @@ Module {
         file: "private/qquickvaluetypes_p.h"
         name: "QQuickVector2DValueType"
         accessSemantics: "value"
+        prototype: "QVector2D"
         Property { name: "x"; type: "double"; read: "x"; write: "setX"; index: 0; isFinal: true }
         Property { name: "y"; type: "double"; read: "y"; write: "setY"; index: 1; isFinal: true }
-        Method { name: "toString"; type: "QString" }
+        Method { name: "toString"; type: "QString"; isMethodConstant: true }
         Method {
             name: "dotProduct"
             type: "double"
+            isMethodConstant: true
             Parameter { name: "vec"; type: "QVector2D" }
         }
         Method {
             name: "times"
             type: "QVector2D"
+            isMethodConstant: true
             Parameter { name: "vec"; type: "QVector2D" }
         }
         Method {
             name: "times"
             type: "QVector2D"
+            isMethodConstant: true
             Parameter { name: "scalar"; type: "double" }
         }
         Method {
             name: "plus"
             type: "QVector2D"
+            isMethodConstant: true
             Parameter { name: "vec"; type: "QVector2D" }
         }
         Method {
             name: "minus"
             type: "QVector2D"
+            isMethodConstant: true
             Parameter { name: "vec"; type: "QVector2D" }
         }
-        Method { name: "normalized"; type: "QVector2D" }
-        Method { name: "length"; type: "double" }
-        Method { name: "toVector3d"; type: "QVector3D" }
-        Method { name: "toVector4d"; type: "QVector4D" }
+        Method { name: "normalized"; type: "QVector2D"; isMethodConstant: true }
+        Method { name: "length"; type: "double"; isMethodConstant: true }
+        Method { name: "toVector3d"; type: "QVector3D"; isMethodConstant: true }
+        Method { name: "toVector4d"; type: "QVector4D"; isMethodConstant: true }
         Method {
             name: "fuzzyEquals"
             type: "bool"
+            isMethodConstant: true
             Parameter { name: "vec"; type: "QVector2D" }
             Parameter { name: "epsilon"; type: "double" }
         }
         Method {
             name: "fuzzyEquals"
             type: "bool"
+            isMethodConstant: true
             Parameter { name: "vec"; type: "QVector2D" }
         }
         Method { name: "QQuickVector2DValueType"; isConstructor: true }
+        Method {
+            name: "QQuickVector2DValueType"
+            isConstructor: true
+            Parameter { name: "vector2D"; type: "QVector2D" }
+        }
     }
     Component {
         file: "private/qquickvaluetypes_p.h"
@@ -16742,61 +17202,76 @@ Module {
         file: "private/qquickvaluetypes_p.h"
         name: "QQuickVector3DValueType"
         accessSemantics: "value"
+        prototype: "QVector3D"
         Property { name: "x"; type: "double"; read: "x"; write: "setX"; index: 0; isFinal: true }
         Property { name: "y"; type: "double"; read: "y"; write: "setY"; index: 1; isFinal: true }
         Property { name: "z"; type: "double"; read: "z"; write: "setZ"; index: 2; isFinal: true }
-        Method { name: "toString"; type: "QString" }
+        Method { name: "toString"; type: "QString"; isMethodConstant: true }
         Method {
             name: "crossProduct"
             type: "QVector3D"
+            isMethodConstant: true
             Parameter { name: "vec"; type: "QVector3D" }
         }
         Method {
             name: "dotProduct"
             type: "double"
+            isMethodConstant: true
             Parameter { name: "vec"; type: "QVector3D" }
         }
         Method {
             name: "times"
             type: "QVector3D"
+            isMethodConstant: true
             Parameter { name: "m"; type: "QMatrix4x4" }
         }
         Method {
             name: "times"
             type: "QVector3D"
+            isMethodConstant: true
             Parameter { name: "vec"; type: "QVector3D" }
         }
         Method {
             name: "times"
             type: "QVector3D"
+            isMethodConstant: true
             Parameter { name: "scalar"; type: "double" }
         }
         Method {
             name: "plus"
             type: "QVector3D"
+            isMethodConstant: true
             Parameter { name: "vec"; type: "QVector3D" }
         }
         Method {
             name: "minus"
             type: "QVector3D"
+            isMethodConstant: true
             Parameter { name: "vec"; type: "QVector3D" }
         }
-        Method { name: "normalized"; type: "QVector3D" }
-        Method { name: "length"; type: "double" }
-        Method { name: "toVector2d"; type: "QVector2D" }
-        Method { name: "toVector4d"; type: "QVector4D" }
+        Method { name: "normalized"; type: "QVector3D"; isMethodConstant: true }
+        Method { name: "length"; type: "double"; isMethodConstant: true }
+        Method { name: "toVector2d"; type: "QVector2D"; isMethodConstant: true }
+        Method { name: "toVector4d"; type: "QVector4D"; isMethodConstant: true }
         Method {
             name: "fuzzyEquals"
             type: "bool"
+            isMethodConstant: true
             Parameter { name: "vec"; type: "QVector3D" }
             Parameter { name: "epsilon"; type: "double" }
         }
         Method {
             name: "fuzzyEquals"
             type: "bool"
+            isMethodConstant: true
             Parameter { name: "vec"; type: "QVector3D" }
         }
         Method { name: "QQuickVector3DValueType"; isConstructor: true }
+        Method {
+            name: "QQuickVector3DValueType"
+            isConstructor: true
+            Parameter { name: "vector3D"; type: "QVector3D" }
+        }
     }
     Component {
         file: "private/qquickanimation_p.h"
@@ -16832,57 +17307,71 @@ Module {
         file: "private/qquickvaluetypes_p.h"
         name: "QQuickVector4DValueType"
         accessSemantics: "value"
+        prototype: "QVector4D"
         Property { name: "x"; type: "double"; read: "x"; write: "setX"; index: 0; isFinal: true }
         Property { name: "y"; type: "double"; read: "y"; write: "setY"; index: 1; isFinal: true }
         Property { name: "z"; type: "double"; read: "z"; write: "setZ"; index: 2; isFinal: true }
         Property { name: "w"; type: "double"; read: "w"; write: "setW"; index: 3; isFinal: true }
-        Method { name: "toString"; type: "QString" }
+        Method { name: "toString"; type: "QString"; isMethodConstant: true }
         Method {
             name: "dotProduct"
             type: "double"
+            isMethodConstant: true
             Parameter { name: "vec"; type: "QVector4D" }
         }
         Method {
             name: "times"
             type: "QVector4D"
+            isMethodConstant: true
             Parameter { name: "vec"; type: "QVector4D" }
         }
         Method {
             name: "times"
             type: "QVector4D"
+            isMethodConstant: true
             Parameter { name: "m"; type: "QMatrix4x4" }
         }
         Method {
             name: "times"
             type: "QVector4D"
+            isMethodConstant: true
             Parameter { name: "scalar"; type: "double" }
         }
         Method {
             name: "plus"
             type: "QVector4D"
+            isMethodConstant: true
             Parameter { name: "vec"; type: "QVector4D" }
         }
         Method {
             name: "minus"
             type: "QVector4D"
+            isMethodConstant: true
             Parameter { name: "vec"; type: "QVector4D" }
         }
-        Method { name: "normalized"; type: "QVector4D" }
-        Method { name: "length"; type: "double" }
-        Method { name: "toVector2d"; type: "QVector2D" }
-        Method { name: "toVector3d"; type: "QVector3D" }
+        Method { name: "normalized"; type: "QVector4D"; isMethodConstant: true }
+        Method { name: "length"; type: "double"; isMethodConstant: true }
+        Method { name: "toVector2d"; type: "QVector2D"; isMethodConstant: true }
+        Method { name: "toVector3d"; type: "QVector3D"; isMethodConstant: true }
         Method {
             name: "fuzzyEquals"
             type: "bool"
+            isMethodConstant: true
             Parameter { name: "vec"; type: "QVector4D" }
             Parameter { name: "epsilon"; type: "double" }
         }
         Method {
             name: "fuzzyEquals"
             type: "bool"
+            isMethodConstant: true
             Parameter { name: "vec"; type: "QVector4D" }
         }
         Method { name: "QQuickVector4DValueType"; isConstructor: true }
+        Method {
+            name: "QQuickVector4DValueType"
+            isConstructor: true
+            Parameter { name: "vector4d"; type: "QVector4D" }
+        }
     }
     Component {
         file: "private/qquicklistview_p.h"
@@ -17013,12 +17502,12 @@ Module {
             name: "device"
             type: "QPointingDevice"
             isPointer: true
-            isConstant: true
+            isTypeConstant: true
             read: "pointingDevice"
             index: 0
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "x"
@@ -17027,7 +17516,7 @@ Module {
             index: 1
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "y"
@@ -17036,7 +17525,7 @@ Module {
             index: 2
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "angleDelta"
@@ -17045,7 +17534,7 @@ Module {
             index: 3
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "pixelDelta"
@@ -17054,7 +17543,7 @@ Module {
             index: 4
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "phase"
@@ -17063,7 +17552,7 @@ Module {
             index: 5
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "buttons"
@@ -17072,7 +17561,7 @@ Module {
             index: 6
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "modifiers"
@@ -17081,7 +17570,7 @@ Module {
             index: 7
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "inverted"
@@ -17090,7 +17579,7 @@ Module {
             index: 8
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "accepted"
@@ -17256,7 +17745,7 @@ Module {
             read: "contentItem"
             index: 2
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "activeFocusItem"
@@ -17447,9 +17936,20 @@ Module {
             "QtQuick/Window 2.14",
             "QtQuick/Window 6.0",
             "QtQuick/Window 6.2",
-            "QtQuick/Window 6.7"
+            "QtQuick/Window 6.7",
+            "QtQuick/Window 6.9"
         ]
-        exportMetaObjectRevisions: [513, 514, 515, 525, 526, 1536, 1538, 1543]
+        exportMetaObjectRevisions: [
+            513,
+            514,
+            515,
+            525,
+            526,
+            1536,
+            1538,
+            1543,
+            1545
+        ]
         attachedType: "QQuickWindowAttached"
         Property {
             name: "visible"
@@ -17569,7 +18069,7 @@ Module {
             index: 1
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "keyboardAutoRepeatRate"
@@ -17578,7 +18078,7 @@ Module {
             index: 2
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "keyboardAutoRepeatRateF"
@@ -17587,7 +18087,7 @@ Module {
             index: 3
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "keyboardInputInterval"
@@ -17623,7 +18123,7 @@ Module {
             index: 7
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "passwordMaskDelay"
@@ -17632,7 +18132,7 @@ Module {
             index: 8
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "setFocusOnTouchRelease"
@@ -17641,7 +18141,7 @@ Module {
             index: 9
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "showIsFullScreen"
@@ -17650,7 +18150,7 @@ Module {
             index: 10
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "showIsMaximized"
@@ -17659,7 +18159,7 @@ Module {
             index: 11
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "showShortcutsInContextMenus"
@@ -17704,7 +18204,7 @@ Module {
             index: 16
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "useRtlExtensions"
@@ -17713,7 +18213,7 @@ Module {
             index: 17
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "tabFocusBehavior"
@@ -17731,7 +18231,7 @@ Module {
             index: 19
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "useHoverEffects"
@@ -17767,7 +18267,7 @@ Module {
             index: 23
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "touchDoubleTapDistance"
@@ -17776,7 +18276,7 @@ Module {
             index: 24
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "colorScheme"
@@ -18061,6 +18561,11 @@ Module {
         Signal {
             name: "maximumHeightChanged"
             Parameter { name: "arg"; type: "int" }
+        }
+        Signal {
+            name: "safeAreaMarginsChanged"
+            revision: 1545
+            Parameter { name: "arg"; type: "QMargins" }
         }
         Signal {
             name: "visibleChanged"

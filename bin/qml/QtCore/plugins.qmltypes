@@ -252,6 +252,7 @@ Module {
         Method {
             name: "value"
             type: "QVariant"
+            isMethodConstant: true
             Parameter { name: "key"; type: "QString" }
             Parameter { name: "defaultValue"; type: "QVariant" }
         }
@@ -259,6 +260,7 @@ Module {
             name: "value"
             type: "QVariant"
             isCloned: true
+            isMethodConstant: true
             Parameter { name: "key"; type: "QString" }
         }
         Method {
@@ -282,11 +284,13 @@ Module {
         Method {
             name: "displayName"
             type: "QString"
+            isMethodConstant: true
             Parameter { name: "type"; type: "QStandardPaths::StandardLocation" }
         }
         Method {
             name: "findExecutable"
             type: "QUrl"
+            isMethodConstant: true
             Parameter { name: "executableName"; type: "QString" }
             Parameter { name: "paths"; type: "QStringList" }
         }
@@ -294,11 +298,13 @@ Module {
             name: "findExecutable"
             type: "QUrl"
             isCloned: true
+            isMethodConstant: true
             Parameter { name: "executableName"; type: "QString" }
         }
         Method {
             name: "locate"
             type: "QUrl"
+            isMethodConstant: true
             Parameter { name: "type"; type: "QStandardPaths::StandardLocation" }
             Parameter { name: "fileName"; type: "QString" }
             Parameter { name: "options"; type: "QStandardPaths::LocateOptions" }
@@ -307,6 +313,7 @@ Module {
             name: "locate"
             type: "QUrl"
             isCloned: true
+            isMethodConstant: true
             Parameter { name: "type"; type: "QStandardPaths::StandardLocation" }
             Parameter { name: "fileName"; type: "QString" }
         }
@@ -314,6 +321,7 @@ Module {
             name: "locateAll"
             type: "QUrl"
             isList: true
+            isMethodConstant: true
             Parameter { name: "type"; type: "QStandardPaths::StandardLocation" }
             Parameter { name: "fileName"; type: "QString" }
             Parameter { name: "options"; type: "QStandardPaths::LocateOptions" }
@@ -323,6 +331,7 @@ Module {
             type: "QUrl"
             isList: true
             isCloned: true
+            isMethodConstant: true
             Parameter { name: "type"; type: "QStandardPaths::StandardLocation" }
             Parameter { name: "fileName"; type: "QString" }
         }
@@ -330,11 +339,13 @@ Module {
             name: "standardLocations"
             type: "QUrl"
             isList: true
+            isMethodConstant: true
             Parameter { name: "type"; type: "QStandardPaths::StandardLocation" }
         }
         Method {
             name: "writableLocation"
             type: "QUrl"
+            isMethodConstant: true
             Parameter { name: "type"; type: "QStandardPaths::StandardLocation" }
         }
     }
@@ -359,7 +370,7 @@ Module {
             index: 0
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "byteOrder"
@@ -368,7 +379,7 @@ Module {
             index: 1
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "buildCpuArchitecture"
@@ -377,7 +388,7 @@ Module {
             index: 2
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "currentCpuArchitecture"
@@ -386,7 +397,7 @@ Module {
             index: 3
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "buildAbi"
@@ -395,7 +406,7 @@ Module {
             index: 4
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "kernelType"
@@ -404,7 +415,7 @@ Module {
             index: 5
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "kernelVersion"
@@ -413,7 +424,7 @@ Module {
             index: 6
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "productType"
@@ -422,7 +433,7 @@ Module {
             index: 7
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "productVersion"
@@ -431,7 +442,7 @@ Module {
             index: 8
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "prettyProductName"
@@ -440,7 +451,7 @@ Module {
             index: 9
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "machineHostName"
@@ -449,7 +460,7 @@ Module {
             index: 10
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "machineUniqueId"
@@ -458,7 +469,7 @@ Module {
             index: 11
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "bootUniqueId"
@@ -467,7 +478,7 @@ Module {
             index: 12
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
     }
     Component {

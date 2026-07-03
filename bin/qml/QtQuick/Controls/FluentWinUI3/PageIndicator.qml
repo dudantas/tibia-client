@@ -3,6 +3,7 @@
 
 import QtQuick
 import QtQuick.Controls.impl
+import QtQuick.Controls.FluentWinUI3.impl as Impl
 import QtQuick.Templates as T
 
 T.PageIndicator {
@@ -13,25 +14,25 @@ T.PageIndicator {
     implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset,
                              implicitContentHeight + topPadding + bottomPadding)
 
-    spacing: config.spacing || 0
+    spacing: __config.spacing || 0
 
-    topPadding: config.topPadding || 0
-    bottomPadding: config.bottomPadding || 0
-    leftPadding: config.leftPadding || 0
-    rightPadding: config.rightPadding || 0
+    topPadding: __config.topPadding || 0
+    bottomPadding: __config.bottomPadding || 0
+    leftPadding: __config.leftPadding || 0
+    rightPadding: __config.rightPadding || 0
 
-    topInset: -config.topInset || 0
-    bottomInset: -config.bottomInset || 0
-    leftInset: -config.leftInset || 0
-    rightInset: -config.rightInset || 0
+    topInset: -__config.topInset || 0
+    bottomInset: -__config.bottomInset || 0
+    leftInset: -__config.leftInset || 0
+    rightInset: -__config.rightInset || 0
 
     readonly property string __currentState: [
         !control.enabled && "disabled",
         control.enabled && control.hovered && "hovered",
     ].filter(Boolean).join("_") || "normal"
-    readonly property var config: Config.controls.pageindicator[__currentState] || {}
+    readonly property var __config: Config.controls.pageindicator[__currentState] || {}
 
-    delegate: StyleImage {
+    delegate: Impl.StyleImage {
         required property int index
 
         property alias hovered: hoverHandler.hovered
@@ -62,7 +63,7 @@ T.PageIndicator {
         }
     }
 
-    background: StyleImage {
-        imageConfig: control.config.background
+    background: Impl.StyleImage {
+        imageConfig: control.__config.background
     }
 }

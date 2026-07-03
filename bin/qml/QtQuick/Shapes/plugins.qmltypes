@@ -283,7 +283,8 @@ Module {
             "QtQuick.Shapes/ShapePath 6.0",
             "QtQuick.Shapes/ShapePath 6.6",
             "QtQuick.Shapes/ShapePath 6.7",
-            "QtQuick.Shapes/ShapePath 6.8"
+            "QtQuick.Shapes/ShapePath 6.8",
+            "QtQuick.Shapes/ShapePath 6.9"
         ]
         exportMetaObjectRevisions: [
             256,
@@ -293,7 +294,8 @@ Module {
             1536,
             1542,
             1543,
-            1544
+            1544,
+            1545
         ]
         Enum {
             name: "FillRule"

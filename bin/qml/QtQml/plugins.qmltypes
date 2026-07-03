@@ -192,7 +192,7 @@ Module {
             read: "parent"
             index: 4
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Signal { name: "triggered" }
         Signal { name: "runningChanged" }

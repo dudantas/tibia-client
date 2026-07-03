@@ -4,7 +4,7 @@
 import QtQuick
 import QtQuick.Templates as T
 import QtQuick.Controls.impl
-import QtQuick.Controls.FluentWinUI3.impl
+import QtQuick.Controls.FluentWinUI3.impl as Impl
 
 T.SwitchDelegate {
     id: control
@@ -17,10 +17,10 @@ T.SwitchDelegate {
 
     spacing: 10
 
-    topPadding: config.topPadding || 0 + verticalOffset
-    leftPadding: config.leftPadding || 0 + __horizontalOffset
-    rightPadding: config.rightPadding || 0 + __horizontalOffset
-    bottomPadding: config.bottomPadding || 0 + __verticalOffset
+    topPadding: __config.topPadding || 0 + verticalOffset
+    leftPadding: __config.leftPadding || 0 + __horizontalOffset
+    rightPadding: __config.rightPadding || 0 + __horizontalOffset
+    bottomPadding: __config.bottomPadding || 0 + __verticalOffset
 
     icon.width: 16
     icon.height: 16
@@ -39,11 +39,11 @@ T.SwitchDelegate {
         control.enabled && !control.down && control.hovered && "hovered",
         control.down && "pressed"
     ].filter(Boolean).join("_") || "normal"
-    readonly property var config: Config.controls.itemdelegate[__currentState] || {}
+    readonly property var __config: Config.controls.itemdelegate[__currentState] || {}
 
     readonly property Item __focusFrameTarget: control
 
-    indicator: SwitchIndicator {
+    indicator: Impl.SwitchIndicator {
         readonly property string currentState: [
             control.checked && "checked",
             !control.enabled && control.checked && "disabled",
@@ -77,9 +77,9 @@ T.SwitchDelegate {
         implicitWidth: 160
         implicitHeight: 40
 
-        property Item backgroundImage: StyleImage {
+        property Item backgroundImage: Impl.StyleImage {
             parent: control.background
-            imageConfig: control.config.background
+            imageConfig: control.__config.background
             implicitWidth: parent.width - control.__horizontalOffset * 2
             implicitHeight: parent.height - control.__verticalOffset * 2
             x: control.__horizontalOffset

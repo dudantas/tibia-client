@@ -13,9 +13,9 @@ T.ToolTip {
     y: -implicitHeight - (background ? background.topInset : 0)
 
     implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset,
-                            contentWidth + leftPadding + rightPadding)
+                            implicitContentWidth + leftPadding + rightPadding)
     implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset,
-                             contentHeight + topPadding + bottomPadding)
+                             implicitContentHeight + topPadding + bottomPadding)
 
     topMargin: background ? background.topInset : 0
     leftMargin: background ? background.leftInset : 0

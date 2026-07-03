@@ -494,15 +494,14 @@ Module {
         file: "private/qquickcolorinputs_p.h"
         name: "QQuickColorInputs"
         accessSemantics: "reference"
-        defaultProperty: "data"
-        parentProperty: "parent"
-        prototype: "QQuickItem"
-        exports: [
-            "QtQuick.Dialogs.quickimpl/ColorInputsImpl 6.0",
-            "QtQuick.Dialogs.quickimpl/ColorInputsImpl 6.3",
-            "QtQuick.Dialogs.quickimpl/ColorInputsImpl 6.7"
-        ]
-        exportMetaObjectRevisions: [1536, 1539, 1543]
+        defaultProperty: "contentData"
+        prototype: "QQuickContainer"
+        exports: ["QtQuick.Dialogs.quickimpl/ColorInputsImpl 6.9"]
+        exportMetaObjectRevisions: [1545]
+        Enum {
+            name: "Mode"
+            values: ["Hex", "Rgb", "Hsv", "Hsl"]
+        }
         Property {
             name: "color"
             type: "QColor"
@@ -510,8 +509,17 @@ Module {
             write: "setColor"
             notify: "colorChanged"
             index: 0
+            isFinal: true
         }
-        Property { name: "red"; type: "int"; read: "red"; notify: "colorChanged"; index: 1; isReadonly: true }
+        Property {
+            name: "red"
+            type: "int"
+            read: "red"
+            notify: "colorChanged"
+            index: 1
+            isReadonly: true
+            isFinal: true
+        }
         Property {
             name: "green"
             type: "int"
@@ -519,6 +527,7 @@ Module {
             notify: "colorChanged"
             index: 2
             isReadonly: true
+            isFinal: true
         }
         Property {
             name: "blue"
@@ -527,6 +536,7 @@ Module {
             notify: "colorChanged"
             index: 3
             isReadonly: true
+            isFinal: true
         }
         Property {
             name: "hue"
@@ -535,6 +545,7 @@ Module {
             notify: "colorChanged"
             index: 4
             isReadonly: true
+            isFinal: true
         }
         Property {
             name: "hslSaturation"
@@ -543,6 +554,7 @@ Module {
             notify: "colorChanged"
             index: 5
             isReadonly: true
+            isFinal: true
         }
         Property {
             name: "hsvSaturation"
@@ -551,6 +563,7 @@ Module {
             notify: "colorChanged"
             index: 6
             isReadonly: true
+            isFinal: true
         }
         Property {
             name: "value"
@@ -559,6 +572,7 @@ Module {
             notify: "colorChanged"
             index: 7
             isReadonly: true
+            isFinal: true
         }
         Property {
             name: "lightness"
@@ -567,6 +581,7 @@ Module {
             notify: "colorChanged"
             index: 8
             isReadonly: true
+            isFinal: true
         }
         Property {
             name: "alpha"
@@ -575,6 +590,7 @@ Module {
             notify: "colorChanged"
             index: 9
             isReadonly: true
+            isFinal: true
         }
         Property {
             name: "showAlpha"
@@ -583,123 +599,26 @@ Module {
             write: "setShowAlpha"
             notify: "showAlphaChanged"
             index: 10
+            isFinal: true
         }
         Property {
-            name: "hexInput"
-            type: "QQuickTextInput"
-            isPointer: true
-            read: "hexInput"
-            write: "setHexInput"
-            notify: "hexInputChanged"
+            name: "mode"
+            type: "Mode"
+            read: "currentMode"
+            write: "setCurrentMode"
+            notify: "currentModeChanged"
             index: 11
+            isFinal: true
         }
         Property {
-            name: "redInput"
-            type: "QQuickTextInput"
+            name: "delegate"
+            type: "QQmlComponent"
             isPointer: true
-            read: "redInput"
-            write: "setRedInput"
-            notify: "redInputChanged"
+            read: "delegate"
+            write: "setDelegate"
+            notify: "delegateChanged"
             index: 12
-        }
-        Property {
-            name: "greenInput"
-            type: "QQuickTextInput"
-            isPointer: true
-            read: "greenInput"
-            write: "setGreenInput"
-            notify: "greenInputChanged"
-            index: 13
-        }
-        Property {
-            name: "blueInput"
-            type: "QQuickTextInput"
-            isPointer: true
-            read: "blueInput"
-            write: "setBlueInput"
-            notify: "blueInputChanged"
-            index: 14
-        }
-        Property {
-            name: "hsvHueInput"
-            type: "QQuickTextInput"
-            isPointer: true
-            read: "hsvHueInput"
-            write: "setHsvHueInput"
-            notify: "hsvHueInputChanged"
-            index: 15
-        }
-        Property {
-            name: "hslHueInput"
-            type: "QQuickTextInput"
-            isPointer: true
-            read: "hslHueInput"
-            write: "setHslHueInput"
-            notify: "hslHueInputChanged"
-            index: 16
-        }
-        Property {
-            name: "hsvSaturationInput"
-            type: "QQuickTextInput"
-            isPointer: true
-            read: "hsvSaturationInput"
-            write: "setHsvSaturationInput"
-            notify: "hsvSaturationInputChanged"
-            index: 17
-        }
-        Property {
-            name: "hslSaturationInput"
-            type: "QQuickTextInput"
-            isPointer: true
-            read: "hslSaturationInput"
-            write: "setHslSaturationInput"
-            notify: "hslSaturationInputChanged"
-            index: 18
-        }
-        Property {
-            name: "valueInput"
-            type: "QQuickTextInput"
-            isPointer: true
-            read: "valueInput"
-            write: "setValueInput"
-            notify: "valueInputChanged"
-            index: 19
-        }
-        Property {
-            name: "lightnessInput"
-            type: "QQuickTextInput"
-            isPointer: true
-            read: "lightnessInput"
-            write: "setLightnessInput"
-            notify: "lightnessInputChanged"
-            index: 20
-        }
-        Property {
-            name: "rgbAlphaInput"
-            type: "QQuickTextInput"
-            isPointer: true
-            read: "rgbAlphaInput"
-            write: "setRgbAlphaInput"
-            notify: "rgbAlphaInputChanged"
-            index: 21
-        }
-        Property {
-            name: "hsvAlphaInput"
-            type: "QQuickTextInput"
-            isPointer: true
-            read: "hsvAlphaInput"
-            write: "setHsvAlphaInput"
-            notify: "hsvAlphaInputChanged"
-            index: 22
-        }
-        Property {
-            name: "hslAlphaInput"
-            type: "QQuickTextInput"
-            isPointer: true
-            read: "hslAlphaInput"
-            write: "setHslAlphaInput"
-            notify: "hslAlphaInputChanged"
-            index: 23
+            isFinal: true
         }
         Signal {
             name: "colorChanged"
@@ -714,19 +633,8 @@ Module {
             name: "showAlphaChanged"
             Parameter { type: "bool" }
         }
-        Signal { name: "hexInputChanged" }
-        Signal { name: "redInputChanged" }
-        Signal { name: "greenInputChanged" }
-        Signal { name: "blueInputChanged" }
-        Signal { name: "hsvHueInputChanged" }
-        Signal { name: "hslHueInputChanged" }
-        Signal { name: "hsvSaturationInputChanged" }
-        Signal { name: "hslSaturationInputChanged" }
-        Signal { name: "valueInputChanged" }
-        Signal { name: "lightnessInputChanged" }
-        Signal { name: "rgbAlphaInputChanged" }
-        Signal { name: "hsvAlphaInputChanged" }
-        Signal { name: "hslAlphaInputChanged" }
+        Signal { name: "currentModeChanged" }
+        Signal { name: "delegateChanged" }
     }
     Component {
         file: "private/qtquickdialogs2quickimplforeign_p.h"
@@ -1189,6 +1097,7 @@ Module {
             revision: 515
             type: "QQuickAbstractButton"
             isPointer: true
+            isMethodConstant: true
             Parameter { name: "button"; type: "QPlatformDialogHelper::StandardButton" }
         }
     }
@@ -1231,9 +1140,10 @@ Module {
         prototype: "QQuickDialog"
         exports: [
             "QtQuick.Dialogs.quickimpl/FileDialogImpl 6.2",
-            "QtQuick.Dialogs.quickimpl/FileDialogImpl 6.8"
+            "QtQuick.Dialogs.quickimpl/FileDialogImpl 6.8",
+            "QtQuick.Dialogs.quickimpl/FileDialogImpl 6.9"
         ]
-        exportMetaObjectRevisions: [1538, 1544]
+        exportMetaObjectRevisions: [1538, 1544, 1545]
         attachedType: "QQuickFileDialogImplAttached"
         Property {
             name: "currentFolder"
@@ -1269,7 +1179,7 @@ Module {
             read: "selectedNameFilter"
             index: 3
             isReadonly: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "fileName"
@@ -1383,6 +1293,16 @@ Module {
             index: 6
             isFinal: true
         }
+        Property {
+            name: "sideBar"
+            type: "QQuickSideBar"
+            isPointer: true
+            read: "sideBar"
+            write: "setSideBar"
+            notify: "sideBarChanged"
+            index: 7
+            isFinal: true
+        }
         Signal { name: "buttonBoxChanged" }
         Signal { name: "nameFiltersComboBoxChanged" }
         Signal { name: "fileDialogListViewChanged" }
@@ -1390,6 +1310,7 @@ Module {
         Signal { name: "fileNameLabelChanged" }
         Signal { name: "fileNameTextFieldChanged" }
         Signal { name: "overwriteConfirmationDialogChanged" }
+        Signal { name: "sideBarChanged"; revision: 1545 }
     }
     Component {
         file: "private/qtquickdialogs2quickimplforeign_p.h"
@@ -1871,7 +1792,7 @@ Module {
         accessSemantics: "reference"
         defaultProperty: "contentData"
         prototype: "QObject"
-        interfaces: ["QQmlParserStatus"]
+        interfaces: ["QQmlParserStatus", "QQuickSafeAreaAttachable"]
         Enum {
             name: "ClosePolicy"
             alias: "ClosePolicyFlag"
@@ -2370,7 +2291,7 @@ Module {
             privateClass: "QQuickPopupPrivate"
             isReadonly: true
             isFinal: true
-            isConstant: true
+            isPropertyConstant: true
         }
         Property {
             name: "implicitContentWidth"
@@ -2549,5 +2470,91 @@ Module {
             "QtQuick.Dialogs.quickimpl/SaturationLightnessPickerImpl 6.7"
         ]
         exportMetaObjectRevisions: [1536, 1539, 1540, 1543]
+    }
+    Component {
+        file: "private/qquicksidebar_p.h"
+        name: "QQuickSideBar"
+        accessSemantics: "reference"
+        defaultProperty: "contentData"
+        prototype: "QQuickContainer"
+        exports: ["QtQuick.Dialogs.quickimpl/SideBar 6.9"]
+        exportMetaObjectRevisions: [1545]
+        Property {
+            name: "dialog"
+            type: "QQuickDialog"
+            isPointer: true
+            read: "dialog"
+            write: "setDialog"
+            notify: "dialogChanged"
+            index: 0
+            isFinal: true
+        }
+        Property {
+            name: "folderPaths"
+            type: "QStandardPaths::StandardLocation"
+            isList: true
+            read: "folderPaths"
+            write: "setFolderPaths"
+            notify: "folderPathsChanged"
+            index: 1
+            isFinal: true
+        }
+        Property {
+            name: "effectiveFolderPaths"
+            type: "QStandardPaths::StandardLocation"
+            isList: true
+            read: "effectiveFolderPaths"
+            notify: "effectiveFolderPathsChanged"
+            index: 2
+            isReadonly: true
+            isFinal: true
+        }
+        Property {
+            name: "favoritePaths"
+            type: "QUrl"
+            isList: true
+            read: "favoritePaths"
+            notify: "favoritePathsChanged"
+            index: 3
+            isReadonly: true
+            isFinal: true
+        }
+        Property {
+            name: "buttonDelegate"
+            type: "QQmlComponent"
+            isPointer: true
+            read: "buttonDelegate"
+            write: "setButtonDelegate"
+            notify: "buttonDelegateChanged"
+            index: 4
+            isFinal: true
+        }
+        Property {
+            name: "separatorDelegate"
+            type: "QQmlComponent"
+            isPointer: true
+            read: "separatorDelegate"
+            write: "setSeparatorDelegate"
+            notify: "separatorDelegateChanged"
+            index: 5
+            isFinal: true
+        }
+        Property {
+            name: "addFavoriteDelegate"
+            type: "QQmlComponent"
+            isPointer: true
+            read: "addFavoriteDelegate"
+            write: "setAddFavoriteDelegate"
+            notify: "addFavoriteDelegateChanged"
+            index: 6
+            isFinal: true
+        }
+        Signal { name: "dialogChanged" }
+        Signal { name: "folderPathsChanged" }
+        Signal { name: "effectiveFolderPathsChanged" }
+        Signal { name: "favoritePathsChanged" }
+        Signal { name: "buttonDelegateChanged" }
+        Signal { name: "separatorDelegateChanged" }
+        Signal { name: "addFavoriteDelegateChanged" }
     }
 }

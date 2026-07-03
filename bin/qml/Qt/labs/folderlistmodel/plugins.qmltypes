@@ -169,8 +169,8 @@ Module {
             isFinal: true
         }
         Signal { name: "folderChanged" }
-        Signal { name: "rowCountChanged" }
-        Signal { name: "countChanged"; revision: 513 }
+        Signal { name: "rowCountChanged"; isMethodConstant: true }
+        Signal { name: "countChanged"; revision: 513; isMethodConstant: true }
         Signal { name: "statusChanged"; revision: 523 }
         Method {
             name: "_q_directoryChanged"
@@ -195,17 +195,20 @@ Module {
         Method {
             name: "isFolder"
             type: "bool"
+            isMethodConstant: true
             Parameter { name: "index"; type: "int" }
         }
         Method {
             name: "get"
             type: "QVariant"
+            isMethodConstant: true
             Parameter { name: "idx"; type: "int" }
             Parameter { name: "property"; type: "QString" }
         }
         Method {
             name: "indexOf"
             type: "int"
+            isMethodConstant: true
             Parameter { name: "file"; type: "QUrl" }
         }
     }
